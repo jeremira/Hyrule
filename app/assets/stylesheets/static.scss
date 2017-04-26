@@ -1,0 +1,28 @@
+// Place all the styles related to the static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#main-container {
+  background-color: #56c1ab;
+  margin-top: 25px;
+}
+
+header {
+  background-color: #f07654;
+  height: 50px;
+}
+
+.row {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+}
+
+#row-1 h1 {
+  margin-top: 170px;
+}
+
+.bookrow {
+  height: 100%;
+  text-align: center;
+  background-color: #f07654;
+}
