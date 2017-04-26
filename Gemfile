@@ -39,8 +39,11 @@ gem 'jbuilder', '~> 2.5'
 #gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-digitalocean'
+gem 'omniauth-facebook'
 gem 'omniauth-google'
+gem 'omniauth-twitter'
+
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
