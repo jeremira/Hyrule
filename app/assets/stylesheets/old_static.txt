@@ -1,9 +1,22 @@
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 100% auto;
+}
+
+
 #main-container {
-  background-color: #56c1ab;
   margin-top: 25px;
+}
+
+.showoff {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid #c1c1c1;
 }
 
 header {
@@ -17,12 +30,14 @@ header {
   padding: 10px;
 }
 
-#row-1 h1 {
+#row-1 {
   margin-top: 170px;
 }
 
 .bookrow {
   height: 100%;
   text-align: center;
-  background-color: #f07654;
+  background-color: #f7d99b;
+  border-radius: 10px;
+  border: 2px solid #c1c1c1;
 }
