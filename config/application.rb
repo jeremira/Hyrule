@@ -6,8 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-#asset issur with heroku
-config.serve_static_assets = true
+
 
 module Hyrule
   class Application < Rails::Application
