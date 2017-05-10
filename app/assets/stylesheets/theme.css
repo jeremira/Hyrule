@@ -21,6 +21,10 @@ h6 {
     font-weight: 700;
 }
 
+nav {
+  background-color: pink;
+}
+
 .intro-header {
     padding-top: 50px;
     padding-bottom: 50px;
