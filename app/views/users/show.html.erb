@@ -3,8 +3,8 @@
 <header class="intro-header">
     <div class="container">
         <div class="intro-message">
-            <h1>Welcome %N !</h1>
-            <h3>Choose your trip now !</h3>
+            <h3>Welcome <%= current_user.email + 'id:' + current_user.id.to_s %></h3>
+            <h5>Choose your trip now !</h5>
             <hr class="intro-divider">
           <p>Design 2 button Full trip / Day trip ? </p>
         </div>
@@ -39,9 +39,25 @@
             <div class="col-lg-5 push-lg-7">
                 <hr class="section-heading-spacer1">
                 <div class="clearfix"></div>
-                <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
-                <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
-            </div>
+                <h2 class="section-heading">Yo Pay money now !</h2>
+
+                <%= form_tag charges_path do %>
+                  <article>
+                    <% if flash[:error].present? %>
+                     <div id="error_explanation"><p><%= flash[:error] %></p></div>
+                    <% end %>
+                  <label class="amount">
+                    <span>Amount: $5.00</span>
+                  </label>
+                </article>
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="A month's subscription"
+                      data-amount="500"
+                        data-locale="auto"></script>
+              <% end %>
+              
+          </div>
             <div class="col-lg-5 pull-lg-5">
                 <%= image_tag('albi.jpeg', class: 'img-fluid') %>
             </div>
