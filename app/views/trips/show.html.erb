@@ -7,7 +7,7 @@
                 <div class="clearfix"></div>
                 <h2 class="section-heading"><%= @trip.name %></h2>
                 <p class="lead">About your trip : <%= @trip.description %></p>
-                <p class="lead">For <%= @trip.user.account.name %>.</p>
+                <p class="lead">For <%= @trip.user.email %>.</p>
                 <h4> Price :<%= @trip.price %> €</h3>
                 <hr class="intro-divider">
                 <p class="lead"><%= link_to 'Edit your trip', edit_trip_path(@trip) %></p>

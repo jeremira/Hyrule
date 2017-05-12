@@ -55,15 +55,17 @@
         </div>
     </nav>
 
-    <section>
-    <%if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
-    <% end %>
-    <%if flash[:alert] %>
-     <div class="alert"><%= flash[:alert] %></div>
-    <% end %>
-  </section>
+    <section id="flash-container">
+      <p>TODO : refaire user et trip avec scaffold / solve flash message</p>
+      <%if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <%if flash[:alert] %>
+          <div class="alert"><%= flash[:alert] %></div>
+      <% end %>
+    </section>
 
     <%= yield %>
+
   </body>
 </html>
