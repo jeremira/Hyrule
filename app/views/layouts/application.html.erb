@@ -33,7 +33,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container">
-            <a class="navbar-brand" href="#">Home Krakoukas</a>
+            <a class="navbar-brand" href="/">Home Krakoukas</a>
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -54,6 +54,16 @@
             </div>
         </div>
     </nav>
+
+    <section>
+    <%if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <%if flash[:alert] %>
+     <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+  </section>
+
     <%= yield %>
   </body>
 </html>

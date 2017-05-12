@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<section class="content-section-a">
 
-<p>
-  <strong>Name:</strong>
-  <%= @trip.name %>
-</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading"><%= @trip.name %></h2>
+                <p class="lead">About your trip : <%= @trip.description %></p>
+                <p class="lead">For <%= @trip.user.account.name %>.</p>
+                <h4> Price :<%= @trip.price %> €</h3>
+                <hr class="intro-divider">
+                <p class="lead"><%= link_to 'Edit your trip', edit_trip_path(@trip) %></p>
+                <p class="lead"><%= link_to "Delete this trip", trip_path(@trip), method: :delete %></p>
+            </div>
+            <div class="col-lg-5 offset-lg-2">
 
-<p>
-  <strong>Price:</strong>
-  <%= @trip.price %>
-</p>
+            </div>
+        </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @trip.description %>
-</p>
-
-<%= link_to 'Edit', edit_trip_path(@trip) %> |
-<%= link_to 'Back', trips_path %>
+    </div>
+    <!-- /.container -->
+</section>

@@ -1,27 +1,31 @@
+<section class="content-section-a">
 
-<!-- Header -->
-<header class="intro-header">
     <div class="container">
-        <div class="intro-message">
-            <h3>Edit your profile :</h3>
-            <h4>
-            <%= form_for @user do |f| %>
-            <%= f.email_field :email %>
-            <%= f.submit 'Save' %>
-            <% end %>
-            </h4>
-            <h4>
-             <%= form_for @account do |f| %>
-               <%= f.label      :name %>
-               <%= f.text_field :name %>
-               <%= f.label      :about %>
-               <%= f.text_area :about %>
-               <%= f.submit 'Save :)' %>
-             <% end %>
-            </h4>
-            <h5><%= link_to 'Profile page', user_path(@user) %></h5>
-            <hr class="intro-divider">
+        <div class="row">
+            <div class="col-lg-5">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Edit your profile</h2>
+                <%= form_for @user do |f| %>
+                <%= f.email_field :email %>
+                <%= f.fields_for :account do |account_f| %>
+                  <%= account_f.label      :name %>
+                  <%= account_f.text_field :name %>
+                  <%= account_f.label      :about %>
+                  <%= account_f.text_area :about %>
+                <% end %>
+                <%= f.submit 'Save' %>
+                <% end %>
+
+                <hr class="intro-divider">
+                <p class="lead"><%= link_to "Signout", destroy_user_session_path, method: :delete %></p>
+                <p class="lead"><%= link_to 'Profile page', user_path(@user) %></p>
+            </div>
+            <div class="col-lg-5 offset-lg-2">
+              <%= image_tag('sete.jpeg', class: 'img-fluid') %>
+
+            </div>
         </div>
     </div>
-</header>
-<!-- Page Content -->
+    <!-- /.container -->
+</section>

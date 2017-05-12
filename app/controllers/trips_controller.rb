@@ -14,7 +14,7 @@ class TripsController < ApplicationController
 
   # GET /trips/new
   def new
-    @trip = Trip.new
+    @trip = current_user.trips.build
   end
 
   # GET /trips/1/edit
@@ -24,7 +24,7 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(trip_params)
+    @trip = current_user.trips.build(trip_params)
 
     respond_to do |format|
       if @trip.save
@@ -56,7 +56,7 @@ class TripsController < ApplicationController
   def destroy
     @trip.destroy
     respond_to do |format|
-      format.html { redirect_to trips_url, notice: 'Trip was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Trip was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

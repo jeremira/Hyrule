@@ -1,0 +1,26 @@
+<section class="content-section-b">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 push-lg-7">
+                <hr class="section-heading-spacer1">
+                <div class="clearfix"></div>
+                <h2 class="section-heading"><%= trip.name %></h2>
+                <p class="lead"><%= trip.description %></p>
+                <p class="lead"><%= trip.price %>€</p>
+                <p class="lead"><%= trip.id %></p>
+                <hr class="intro-divider">
+                <%= link_to "Show Trip", trip_path(trip) %>
+                <%= link_to "Edit Trip", edit_trip_path(trip) %>
+                <%= link_to "Delete Trip", trip_path(trip), method: :delete %>
+
+            </div>
+            <div class="col-lg-5 pull-lg-5">
+                <img class="img-fluid" src="../assets/albi.jpeg" alt="">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</section>
+<!-- /.content-section-b -->

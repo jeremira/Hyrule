@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!
 
+  def index
+    @user = current_user
+    @trips = @user.trips
+  end
+
   def show
     @user = current_user
     @account = @user.account || @user.build_account
@@ -25,7 +30,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:email)
+      params.require(:user).permit(:email, account_attributes: [:id, :name, :about])
     end
 
 end

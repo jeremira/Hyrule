@@ -1,6 +1,10 @@
 class User < ApplicationRecord
 
   has_one :account
+  accepts_nested_attributes_for :account
+
+  has_many :trips
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
