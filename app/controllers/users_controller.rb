@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
 
   def index #root page
-    @trips = @user.trips
   end
 
   def show #profile page
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
       end
     end
   end
-  
+
   private
     def user_params
       params.require(:user).permit(:email, account_attributes: [:id, :name, :about])
