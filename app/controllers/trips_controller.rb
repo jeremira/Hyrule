@@ -1,10 +1,11 @@
 class TripsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   # GET /trips
   # GET /trips.json
   def index
-    @trips = current_user.trips
+      @trips = current_user.trip
   end
 
   # GET /trips/1
