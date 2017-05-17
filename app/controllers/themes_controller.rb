@@ -11,6 +11,7 @@ class ThemesController < ApplicationController
   # GET /themes/1
   # GET /themes/1.json
   def show
+    @activities = @theme.activities
   end
 
   # GET /themes/new
