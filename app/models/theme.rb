@@ -1,6 +1,6 @@
 class Theme < ApplicationRecord
 
-  #has any activities through themes_activities
-  has_many :day
+  has_many :activities, :dependent => :destroy
+  has_many :day,        :dependent => :destroy
 
 end

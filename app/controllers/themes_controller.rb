@@ -1,4 +1,5 @@
 class ThemesController < ApplicationController
+  before_action :only_admin
   before_action :set_theme, only: [:show, :edit, :update, :destroy]
 
   # GET /themes
@@ -63,6 +64,13 @@ class ThemesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def only_admin
+      if current_user.email != "01@01.com"
+        flash[:notice] = "Only admin here, login with 01@01"
+        redirect_to root_url
+      end
+    end
+
     def set_theme
       @theme = Theme.find(params[:id])
     end

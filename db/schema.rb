@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512100440) do
+ActiveRecord::Schema.define(version: 20170517015435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,13 +30,17 @@ ActiveRecord::Schema.define(version: 20170512100440) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "theme_id"
+    t.index ["theme_id"], name: "index_activities_on_theme_id", using: :btree
   end
 
   create_table "days", force: :cascade do |t|
     t.integer  "chronos"
     t.integer  "theme_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "activity_id"
+    t.index ["activity_id"], name: "index_days_on_activity_id", using: :btree
     t.index ["theme_id"], name: "index_days_on_theme_id", using: :btree
   end
 
@@ -87,6 +91,8 @@ ActiveRecord::Schema.define(version: 20170512100440) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "activities", "themes"
+  add_foreign_key "days", "activities"
   add_foreign_key "days", "themes"
   add_foreign_key "plannings", "days"
   add_foreign_key "plannings", "trips"
