@@ -1,6 +1,32 @@
 <h1>Editing Day</h1>
 
-<%= render 'form', day: @day %>
+<%= form_for [@trip, @day] do |f| %>
+  <% if @day.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@day.errors.count, "error") %> prohibited this day from being saved:</h2>
 
-<%= link_to 'Show', @day %> |
-<%= link_to 'Back', days_path %>
+      <ul>
+      <% @day.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chronos %>
+    <%= f.number_field :chronos %>
+  </div>
+
+  <div class="field">
+    <%= f.label :theme_id %>
+    <%= f.text_field :theme_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Show', trip_day_path(@trip, @day) %> |  <%= link_to 'Back', trip_path(@trip) %>

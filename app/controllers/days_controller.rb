@@ -1,5 +1,6 @@
 class DaysController < ApplicationController
-  before_action :set_day, only: [:show, :edit, :update, :destroy]
+  before_action :set_day,  only: [:show, :edit, :update, :destroy]
+  before_action :set_trip, only: [:show, :new, :edit, :create, :update, :destroy]
 
   # GET /days
   # GET /days.json
@@ -14,7 +15,7 @@ class DaysController < ApplicationController
 
   # GET /days/new
   def new
-    @day = Day.new
+    @day  = @trip.days.build
   end
 
   # GET /days/1/edit
@@ -24,12 +25,12 @@ class DaysController < ApplicationController
   # POST /days
   # POST /days.json
   def create
-    @day = Day.new(day_params)
+    @day = @trip.days.build(day_params)
 
     respond_to do |format|
       if @day.save
-        format.html { redirect_to @day, notice: 'Day was successfully created.' }
-        format.json { render :show, status: :created, location: @day }
+        format.html { redirect_to @trip, notice: 'Day was successfully created.' }
+        format.json { render :show, status: :created, location: @trip }
       else
         format.html { render :new }
         format.json { render json: @day.errors, status: :unprocessable_entity }
@@ -42,8 +43,8 @@ class DaysController < ApplicationController
   def update
     respond_to do |format|
       if @day.update(day_params)
-        format.html { redirect_to @day, notice: 'Day was successfully updated.' }
-        format.json { render :show, status: :ok, location: @day }
+        format.html { redirect_to @trip, notice: 'Day was successfully updated.' }
+        format.json { render :show, status: :ok, location: @trip }
       else
         format.html { render :edit }
         format.json { render json: @day.errors, status: :unprocessable_entity }
@@ -56,7 +57,7 @@ class DaysController < ApplicationController
   def destroy
     @day.destroy
     respond_to do |format|
-      format.html { redirect_to days_url, notice: 'Day was successfully destroyed.' }
+      format.html { redirect_to trip_url(@trip), notice: 'Day was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,10 @@ class DaysController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_day
       @day = Day.find(params[:id])
+    end
+
+    def set_trip
+      @trip = Trip.find(params[:trip_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :days
   resources :activities
   resources :themes
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
   resources :users
-
-  resources :trips
   resources :accounts
+
+  resources :trips do
+    resources :days
+  end
+
+  #resource for stripe payment
   resources :charges
 
   root 'trips#index'
