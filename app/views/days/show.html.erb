@@ -14,7 +14,9 @@
 
 <p>
   <strong>Theme:</strong>
-  <%= @day.theme %>
+  <%= @day.theme.name %>
+  <strong>Activity:</strong>
+  <%= @day.activity.name %>
 </p>
 
 <%= link_to 'Edit', edit_trip_day_path(@trip, @day) %> |

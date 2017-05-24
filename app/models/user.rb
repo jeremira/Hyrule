@@ -1,9 +1,9 @@
 class User < ApplicationRecord
 
-  has_one :account
+  has_one :account, :dependent => :destroy
   accepts_nested_attributes_for :account
 
-  has_many :trips
+  has_many :trips, :dependent => :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

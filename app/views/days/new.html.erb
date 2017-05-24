@@ -19,8 +19,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :theme_id %>
-    <%= f.text_field :theme_id %>
+    <%= f.label :theme %>
+    <%= f.select(:theme_id) do %>
+      <% Theme.all.each do |theme| %>
+        <%= content_tag(:option, theme.name, value: theme.id) %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="actions">

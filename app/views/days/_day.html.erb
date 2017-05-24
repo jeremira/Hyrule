@@ -4,8 +4,9 @@
             <hr class="section-heading-spacer">
             <div class="clearfix"></div>
             <h2 class="section-heading">Day <%= day.chronos %></h2>
-            <p class="lead"> <%= day.theme.name %></p>
-            <p><%= day.theme.descr %>.</p>
+            <p class="lead"> Day's name : <%= day.theme.name %></p>
+            <p><%= day.theme.name %> | id: <%= day.theme.id %></p>
+            <p><%= day.activity.name %> | id: <%= day.activity.id %></p>
             <p>Day id :  <%= day.id %>.</p>
             <hr class="intro-divider">
             <p class="lead"><%= link_to 'Show day', trip_day_path(@trip, day) %></p>

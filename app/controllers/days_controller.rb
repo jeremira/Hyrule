@@ -26,6 +26,7 @@ class DaysController < ApplicationController
   # POST /days.json
   def create
     @day = @trip.days.build(day_params)
+    @day.activity = @day.theme.activities.first
 
     respond_to do |format|
       if @day.save
@@ -43,6 +44,8 @@ class DaysController < ApplicationController
   def update
     respond_to do |format|
       if @day.update(day_params)
+        @day.activity = @day.theme.activities.first
+        @day.save
         format.html { redirect_to @trip, notice: 'Day was successfully updated.' }
         format.json { render :show, status: :ok, location: @trip }
       else

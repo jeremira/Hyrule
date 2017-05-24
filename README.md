@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+TODO :
+* DAY : Create method to run @destroy to update chronos
+* Make possible to choose theme/activity on same page
