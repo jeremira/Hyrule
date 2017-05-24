@@ -17,7 +17,11 @@ class TripsController < ApplicationController
   # GET /trips/new
   def new
     @trip = current_user.trips.build
-    @budget = @trip.build_budget
+    @trip.build_budget
+    @trip.build_rythme
+    @trip.build_style
+    @trip.build_hotel
+    @trip.build_resto
   end
 
   # GET /trips/1/edit
@@ -72,6 +76,11 @@ class TripsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
       params.require(:trip).permit(:name, :price, :description,
-                                    budget_attributes: [:id, :value, :comment])
+                                    budget_attributes: [:id, :value, :comment],
+                                    rythme_attributes: [:id, :value, :comment],
+                                    style_attributes:  [:id, :culture, :nature, :sport, :food, :shopping, :kid, :comment],
+                                    hotel_attributes:  [:id, :todo, :hotel_type, :comment],
+                                    resto_attributes:  [:id, :lunch_todo, :lunch_type, :dinner_todo, :dinner_type, :comment]
+                                    )
     end
 end

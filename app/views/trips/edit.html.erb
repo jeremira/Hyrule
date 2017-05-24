@@ -1,16 +1,2 @@
 <h1> Edit trip </h1>
-  <%= form_for @trip do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-  </p>
-  <p class="lead"><%= f.submit "Create !" %></p>
-<% end %>
+  <%= render 'form', trip: @trip %>

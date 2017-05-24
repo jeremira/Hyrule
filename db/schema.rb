@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524021608) do
+ActiveRecord::Schema.define(version: 20170524022252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20170524021608) do
 
   create_table "hotels", force: :cascade do |t|
     t.integer  "trip_id"
-    t.boolean  "todo?"
-    t.integer  "type"
+    t.boolean  "todo"
+    t.integer  "hotel_type"
     t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,13 +74,13 @@ ActiveRecord::Schema.define(version: 20170524021608) do
 
   create_table "restos", force: :cascade do |t|
     t.integer  "trip_id"
-    t.boolean  "lunch_todo?"
+    t.boolean  "lunch_todo"
     t.integer  "lunch_type"
-    t.boolean  "dinner_todo?"
+    t.boolean  "dinner_todo"
     t.integer  "dinner_type"
     t.text     "comment"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["trip_id"], name: "index_restos_on_trip_id", using: :btree
   end
 

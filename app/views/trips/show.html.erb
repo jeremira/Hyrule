@@ -3,6 +3,54 @@
   <p>About your trip : <%= @trip.description %></p>
   <p>For <%= @trip.user.email %>.</p>
   <p> Price :<%= @trip.price %> €</p>
+</div>
+<div>
+  <h2>Budget</h2>
+  <p><%= @trip.budget.value %></p>
+  <p><%= @trip.budget.comment %></p>
+</div>
+<div>
+  <h2>Rythme</h2>
+  <p><%= @trip.rythme.value %></p>
+  <p><%= @trip.rythme.comment %></p>
+</div>
+<div>
+  <h2>Style</h2>
+  <p><%= @trip.style.culture ?  ( "OK Culture !" ) : ( "NO Culture !" )%></p>
+  <p><%= @trip.style.nature ?  ( "OK Nature !" ) : ( "NO Nature !" )%></p>
+  <p><%= @trip.style.sport ?  ( "OK Sport !" ) : ( "NO Sport !" )%></p>
+  <p><%= @trip.style.food ?  ( "OK Food !" ) : ( "NO Food !" )%></p>
+  <p><%= @trip.style.shopping ?  ( "OK Shopping !" ) : ( "NO Shopping !" )%></p>
+  <p><%= @trip.style.kid ?  ( "Kids Friendly !" ) : ( "NO Kids !" )%></p>
+  <p><%= @trip.style.comment %>
+</div>
+<div>
+  <h2>Hotel</h2>
+  <% if @trip.hotel.todo? %>
+    <p>Hotel will be booked by us !</p>
+    <p><%= @trip.hotel.hotel_type %>
+  <% else %>
+    <p>No booking for hotel</p>
+  <% end %>
+  <p><%= @trip.hotel.comment %></p>
+</div>
+<div>
+  <h2>Restaurant</h2>
+  <% if @trip.resto.lunch_todo? %>
+  <p>Lunch retaurant will be booked by us !</p>
+  <p><%= @trip.resto.lunch_type %></p>
+  <% else %>
+  <p>No restaurant booked for lunch...</p>
+  <% end %>
+  <% if @trip.resto.dinner_todo? %>
+  <p>Dinner retaurant will be booked by us !</p>
+  <p><%= @trip.resto.dinner_type %></p>
+  <% else %>
+  <p>No restaurant booked for dinner...</p>
+  <% end %>
+  <p><%= @trip.resto.comment %></p>
+</div>
+
   <p><%= link_to 'Edit your trip', edit_trip_path(@trip) %></p>
   <p><%= link_to "Delete this trip", trip_path(@trip), method: :delete %></p>
 </div>

@@ -1,0 +1,120 @@
+
+<% if trip.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(trip.errors.count, "error") %> prohibited this day from being saved:</h2>
+    <ul>
+    <% trip.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <%= form_for trip do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </p>
+
+  <p>
+  <h5>Budget</h5>
+  <%= f.fields_for :budget do |ff| %>
+    <%= ff.label :value %>
+    <%= ff.range_field( :value, in: 0..4 ) %>
+    <%= ff.label :comment %>
+    <%= ff.text_field :comment %>
+  <% end %>
+  </p>
+  <p>
+  <h5>Rythme</h5>
+  <%= f.fields_for :rythme do |ff| %>
+    <%= ff.label :value %>
+    <%= ff.range_field( :value, in: 0..4 ) %>
+    <%= ff.label :comment %>
+    <%= ff.text_field :comment %>
+  <% end %>
+  </p>
+
+  <p>
+  <h5>Interest</h5>
+  <%= f.fields_for :style do |ff| %>
+    <%= ff.label :culture %>
+    <%= ff.check_box :culture %>
+    <%= ff.label :nature %>
+    <%= ff.check_box :nature %>
+    <%= ff.label :sport %>
+    <%= ff.check_box :sport %>
+    <%= ff.label :food %>
+    <%= ff.check_box :food %>
+    <%= ff.label :shopping %>
+    <%= ff.check_box :shopping %>
+    <%= ff.label :kid %>
+    <%= ff.check_box :kid %>
+    <%= ff.label :comment %>
+    <%= ff.text_field :comment %>
+  <% end %>
+  </p>
+
+  <p>
+  <h5>Hotel</h5>
+  <%= f.fields_for :hotel do |ff| %>
+    <%= ff.label :todo %>
+    <%= ff.check_box :todo? %>
+
+    <%= ff.radio_button( :hotel_type,  4 ) %>
+    <%= label 4 , 'Hotel luxe' %>
+    <%= ff.radio_button( :hotel_type,  3 ) %>
+    <%= label 3 , 'Hotel charme' %>
+    <%= ff.radio_button( :hotel_type,  2 ) %>
+    <%= label 2 , 'Hotel eco' %>
+    <%= ff.radio_button( :hotel_type,  1 ) %>
+    <%= label 1 , 'BnB' %>
+
+    <%= ff.label :comment %>
+    <%= ff.text_field :comment %>
+  <% end %>
+  </p>
+
+  <p>
+  <h5>Restaurant</h5>
+  <%= f.fields_for :resto do |ff| %>
+    <%= ff.label :lunch_todo %>
+    <%= ff.check_box :lunch_todo %>
+
+    <%= ff.radio_button( :lunch_type,  4 ) %>
+    <%= label 4 , 'Gastro' %>
+    <%= ff.radio_button( :lunch_type,  3 ) %>
+    <%= label 3 , 'Local' %>
+    <%= ff.radio_button( :lunch_type,  2 ) %>
+    <%= label 2 , 'Fastfood' %>
+    <%= ff.radio_button( :lunch_type,  1 ) %>
+    <%= label 1 , 'Bento' %>
+
+    <%= ff.label :dinner_todo %>
+    <%= ff.check_box :dinner_todo %>
+
+    <%= ff.radio_button( :dinner_type,  4 ) %>
+    <%= label 4 , 'Gastro' %>
+    <%= ff.radio_button( :dinner_type,  3 ) %>
+    <%= label 3 , 'Local' %>
+    <%= ff.radio_button( :dinner_type,  2 ) %>
+    <%= label 2 , 'Fastfood' %>
+    <%= ff.radio_button( :dinner_type,  1 ) %>
+    <%= label 1 , 'Bento' %>
+
+    <%= ff.label :comment %>
+    <%= ff.text_field :comment %>
+  <% end %>
+  </p>
+
+
+  <p class="lead"><%= f.submit "Save trip !" %></p>
+<% end %>

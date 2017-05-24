@@ -1,3 +1,3 @@
 class Hotel < ApplicationRecord
-  belongs_to :trip
+  belongs_to :trip, required: false
 end
