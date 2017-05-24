@@ -1,27 +1,15 @@
-<section class="content-section-a">
+<div>
+  <h2><%= @trip.name %></h2>
+  <p>About your trip : <%= @trip.description %></p>
+  <p>For <%= @trip.user.email %>.</p>
+  <p> Price :<%= @trip.price %> €</p>
+  <p><%= link_to 'Edit your trip', edit_trip_path(@trip) %></p>
+  <p><%= link_to "Delete this trip", trip_path(@trip), method: :delete %></p>
+</div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <hr class="section-heading-spacer">
-                <div class="clearfix"></div>
-                <h2 class="section-heading"><%= @trip.name %></h2>
-                <p class="lead">About your trip : <%= @trip.description %></p>
-                <p class="lead">For <%= @trip.user.email %>.</p>
-                <h4> Price :<%= @trip.price %> €</h3>
-                <hr class="intro-divider">
-                <p class="lead"><%= link_to 'Edit your trip', edit_trip_path(@trip) %></p>
-                <p class="lead"><%= link_to "Delete this trip", trip_path(@trip), method: :delete %></p>
-            </div>
-            <div class="col-lg-5 offset-lg-2">
-              <h2 class="section-heading"><h2> <%= @days.length %> day(s) on this trip</h2>
-              <p class="lead"><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
-              <hr class="intro-divider">
-            </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-</section>
+<div>
+  <h2> <%= @days.length %> day(s) on this trip</h2>
+  <p class="lead"><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
+</div>
 
 <%= render @days %>

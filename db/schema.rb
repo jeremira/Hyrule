@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517015435) do
+ActiveRecord::Schema.define(version: 20170524021608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20170517015435) do
     t.index ["theme_id"], name: "index_activities_on_theme_id", using: :btree
   end
 
+  create_table "budgets", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.integer  "value"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_budgets_on_trip_id", using: :btree
+  end
+
   create_table "days", force: :cascade do |t|
     t.integer  "chronos"
     t.integer  "theme_id"
@@ -44,6 +53,16 @@ ActiveRecord::Schema.define(version: 20170517015435) do
     t.index ["theme_id"], name: "index_days_on_theme_id", using: :btree
   end
 
+  create_table "hotels", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.boolean  "todo?"
+    t.integer  "type"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_hotels_on_trip_id", using: :btree
+  end
+
   create_table "plannings", force: :cascade do |t|
     t.integer  "day_id"
     t.integer  "trip_id"
@@ -51,6 +70,41 @@ ActiveRecord::Schema.define(version: 20170517015435) do
     t.datetime "updated_at", null: false
     t.index ["day_id"], name: "index_plannings_on_day_id", using: :btree
     t.index ["trip_id"], name: "index_plannings_on_trip_id", using: :btree
+  end
+
+  create_table "restos", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.boolean  "lunch_todo?"
+    t.integer  "lunch_type"
+    t.boolean  "dinner_todo?"
+    t.integer  "dinner_type"
+    t.text     "comment"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["trip_id"], name: "index_restos_on_trip_id", using: :btree
+  end
+
+  create_table "rythmes", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.integer  "value"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_rythmes_on_trip_id", using: :btree
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.boolean  "culture"
+    t.boolean  "nature"
+    t.boolean  "sport"
+    t.boolean  "food"
+    t.boolean  "shopping"
+    t.boolean  "kid"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_styles_on_trip_id", using: :btree
   end
 
   create_table "themes", force: :cascade do |t|
@@ -92,9 +146,14 @@ ActiveRecord::Schema.define(version: 20170517015435) do
 
   add_foreign_key "accounts", "users"
   add_foreign_key "activities", "themes"
+  add_foreign_key "budgets", "trips"
   add_foreign_key "days", "activities"
   add_foreign_key "days", "themes"
+  add_foreign_key "hotels", "trips"
   add_foreign_key "plannings", "days"
   add_foreign_key "plannings", "trips"
+  add_foreign_key "restos", "trips"
+  add_foreign_key "rythmes", "trips"
+  add_foreign_key "styles", "trips"
   add_foreign_key "trips", "users"
 end

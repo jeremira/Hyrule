@@ -1,23 +1,7 @@
-<section class="content-section-a">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <hr class="section-heading-spacer">
-                <div class="clearfix"></div>
-                <h2 class="section-heading"><%= link_to "Create your trip now !", new_trip_path %></h2>
-                <p>ATM, <%= @trips.length %> trip(s) created !</p>
-                <hr class="intro-divider">
-                <p class="lead"><%= link_to "Signout", destroy_user_session_path, method: :delete %></p>
-            </div>
-            <div class="col-lg-5 offset-lg-2">
-              <p>Put some blabla ici!</p>
-
-            </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-</section>
+<div>
+  <h2><%= link_to "Create your trip now !", new_trip_path %></h2>
+  <p>ATM, <%= @trips.length %> trip(s) created !</p>
+  <p class="lead"><%= link_to "Signout", destroy_user_session_path, method: :delete %></p>
+</div>
 
 <%= render @trips %>

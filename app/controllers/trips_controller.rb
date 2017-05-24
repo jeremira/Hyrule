@@ -17,6 +17,7 @@ class TripsController < ApplicationController
   # GET /trips/new
   def new
     @trip = current_user.trips.build
+    @budget = @trip.build_budget
   end
 
   # GET /trips/1/edit
@@ -27,7 +28,6 @@ class TripsController < ApplicationController
   # POST /trips.json
   def create
     @trip = current_user.trips.build(trip_params)
-
     respond_to do |format|
       if @trip.save
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
@@ -71,6 +71,7 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:name, :price, :description)
+      params.require(:trip).permit(:name, :price, :description,
+                                    budget_attributes: [:id, :value, :comment])
     end
 end

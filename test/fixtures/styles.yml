@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trip: one
+  culture: false
+  nature: false
+  sport: false
+  food: false
+  shopping: false
+  kid: false
+  comment: MyText
+
+two:
+  trip: two
+  culture: false
+  nature: false
+  sport: false
+  food: false
+  shopping: false
+  kid: false
+  comment: MyText
