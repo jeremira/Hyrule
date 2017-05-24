@@ -26,7 +26,9 @@ class DaysController < ApplicationController
   # POST /days.json
   def create
     @day = @trip.days.build(day_params)
-    @day.activity = @day.theme.activities.first
+   if @day.theme
+     @day.activity = @day.theme.activities.first
+   end
 
     respond_to do |format|
       if @day.save

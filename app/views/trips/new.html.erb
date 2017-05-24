@@ -1,24 +1,16 @@
-<section class="content-section-b">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 push-lg-7">
-                <hr class="section-heading-spacer1">
-                <div class="clearfix"></div>
-                <%= form_for @trip do |f| %>
-                <h2 class="section-heading"><%= f.label :name %><%= f.text_field :name %></h2>
-                <p class="lead"><%= f.label :description %><%= f.text_area :description %></p>
-                <p class="lead"><%= f.label :price %><%= f.number_field :price %></p>
-                <p class="lead"><%= f.submit "Create !" %></p>
-                <% end %>
-                <hr class="intro-divider">
-            </div>
-            <div class="col-lg-5 pull-lg-5">
-
-            </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-</section>
-<!-- /.content-section-b -->
+<h1> New trip </h1>
+  <%= form_for @trip do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </p>
+  <p class="lead"><%= f.submit "Create !" %></p>
+<% end %>

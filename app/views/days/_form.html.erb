@@ -1,7 +1,7 @@
-<%= form_for([trip, day]) do |f| %>
+<%= form_for [trip, day] do |f| %>
   <% if day.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(day.errors.count, "error") %> prohibited this day from being saved:</h2>
+      <h2><%= pluralize(@day.errors.count, "error") %> prohibited this day from being saved:</h2>
 
       <ul>
       <% day.errors.full_messages.each do |message| %>
@@ -17,8 +17,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :theme_id %>
-    <%= f.text_field :theme_id %>
+    <%= f.label :theme %>
+    <% Theme.all.each do |theme| %>
+      <%= f.radio_button( :theme_id,  theme.id ) %>
+      <%= label theme.id, theme.name %>
+    <% end %>
   </div>
 
   <div class="actions">
