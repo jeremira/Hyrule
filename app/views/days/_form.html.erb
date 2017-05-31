@@ -15,7 +15,6 @@
     <%= f.label :chronos %>
     <%= f.number_field :chronos %>
   </div>
-
   <div class="field">
     <%= f.label :theme %>
     <% Theme.all.each do |theme| %>
@@ -23,7 +22,36 @@
       <%= label theme.id, theme.name %>
     <% end %>
   </div>
-
+  <div class="field">
+    <h5>Lunch</h5>
+    <%= f.fields_for :lunch do |ff| %>
+      <%= ff.label "Book a lunch ?" %><%= ff.check_box :todo %>
+      <%= ff.radio_button :style, 1 %>
+      <%= ff.label :style_gastro, "Gastrononmic experience" %>
+      <%= ff.radio_button :style, 2 %>
+      <%= ff.label :style_gastro, "Local experience" %>
+      <%= ff.radio_button :style, 1 %>
+      <%= ff.label :style_gastro, "Original experience" %>
+      <%= ff.label :comment %>
+      <%= ff.text_field :comment %>
+    <% end %>
+    </p>
+  </div>
+  <div class="field">
+    <h5>Dinner</h5>
+    <%= f.fields_for :dinner do |ff| %>
+      <%= ff.label "Book a dinner ?" %><%= ff.check_box :todo %>
+      <%= ff.radio_button :style, 1 %>
+      <%= ff.label :style_gastro, "Gastrononmic experience" %>
+      <%= ff.radio_button :style, 2 %>
+      <%= ff.label :style_gastro, "Local experience" %>
+      <%= ff.radio_button :style, 1 %>
+      <%= ff.label :style_gastro, "Original experience" %>
+      <%= ff.label :comment %>
+      <%= ff.text_field :comment %>
+    <% end %>
+    </p>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

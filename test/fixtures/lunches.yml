@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: one
+  todo: false
+  style: 1
+  comment: MyText
+
+two:
+  day: two
+  todo: false
+  style: 1
+  comment: MyText

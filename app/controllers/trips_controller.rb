@@ -20,8 +20,6 @@ class TripsController < ApplicationController
     @trip.build_budget
     @trip.build_rythme
     @trip.build_style
-    @trip.build_hotel
-    @trip.build_resto
   end
 
   # GET /trips/1/edit
@@ -78,9 +76,7 @@ class TripsController < ApplicationController
       params.require(:trip).permit(:name, :price, :description,
                                     budget_attributes: [:id, :value, :comment],
                                     rythme_attributes: [:id, :value, :comment],
-                                    style_attributes:  [:id, :culture, :nature, :sport, :food, :shopping, :kid, :comment],
-                                    hotel_attributes:  [:id, :todo, :hotel_type, :comment],
-                                    resto_attributes:  [:id, :lunch_todo, :lunch_type, :dinner_todo, :dinner_type, :comment]
+                                    style_attributes:  [:id, :culture, :nature, :sport, :food, :shopping, :kid, :comment]
                                     )
     end
 end

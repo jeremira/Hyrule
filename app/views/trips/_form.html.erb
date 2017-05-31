@@ -63,58 +63,9 @@
   <% end %>
   </p>
 
-  <p>
-  <h5>Hotel</h5>
-  <%= f.fields_for :hotel do |ff| %>
-    <%= ff.label :todo %>
-    <%= ff.check_box :todo? %>
-
-    <%= ff.radio_button( :hotel_type,  4 ) %>
-    <%= label 4 , 'Hotel luxe' %>
-    <%= ff.radio_button( :hotel_type,  3 ) %>
-    <%= label 3 , 'Hotel charme' %>
-    <%= ff.radio_button( :hotel_type,  2 ) %>
-    <%= label 2 , 'Hotel eco' %>
-    <%= ff.radio_button( :hotel_type,  1 ) %>
-    <%= label 1 , 'BnB' %>
-
-    <%= ff.label :comment %>
-    <%= ff.text_field :comment %>
-  <% end %>
-  </p>
-
-  <p>
-  <h5>Restaurant</h5>
-  <%= f.fields_for :resto do |ff| %>
-    <%= ff.label :lunch_todo %>
-    <%= ff.check_box :lunch_todo %>
-
-    <%= ff.radio_button( :lunch_type,  4 ) %>
-    <%= label 4 , 'Gastro' %>
-    <%= ff.radio_button( :lunch_type,  3 ) %>
-    <%= label 3 , 'Local' %>
-    <%= ff.radio_button( :lunch_type,  2 ) %>
-    <%= label 2 , 'Fastfood' %>
-    <%= ff.radio_button( :lunch_type,  1 ) %>
-    <%= label 1 , 'Bento' %>
-
-    <%= ff.label :dinner_todo %>
-    <%= ff.check_box :dinner_todo %>
-
-    <%= ff.radio_button( :dinner_type,  4 ) %>
-    <%= label 4 , 'Gastro' %>
-    <%= ff.radio_button( :dinner_type,  3 ) %>
-    <%= label 3 , 'Local' %>
-    <%= ff.radio_button( :dinner_type,  2 ) %>
-    <%= label 2 , 'Fastfood' %>
-    <%= ff.radio_button( :dinner_type,  1 ) %>
-    <%= label 1 , 'Bento' %>
-
-    <%= ff.label :comment %>
-    <%= ff.text_field :comment %>
-  <% end %>
-  </p>
-
+<p>Add option for number of people</p>
+<p>Add option for walking/transport</p>
+<p>Add option for age/special need ?</p>
 
   <p class="lead"><%= f.submit "Save trip !" %></p>
 <% end %>

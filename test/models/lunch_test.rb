@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RestoTest < ActiveSupport::TestCase
+class LunchTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

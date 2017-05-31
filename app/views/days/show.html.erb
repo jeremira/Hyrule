@@ -18,6 +18,16 @@
   <strong>Activity:</strong>
   <%= @day.activity.name %>
 </p>
+<% if @day.lunch.todo %>
+<p>
+  We book a lunch for you !  <strong>Theme:</strong> <%= @day.lunch.style %>
+</p>
+<% end %>
+<% if @day.dinner.todo %>
+<p>
+  We book a dinner for you ! <strong>Theme :</strong><%= @day.dinner.style %>
+<p>
+<% end %>
 
 <%= link_to 'Edit', edit_trip_day_path(@trip, @day) %> |
 <%= link_to 'Back', trip_path(@trip) %>

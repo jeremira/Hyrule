@@ -16,6 +16,8 @@ class DaysController < ApplicationController
   # GET /days/new
   def new
     @day  = @trip.days.build
+    @day.build_lunch
+    @day.build_dinner
   end
 
   # GET /days/1/edit
@@ -79,6 +81,9 @@ class DaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def day_params
-      params.require(:day).permit(:chronos, :theme_id)
+      params.require(:day).permit(:chronos, :theme_id,
+                                lunch_attributes:  [:id, :todo, :style, :comment],
+                                dinner_attributes: [:id, :todo, :style, :comment]
+                                )
     end
 end
