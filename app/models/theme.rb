@@ -1,6 +1,9 @@
 class Theme < ApplicationRecord
 
-  has_many :activities, :dependent => :destroy
+  validates :name,   presence: true,   uniqueness: true
+  validates :descr,  presence: true
+  validates :image,  presence: true
+
   has_many :day,        :dependent => :destroy
 
 end

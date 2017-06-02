@@ -7,5 +7,5 @@ class Day < ApplicationRecord
   accepts_nested_attributes_for :lunch
   has_one    :dinner,            :dependent => :destroy
   accepts_nested_attributes_for :dinner
-  belongs_to :activity
+
 end
