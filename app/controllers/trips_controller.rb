@@ -1,7 +1,8 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_trip,            only: [:show, :edit, :update, :destroy]
+  before_action :can_edit_it?  ,      only: [:edit, :update]
+  before_action :can_delete_it?,      only: [:destroy]
   # GET /trips
   # GET /trips.json
   def index
@@ -30,6 +31,7 @@ class TripsController < ApplicationController
   # POST /trips.json
   def create
     @trip = current_user.trips.build(trip_params)
+    @trip.status = 0
     respond_to do |format|
       if @trip.save
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
@@ -67,13 +69,25 @@ class TripsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def can_edit_it?
+      if @trip.status != 0
+        redirect_to root_url
+        flash[:alert] = 'Cant edit a booked trip.'
+      end
+    end
+    def can_delete_it?
+      if @trip.status != 0 || @trip.status != 1
+        redirect_to root_url
+        flash[:alert] = 'Cant delete a booked trip'
+      end
+    end
     def set_trip
       @trip = Trip.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:name, :price, :description,
+      params.require(:trip).permit(:name, :price, :description, :status,
                                     budget_attributes: [:id, :value, :comment],
                                     rythme_attributes: [:id, :value, :comment],
                                     style_attributes:  [:id, :culture, :nature, :sport, :food, :shopping, :kid, :comment]

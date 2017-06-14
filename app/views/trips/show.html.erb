@@ -31,7 +31,9 @@
 
 <div>
   <h2> <%= @days.length %> day(s) on this trip</h2>
-  <p class="lead"><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
+  <% if @trip.status == 0 %>
+    <p class="lead"><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
+  <% end %>
 </div>
 
 <%= render @days %>
