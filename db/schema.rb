@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614083435) do
+ActiveRecord::Schema.define(version: 20170614083903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170614083435) do
     t.text     "about"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image"
     t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
   end
 
@@ -44,11 +45,12 @@ ActiveRecord::Schema.define(version: 20170614083435) do
   end
 
   create_table "days", force: :cascade do |t|
-    t.integer  "chronos"
     t.integer  "theme_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "activity_id"
+    t.text     "comment"
+    t.date     "date"
     t.index ["activity_id"], name: "index_days_on_activity_id", using: :btree
     t.index ["theme_id"], name: "index_days_on_theme_id", using: :btree
   end
@@ -88,6 +90,8 @@ ActiveRecord::Schema.define(version: 20170614083435) do
     t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "walking"
+    t.integer  "transport"
     t.index ["trip_id"], name: "index_rythmes_on_trip_id", using: :btree
   end
 
@@ -121,6 +125,10 @@ ActiveRecord::Schema.define(version: 20170614083435) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "status"
+    t.date     "date"
+    t.text     "comment"
+    t.integer  "adults"
+    t.integer  "kids"
     t.index ["user_id"], name: "index_trips_on_user_id", using: :btree
   end
 
@@ -146,7 +154,6 @@ ActiveRecord::Schema.define(version: 20170614083435) do
   add_foreign_key "accounts", "users"
   add_foreign_key "activities", "themes"
   add_foreign_key "budgets", "trips"
-  add_foreign_key "days", "activities"
   add_foreign_key "days", "themes"
   add_foreign_key "dinners", "days"
   add_foreign_key "lunches", "days"
