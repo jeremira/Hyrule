@@ -9,15 +9,15 @@ describe Theme  do
     it "has a valid factory" do
       expect(@theme).to be_valid
     end
-    it "is invalid without a name" do
+    it "is has a name" do
       @theme.name = nil
       expect(@theme).to_not be_valid
     end
-    it "is invalid without a description" do
+    it "is has a description" do
       @theme.descr = nil
       expect(@theme).to_not be_valid
     end
-    it "is invalid without an image url" do
+    it "is has an image url" do
       @theme.descr = nil
       expect(@theme).to_not be_valid
     end
@@ -28,6 +28,5 @@ describe Theme  do
     it "destroy his days child" do
         FactoryGirl.create(:day, theme: @theme)
         expect { @theme.destroy }.to change { Day.count }.by(-1)
-      end
-
+    end
 end

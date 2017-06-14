@@ -2,7 +2,8 @@ require 'faker'
 
 FactoryGirl.define do
   factory :day do
-    chronos 1
+    date     Time.now.to_date
+    comment {Faker::Company.bs}
     theme
   end
 end
