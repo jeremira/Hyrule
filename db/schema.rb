@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614083903) do
+ActiveRecord::Schema.define(version: 20170614083514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,6 @@ ActiveRecord::Schema.define(version: 20170614083903) do
     t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
   end
 
-  create_table "activities", force: :cascade do |t|
-    t.string   "name"
-    t.text     "descr"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "theme_id"
-    t.index ["theme_id"], name: "index_activities_on_theme_id", using: :btree
-  end
-
   create_table "budgets", force: :cascade do |t|
     t.integer  "trip_id"
     t.integer  "value"
@@ -46,12 +36,10 @@ ActiveRecord::Schema.define(version: 20170614083903) do
 
   create_table "days", force: :cascade do |t|
     t.integer  "theme_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text     "comment"
     t.date     "date"
-    t.index ["activity_id"], name: "index_days_on_activity_id", using: :btree
     t.index ["theme_id"], name: "index_days_on_theme_id", using: :btree
   end
 
@@ -152,7 +140,6 @@ ActiveRecord::Schema.define(version: 20170614083903) do
   end
 
   add_foreign_key "accounts", "users"
-  add_foreign_key "activities", "themes"
   add_foreign_key "budgets", "trips"
   add_foreign_key "days", "themes"
   add_foreign_key "dinners", "days"
