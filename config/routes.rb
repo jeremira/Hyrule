@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :themes do
     resources :activities
   end
-
+  get "trips/:id/book", :to => "trips#book", :as => "book"
   resources :trips do
     resources :days
   end

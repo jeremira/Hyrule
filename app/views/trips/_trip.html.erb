@@ -1,8 +1,8 @@
 <div>
   <h2><%= trip.name %></h2>
   <p><%= trip.description %></p>
-  <p><%= trip.price %>€</p>
   <p><%= trip.id %></p>
+  <%= render 'book_status', trip: trip %>
   <%= link_to "Show Trip", trip_path(trip) %>
   <%= link_to "Edit Trip", edit_trip_path(trip) %>
   <%= link_to "Delete Trip", trip_path(trip), method: :delete %>

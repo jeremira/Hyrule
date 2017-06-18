@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :chronos %>
-    <%= f.number_field :chronos %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
   </div>
   <div class="field">
     <%= f.label :theme %>
@@ -28,9 +28,9 @@
       <%= ff.label "Book a lunch ?" %><%= ff.check_box :todo %>
       <%= ff.radio_button :style, 1 %>
       <%= ff.label :style_gastro, "Gastrononmic experience" %>
-      <%= ff.radio_button :style, 2 %>
+      <%= ff.radio_button :style, 2, checked: true %>
       <%= ff.label :style_gastro, "Local experience" %>
-      <%= ff.radio_button :style, 1 %>
+      <%= ff.radio_button :style, 3 %>
       <%= ff.label :style_gastro, "Original experience" %>
       <%= ff.label :comment %>
       <%= ff.text_field :comment %>
@@ -43,15 +43,19 @@
       <%= ff.label "Book a dinner ?" %><%= ff.check_box :todo %>
       <%= ff.radio_button :style, 1 %>
       <%= ff.label :style_gastro, "Gastrononmic experience" %>
-      <%= ff.radio_button :style, 2 %>
+      <%= ff.radio_button :style, 2, checked: true %>
       <%= ff.label :style_gastro, "Local experience" %>
-      <%= ff.radio_button :style, 1 %>
+      <%= ff.radio_button :style, 3 %>
       <%= ff.label :style_gastro, "Original experience" %>
       <%= ff.label :comment %>
       <%= ff.text_field :comment %>
     <% end %>
     </p>
   </div>
+  <p>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </p>
   <div class="actions">
     <%= f.submit %>
   </div>

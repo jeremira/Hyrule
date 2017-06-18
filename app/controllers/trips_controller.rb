@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_trip,            only: [:show, :edit, :update, :destroy]
+  before_action :set_trip,            only: [:show, :edit, :update, :destroy, :book]
   before_action :can_edit_it?  ,      only: [:edit, :update]
   before_action :can_delete_it?,      only: [:destroy]
   # GET /trips
@@ -67,6 +67,28 @@ class TripsController < ApplicationController
     end
   end
 
+  # GET /trips/1/book
+  # GET /trips/1.book.json
+  def book
+    if @trip.status == 0
+      @trip.status = 1
+      if @trip.save
+        respond_to do |format|
+          format.html { redirect_to @trip, notice: 'Trip has been successfully booked.' }
+          format.json { head :no_content }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to @trip, alert: 'Could not update booking status' }
+          format.json { head :no_content }
+        end
+      end
+    else
+      redirect_to @trip
+      flash[:alert] = "Could not book this trip."
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def can_edit_it?
@@ -87,9 +109,9 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:name, :price, :description, :status,
+      params.require(:trip).permit(:id, :name, :price, :description, :status, :comment, :date, :adults, :kids,
                                     budget_attributes: [:id, :value, :comment],
-                                    rythme_attributes: [:id, :value, :comment],
+                                    rythme_attributes: [:id, :value, :comment, :walking, :transport],
                                     style_attributes:  [:id, :culture, :nature, :sport, :food, :shopping, :kid, :comment]
                                     )
     end

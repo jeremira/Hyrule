@@ -1,9 +1,11 @@
 <div>
   <h2><%= @trip.name %></h2>
   <p>About your trip : <%= @trip.description %></p>
-  <p>For <%= @trip.user.email %>.</p>
-  <p> Price :<%= @trip.price %> €</p>
+  <p>For <%= @trip.user.email %> | <%= @trip.adults %> addults and <%= @trip.kids %> kids</p>
+  <p> Price :<%= @trip.price %> € </p>
+  <p> Date : <%= @trip.date %> </p>
 </div>
+<%= render 'book_status', trip: @trip %>
 <div>
   <h2>Budget</h2>
   <p><%= @trip.budget.value %></p>
@@ -12,6 +14,8 @@
 <div>
   <h2>Rythme</h2>
   <p><%= @trip.rythme.value %></p>
+  <p><%= @trip.rythme.walking %></p>
+  <p><%= @trip.rythme.transport %></p>
   <p><%= @trip.rythme.comment %></p>
 </div>
 <div>

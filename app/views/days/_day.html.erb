@@ -1,22 +1,19 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-5">
-            <hr class="section-heading-spacer">
-            <div class="clearfix"></div>
-            <h2 class="section-heading">Day <%= day.chronos %></h2>
-            <p class="lead"> Day's name : <%= day.theme.name %></p>
-            <p><%= day.theme.name %> | id: <%= day.theme.id %></p>
-            <p>Day id :  <%= day.id %>.</p>
-            <hr class="intro-divider">
-            <p class="lead"><%= link_to 'Show day', trip_day_path(@trip, day) %></p>
-            <p class="lead"><%= link_to 'Edit day', edit_trip_day_path(@trip, day) %></p>
-            <p class="lead"><%= link_to "Delete this day", trip_day_path(@trip, day), method: :delete %></p>
-        </div>
-        <div class="col-lg-5 offset-lg-2">
-          Ici foutre les events du day
-        </div>
-    </div>
-
+<div>
+  <p>Date <%= day.date %></p>
+  <p><%= day.theme.name %> | id: <%= day.theme.id %></p>
+  <p>Day id :  <%= day.id %></p>
+  <p>Comment : <%= day.comment %></p>
+  <% if day.lunch.todo %>
+  <p>
+    We book a lunch for you !  <strong>Style:</strong> <%= day.lunch.style %>
+  </p>
+  <% end %>
+  <% if day.dinner.todo %>
+  <p>
+    We book a dinner for you ! <strong>Style :</strong><%= day.dinner.style %>
+  <p>
+  <% end %>
 </div>
-<!-- /.container -->
-</section>
+<%= link_to 'Show day', trip_day_path(@trip, day) %>
+<%= link_to 'Edit day', edit_trip_day_path(@trip, day) %>
+<%= link_to "Delete this day", trip_day_path(@trip, day), method: :delete %>
