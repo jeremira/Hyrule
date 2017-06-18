@@ -1,0 +1,5 @@
+<li>
+  <h3>TripID:<%= pending_trip.id %></h3>
+  Name : <%= pending_trip.name %> | Date : <%= pending_trip.date %>
+  <%= link_to "Approve this Trip",book_path(pending_trip, :status => :approved) %>
+</li>

@@ -3,7 +3,8 @@
     <h4>Your trip is in contruction :</h4>
     <p>You can freely make any change to it. When you are ready, choose your date
     and book it !</p>
-    <%= link_to "Book my trip !", book_path(trip) %>
+    <%= link_to "Book my trip !", book_path(trip, :status => :booking ) %>
+    
   <% elsif trip.status == 1 %>
     <h4>Pending status :</h4>
     <p>You have succesfully booked your trip. Our team are reviewing any details.

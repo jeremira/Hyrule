@@ -37,7 +37,9 @@ Nouveau document
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="<%= themes_path %>">Manage Theme/Event</a>
+                      <% if current_user.admin %>
+                        <a class="nav-link" href="<%= setup_index_path %>">Manage</a>
+                      <% end %>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>

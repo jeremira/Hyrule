@@ -70,23 +70,7 @@ class TripsController < ApplicationController
   # GET /trips/1/book
   # GET /trips/1.book.json
   def book
-    if @trip.status == 0
-      @trip.status = 1
-      if @trip.save
-        respond_to do |format|
-          format.html { redirect_to @trip, notice: 'Trip has been successfully booked.' }
-          format.json { head :no_content }
-        end
-      else
-        respond_to do |format|
-          format.html { redirect_to @trip, alert: 'Could not update booking status' }
-          format.json { head :no_content }
-        end
-      end
-    else
-      redirect_to @trip
-      flash[:alert] = "Could not book this trip."
-    end
+    set_trip_status_to params[:status]
   end
 
   private
@@ -105,6 +89,47 @@ class TripsController < ApplicationController
     end
     def set_trip
       @trip = Trip.find(params[:id])
+    end
+
+    def set_trip_status_to status
+      case status
+        when :construction
+
+        when 'booking'
+          if current_user == @trip.user
+            @trip.status = 1
+            if @trip.save
+              flash[:notice] = "Thank you. Trip is now reviewed by our team."
+              redirect_to @trip
+            end
+          else
+            flash[:alert] = "You're not allowed to modify this trip."
+            redirect_to root_url
+          end
+        when 'approved'
+          if current_user.admin
+            @trip.status = 2
+            if @trip.save
+              flash[:notice] = "Trip id:#{@trip.id} was approved !"
+              redirect_to setup_index_path
+            else
+              flash[:alert] = "Could not save change."
+              redirect_to setup_index_path
+            end
+          else
+            flash[:alert] = "Only admin here"
+            redirect_to root_url
+          end
+        when :payed
+
+        when :confirmed
+
+        when :done
+
+        else
+          flash[:alert] = "Status #{status} not implemented."
+          redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

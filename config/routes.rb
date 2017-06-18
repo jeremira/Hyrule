@@ -4,10 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
   resources :accounts
-
-  resources :themes do
-    resources :activities
-  end
+  resources :setup, :only => [:index]
+  resources :themes
   get "trips/:id/book", :to => "trips#book", :as => "book"
   resources :trips do
     resources :days
