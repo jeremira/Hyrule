@@ -17,7 +17,7 @@ describe User  do
     end
 
     describe "when deleting an user" do
-      it "delete his hild account" do
+      it "deletes his hild account" do
         expect{@user.destroy}.to change { Account.count }.by(-1)
       end
     end

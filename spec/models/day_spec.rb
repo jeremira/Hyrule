@@ -18,10 +18,10 @@ describe Day  do
     end
 
     describe "when deleting a Day" do
-      it "destroy his lunch " do
+      it "destroys his lunch " do
         expect { @day.destroy }.to change { Lunch.count }.by(-1)
       end
-      it "destroy his dinner" do
+      it "destroys his dinner" do
         expect { @day.destroy }.to change { Dinner.count }.by(-1)
       end
     end

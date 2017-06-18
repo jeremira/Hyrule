@@ -8,5 +8,5 @@ describe Account  do
 
     it "has a valid factory" do
       expect(@account).to be_valid
-    end 
+    end
 end

@@ -9,7 +9,7 @@ describe Lunch  do
     it "has a valid factory" do
       expect(@lunch).to be_valid
     end
-    it "is has a style" do
+    it "has a style" do
       @lunch.style = nil
       expect(@lunch).to_not be_valid
     end

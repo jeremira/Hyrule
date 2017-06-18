@@ -25,16 +25,16 @@ describe Trip  do
     end
 
     describe "when deleting a Trip" do
-      it "destroy his budget " do
+      it "destroys his budget " do
         expect { @trip.destroy }.to change { Budget.count }.by(-1)
       end
-      it "destroy his rythme child" do
+      it "destroys his rythme child" do
         expect { @trip.destroy }.to change { Rythme.count }.by(-1)
       end
-      it "destroy his style  child" do
+      it "destroys his style  child" do
         expect { @trip.destroy }.to change { Style.count }.by(-1)
       end
-      it "destroy his day child" do
+      it "destroys his day child" do
         expect { @trip.destroy }.to change { Day.count }.by(-1)
       end
     end
