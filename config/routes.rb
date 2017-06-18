@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :accounts
   resources :setup, :only => [:index]
   resources :themes
-  get "trips/:id/book", :to => "trips#book", :as => "book"
   resources :trips do
     resources :days
+    resources :gestions, :only => [:update]
   end
 
   #resource for stripe payment

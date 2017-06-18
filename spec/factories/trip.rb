@@ -6,7 +6,6 @@ FactoryGirl.define do
     price 999
     description {Faker::Company.bs}
     user
-    status 0
     date Time.now
     comment {Faker::Company.catch_phrase}
     adults 2

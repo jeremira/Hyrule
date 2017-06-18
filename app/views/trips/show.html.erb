@@ -5,8 +5,10 @@
   <p> Price :<%= @trip.price %> € </p>
   <p> Date : <%= @trip.date %> </p>
 </div>
+
 <%= render 'book_status', trip: @trip %>
 <div>
+
   <h2>Budget</h2>
   <p><%= @trip.budget.value %></p>
   <p><%= @trip.budget.comment %></p>
@@ -35,7 +37,7 @@
 
 <div>
   <h2> <%= @days.length %> day(s) on this trip</h2>
-  <% if @trip.status == 0 %>
+  <% if @trip.gestion.status == "new" %>
     <p class="lead"><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
   <% end %>
 </div>

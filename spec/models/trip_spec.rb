@@ -3,11 +3,12 @@ require 'rails_helper'
 describe Trip  do
 
     before :each do
-      @trip =   FactoryGirl.create(:trip)
-      @budget = FactoryGirl.create(:budget, trip: @trip)
-      @style =  FactoryGirl.create(:style,  trip: @trip)
-      @rythme = FactoryGirl.create(:rythme, trip: @trip)
-      @day =    FactoryGirl.create(:day,    trip: @trip)
+      @trip    = FactoryGirl.create(:trip)
+      @budget  = FactoryGirl.create(:budget, trip: @trip)
+      @style   = FactoryGirl.create(:style,  trip: @trip)
+      @rythme  = FactoryGirl.create(:rythme, trip: @trip)
+      @day     = FactoryGirl.create(:day,    trip: @trip)
+      @gestion = FactoryGirl.create(:gestion, trip: @trip)
     end
 
     it "has a valid factory" do
@@ -16,11 +17,6 @@ describe Trip  do
 
     it "has a name" do
       @trip.name = nil
-      expect(@trip).to_not be_valid
-    end
-
-    it "has a status code" do
-      @trip.status = nil
       expect(@trip).to_not be_valid
     end
 
@@ -36,6 +32,9 @@ describe Trip  do
       end
       it "destroys his day child" do
         expect { @trip.destroy }.to change { Day.count }.by(-1)
+      end
+      it "destroys his gestion child" do
+        expect { @trip.destroy }.to change { Gestion.count }.by(-1)
       end
     end
 end

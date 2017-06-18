@@ -1,26 +1,26 @@
 <div>
-  <% if trip.status == 0 %>
+  <% if trip.gestion.status == 'new' %>
     <h4>Your trip is in contruction :</h4>
     <p>You can freely make any change to it. When you are ready, choose your date
     and book it !</p>
-    <%= link_to "Book my trip !", book_path(trip, :status => :booking ) %>
-    
-  <% elsif trip.status == 1 %>
+    <%= link_to "Book my trip !", trip_gestion_path(trip, trip.gestion, :status => :pending ), :method => :put %>
+
+  <% elsif trip.gestion.status == 'pending' %>
     <h4>Pending status :</h4>
     <p>You have succesfully booked your trip. Our team are reviewing any details.
     You'll be soon able to pay</p>
-  <% elsif trip.status == 2 %>
+  <% elsif trip.gestion.status == 'approved' %>
     <h4>Waiting for payment :</h4>
     <p>Your trip has been approved, please proceed to payment.</p>
     <%= link_to "Pay my trip !", '#' %>
-  <% elsif trip.status == 3 %>
+  <% elsif trip.gestion.status == 'payed' %>
     <h4>Trip is payed</h4>
       <p>Your payment was accepted, our team is now booking anything needed.
         You'll soon receive all details about your trip</p>
-  <% elsif trip.status == 4 %>
+  <% elsif trip.gestion.status == 'confirmed' %>
    <h4>Trip has been confirmed </h4>
    <p>Your trip is ready. Please wait until <%= trip.date %> to enjoy !</p>
-  <% elsif trip.status == 5 %>
+  <% elsif trip.gestion.status == 'done' %>
   <h4>Trip over</h4>
   <p>How was your trip ? Leave us feeback here :</p>
   <%= link_to "Feedback", '#' %>

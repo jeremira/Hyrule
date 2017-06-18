@@ -1,7 +1,6 @@
 class Trip < ApplicationRecord
 
   validates :name,   presence: true
-  validates :status, presence: true
 
   belongs_to :user
 
@@ -11,9 +10,11 @@ class Trip < ApplicationRecord
   accepts_nested_attributes_for :rythme
   has_one    :style,            :dependent => :destroy
   accepts_nested_attributes_for :style
+  has_one    :gestion,          :dependent=>  :destroy
 
   has_many   :plannings,                      :dependent => :destroy
   has_many   :days,      through: :plannings
+
 
 
 end
