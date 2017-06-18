@@ -7,7 +7,6 @@
 <h2>Pending Trip</h2>
 <p>Below are trip with status 1, waiting to be approved before to send
   payment link</p>
-<%= @pending_trips.inspect %>
 <ol>
   <%= render partial: 'pending_trip', collection: @pending_trips %>
 </ol>
