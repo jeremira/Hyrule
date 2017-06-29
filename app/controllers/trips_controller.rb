@@ -71,13 +71,13 @@ class TripsController < ApplicationController
 private
     # Use callbacks to share common setup or constraints between actions.
     def can_edit_it?
-      if @trip.status != 0
+      if @trip.gestion.status != 0
         redirect_to root_url
         flash[:alert] = 'Cant edit a booked trip.'
       end
     end
     def can_delete_it?
-      if @trip.status != 0 || @trip.status != 1
+      if @trip.gestion.status != 0 || @trip.status != 1
         redirect_to root_url
         flash[:alert] = 'Cant delete a booked trip'
       end
@@ -85,7 +85,7 @@ private
     def set_trip
       @trip = Trip.find(params[:id])
     end
-    
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
       params.require(:trip).permit(:id, :name, :price, :description, :status, :comment, :date, :adults, :kids,
