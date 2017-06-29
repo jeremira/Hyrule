@@ -1,0 +1,7 @@
+<li>
+  <h3>TripID:<%= payed_trip.id %></h3>
+  <h5><%= link_to 'Show trip', payed_trip %>
+  Name : <%= payed_trip.name %> | Date : <%= payed_trip.date %>
+  <%= link_to "Finalize this Trip", trip_gestion_path(payed_trip, payed_trip.gestion,
+                                   :status => :final), :method => :put %>
+</li>

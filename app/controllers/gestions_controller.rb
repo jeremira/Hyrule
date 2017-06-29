@@ -31,7 +31,17 @@ class GestionsController < ApplicationController
 
     when 'payed'
 
-    when 'confirmed'
+    when 'final'
+      if current_user.admin && @gestion.status == 'payed'
+        @gestion.status = 'final'
+        if @gestion.save
+          flash[:notice] = "This trip has been put in a FINAL mode."
+        else
+          flash[:alert] = "Could not save change to this trip."
+        end
+      else
+        flash[:alert] = "You're not allowed to do this change."
+      end
 
     when 'done'
 

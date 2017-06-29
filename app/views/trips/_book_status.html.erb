@@ -35,13 +35,14 @@
 
 
   <% elsif trip.gestion.status == 'payed' %>
-    <h4>Trip is payed</h4>
+    <h4>Trip is now confirmed</h4>
       <p>Your payment was accepted, our team is now booking anything needed.
         You'll soon receive all details about your trip</p>
 
-  <% elsif trip.gestion.status == 'confirmed' %>
-   <h4>Trip has been confirmed </h4>
-   <p>Your trip is ready. Please wait until <%= trip.date %> to enjoy !</p>
+  <% elsif trip.gestion.status == 'final' %>
+   <h4>Trip has been reviewed by our team. All details are below.</h4>
+   <p>All complementary details will be send by email.
+      Your trip is ready. Please wait until <%= trip.date %> to enjoy !</p>
 
   <% elsif trip.gestion.status == 'done' %>
   <h4>Trip over</h4>
