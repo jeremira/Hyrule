@@ -15,14 +15,5 @@
   <%= @theme.image %>
 </p>
 
-<div>
-<h3> Add a activity to this theme </h3>
-<%= link_to 'New activity', new_theme_activity_path(@theme) %>
-</div>
-
-<div>
-  <%= render @activities %>
-</div>
-
 <%= link_to 'Edit', edit_theme_path(@theme) %> |
 <%= link_to 'Back', themes_path %>

@@ -71,13 +71,13 @@ class TripsController < ApplicationController
 private
     # Use callbacks to share common setup or constraints between actions.
     def can_edit_it?
-      if @trip.gestion.status != 0
+      if @trip.gestion.status != 'new'
         redirect_to root_url
         flash[:alert] = 'Cant edit a booked trip.'
       end
     end
     def can_delete_it?
-      if @trip.gestion.status != 0 || @trip.status != 1
+      unless ['new', 'pending', 'approved'].include? @trip.gestion.status
         redirect_to root_url
         flash[:alert] = 'Cant delete a booked trip'
       end

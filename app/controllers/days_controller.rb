@@ -1,7 +1,7 @@
 class DaysController < ApplicationController
   before_action :set_day,                only: [:show, :edit, :update, :destroy]
   before_action :set_trip,               only: [:show, :new, :edit, :create, :update, :destroy]
-  before_action :trip_status_must_be_0,  only: [:new, :edit, :create, :update, :destroy]
+  before_action :trip_must_be_editable,  only: [:new, :edit, :create, :update, :destroy]
   # GET /days
   # GET /days.json
   def index
@@ -74,12 +74,12 @@ class DaysController < ApplicationController
       @trip = Trip.find(params[:trip_id])
     end
 
-    def trip_status_must_be_0
-      if @trip.status != 0
+    def trip_must_be_editable
+      if @trip.gestion.status != 'new'
         redirect_to root_url
         flash[:alert] = "You cant modify days planning for a booked trip"
       end
-    end 
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def day_params
