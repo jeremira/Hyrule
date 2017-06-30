@@ -3,5 +3,5 @@
   <h5><%= link_to 'Show trip', payed_trip %>
   Name : <%= payed_trip.name %> | Date : <%= payed_trip.date %>
   <%= link_to "Finalize this Trip", trip_gestion_path(payed_trip, payed_trip.gestion,
-                                   :status => :final), :method => :put %>
+              :status => :final), :method => :put, :data => {:confirm => 'Approve this trip ?'} %>
 </li>

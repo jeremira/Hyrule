@@ -2,5 +2,5 @@
   <h3>TripID:<%= pending_trip.id %></h3>
   Name : <%= pending_trip.name %> | Date : <%= pending_trip.date %>
   <%= link_to "Approve this Trip", trip_gestion_path(pending_trip, pending_trip.gestion,
-                                   :status => :approved), :method => :put %>
+              :status => :approved), :data => {:confirm => 'Approve this trip ?'}, :method => :put %>
 </li>
