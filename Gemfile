@@ -20,9 +20,7 @@ gem 'stripe'
 gem 'sass-rails', '~> 5.0'
 #Use Bootstrap
 gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
 gem "font-awesome-rails"
-gem "tether-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -49,7 +47,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-instagram'
 gem 'omniauth-google'
 gem 'omniauth-twitter'
-
+#easy ENV variable gestion gem
 gem 'figaro'
 
 # Use Capistrano for deployment

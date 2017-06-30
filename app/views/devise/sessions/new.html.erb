@@ -1,39 +1,62 @@
-<h1>Krakoukas</h1>
-<h3>Custom trip in tokyo so much WOW</h3>
-<p>Login below, or <%= link_to 'create an account', new_user_registration_path %></p>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div class="field">
-  <%= f.email_field :email, autofocus: true, placeholder: 'Enter your email' %>
-</div>
-<div class="field">
-  <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password' %>
-</div>
-<% if devise_mapping.rememberable? -%>
-  <div class="field">
-    <%= f.check_box :remember_me %>
-    <%= f.label :remember_me %>
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">Krakoukas !</h1>
+                    <p class="intro-text">So much custom, Such trip, Tokyo Wow !
+                      <br><small>Login below or <%= link_to 'create an account', new_user_registration_path %></small></p>
+                      <a href="#login-form" class="btn btn-circle page-scroll">
+                          <i class="fa fa-angle-double-down animated"></i>
+                      </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- About Section -->
+<section id="login-form" class="container content-section text-center">
+  <div class="container">
+      <div class="col-lg-8 col-lg-offset-2">
+          <h6>Login using your fav SNS</h6>
+          <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Facebook</span>"),
+              omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-lg" %>
+          <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Twitter</span>"),
+                  omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-lg" %>
+          <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Google</span>"),
+                   omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-lg" %>
+        </div>
+      </div>
+      <h6></h6>
+  <div class="container">
+    <div class="col-lg-8 col-lg-offset-2">
+      <h6>Or enter your email & password</h6>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group row">
+            <div class="col-lg-6 col-lg-offset-3">
+            <%= f.email_field :email, autofocus: false, placeholder: 'Enter your email',
+                              :class => 'form-control form-control-lg' %>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-6 col-lg-offset-3">
+               <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password',
+                                    :class => 'form-control form-control-lg' %>
+            </div>
+        </div>
+      </div>
+      <div class="form-group row">
+         <div class="form-group row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <%= f.submit "Log in", :class=>"btn btn-default btn-lg form-control-lg col-lg-6 col-lg-offset-3" %>
+            </div>
+         </div>
+      </div>
+      <div class="form-group row">
+        <%= f.check_box :remember_me, :class => "custom-control-input" %>
+        <%= f.label 'Keep me logged in !', :class => "custom-control custom-checkbox" %>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<ul>
-  <li><%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Facebook</span>"),
-          omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-lg" %>
-  </li>
-  <li>
-      <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Twitter</span>"),
-          omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-lg" %>
-  </li>
-  <li>
-    <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Instagram</span>"),
-        omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-lg" %>
-  </li>
-  <li>
-        <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Google</span>"),
-        omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-lg" %>
-   </li>
-</ul>
+</section>

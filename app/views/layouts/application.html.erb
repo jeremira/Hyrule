@@ -2,44 +2,63 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Hyrule</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  <nav>
-    <a href="/">Home Krakoukas</a>
-    <div>
-      <ul>
-        <li><%= link_to 'Show my trips', trips_path %></li>
-        <% if current_user %>
-        <li><%= link_to 'My Profile', user_path(current_user)%></li>
-        <li><%= link_to "Signout", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to 'Log In', new_user_session_path%></li>
-        <% end %>
-        <% if current_user && current_user.admin %>
-        <li><a href="<%= setup_index_path %>">Admin control center</a></li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">Home</span> Krakoukaas !
+                </a>
+            </div>
 
-  <section>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <% if current_user %>
+                    <li><%= link_to 'Show my trips', trips_path, :class => 'page-scroll' %></li>
+                    <li><%= link_to 'My Profile', user_path(current_user), :class => 'page-scroll'%></li>
+                    <li><%= link_to "Signout", destroy_user_session_path, method: :delete, :class => 'page-scroll' %></li>
+                    <% else %>
+                    <li><%= link_to 'Log In', new_user_session_path, :class => 'page-scroll'%></li>
+                    <% end %>
+                    <% if current_user && current_user.admin %>
+                    <li><%= link_to 'Admin control center', setup_index_path, :class => 'page-scroll' %></li>
+                    <% end %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+  <!-- <div id = "flash-infos">
     <%if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
     <%if flash[:alert] %>
       <div class="alert"><%= flash[:alert] %></div>
     <% end %>
-  </section>
+  </div> -->
 
     <%= yield %>
 
