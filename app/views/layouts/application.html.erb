@@ -11,64 +11,35 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-Nouveau document
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-<!-- Temporary navbar container fix -->
-    <style>
-    .navbar-toggler {
-        z-index: 1;
-    }
-
-    @media (max-width: 576px) {
-        nav > .container {
-            width: 100%;
-        }
-    }
-    </style>
   </head>
 
   <body>
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="container">
-            <a class="navbar-brand" href="/">Home Krakoukas</a>
-            <div class="collapse navbar-collapse" id="navbarExample">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                      <% if current_user && current_user.admin %>
-                        <a class="nav-link" href="<%= setup_index_path %>">Manage</a>
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                  <% if current_user %>
-                    <li><%= link_to 'Profile', user_path(current_user), :class => 'nav-link'%></li>
-                  <% else %>
-                    <li><%= link_to 'Log In', new_user_session_path, :class => 'nav-link'%></li>
-                  <% end %>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <nav>
+    <a href="/">Home Krakoukas</a>
+    <div>
+      <ul>
+        <li><%= link_to 'Show my trips', trips_path %></li>
+        <% if current_user %>
+        <li><%= link_to 'My Profile', user_path(current_user)%></li>
+        <li><%= link_to "Signout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to 'Log In', new_user_session_path%></li>
+        <% end %>
+        <% if current_user && current_user.admin %>
+        <li><a href="<%= setup_index_path %>">Admin control center</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
-    <section id="flash-container">
-      <p>TODO : check flash message</p>
-      <%if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
-      <% end %>
-      <%if flash[:alert] %>
-          <div class="alert"><%= flash[:alert] %></div>
-      <% end %>
-    </section>
+  <section>
+    <%if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <%if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
+  </section>
 
     <%= yield %>
 

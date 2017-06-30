@@ -1,6 +1,6 @@
 <%= form_for [trip, day] do |f| %>
   <% if day.errors.any? %>
-    <div id="error_explanation">
+    <div>
       <h2><%= pluralize(@day.errors.count, "error") %> prohibited this day from being saved:</h2>
 
       <ul>
@@ -11,18 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div>
     <%= f.label :date %>
     <%= f.date_field :date %>
   </div>
-  <div class="field">
+  <div>
     <%= f.label :theme %>
     <% Theme.all.each do |theme| %>
       <%= f.radio_button( :theme_id,  theme.id ) %>
       <%= label theme.id, theme.name %>
     <% end %>
   </div>
-  <div class="field">
+  <div>
     <h5>Lunch</h5>
     <%= f.fields_for :lunch do |ff| %>
       <%= ff.label "Book a lunch ?" %><%= ff.check_box :todo %>
@@ -37,7 +37,7 @@
     <% end %>
     </p>
   </div>
-  <div class="field">
+  <div>
     <h5>Dinner</h5>
     <%= f.fields_for :dinner do |ff| %>
       <%= ff.label "Book a dinner ?" %><%= ff.check_box :todo %>
@@ -56,7 +56,7 @@
     <%= f.label :comment %>
     <%= f.text_area :comment %>
   </p>
-  <div class="actions">
+  <div>
     <%= f.submit %>
   </div>
 <% end %>
