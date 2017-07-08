@@ -1,9 +1,8 @@
-<div>
-  <h2><%= trip.name %></h2>
-  <p><%= trip.description %></p>
-  <p><%= trip.id %></p>
-  <%= render 'book_status', trip: trip %>
-  <%= link_to "Show Trip", trip_path(trip) %>
-  <%= link_to "Edit Trip", edit_trip_path(trip) %>
-  <%= link_to "Delete Trip", trip_path(trip), method: :delete %>
+<div class="col-lg-4 col-sm-6 text-center">
+  <a href = "<%= trip_path(trip) %>">
+    <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
+    <h3><%= trip.name %></a>
+        <small><%= link_to "Delete it!", trip_path(trip), method: :delete %></small>
+    </h3>
+    <p><%= trip.description %> TODO add a visual for status somewhere around here</p>
 </div>
