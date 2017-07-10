@@ -1,20 +1,21 @@
-<div>
-  <% if trip.gestion.status == 'new' %>
-    <h4>Your trip is in contruction :</h4>
-    <p>You can freely make any change to it. When you are ready, choose your date
-    and book it !</p>
-    <%= link_to "Book my trip !", trip_gestion_path(trip, trip.gestion, :status => :pending ), :method => :put %>
+<% if trip.gestion.status == 'new' %>
+  <h3 class="title">Réserver mon trip !</h3>
+  <p>Votre trip vous semble parfait ? Ok alors réservons le !</p>
+  <p>Nos équipes organiseront votre voyages selon vos préférences.
+    Une fois validé vous pourrez procéder au paiment.</p>
+    <p><%= link_to "Book it!", trip_gestion_path(trip, trip.gestion, :status => :pending ),
+                              :method => :put, class: 'btn btn-default btn-lg' %></p>
+
+<% elsif trip.gestion.status == 'pending' %>
+    <h3 class="title">En cours..</h3>
+    <p>Votre voyage est en ce moment organisé par nos équipes.</p>
+    <p>Un peu de patience et votre voyage sera bientôt prêt. :)</p>
 
 
-  <% elsif trip.gestion.status == 'pending' %>
-    <h4>Pending status :</h4>
-    <p>You have succesfully booked your trip. Our team are reviewing any details.
-    You'll be soon able to pay</p>
-
-
-  <% elsif trip.gestion.status == 'approved' %>
-    <h4>Waiting for payment :</h4>
-    <p>Your trip has been approved, please proceed to payment.</p>
+<% elsif trip.gestion.status == 'approved' %>
+    <h3 class="title">Votre voyage est pret !</h3>
+    <p>Votre voyage est pret, merci de votre patience. :)</p>
+    <p>Ci-dessous blabla le lien pour payer :</p>
     <div>
       <%= form_tag charges_path do %>
         <% if flash[:error].present? %>
@@ -31,25 +32,25 @@
         data-description="Widget" data-zip-code="true"
         data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
       </script>
-    <% end %></div>
+    <% end %>
+   </div>
 
+<% elsif trip.gestion.status == 'payed' %>
+   <h3 class="title">Voyage payé et confirmé. :)</h3>
+      <p>Merci. Votre voyage est maintenant payé. Nos équipes finalisent votre
+      voyage. Vous recevrez sous peu tous les détails nécessaires.</p>
 
-  <% elsif trip.gestion.status == 'payed' %>
-    <h4>Trip is now confirmed</h4>
-      <p>Your payment was accepted, our team is now booking anything needed.
-        You'll soon receive all details about your trip</p>
+<% elsif trip.gestion.status == 'final' %>
+   <h3 class="title">Nous vous attendons. :)</h3>
+   <p>Votre voyage est prêt. Nous vous attendons avec impatience à Tokyo.
+      A bientot !</p>
+    <p>Encore XXXX jours avant votre voyage.</p>
 
-  <% elsif trip.gestion.status == 'final' %>
-   <h4>Trip has been reviewed by our team. All details are below.</h4>
-   <p>All complementary details will be send by email.
-      Your trip is ready. Please wait until <%= trip.date %> to enjoy !</p>
-
-  <% elsif trip.gestion.status == 'done' %>
-  <h4>Trip over</h4>
-  <p>How was your trip ? Leave us feeback here :</p>
+<% elsif trip.gestion.status == 'done' %>
+  <h4>Voyage terminé.</h4>
+  <p>Comment s'est passé votre voyage ? Laissez nous un commentaire ici :</p>
   <%= link_to "Feedback", '#' %>
-  <% else %>
+<% else %>
   <h1>DEBUG SHOULD NOT APPEAR - Status was not implemented</h1>
   <p><%= trip.gestion.inspect %></p>
-  <% end %>
-</div>
+<% end %>

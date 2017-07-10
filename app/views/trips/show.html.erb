@@ -1,112 +1,121 @@
+
+<!-- Image Background Page Header -->
+<!-- Note: The background image is set within the business-casual.css file. -->
 <header class="business-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="tagline">Name : <%= @trip.name %></h1>
+                <h1 class="tagline"><%= @trip.name.capitalize %></h1>
+                <p> <%= @days.length %> day(s) on this trip
+                <% if @trip.gestion.status == "new" %>
+                  <small><%= link_to 'Add a new day', new_trip_day_path(@trip) %></small></p>
+                <% end %>
+                <% if @trip.gestion.status == 'new'%>
+                  <%= link_to "Delete this trip", trip_path(@trip),
+                              method: :delete, data: {confirm: "Delete this trip ?"} %>
+                <%end%>
             </div>
         </div>
     </div>
 </header>
 
-
 <!-- Page Content -->
 <div class="container">
     <hr>
     <div class="row">
-        <div class="col-sm-8">
-            <h2>About your trip :</h2>
-            <p><%= @trip.description %>
-            <% if @trip.comment %>
-              <p class="small"><%= @trip.comment %></p>
-            <% end %>
-            <p>You choosed an <%= @trip.budget.value %> budget.</p>
-            <% if @trip.budget.comment %>
-              <p class="small"><%= @trip.budget.comment %></p>
-            <% end %>
-            <p>You choosed an <%= @trip.rythme.value %> rythme.</p>
-            <p>You choosed an <%= @trip.rythme.walking %> walking pace.</p>
-            <p>You choosed an <%= @trip.rythme.transport %> transport option.</p>
-            <% if @trip.rythme.comment %>
-              <p class="small"><%= @trip.rythme.comment %></p>
-            <% end %>
-            <p><%= @trip.style.culture ?  ( "Culture, history, tradition ! Let's roll !!" ) : ( "More fun ! Less museum !" )%></p>
-            <p><%= @trip.style.nature ?  ( "Outside is great, green and pure aire trip" ) : ( "We are city child !" )%></p>
-            <p><%= @trip.style.sport ?  ( "Sport and outdoor activity fan !" ) : ( "Relax and easy please !" )%></p>
-            <p><%= @trip.style.food ?  ( "Let's eat all their food !" ) : ( "Well a sandwich we'll do it, I guess." )%></p>
-            <p><%= @trip.style.shopping ?  ( "Shop, shop and shop. Oh and shop also." ) : ( "No money, darling. No shopping." )%></p>
-            <p><%= @trip.style.kid ?  ( "Kids friendly trip !" ) : ( "No child ! Happy here !" )%></p>
-            <% if @trip.style.comment %>
-              <p class="small"><%= @trip.style.comment %></p>
-            <% end %>
-            <p><%= link_to 'Edit your trip', edit_trip_path(@trip), :class => "btn btn-default btn-lg" %></p>
-            <p><%= link_to "Delete this trip", trip_path(@trip), method: :delete, :class => "btn btn-default btn-lg" %></p>
+      <div class="col-xs-12 col-sm-6 col-lg-4">
+      <div class="box">
+        <div class="icon">
+          <div class="image"><i class="fa fa-flag"></i></div>
+          <div class="info">
+            <h3 class="title">Vous avez choisi un Eco Trip !</h3>
+              <p><b>Petit budget, Best experience !</b> Priorité aux activités gratuites
+              et aux restaurants locaux. :-)</p>
+            <h3 class="title">Avec un rythme relax !</h3>
+              <p><b>Un rythme relaxant !</b> Votre trip sera organisé pour que
+                vous ayez le temps de vous reposer.</p>
+              <p><b>Un minimum de transport</b> pour profiter de la journée un
+                maximum. Vous ne shouaitez pas marcher trop.</p>
+            <div class="more">
+              <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
+                Modifier mon trip  <i class="fa fa-angle-double-right"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-4">
-            <h2>For <%= @trip.adults %> addults and <%= @trip.kids %> kids</h2>
-            <address>
-                <strong>Cost : <%= @trip.price %></strong>
-                <br><%= @trip.date %>
-                <br>  <%= render 'book_status', trip: @trip %>
-            </address>
-            <address>
-                <p>contact email : <%= @trip.user.email %></p>
-                <br>
-                <%= link_to 'See your profile', user_path(current_user) %>
-            </address>
+        <div class="space"></div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="box">
+      <div class="icon">
+        <div class="image"><i class="fa fa-flag"></i></div>
+        <div class="info">
+          <h3 class="title">Vous voulez profitez en priorité :</h3>
+          <% if @trip.style.culture %>
+            <p><b>Culture et Histoire :</b>
+            Découverte des musées, monuments et sites touristiques.</p>
+          <%end%>
+          <% if @trip.style.nature %>
+            <p><b>Nature et exterieur :</b>
+            Profiter de la nature et des grands espaces. Parcs et jardins...</p>
+          <%end%>
+          <% if @trip.style.sport %>
+            <p><b>Sport :</b>
+            Bouger, courir, sauter...  Faire du sport.</p>
+          <%end%>
+          <% if @trip.style.food %>
+            <p><b>Foodies :</b>
+            Manger ! Restaurant, marchés, snacks.. tout doit disparaitre !</p>
+          <%end%>
+          <% if @trip.style.shopping %>
+            <p><b>Shopping :</b>
+            Faire les magasins, pour moi et pour les autres.</p>
+          <%end%>
+          <% if @trip.style.kid %>
+          <p> KIDs FRIDLY STICKER TODO</p>
+          <%end%>
         </div>
+      </div>
+      <div class="space"></div>
+    </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="box">
+      <div class="icon">
+        <div class="image"><i class="fa fa-flag"></i></div>
+        <div class="info">
+            <%= render partial: 'book_status', locals: { trip: @trip }%>
+        </div>
+      </div>
+      <div class="space"></div>
+    </div>
+    </div>
+    </div>
+
+
     </div>
     <!-- /.row -->
-
     <hr>
 
     <div class="row">
-        <div class="col-sm-4">
-            <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-            <h2>Marketing Box #1</h2>
-            <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
-        </div>
-        <div class="col-sm-4">
-            <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-            <h2>Marketing Box #2</h2>
-            <p>The images are set to be circular and responsive. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-        </div>
-        <div class="col-sm-4">
-            <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-            <h2>Marketing Box #3</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-        </div>
+      <%= render @days %>
     </div>
     <!-- /.row -->
-
     <hr>
-
     <!-- Footer -->
     <footer>
         <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
+            <div class="col-lg-10 col-lg-offset-1">
+              <h2> <%= @days.length %> day(s) on this trip</h2>
+              <% if @trip.gestion.status == "new" %>
+                <p class="lead"><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
+              <% end %>
             </div>
         </div>
         <!-- /.row -->
     </footer>
-
 </div>
 <!-- /.container -->
-
-
-
-
-
-<
-  <p><%= link_to 'Edit your trip', edit_trip_path(@trip) %></p>
-  <p><%= link_to "Delete this trip", trip_path(@trip), method: :delete %></p>
-</div>
-
-<div>
-  <h2> <%= @days.length %> day(s) on this trip</h2>
-  <% if @trip.gestion.status == "new" %>
-    <p class="lead"><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
-  <% end %>
-</div>
-
-<%= render @days %>
