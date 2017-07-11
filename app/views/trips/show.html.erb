@@ -6,11 +6,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="tagline"><%= @trip.name.capitalize %></h1>
-                <p> <%= @days.length %> day(s) on this trip
+                <p><%= link_to 'Planning des journées', "#day-row" %></p>
+                <p><%= link_to 'Préférences pour ce voyage', '#info-row' %></p>
+                <p><%= link_to 'Commentaires', '#comment-row' %></p>
+
                 <% if @trip.gestion.status == "new" %>
-                  <small><%= link_to 'Add a new day', new_trip_day_path(@trip) %></small></p>
-                <% end %>
-                <% if @trip.gestion.status == 'new'%>
                   <%= link_to "Delete this trip", trip_path(@trip),
                               method: :delete, data: {confirm: "Delete this trip ?"} %>
                 <%end%>
@@ -21,7 +21,26 @@
 
 <!-- Page Content -->
 <div class="container">
+    <a class="anchor" id="day-row"></a>
+    <div class="row">
+      <div class="col-sm-4 text-center">
+        <hr>
+        <%= render partial: 'book_status', locals: { trip: @trip }%>
+        <hr>
+      </div>
+      <%= render @days %>
+      <div class="col-sm-4 text-center">
+        <hr>
+        <h3> <%= @days.length %> day(s) on this trip</h4>
+        <% if @trip.gestion.status == "new" %>
+          <p><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
+        <% end %>
+        <hr>
+      </div>
+    </div>
+    <!-- /.row -->
     <hr>
+    <a class="anchor" id="info-row"></a>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-lg-4">
       <div class="box">
@@ -31,14 +50,12 @@
             <h3 class="title">Vous avez choisi un Eco Trip !</h3>
               <p><b>Petit budget, Best experience !</b> Priorité aux activités gratuites
               et aux restaurants locaux. :-)</p>
-            <h3 class="title">Avec un rythme relax !</h3>
-              <p><b>Un rythme relaxant !</b> Votre trip sera organisé pour que
-                vous ayez le temps de vous reposer.</p>
-              <p><b>Un minimum de transport</b> pour profiter de la journée un
-                maximum. Vous ne shouaitez pas marcher trop.</p>
+              <h3 class="title">Avec   un guide privé !</h3>
+                <p><b>Un guide personnel </b>vous accompagnera toute la journée.
+                Profitez de ses conseils locaux et experimenté.</p>
             <div class="more">
               <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
-                Modifier mon trip  <i class="fa fa-angle-double-right"></i>
+                Modifier mon voyage <i class="fa fa-angle-double-right"></i>
               </a>
             </div>
           </div>
@@ -76,6 +93,11 @@
           <% if @trip.style.kid %>
           <p> KIDs FRIDLY STICKER TODO</p>
           <%end%>
+          <div class="more">
+            <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
+              Modifier mon voyage <i class="fa fa-angle-double-right"></i>
+            </a>
+          </div>
         </div>
       </div>
       <div class="space"></div>
@@ -87,32 +109,32 @@
       <div class="icon">
         <div class="image"><i class="fa fa-flag"></i></div>
         <div class="info">
-            <%= render partial: 'book_status', locals: { trip: @trip }%>
+          <h3 class="title">Avec un rythme relax !</h3>
+            <p><b>Un rythme relaxant !</b> Votre trip sera organisé pour que
+              vous ayez le temps de vous reposer.</p>
+            <p><b>Un minimum de transport</b> pour profiter de la journée un
+              maximum.</p>
+              <p><b>Vous aimez marcher</b> mais vous ne souhaitez pas fnir sur les rotules !</p>
+              <div class="more">
+                <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
+                  Modifier mon voyage <i class="fa fa-angle-double-right"></i>
+                </a>
+              </div>
         </div>
       </div>
       <div class="space"></div>
     </div>
     </div>
     </div>
-
-
-    </div>
-    <!-- /.row -->
-    <hr>
-
-    <div class="row">
-      <%= render @days %>
     </div>
     <!-- /.row -->
     <hr>
     <!-- Footer -->
     <footer>
+       <a class="anchor" id="comment-row"></a>
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1">
-              <h2> <%= @days.length %> day(s) on this trip</h2>
-              <% if @trip.gestion.status == "new" %>
-                <p class="lead"><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
-              <% end %>
+              FOOTER_CONTENT
             </div>
         </div>
         <!-- /.row -->
