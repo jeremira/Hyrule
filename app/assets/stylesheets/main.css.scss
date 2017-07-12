@@ -20,6 +20,7 @@
 
 
 body {
+  padding-top: 50px;
 /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
@@ -43,8 +44,7 @@ footer {
  /* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)*/
 
 .business-header {
- height: 420px;
- margin-top: -25px;
+ height: 400px;
  /*'http://placehold.it/1920x400'*/
  background: asset-data-url("main.jpg") center center no-repeat scroll;
  -webkit-background-size: cover;
