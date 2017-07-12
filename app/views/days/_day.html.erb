@@ -1,19 +1,8 @@
-<div>
-  <p>Date <%= day.date %></p>
-  <p><%= day.theme.name %> | id: <%= day.theme.id %></p>
-  <p>Day id :  <%= day.id %></p>
-  <p>Comment : <%= day.comment %></p>
-  <% if day.lunch.todo %>
-  <p>
-    We book a lunch for you !  <strong>Style:</strong> <%= day.lunch.style %>
-  </p>
-  <% end %>
-  <% if day.dinner.todo %>
-  <p>
-    We book a dinner for you ! <strong>Style :</strong><%= day.dinner.style %>
-  <p>
-  <% end %>
+<div class="col-sm-4 text-center">
+    <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+    <h2><%= day.theme.name %> - <%= day.date %></h2>
+    <p><%= day.theme.descr %></p>
+    <%= link_to 'Details', trip_day_path(@trip, day) %> |
+    <%= link_to 'Modifier', edit_trip_day_path(@trip, day) %> |
+    <%= link_to "Supprimer", trip_day_path(@trip, day), method: :delete, data: {confirm: "Delete this trip ?"} %>
 </div>
-<%= link_to 'Show day', trip_day_path(@trip, day) %>
-<%= link_to 'Edit day', edit_trip_day_path(@trip, day) %>
-<%= link_to "Delete this day", trip_day_path(@trip, day), method: :delete %>

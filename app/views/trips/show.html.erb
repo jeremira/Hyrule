@@ -1,45 +1,143 @@
-<div>
-  <h2><%= @trip.name %></h2>
-  <p>About your trip : <%= @trip.description %></p>
-  <p>For <%= @trip.user.email %> | <%= @trip.adults %> addults and <%= @trip.kids %> kids</p>
-  <p> Price :<%= @trip.price %> € </p>
-  <p> Date : <%= @trip.date %> </p>
-</div>
 
-<%= render 'book_status', trip: @trip %>
-<div>
+<!-- Image Background Page Header -->
+<!-- Note: The background image is set within the business-casual.css file. -->
+<header class="business-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="tagline"><%= @trip.name.capitalize %></h1>
+                <p><%= link_to 'Planning des journées', "#day-row" %></p>
+                <p><%= link_to 'Préférences pour ce voyage', '#info-row' %></p>
+                <p><%= link_to 'Commentaires', '#comment-row' %></p>
 
-  <h2>Budget</h2>
-  <p><%= @trip.budget.value %></p>
-  <p><%= @trip.budget.comment %></p>
-</div>
-<div>
-  <h2>Rythme</h2>
-  <p><%= @trip.rythme.value %></p>
-  <p><%= @trip.rythme.walking %></p>
-  <p><%= @trip.rythme.transport %></p>
-  <p><%= @trip.rythme.comment %></p>
-</div>
-<div>
-  <h2>Style</h2>
-  <p><%= @trip.style.culture ?  ( "OK Culture !" ) : ( "NO Culture !" )%></p>
-  <p><%= @trip.style.nature ?  ( "OK Nature !" ) : ( "NO Nature !" )%></p>
-  <p><%= @trip.style.sport ?  ( "OK Sport !" ) : ( "NO Sport !" )%></p>
-  <p><%= @trip.style.food ?  ( "OK Food !" ) : ( "NO Food !" )%></p>
-  <p><%= @trip.style.shopping ?  ( "OK Shopping !" ) : ( "NO Shopping !" )%></p>
-  <p><%= @trip.style.kid ?  ( "Kids Friendly !" ) : ( "NO Kids !" )%></p>
-  <p><%= @trip.style.comment %>
-</div>
+                <% if @trip.gestion.status == "new" %>
+                  <%= link_to "Delete this trip", trip_path(@trip),
+                              method: :delete, data: {confirm: "Delete this trip ?"} %>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</header>
 
-  <p><%= link_to 'Edit your trip', edit_trip_path(@trip) %></p>
-  <p><%= link_to "Delete this trip", trip_path(@trip), method: :delete %></p>
-</div>
+<!-- Page Content -->
+<div class="container">
+    <a class="anchor" id="day-row"></a>
+    <div class="row">
+      <div class="col-sm-4 text-center">
+        <hr>
+        <%= render partial: 'book_status', locals: { trip: @trip }%>
+        <hr>
+      </div>
+      <%= render @days %>
+      <div class="col-sm-4 text-center">
+        <hr>
+        <h3> <%= @days.length %> day(s) on this trip</h4>
+        <% if @trip.gestion.status == "new" %>
+          <p><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
+        <% end %>
+        <hr>
+      </div>
+    </div>
+    <!-- /.row -->
+    <hr>
+    <a class="anchor" id="info-row"></a>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-lg-4">
+      <div class="box">
+        <div class="icon">
+          <div class="image"><i class="fa fa-flag"></i></div>
+          <div class="info">
+            <h3 class="title">Vous avez choisi un Eco Trip !</h3>
+              <p><b>Petit budget, Best experience !</b> Priorité aux activités gratuites
+              et aux restaurants locaux. :-)</p>
+              <h3 class="title">Avec   un guide privé !</h3>
+                <p><b>Un guide personnel </b>vous accompagnera toute la journée.
+                Profitez de ses conseils locaux et experimenté.</p>
+            <div class="more">
+              <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
+                Modifier mon voyage <i class="fa fa-angle-double-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="space"></div>
+      </div>
+    </div>
 
-<div>
-  <h2> <%= @days.length %> day(s) on this trip</h2>
-  <% if @trip.gestion.status == "new" %>
-    <p class="lead"><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
-  <% end %>
-</div>
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="box">
+      <div class="icon">
+        <div class="image"><i class="fa fa-flag"></i></div>
+        <div class="info">
+          <h3 class="title">Vous voulez profitez en priorité :</h3>
+          <% if @trip.style.culture %>
+            <p><b>Culture et Histoire :</b>
+            Découverte des musées, monuments et sites touristiques.</p>
+          <%end%>
+          <% if @trip.style.nature %>
+            <p><b>Nature et exterieur :</b>
+            Profiter de la nature et des grands espaces. Parcs et jardins...</p>
+          <%end%>
+          <% if @trip.style.sport %>
+            <p><b>Sport :</b>
+            Bouger, courir, sauter...  Faire du sport.</p>
+          <%end%>
+          <% if @trip.style.food %>
+            <p><b>Foodies :</b>
+            Manger ! Restaurant, marchés, snacks.. tout doit disparaitre !</p>
+          <%end%>
+          <% if @trip.style.shopping %>
+            <p><b>Shopping :</b>
+            Faire les magasins, pour moi et pour les autres.</p>
+          <%end%>
+          <% if @trip.style.kid %>
+          <p> KIDs FRIDLY STICKER TODO</p>
+          <%end%>
+          <div class="more">
+            <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
+              Modifier mon voyage <i class="fa fa-angle-double-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="space"></div>
+    </div>
+    </div>
 
-<%= render @days %>
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="box">
+      <div class="icon">
+        <div class="image"><i class="fa fa-flag"></i></div>
+        <div class="info">
+          <h3 class="title">Avec un rythme relax !</h3>
+            <p><b>Un rythme relaxant !</b> Votre trip sera organisé pour que
+              vous ayez le temps de vous reposer.</p>
+            <p><b>Un minimum de transport</b> pour profiter de la journée un
+              maximum.</p>
+              <p><b>Vous aimez marcher</b> mais vous ne souhaitez pas fnir sur les rotules !</p>
+              <div class="more">
+                <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
+                  Modifier mon voyage <i class="fa fa-angle-double-right"></i>
+                </a>
+              </div>
+        </div>
+      </div>
+      <div class="space"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- /.row -->
+    <hr>
+    <!-- Footer -->
+    <footer>
+       <a class="anchor" id="comment-row"></a>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+              FOOTER_CONTENT
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
+</div>
+<!-- /.container -->
