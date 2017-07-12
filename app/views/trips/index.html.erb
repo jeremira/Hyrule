@@ -1,26 +1,42 @@
+<header class="business-header">
+    <div class="container">
+
+    </div>
+</header>
+
 <div class="container">
   <!-- Introduction Row -->
   <div class="row">
       <div class="col-lg-12">
-          <h1 class="page-header">Hello !
-              <small>It's Nice to see you!</small>
+          <h1 class="page-header">Bonjour !
+              <small>Voici une journée parfaite pour organiser un nouveau voyage !</small>
           </h1>
-          <p>ATM, you have <%= @trips.length %> trip(s) created !</p>
-          <p>It's a good time to <%= link_to "Create a new trip !", new_trip_path %></p>
+          <p> blabla blabla commercial.</p>
+          <p><%= link_to "Créer un nouveau voyage", new_trip_path, class: "btn btn-success" %></p>
+          <p><%= link_to "Comment ça marche ?", "#information-row", class: "btn btn-info" %></p>
       </div>
   </div>
   <!-- Trip rendering Row -->
+  <br>
   <div class="row">
       <div class="col-lg-12">
-          <h2 class="page-header">Your trips :</h2>
+        <h1 class="page-header">
+            <% if @trips.length >0 %>
+            Vos voyages :
+            <small>Vous avez <%= @trips.length %> voyage(s) en préparation.</small>
+            <% else %>
+            Aucun voyage !
+            <small>Il est temps de <%= link_to "créer", new_trip_path %> votre premier voyage !</small>
+            <% end %>
+        </h1>
       </div>
       <%= render @trips %>
   </div>
   <!-- Footer -->
-  <footer>
+  <footer id="information-row">
       <div class="row">
           <div class="col-lg-12">
-              <p>Copyright &copy; Your Website 2014</p>
+              <p>Bullshit commercial / FAQ</p>
           </div>
           <!-- /.col-lg-12 -->
       </div>

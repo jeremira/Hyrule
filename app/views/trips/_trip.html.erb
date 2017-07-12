@@ -1,8 +1,10 @@
 <div class="col-lg-4 col-sm-6 text-center">
   <a href = "<%= trip_path(trip) %>">
-    <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
+    <%= image_tag "femme.png", class: "img-circle img-responsive img-center" %>
     <h3><%= trip.name %></a>
-        <small><%= link_to "Delete it!", trip_path(trip), method: :delete %></small>
+        <small><%= link_to "Supprimer", trip_path(trip),
+                            method: :delete, data: {confirm: "Delete this trip ?"},
+                            class: "btn btn-danger btn-xs" %></small>
     </h3>
     <p><%= trip.description %> TODO add a visual for status somewhere around here</p>
 </div>

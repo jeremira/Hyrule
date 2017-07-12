@@ -51,13 +51,22 @@
         </div>
         <!-- /.container -->
     </nav>
-  <section>
-    <div class="notice">TODO : flash css / add a popup and notification for clikable comment JS</div>
+  <section id="flash-section">
+    <div class="alert alert-info alert-dismissable fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      TODO : flash css auto fadein via JS/ add a popup and notification for clikable comment JS
+    </div>
     <%if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
+      <div class="alert alert-success alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%= flash[:notice] %>
+      </div>
     <% end %>
     <%if flash[:alert] %>
-      <div class="alert"><%= flash[:alert] %></div>
+      <div class="alert alert-warning alert-dismissable fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%= flash[:alert] %>
+      </div>
     <% end %>
   </section>
 

@@ -1,5 +1,5 @@
 <div class="col-sm-4 text-center">
-    <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+    <%= image_tag "shibuya.jpg", class: "img-circle img-responsive img-center" %>
     <h2><%= day.theme.name %> - <%= day.date %></h2>
     <p><%= day.theme.descr %></p>
     <%= link_to 'Details', trip_day_path(@trip, day) %> |

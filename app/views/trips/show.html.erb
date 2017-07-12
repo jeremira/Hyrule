@@ -5,14 +5,21 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="tagline"><%= @trip.name.capitalize %></h1>
-                <p><%= link_to 'Planning des journées', "#day-row" %></p>
-                <p><%= link_to 'Préférences pour ce voyage', '#info-row' %></p>
-                <p><%= link_to 'Commentaires', '#comment-row' %></p>
-
+              <h1 class="tagline"><%= @trip.name.capitalize %></h1>
+              <p><a href="#day-row">
+                <button type="button" class="btn btn-default btn-sm"><strong>Planning</strong></button>
+              </a></p>
+              <p><a href="#info-row">
+                <button type="button" class="btn btn-default btn-sm"><strong>Préférences</strong></button>
+              </p></a>
+              <p><a href="#comment-row">
+                <button type="button" class="btn btn-default btn-sm"><strong>Commentaires</strong></button>
+              </p></a>
                 <% if @trip.gestion.status == "new" %>
-                  <%= link_to "Delete this trip", trip_path(@trip),
-                              method: :delete, data: {confirm: "Delete this trip ?"} %>
+                  <p>
+                    <%= link_to raw("<button type='button' class='btn btn-danger btn-sm'><strong>Supprimer</strong></button>"),
+                              trip_path(@trip), method: :delete, data: {confirm: "Delete this trip ?"} %>
+                  </p>
                 <%end%>
             </div>
         </div>
@@ -31,9 +38,12 @@
       <%= render @days %>
       <div class="col-sm-4 text-center">
         <hr>
-        <h3> <%= @days.length %> day(s) on this trip</h4>
+        <h4> Ce voyage comprend <%= @days.length %> journée.</h4>
+        <p>Ajoutez de nouvelles journée en cliquant sur le bouton ci-dessous.</p>
         <% if @trip.gestion.status == "new" %>
-          <p><%= link_to 'Add a new day', new_trip_day_path(@trip) %> </p>
+          <p><a href="<%= new_trip_day_path(@trip) %>">
+            <button type="button" class="btn btn btn-success"><strong>Ajouter une nouvelle journée</strong></button>
+          </p></a>
         <% end %>
         <hr>
       </div>

@@ -2,7 +2,17 @@
 @import "bootstrap";
 @import "font-awesome";
 
+.btn-sm {
+  width: 120px;
+}
 
+#flash-section {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 50px;
+  height: 120px;
+}
 
  /* Start Bootstrap - Round About (http://startbootstrap.com/)
  /* Copyright 2013-2016 Start Bootstrap
@@ -10,7 +20,6 @@
 
 
 body {
- padding-top: 70px;
 /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
@@ -34,8 +43,10 @@ footer {
  /* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)*/
 
 .business-header {
- height: 400px;
- background: url('http://placehold.it/1920x400') center center no-repeat scroll;
+ height: 420px;
+ margin-top: -25px;
+ /*'http://placehold.it/1920x400'*/
+ background: asset-data-url("main.jpg") center center no-repeat scroll;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  background-size: cover;
@@ -48,8 +59,6 @@ footer {
  text-shadow: 0 0 10px #000;
  color: #fff;
 }
-
-
 
 /* From Bootsnip for information about trip Box
 https://bootsnipp.com/snippets/featured/boxes-with-icon-hover*/
