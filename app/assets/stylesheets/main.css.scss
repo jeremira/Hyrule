@@ -40,11 +40,11 @@
 }
 
 .mini-form {
-  border: 1px solid grey;
-  padding: 40px 30px;
-  margin: 60px 10px;
-  height: 350px;
-  background-color: rgba(210,200,200,0.8)
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding: 15px 30px;
+  margin: 30px 10px;
+  color: grey;
 }
 
 #trip_adults {
@@ -53,6 +53,10 @@
 
 #trip_kids {
   width: 60px;
+}
+
+.form-brick {
+  border: 1px solid red;
 }
 
  /* Start Bootstrap - Round About (http://startbootstrap.com/)

@@ -53,12 +53,25 @@
 
 <!-- Page Content -->
 <div class="container">
+  <br>
   <div class="row" id = "option-row">
-
+    <br>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 text-center">
+      <hr>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
+      <h1>Votre voyage comme vous l'aimez !</h1>
+      <p class="lead">Introduce the visitor to the business using clear, informative text.
+        Use well-targeted keywords within your sentences to make sure search engines can find the business.</P>
+    </div>
+  </div>
+  <br>
+  <div class="row">
     <div class="col-xs-12 col-sm-12 col-lg-4">
       <div class="mini-form">
-      <p class="lead tagline">Nombres de personnes :</p>
-      <div class="form-group form-inline">
+        <div class="form-group form-inline form-brick">
+        <h2><span class="label label-info col-sm-12">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </span></h3>
         <%= f.label :adults, "Adulte(s) :  " %>
         <%= f.number_field :adults, class: "form-control" %>
       </div>
@@ -66,12 +79,21 @@
         <%= f.label :kids, "Enfant(s) :" %>
         <%= f.number_field :kids, class: "form-control" %>
       </div>
+      <h2><span class="label label-info col-sm-12">
+          <i class="fa fa-check" aria-hidden="true"></i>
+      </span></h3>
+      <br>
+      <div class="form-group form-inline">
+        <p>x Checkbox KIds friendly</p>
+        <p>X Checkbox 1st timer  </p>
+      </div>
       </div>
     </div>
-
     <div class="col-xs-12 col-sm-12 col-lg-4">
       <div class="mini-form">
-      <h3>A propos du budget</h3>
+        <h2><span class="label label-info ">
+            <i class="fa fa-money" aria-hidden="true"></i>  Budget :
+        </span></h3>
       <div class="form-group">
         <%= f.fields_for :budget do |ff| %>
         <%= ff.range_field( :value, in: 0..4, class: "form-control" ) %>
@@ -86,7 +108,6 @@
       </div>
     </div>
     </div>
-
     <div class="col-xs-12 col-sm-12 col-lg-4">
       <div class="mini-form">
       <h3>Nous aimons :</h3>
