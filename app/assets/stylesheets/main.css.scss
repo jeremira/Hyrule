@@ -2,16 +2,57 @@
 @import "bootstrap";
 @import "font-awesome";
 
+.btn {
+  width: 200px;
+}
+
 .btn-sm {
   width: 120px;
 }
 
+.btn-lg {
+  width: 100%;
+}
+
 #flash-section {
   position: absolute;
-  left: 10px;
-  right: 10px;
+  left: 30%;
+  right: 30%;
   top: 50px;
   height: 120px;
+  z-index: 999;
+}
+
+.chapeau-header{
+  text-align: center;
+  margin-top: 250px;
+}
+
+.chapeau-header h1 {
+  font-size: 6em;
+}
+
+.form-container {
+  border: 1px solid grey;
+  margin-top: 90px;
+  padding: 60px 10px;
+  background-color: rgba(210,200,200,0.8)
+}
+
+.mini-form {
+  border: 1px solid grey;
+  padding: 40px 30px;
+  margin: 60px 10px;
+  height: 350px;
+  background-color: rgba(210,200,200,0.8)
+}
+
+#trip_adults {
+  width: 60px;
+}
+
+#trip_kids {
+  width: 60px;
 }
 
  /* Start Bootstrap - Round About (http://startbootstrap.com/)
@@ -44,7 +85,7 @@ footer {
  /* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)*/
 
 .business-header {
- height: 400px;
+ height: 600px;
  /*'http://placehold.it/1920x400'*/
  background: asset-data-url("main.jpg") center center no-repeat scroll;
  -webkit-background-size: cover;

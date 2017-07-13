@@ -1,92 +1,136 @@
-<h4>
-<%= params.inspect %>
-</h4>
-
 <% if trip.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(trip.errors.count, "error") %> prohibited this day from being saved:</h2>
-    <ul>
-    <% trip.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
+ <section id="flash-section">
+   <div class="alert alert-warning alert-dismissable fade in">
+     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+     <strong>Votre voyage n'a pas pu être sauvegardé :</strong>
+     <ul>
+     <% trip.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+     </ul>
+   </div>
+</section>
 <% end %>
 
-  <%= form_for trip do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :date %>
-    <%= f.date_field :date %>
-  </p>
-  <p>
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-  </p>
+<%= form_for trip do |f| %>
 
-  <p>
-    <%= f.label :adults %>
-    <%= f.number_field :adults %>
-  </p>
-  <p>
-    <%= f.label :kids %>
-    <%= f.number_field :kids %>
-  </p>
+<header class="business-header">
+    <div class="container">
+      <div class="row">
+       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1  ">
 
-  <p>
-  <h5>Budget</h5>
-  <%= f.fields_for :budget do |ff| %>
-    <%= ff.label :value %>
-    <%= ff.range_field( :value, in: 0..4 ) %>
-    <%= ff.label :comment %>
-    <%= ff.text_field :comment %>
-  <% end %>
-  </p>
-  <p>
-  <h5>Rythme</h5>
-  <%= f.fields_for :rythme do |ff| %>
-    <%= ff.label :value %>
-    <%= ff.range_field( :value, in: 0..4 ) %>
-    <%= ff.label :walking %>
-    <%= ff.range_field( :walking, in: 0..4 ) %>
-    <%= ff.label :transport %>
-    <%= ff.range_field( :transport, in: 0..4 ) %>
-    <%= ff.label :comment %>
-    <%= ff.text_field :comment %>
-  <% end %>
-  </p>
+         <div class="form-container">
+           <div class="row">
+             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+               <div class="form-group">
+                 <%= f.label :name, 'Un joli nom pour votre voyage :' %>
+                 <%= f.text_field :name, class: "form-control input-lg", placeholder: "Mon superbe voyage à Tokyo." %>
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+               <hr>
+               <div class="form-group">
+                 <%= f.label :comment, 'Quelque choses à partager avec nous sur votre voyage ?' %>
+                 <%= f.text_area :comment, class: "form-control trip-comment-area",
+                      placeholder: "Vous souhaitez absolument voir quelque chose ? Ou au contraire vous ne voulez pas visiter ce musée ? Vous aimez les ramens ? Dites nous tout. :)" %>
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+                 <hr>
+                 <%= link_to "Personaliser votre voyage", "#option-row", class: "btn btn-success btn-lg" %>
+             </div>
+           </div>
+         </div>
 
-  <p>
-  <h5>Interest</h5>
-  <%= f.fields_for :style do |ff| %>
-    <%= ff.label :culture %>
-    <%= ff.check_box :culture %>
-    <%= ff.label :nature %>
-    <%= ff.check_box :nature %>
-    <%= ff.label :sport %>
-    <%= ff.check_box :sport %>
-    <%= ff.label :food %>
-    <%= ff.check_box :food %>
-    <%= ff.label :shopping %>
-    <%= ff.check_box :shopping %>
-    <%= ff.label :kid %>
-    <%= ff.check_box :kid %>
-    <%= ff.label :comment %>
-    <%= ff.text_field :comment %>
-  <% end %>
-  </p>
-  <p>
-    <h5>Extra information / Comment</h5>
-    <h6>Please let us know about allergy / restriction / special need</h6>
-    <%= f.text_area :comment %>
-  </p>
+      </div>
+    </div><!-- row -->
+  </div><!-- cont -->
+</header>
 
-  <p class="lead"><%= f.submit "Save trip !" %></p>
-<% end %>
+<!-- Page Content -->
+<div class="container">
+  <div class="row" id = "option-row">
+
+    <div class="col-xs-12 col-sm-12 col-lg-4">
+      <div class="mini-form">
+      <p class="lead tagline">Nombres de personnes :</p>
+      <div class="form-group form-inline">
+        <%= f.label :adults, "Adulte(s) :  " %>
+        <%= f.number_field :adults, class: "form-control" %>
+      </div>
+      <div class="form-group form-inline">
+        <%= f.label :kids, "Enfant(s) :" %>
+        <%= f.number_field :kids, class: "form-control" %>
+      </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-lg-4">
+      <div class="mini-form">
+      <h3>A propos du budget</h3>
+      <div class="form-group">
+        <%= f.fields_for :budget do |ff| %>
+        <%= ff.range_field( :value, in: 0..4, class: "form-control" ) %>
+        <% end %>
+      </div>
+      <h3 class="title">Le planning de vos vacances :</h3>
+      <div class="form-group">
+        <%= f.fields_for :rythme do |ff| %>
+          <%= f.label :value, 'Le rythme de vos vacances :' %>
+          <%= ff.range_field( :value, in: 0..4, class: "form-control" ) %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-lg-4">
+      <div class="mini-form">
+      <h3>Nous aimons :</h3>
+      <div class="form-group">
+        <%= f.fields_for :style do |ff| %>
+          <%= ff.label :culture %>
+          <%= ff.check_box :culture %>
+          <%= ff.label :nature %>
+          <%= ff.check_box :nature %>
+          <%= ff.label :sport %>
+          <%= ff.check_box :sport %>
+          <%= ff.label :food %>
+          <%= ff.check_box :food %>
+          <%= ff.label :shopping %>
+          <%= ff.check_box :shopping %>
+          <%= ff.label :kid %>
+          <%= ff.check_box :kid %>
+          <%= ff.label :comment %>
+          <%= ff.text_field :comment %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+  </div><!-- row -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+      <hr>
+      <%= f.submit "Save trip !", class: "btn btn-success btn-lg" %>
+      <% end %> <!-- form end -->
+    </div>
+  </div><!-- row -->
+
+
+    <footer>
+       <a class="anchor" id="comment-row"></a>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+              FOOTER_CONTENT
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
+
+
+
+</div>
+<!-- /.container -->

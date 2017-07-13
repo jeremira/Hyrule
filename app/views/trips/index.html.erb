@@ -1,24 +1,26 @@
 <header class="business-header">
     <div class="container">
-
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <div class="chapeau-header">
+            <h1 class="tagline">Krakoukas</h1>
+            <hr>
+            <p class="lead tagline text-center">Tour personalisé de Tokyo</p>
+            <p class="text-center">
+              <%= link_to "Créer un nouveau voyage", new_trip_path,  class: "btn btn-success btn-lg" %>
+              <br>
+              <%= link_to "Voir mes voyages", "#voyages-row", class: "btn btn-success btn-lg" %>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 </header>
 
 <div class="container">
-  <!-- Introduction Row -->
-  <div class="row">
-      <div class="col-lg-12">
-          <h1 class="page-header">Bonjour !
-              <small>Voici une journée parfaite pour organiser un nouveau voyage !</small>
-          </h1>
-          <p> blabla blabla commercial.</p>
-          <p><%= link_to "Créer un nouveau voyage", new_trip_path, class: "btn btn-success" %></p>
-          <p><%= link_to "Comment ça marche ?", "#information-row", class: "btn btn-info" %></p>
-      </div>
-  </div>
   <!-- Trip rendering Row -->
   <br>
-  <div class="row">
+  <div class="row" id="voyages-row">
       <div class="col-lg-12">
         <h1 class="page-header">
             <% if @trips.length >0 %>

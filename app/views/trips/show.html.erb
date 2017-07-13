@@ -3,26 +3,23 @@
 <!-- Note: The background image is set within the business-casual.css file. -->
 <header class="business-header">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-              <h1 class="tagline"><%= @trip.name.capitalize %></h1>
-              <p><a href="#day-row">
-                <button type="button" class="btn btn-default btn-sm"><strong>Planning</strong></button>
-              </a></p>
-              <p><a href="#info-row">
-                <button type="button" class="btn btn-default btn-sm"><strong>Préférences</strong></button>
-              </p></a>
-              <p><a href="#comment-row">
-                <button type="button" class="btn btn-default btn-sm"><strong>Commentaires</strong></button>
-              </p></a>
-                <% if @trip.gestion.status == "new" %>
-                  <p>
-                    <%= link_to raw("<button type='button' class='btn btn-danger btn-sm'><strong>Supprimer</strong></button>"),
-                              trip_path(@trip), method: :delete, data: {confirm: "Delete this trip ?"} %>
-                  </p>
-                <%end%>
-            </div>
+      <div class="row">
+       <div class="col-lg-6 col-lg-offset-3">
+         <div class="chapeau-header">
+          <h1 class="tagline"><%= @trip.name.capitalize %></h1>
+          <hr>
+           <p class="lead tagline text-center">Dites-nous vos vacances idéales, nous faisons le reste.</p>
+           <p class="text-center">
+             <%= link_to "Planning du voyage", "#day-row", class: "btn btn-success" %>
+             <%= link_to "Préférences", "#info-row", class: "btn btn-success" %>
+           </p><p>
+             <%= link_to "Modifier", edit_trip_path(@trip),  class: "btn btn-warning" %>
+             <%= link_to "Supprimer", trip_path(@trip), method: :delete,
+                          data: {confirm: "Delete this trip ?"}, class: "btn btn-danger" %>
+           </p>
+          </div>
         </div>
+      </div>
     </div>
 </header>
 
@@ -34,6 +31,12 @@
         <hr>
         <%= render partial: 'book_status', locals: { trip: @trip }%>
         <hr>
+        <% if @trip.gestion.status == "new" %>
+            <p>
+              <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
+                           data: {confirm: "Delete this trip ?"}, class: "btn btn-danger" %>
+            </p>
+        <%end%>
       </div>
       <%= render @days %>
       <div class="col-sm-4 text-center">
