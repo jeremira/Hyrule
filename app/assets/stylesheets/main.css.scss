@@ -2,6 +2,9 @@
 @import "bootstrap";
 @import "font-awesome";
 
+.debug {
+  border: 1px solid red;
+}
 .btn {
   width: 200px;
 }
@@ -39,20 +42,22 @@
   background-color: rgba(210,200,200,0.8)
 }
 
-.mini-form {
-  margin: 30px 10px;
+.form-low-container {
+  margin: 0;
+  padding: 15px 20px;
   color: grey;
   border-radius: 10px;
   border: 1px solid grey;
   background-color: #f9f9f9;
 }
 
-.mini-form h4 {
+.form-label {
   text-align: center;
-  background-color: #a0a0a0;
+  background-color: #5bc0de;
+  border-radius: 5px;
   line-height: 2em;
   padding :0;
-  margin: 10px 0;
+  margin: 10px 10px 25px 10px;
   color: #f9f9f9;
 }
 
@@ -60,8 +65,8 @@
   padding: 0 5px;
 }
 
-.form-group {
-  padding: 0 15px;
+.decal-left {
+  margin-left: 60px;
 }
 
 #trip_adults {
@@ -136,3 +141,51 @@ https://bootsnipp.com/snippets/featured/boxes-with-icon-hover*/
 .box > .icon > .info > .more a { font-family: "Roboto",sans-serif !important; font-size: 14px; color: #222; line-height: 16px; text-transform: uppercase; text-decoration: none; }
 .box > .icon:hover > .info > .more > a { color: #fff; padding: 6px 8px; background-color: #63B76C; }
 .box .space { height: 30px; }
+
+/* From bootsnip for custom check box
+https://bootsnipp.com/snippets/featured/checkboxradio-css-only */
+
+.material-switch > input[type="checkbox"] {
+    display: none;
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative;
+    width: 40px;
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
