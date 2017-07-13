@@ -40,11 +40,28 @@
 }
 
 .mini-form {
-  border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
-  padding: 15px 30px;
   margin: 30px 10px;
   color: grey;
+  border-radius: 10px;
+  border: 1px solid grey;
+  background-color: #f9f9f9;
+}
+
+.mini-form h4 {
+  text-align: center;
+  background-color: #a0a0a0;
+  line-height: 2em;
+  padding :0;
+  margin: 10px 0;
+  color: #f9f9f9;
+}
+
+.fa {
+  padding: 0 5px;
+}
+
+.form-group {
+  padding: 0 15px;
 }
 
 #trip_adults {
@@ -55,9 +72,6 @@
   width: 60px;
 }
 
-.form-brick {
-  border: 1px solid red;
-}
 
  /* Start Bootstrap - Round About (http://startbootstrap.com/)
  /* Copyright 2013-2016 Start Bootstrap
