@@ -5,17 +5,6 @@
 .debug {
   border: 1px solid red;
 }
-.btn {
-  width: 200px;
-}
-
-.btn-sm {
-  width: 120px;
-}
-
-.btn-lg {
-  width: 100%;
-}
 
 #flash-section {
   position: absolute;
@@ -59,6 +48,10 @@
   padding :0;
   margin: 10px 10px 25px 10px;
   color: #f9f9f9;
+}
+
+.wrapper {
+  margin: 30px 15px;
 }
 
 .fa {
@@ -143,7 +136,7 @@ https://bootsnipp.com/snippets/featured/boxes-with-icon-hover*/
 .box .space { height: 30px; }
 
 /* From bootsnip for custom check box
-https://bootsnipp.com/snippets/featured/checkboxradio-css-only */
+https://bootsnipp.com/snippets/featured/material-design-switchn */
 
 .material-switch > input[type="checkbox"] {
     display: none;

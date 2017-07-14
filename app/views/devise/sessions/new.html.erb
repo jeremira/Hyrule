@@ -1,41 +1,86 @@
+<!-- Image Background Page Header -->
+<!-- Note: The background image is set within the business-casual.css file. -->
+<header class="business-header">
+    <div class="container">
+      <div class="row">
+       <div class="col-lg-6 col-lg-offset-3">
+         <div class="chapeau-header">
+          <h1 class="tagline">Krakoukass</h1>
+          <hr>
+           <p class="lead tagline text-center">Dites-nous vos vacances idéales, nous faisons le reste.
+              <small>Visites guidés de Tokyo et ses environs.</small></p>
+           <p class="text-center">
+             <%= link_to "Se connecter", "#login-row", class: "btn btn-success" %>
+             <%= link_to "Créer un compte", new_user_registration_path, class: "btn btn-success" %>
+           </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</header
+
+
 <div class = "container">
 
-  <div class="row">
-      <div class="col-lg-12">
-          <h1 class="page-header">Krakoukas
-              <small>Custom trip in tokyo so much WOW!</small>
-          </h1>
-          <p>Login below, or <%= link_to 'create an account', new_user_registration_path %></p>
-      </div>
+  <div class="row" id = "login-row">
+    <br>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 text-center">
+      <hr>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
+      <h2>Identifiez-vous</h2>
+    </div>
   </div>
-
+  <br>
   <div class="row">
-    <div class="col-lg-12">
-     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.email_field :email, autofocus: true, placeholder: 'Enter your email', :class => 'btn btn-secondary btn-lg' %>
-      <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password', :class => 'btn btn-secondary btn-lg' %>
-      <% if devise_mapping.rememberable? -%>
-       <%= f.check_box :remember_me, :class => 'btn btn-secondary btn-lg' %>
-       <%= f.label :remember_me, :class => 'btn btn-secondary btn-lg' %>
-     <% end %>
-     <%= f.submit "Log in", :class => 'btn btn-secondary btn-lg' %>
-    <% end %>
+    <div class="col-lg-4 col-lg-offset-4">
+      <div class="form-low-container">
+        <div class="wrapper">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+           <div class="form-group">
+             <%= f.email_field :email, autofocus: true, placeholder: 'Enter your email', :class => 'form-control input-lg' %>
+           </div>
+           <div class="form-group">
+             <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password', :class => 'form-control input-lg' %>
+           </div>
+           <div class="form-group form-inline text-center">
+             <% if devise_mapping.rememberable? -%>
+               <%= f.check_box :remember_me, :class => 'form-control' %>
+               <%= f.label :remember_me, 'Se souvenir de moi' %>
+             <% end %>
+           </div>
+           <div class="form-group">
+             <%= f.submit "Log in", :class => 'btn btn-success btn-lg btn-block' %>
+            <% end %>
+            <br>
+            <div class="col-lg-4">
+              <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Facebook</span>"),
+                  omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-facebook" %>
+            </div>
+            <div class="col-lg-4">
+              <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Twitter</span>"),
+                  omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-twitter" %>
+            </div>
+            <div class="col-lg-4">
+              <%= link_to raw("<i class='fa fa-google fa-fw'></i> <span class='network-name'>Google</span>"),
+                omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-google" %>
+            </div>
+          </div>
+          <br>
+          <hr>
+          <p>Mot de passe oublié ?</p>
+          <p>Nouveau ? créez un compte</p>
+        </div>
+      </div>
    </div>
   </div>
-<hr>
-  <div class="row">
-    <div class="col-lg-4">
-      <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Facebook</span>"),
-          omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-facebook" %>
-    </div>
-    <div class="col-lg-4">
-      <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Twitter</span>"),
-          omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-twitter" %>
-    </div>
-    <div class="col-lg-4">
-      <%= link_to raw("<i class='fa fa-google fa-fw'></i> <span class='network-name'>Google</span>"),
-        omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-google" %>
-    </div>
+  <footer>
+     <a class="anchor" id="comment-row"></a>
+      <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+            FOOTER_CONTENT
+          </div>
+      </div>
+      <!-- /.row -->
+  </footer>
   </div>
-
-</div>
+  <!-- /.container -->
