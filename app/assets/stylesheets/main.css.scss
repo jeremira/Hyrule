@@ -17,7 +17,7 @@
 
 .chapeau-header{
   text-align: center;
-  margin-top: 250px;
+  margin-top: 150px;
 }
 
 .chapeau-header h1 {
@@ -29,6 +29,13 @@
   margin-top: 90px;
   padding: 60px 10px;
   background-color: rgba(210,200,200,0.8)
+}
+
+.header-background {
+  background-color: rgba(210,200,200,0.8);
+  padding: 15px 20px;
+  border: 1px solid grey;
+  border-radius: 3px;
 }
 
 .form-low-container {
@@ -108,6 +115,7 @@ footer {
  -moz-background-size: cover;
  background-size: cover;
  -o-background-size: cover;
+ padding-top: 75px;
  margin-bottom: 10px;
 }
 

@@ -1,42 +1,33 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">Krakoukas
-            <small>Create a new account :</small>
-        </h1>
-        <p>Enter your email and password, or login using your favorite SNS</p>
+<!-- Image Background Page Header -->
+<!-- Note: The background image is set within the business-casual.css file. -->
+<header class="business-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-4 col-lg-offset-4 text-center">
+          <div class="form-low-container">
+            <div class="wrapper">
+              <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
+              <h3>Créer un compte</h3>
+              <hr>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <div class="form-group">
+                  <%= f.email_field :email, placeholder: 'Entrez votre email', :class => 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.password_field :password, autocomplete: "off", placeholder: 'Entrez votre mot de passe',
+                                     :class => 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.password_field :password_confirmation, autocomplete: "off",
+                                      placeholder: 'Confirmez votre mot de passe', :class => 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.submit "Créer mon compte !", :class => 'form-control btn-success btn-block' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-12">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-      <%= f.email_field :email, autofocus: true, placeholder: 'Enter your email', :class => 'btn btn-secondary btn-lg' %>
-      <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password', :class => 'btn btn-secondary btn-lg' %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm your password', :class => 'btn btn-secondary btn-lg' %>
-      <%= f.submit "Sign up !", :class => 'btn btn-secondary btn-lg' %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-4">
-      <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Facebook</span>"),
-          omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-facebook" %>
-    </div>
-    <div class="col-lg-4">
-      <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Twitter</span>"),
-          omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-twitter" %>
-    </div>
-    <div class="col-lg-4">
-      <%= link_to raw("<i class='fa fa-google fa-fw'></i> <span class='network-name'>Google</span>"),
-        omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-google" %>
-    </div>
-  </div>
-
-
-</div>
+</header>

@@ -7,17 +7,19 @@
          <div class="chapeau-header">
           <h1 class="tagline">Krakoukass</h1>
           <hr>
-           <p class="lead tagline text-center">Dites-nous vos vacances idéales, nous faisons le reste.
-              <small>Visites guidés de Tokyo et ses environs.</small></p>
-           <p class="text-center">
-             <%= link_to "Se connecter", "#login-row", class: "btn btn-success" %>
-             <%= link_to "Créer un compte", new_user_registration_path, class: "btn btn-success" %>
-           </p>
+            <div class="row header-background">
+              <p class="lead tagline text-center">Dites-nous vos vacances idéales, nous faisons le reste.
+                 <small>Visites guidés de Tokyo et ses environs.</small></p>
+                <p class="text-center"><%= link_to "Se connecter", "#login-row", class: "btn btn-success btn-lg" %>
+                  <%= link_to "Informations", "#information-row", class: "btn btn-info btn-lg" %></p>
+                <p class="tagline">Vous n'avez pas encore de compte ? Vite ! <%= link_to "Créer un compte !",
+                                                              new_user_registration_path %></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-</header
+</header>
 
 
 <div class = "container">
@@ -27,17 +29,16 @@
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 text-center">
       <hr>
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
-      <h2>Identifiez-vous</h2>
+      <h3>Identifiez-vous</h3>
     </div>
   </div>
-  <br>
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
       <div class="form-low-container">
         <div class="wrapper">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
            <div class="form-group">
-             <%= f.email_field :email, autofocus: true, placeholder: 'Enter your email', :class => 'form-control input-lg' %>
+             <%= f.email_field :email, placeholder: 'Enter your email', :class => 'form-control input-lg' %>
            </div>
            <div class="form-group">
              <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password', :class => 'form-control input-lg' %>
@@ -65,7 +66,6 @@
                 omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-secondary btn-social btn-google" %>
             </div>
           </div>
-          <br>
           <hr>
           <p>Mot de passe oublié ?</p>
           <p>Nouveau ? créez un compte</p>
