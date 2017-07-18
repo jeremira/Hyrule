@@ -1,31 +1,36 @@
-<h1>Day#show</h1>
-
-<p><%= notice %></p>
-
-<p>
-  <strong>ID:</strong>
-  <%= @day.id %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @day.date %>
-</p>
-
-<p>
-  <strong>Theme:</strong>
-  <%= @day.theme.name %>
-</p>
-<% if @day.lunch.todo %>
-<p>
-  We book a lunch for you !  <strong>Theme:</strong> <%= @day.lunch.style %>
-</p>
-<% end %>
-<% if @day.dinner.todo %>
-<p>
-  We book a dinner for you ! <strong>Theme :</strong><%= @day.dinner.style %>
-<p>
-<% end %>
-
-<%= link_to 'Edit', edit_trip_day_path(@trip, @day) %> |
-<%= link_to 'Back', trip_path(@trip) %>
+<header class="business-header">
+    <div class="container">
+      <div class="row">
+       <div class="col-lg-6">
+         <div class="chapeau-header">
+          <h1 class="tagline"><%= @day.theme.name %></h1>
+           <p class="tagline text-center"><%= @day.theme.descr %></p>
+           <p class="tagline lead text-center"><%= @day.date %></p>
+           <p class="text-center">
+             <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
+             <%= link_to "Retour au planning",  trip_path(@trip), class: "btn btn-block btn-success" %>
+           </p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="chapeau-header">
+            <div class="form-container">
+              <h4 class="tagline text-left"><div class="label-success label label-lg wrapper"><i class="fa fa-check"></i></div>Conseillez moi un magnifique déjeuner !</h4>
+              <p class="tagline text-left">Nous choisirons un restaurant local et délicieux sur un peit budget pour vous.</p>
+              <h4 class="tagline text-left"><div class="label-danger   label label-lg wrapper"><i class="fa fa-times"></i></div>Nous n'avons pas besoin d'un diner.</h4>
+              <p class="tagline text-left">Vous êtes libre pour ce repas, nous ne réserverons pas de diner.</p>
+              <hr>
+              <%= form_for [@trip, @day] do |f| %>
+              <div class="form-group">
+              <%= f.label :comment, "Quelque chose à nous dire pour cette journée ?", class: "tagline" %>
+              <%= f.text_area :comment, class: "form-control",
+                  placeholder: "Vous avez déjà visiter un monument ? Vous voulez gouter une spécialité ? Vous ne voulez pas prendre le métro ? Dites nous tout ! :)" %>
+              <%= f.submit "Sauvegarder", class: "btn btn-success btn-block" %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>

@@ -1,27 +1,60 @@
 <%= form_for [trip, day] do |f| %>
-  <% if day.errors.any? %>
-    <div>
-      <h2><%= pluralize(@day.errors.count, "error") %> prohibited this day from being saved:</h2>
 
-      <ul>
-      <% day.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div>
+  <%= f.label :theme %>
+
+</div>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <% Theme.all.each_with_index do |theme, index| %>
+      <li><%= f.radio_button( :theme_id,  theme.id , html: { "data-target" => "#" , "data-slide-to" => index }) %>
+      <%= label theme.id, theme.name %></li>
+    <% end %>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag "shibuya.jpg" %>
+      <div class="carousel-caption">
+        Shibuya
+      </div>
     </div>
-  <% end %>
+    <div class="item">
+      <%= image_tag "femme.png" %>
+      <div class="carousel-caption">
+        FemmeS
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Précédent</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Suivant</span>
+  </a>
+</div>
+
+
+
+<br>
+<hr>
+<br>
 
   <div>
     <%= f.label :date %>
     <%= f.date_field :date %>
   </div>
-  <div>
-    <%= f.label :theme %>
-    <% Theme.all.each do |theme| %>
-      <%= f.radio_button( :theme_id,  theme.id ) %>
-      <%= label theme.id, theme.name %>
-    <% end %>
-  </div>
+
   <div>
     <h5>Lunch</h5>
     <%= f.fields_for :lunch do |ff| %>

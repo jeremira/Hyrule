@@ -1,4 +1,3 @@
-
 <!-- Image Background Page Header -->
 <!-- Note: The background image is set within the business-casual.css file. -->
 <header class="business-header">
@@ -8,51 +7,56 @@
          <div class="chapeau-header">
           <h1 class="tagline"><%= @trip.name.capitalize %></h1>
           <hr>
-           <p class="lead tagline text-center">Dites-nous vos vacances idéales, nous faisons le reste.</p>
+           <p class="lead tagline text-center">Pour 2 Adultes et 1 enfant.</p>
            <p class="text-center">
-             <%= link_to "Planning du voyage", "#day-row", class: "btn btn-success" %>
-             <%= link_to "Préférences", "#info-row", class: "btn btn-success" %>
-           </p><p>
-             <%= link_to "Modifier", edit_trip_path(@trip),  class: "btn btn-warning" %>
-             <%= link_to "Supprimer", trip_path(@trip), method: :delete,
-                          data: {confirm: "Delete this trip ?"}, class: "btn btn-danger" %>
+             <%= link_to "Planning du voyage", "#day-row", class: "btn btn-block btn-success" %>
+             <%= link_to "Préférences", "#info-row", class: "btn btn-block btn-success" %>
            </p>
           </div>
         </div>
       </div>
     </div>
 </header>
-
 <!-- Page Content -->
 <div class="container">
     <a class="anchor" id="day-row"></a>
     <div class="row">
       <div class="col-sm-4 text-center">
-        <hr>
-        <%= render partial: 'book_status', locals: { trip: @trip }%>
-        <hr>
-        <% if @trip.gestion.status == "new" %>
-            <p>
-              <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
-                           data: {confirm: "Delete this trip ?"}, class: "btn btn-danger" %>
-            </p>
-        <%end%>
+        <div class="form-low-container">
+          <div class="wrapper">
+            <%= render partial: 'book_status', locals: { trip: @trip }%>
+
+            <% if @trip.gestion.status == "new" %>
+                <p>
+                  <%= link_to "Modifier mon voyage", edit_trip_path(@trip),  class: "btn btn-block btn-warning" %>
+                  <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
+                               data: {confirm: "Delete this trip ?"}, class: "btn btn-block btn-danger" %>
+                </p>
+            <%end%>
+          </div>
+        </div>
       </div>
       <%= render @days %>
       <div class="col-sm-4 text-center">
-        <hr>
-        <h4> Ce voyage comprend <%= @days.length %> journée.</h4>
-        <p>Ajoutez de nouvelles journée en cliquant sur le bouton ci-dessous.</p>
-        <% if @trip.gestion.status == "new" %>
-          <p><a href="<%= new_trip_day_path(@trip) %>">
-            <button type="button" class="btn btn btn-success"><strong>Ajouter une nouvelle journée</strong></button>
-          </p></a>
-        <% end %>
-        <hr>
+        <div class="wrapper">
+          <h4> Ce voyage comprend <%= @days.length %> journée.</h4>
+          <% if @trip.gestion.status == "new" %>
+            <p><a href="<%= new_trip_day_path(@trip) %>">
+              <button type="button" class="btn btn-block btn btn-success"><strong>Ajouter une nouvelle journée</strong></button>
+            </p></a>
+          <% end %>
+        </div>
       </div>
     </div>
     <!-- /.row -->
-    <hr>
+    <br>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 text-center">
+      <hr>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
+      <h3>Votre voyage idéal</h3>
+        <p>Comment aimez-vous passez vos vacances ? Vérifier ces informations afin que nous puissions préparer le voyage
+        parfait pour vous. N'hésitez pas à laisser un LINK_TO pour nous donner encore plus de précisions.</p>
+    </div>
     <a class="anchor" id="info-row"></a>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-lg-4">
@@ -60,7 +64,7 @@
         <div class="icon">
           <div class="image"><i class="fa fa-flag"></i></div>
           <div class="info">
-            <h3 class="title">Vous avez choisi un Eco Trip !</h3>
+            <h3 class="title">Vous avez choisi un Eco Trip!</h3>
               <p><b>Petit budget, Best experience !</b> Priorité aux activités gratuites
               et aux restaurants locaux. :-)</p>
               <h3 class="title">Avec   un guide privé !</h3>
@@ -125,9 +129,8 @@
           <h3 class="title">Avec un rythme relax !</h3>
             <p><b>Un rythme relaxant !</b> Votre trip sera organisé pour que
               vous ayez le temps de vous reposer.</p>
-            <p><b>Un minimum de transport</b> pour profiter de la journée un
-              maximum.</p>
-              <p><b>Vous aimez marcher</b> mais vous ne souhaitez pas fnir sur les rotules !</p>
+            <p>C'est votre <strong>première fois</strong> à Tokyo et vous <strong>souaitez</strong>
+              sortir des sentiers battus et visiter des endroits plus secret.</p>
               <div class="more">
                 <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
                   Modifier mon voyage <i class="fa fa-angle-double-right"></i>
@@ -141,7 +144,18 @@
     </div>
     </div>
     <!-- /.row -->
-    <hr>
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+      <%= form_for @trip do |f| %>
+        <div class="form-group">
+        <%= f.label :description, "Information sur votre voyage :" %>
+        <%= f.text_area :description, placeholder: "C'est votre lune de miel ? Un anniversaire ? Vous voulez faire du cosplay ?
+        Mangez des sushis au marché ou voir du Kabuki ? Dites nous toute ce que vous voulez !", class: 'form-control trip-comment-area' %>
+        <%= f.submit "Sauvegarder", class: "btn btn-block btn-success" %>
+        </div>
+      <% end %>
+      </div>
+    </div>
     <!-- Footer -->
     <footer>
        <a class="anchor" id="comment-row"></a>
