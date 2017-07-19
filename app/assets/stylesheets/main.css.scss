@@ -7,6 +7,31 @@
   border: 1px solid red;
 }
 
+.theme-details {
+  display: inline-block;
+  width: 100%;
+  height: 300px;
+  background-color: rgba(210,200,200,0.8);
+  border: 1px solid grey;
+}
+
+.thumb-img {
+  height: 100%;
+  width: 100%;
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:4px solid green;
+}
+
 #flash-section {
   position: absolute;
   left: 30%;
@@ -154,6 +179,10 @@ https://bootsnipp.com/snippets/featured/material-design-switchn */
     display: none;
 }
 
+.material-switch > input[type="radio"] {
+    display: none;
+}
+
 .material-switch > label {
     cursor: pointer;
     height: 0px;
@@ -190,7 +219,18 @@ https://bootsnipp.com/snippets/featured/material-design-switchn */
     background: inherit;
     opacity: 0.5;
 }
+
+.material-switch > input[type="radio"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+
 .material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+
+.material-switch > input[type="radio"]:checked + label::after {
     background: inherit;
     left: 20px;
 }
