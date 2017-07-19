@@ -1,169 +1,154 @@
-<!-- Image Background Page Header -->
-<!-- Note: The background image is set within the business-casual.css file. -->
-<header class="business-header">
-    <div class="container">
-      <div class="row">
-       <div class="col-lg-6 col-lg-offset-3">
-         <div class="chapeau-header">
-          <h1 class="tagline">Krakoukass</h1>
-          <hr>
+<!-- Intro Header -->
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
             <div class="row">
-              <p class="lead tagline text-center">Dites-nous vos vacances idéales, nous faisons le reste.<br>
-                 <small>Visites guidés 100% personalisable de Tokyo et ses environs.</small></p>
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading tagline">KRAKOUKASS</h1>
+                    <p class="intro-text tagline">Vos vacances à Tokyo comme personne !
+                        <br>Réservez vos vacances sur mesure maintenant.</p>
+                    <div class="row">
+                      <div class="col-lg-6 col-lg-offset-3">
+                        <p class="text-center"><%= link_to "Se connecter", "#login-row", class: "btn btn-success btn-lg btn-block" %>
+                        <p class="text-center"><%= link_to "Comment ça marche ?", "#info-row", class: "btn btn-success btn-lg btn-block" %></p>
+                      </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <p class="text-center"><%= link_to "Se connecter", "#login-row", class: "btn btn-success btn-lg btn-block" %>
-                <p class="text-center"><%= link_to "Comment ça marche ?", "#info-row", class: "btn btn-success btn-lg btn-block" %></p>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
 </header>
 
-
-<div class = "container">
-
-  <div class="row" id = "login-row">
-    <br>
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 text-center">
-      <hr>
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
-      <h3>Identifiez-vous</h3>
-    </div>
-  </div>
+<!-- Main Section -->
+<section id="login-row" class="container content-section text-center">
   <div class="row">
-    <div class="col-lg-4 col-lg-offset-4">
-      <div class="form-low-container">
-        <div class="wrapper">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-           <div class="form-group">
-             <%= f.email_field :email, placeholder: 'Enter your email', :class => 'form-control input-lg' %>
-           </div>
-           <div class="form-group">
-             <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password', :class => 'form-control input-lg' %>
-           </div>
-           <div class="form-group form-inline text-center">
-             <% if devise_mapping.rememberable? -%>
-               <%= f.check_box :remember_me, :class => 'form-control' %>
-               <%= f.label :remember_me, 'Se souvenir de moi' %>
-             <% end %>
-           </div>
-           <div class="form-group">
-             <%= f.submit "Log in", :class => 'btn btn-success btn-lg btn-block' %>
-            <% end %>
-            <br>
-            <div class ="row">
-              <p class="text-center"><strong>ou</strong>  </p>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Se connecter avec Facebook</span>"),
-                  omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-social btn-facebook" %>
-                </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Se connecter avec Twitter</span>"),
-                  omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-default btn-social btn-twitter" %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <%= link_to raw("<i class='fa fa-google fa-fw'></i> <span class='network-name'>Se connecter avec Google</span>"),
-                omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-default btn-social btn-google" %>
-              </div>
-            </div>
-          </div>
-          <hr>
-          <%= render "devise/shared/links" %>
-        </div>
-      </div>
-   </div>
-  </div>
-<footer>
-  <div class="row" id="info-row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 text-center">
-      <hr>
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-question"></i></div></div></div>
-      <h3>Comment ça marche ?</h3>
-      <p> Simple et rapide, personalisez vos vacances a Tokyo et profitez des conseils de locaux connaisant la ville.
-          Dites-nous comment vous aimez passez vos vacances, nous organisons votre séjour pour qu'il vous corresponde.</p>
-      </div>
-      <div class="col-lg-10 col-lg-offset-1">
+    <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+      <div class="wrapper">
         <div class="row">
-          <br>
-          <div class="col-xs-12 col-sm-6 col-lg-4">
-            <div class="box">
-              <div class="icon">
-                <div class="image"><i class="fa fa-user-plus"></i></div>
-                <div class="info">
-                  <h3 class="title">Créez un compte</h3>
-                  <p><b>Simple et gratuit :</b> Rentrez votre email, choisissez un mot de passe... Hop ! C'est fini. </p>
-                  <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                      <%= link_to "Créer un compte", new_user_registration_path, class: "btn btn-block btn-success" %>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                      <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Se connecter avecFacebook</span>"),
-                          omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-social btn-facebook" %>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                      <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Se connecter avec Twitter</span>"),
-                          omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-default btn-social btn-twitter" %>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                      <%= link_to raw("<i class='fa fa-google fa-fw'></i> <span class='network-name'>Se connecter avec Google</span>"),
-                          omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-default btn-social btn-google" %>
-                    </div>
-                  </div>
-                </div>
+          <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
+          <h2>Se connecter</h2>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+               <div class="form-group">
+                 <%= f.email_field :email, placeholder: 'Enter your email', :class => 'form-control' %>
+               </div>
+               <div class="form-group">
+                 <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password', :class => 'form-control' %>
+               </div>
+               <div class="checkbox">
+                 <% if devise_mapping.rememberable? -%>
+                   <%= f.check_box :remember_me %>
+                   <%= f.label :remember_me, 'Se souvenir de moi' %>
+                 <% end %>
+               </div>
+               <div class="form-group">
+                 <%= f.submit "Log in", :class => 'btn btn-success btn-block' %>
+                <% end %>
               </div>
-              <div class="space"></div>
-            </div>
           </div>
-          <div class="col-xs-12 col-sm-6 col-lg-4">
-            <div class="box">
-              <div class="icon">
-                <div class="image"><i class="fa fa-tasks"></i></div>
-                <div class="info">
-                  <h3 class="title">Créer votre voyage</h3>
-                  <p>Restaurants, visites, shopping dsq dqsd qssqdqsdsqdsqdqsd dsq dqsd qsd qsdsqd en fonction de vos gouts.</p>
-                  <h3 class="title">Créer vos journée</h3>
-                  <p>Restaurants, visites, shopping dsq dqsd qsdqsdqs d qsd qs dsq dqs d qsd qsdsqd en fonction de vos gouts.</p>
-                </div>
-              </div>
-              <div class="space"></div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-lg-4">
-            <div class="box">
-              <div class="icon">
-                <div class="image"><i class="fa fa-plane"></i></div>
-                <div class="info">
-                  <h3 class="title">Réservez vos dates</h3>
-                  <p>Restaurants, visites, shopping dsq dqsd qssqdqsdsqdsqdqsd dsq dqsd qsd qsdsqd en fonction de vos gouts.</p>
-                  <h3 class="title">Hop en route pour Tokyo !</h3>
-                  <p>Restaurants, visites, shopping dsq dqsd qsdqsdqs d qsd qs dsq dqs d qsd qsdsqd en fonction de vos gouts.</p>
-                </div>
-              </div>
-              <div class="space"></div>
-            </div>
+        </div>
+        <div class ="row">
+          <p class="text-center"><strong>ou</strong>  </p>
+        </div>
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Se connecter avec Facebook</span>"),
+            omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-social btn-facebook" %>
           </div>
         </div>
         <br>
         <div class="row">
-          <%= link_to "Créer un compte et réservez votre premier voyage ", new_user_registration_path, class: "btn btn-block btn-success" %>
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Se connecter avec Twitter</span>"),
+            omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-default btn-social btn-twitter" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= link_to raw("<i class='fa fa-google fa-fw'></i> <span class='network-name'>Se connecter avec Google</span>"),
+            omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-default btn-social btn-google" %>
+          </div>
+        </div>
+        <hr>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image Section -->
+<section class="content-section text-center">
+    <div class="download-section">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>TODO name theme</h2>
+                <p>TODO JS : take a random theme and display image and legend</p>
+                <a href="" class="btn btn-default btn-lg">Réserver mon voyage</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Section -->
+<section  id="info-row" class="container content-section text-center">
+  <div class="header-wrapper">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+        <div class="box"><div class="icon"><div class="image"><i class="fa fa-question"></i></div></div></div>
+        <h3>Comment ça marche ?</h3>
+        <p> Simple et rapide, personalisez vos vacances a Tokyo et profitez des conseils de locaux connaisant la ville.
+            Dites-nous comment vous aimez passez vos vacances, nous organisons votre séjour pour qu'il vous corresponde.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-lg-4">
+      <div class="box">
+        <div class="icon">
+          <div class="image"><i class="fa fa-tasks"></i></div>
+          <div class="info">
+            <h3 class="title">Un voyage idéal</h3>
+            <p>Choisissez vos dates, le nombre de personne et le budget de votre voyage.</p>
+            <p>Personalisez votre voyage en choisissant les horaires, le rythme, le style et les thème de votre voyage.</p>
+            <p>Dites nous ce que vous aimez et ce que vous n'aimez pas pendant vos vacances.</p>
+          </div>
         </div>
       </div>
     </div>
-      <!-- /.row -->
-  </footer>
+    <div class="col-sm-6 col-lg-4">
+      <div class="box">
+        <div class="icon">
+          <div class="image"><i class="fa fa-calendar"></i></div>
+          <div class="info">
+            <h3 class="title">Des journées sur mesure</h3>
+            <p>Choisissez le thème de votre journée, nous vous conseillons le meilleur programme selon vos préférences.</p>
+            <p>Recevez un programme détaillé personnel créé sur mesure par des guides locaux, ou bien réservez un de nos guide locaux !</p>
+            <p>Vous ne visiterez pas Tokyo comme tout le monde : restaurant, monuments, visites, ne voyez que ce qu'il vous plait !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <div class="box">
+        <div class="icon">
+          <div class="image"><i class="fa fa-plane"></i></div>
+          <div class="info">
+            <h3 class="title">Une réservation sécurisé</h3>
+            <p>Réservation et paiement en ligne sécurisé.</p>
+            <p>Une équipe professionnel à votre écoute pour toute demande spéciale.</p>
+            <p>Bla bla bla commercial ?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- row containing three sub-info box end -->
+  <br>
+  <div class="row">
+      <%= link_to "Créer un compte et réservez votre premier voyage ", new_user_registration_path, class: "btn btn-block btn-success" %>
   </div>
-  <!-- /.container -->
+</section>

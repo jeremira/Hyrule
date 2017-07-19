@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,65 +15,85 @@
     <title>Hyrule</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
                 </button>
-                <% if current_user %>
-                  <%= link_to 'KRAKOUKAS', root_path, :class => "navbar-brand" %>
-                <% else %>
-                  <%= link_to 'KRAKOUKASS', new_user_session_path, :class => "navbar-brand" %>
-                <% end %>
+                <a class="navbar-brand page-scroll" href="<%= root_path %>">
+                    <i class="fa fa-play-circle"></i> <span class="light">Home</span>
+                </a>
             </div>
+
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                  <% if current_user %>
-                  <li><%= link_to 'Mes voyages', trips_path %></li>
-                  <li><%= link_to 'Mon profile', user_path(current_user)%></li>
-                  <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
-                  <% else %>
-                  <li><%= link_to 'Se connecter', new_user_session_path%></li>
-                  <% end %>
-                  <% if current_user && current_user.admin %>
-                  <li><a href="<%= setup_index_path %>">Admin control center</a></li>
-                  <% end %>
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                      <% if current_user %>
+                        <%= link_to 'Mes voyages', trips_path, class: "page-scroll" %>
+                      <% else %>
+                        <%= link_to 'Se connecter', new_user_session_path, class: "page-scroll" %>
+                      <% end %>
+                    </li>
+                    <% if current_user %>
+                      <li><%= link_to 'Mon profil', user_path(current_user), class: "page-scroll" %></li>
+                      <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "page-scroll" %></li>
+                    <% end %>
+                    <% if current_user && current_user.admin %>
+                    <li><%= link_to 'Admin Control', setup_index_path, class: "page-scroll" %></li>
+                    <% end %>
+                    <li>
+                        <%= link_to 'Informations', "#", class: "page-scroll" %>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </nav>
+  </nav>
   <section id="flash-section">
-    <div class="alert alert-info alert-dismissable fade in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      TODO : flash css auto fadein via JS/ add a popup and notification for clikable comment JS
-    </div>
     <%if flash[:notice] %>
-      <div class="alert alert-success alert-dismissable fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <%= flash[:notice] %>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+          <div class="alert alert-success alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <%= flash[:notice] %>
+          </div>
       </div>
+    </div>
     <% end %>
     <%if flash[:alert] %>
-      <div class="alert alert-warning alert-dismissable fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <%= flash[:alert] %>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="alert alert-warning alert-dismissable fade in">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%= flash[:alert] %>
+        </div>
       </div>
+    </div>
     <% end %>
   </section>
 
+  
     <%= yield %>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; KwutKwut 2016</p>
+        </div>
+    </footer>
 
   </body>
 </html>

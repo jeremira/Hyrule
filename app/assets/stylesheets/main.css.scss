@@ -7,6 +7,32 @@
   border: 1px solid red;
 }
 
+#flash-section {
+  position: absolute;
+  margin-top: 75px;
+  width: 100%;
+  z-index: 999;
+}
+
+.wrapper {
+  color: grey;
+  border-radius: 10px;
+  border: 1px solid grey;
+  background-color: #f9f9f9;
+  padding: 25px 15px;
+}
+
+.header-wrapper {
+  color: grey;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding: 10px 50px;
+  margin-bottom: 50px;
+}
+
+
+
+
 .theme-details {
   display: inline-block;
   width: 100%;
@@ -18,16 +44,6 @@
 .thumb-img {
   height: 100%;
   width: 100%;
-}
-
-
-#flash-section {
-  position: absolute;
-  left: 30%;
-  right: 30%;
-  top: 50px;
-  height: 120px;
-  z-index: 999;
 }
 
 .chapeau-header{
@@ -75,9 +91,6 @@
   color: #f9f9f9;
 }
 
-.wrapper {
-  margin: 30px 15px;
-}
 
 .fa {
   padding: 0 5px;
@@ -96,7 +109,7 @@
 }
 
 
- 
+
 
  /* Start Bootstrap - Business Frontpage (http://startbootstrap.com/)
  /* Copyright 2013-2016 Start Bootstrap
