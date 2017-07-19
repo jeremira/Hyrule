@@ -8,4 +8,6 @@ class Day < ApplicationRecord
   has_one    :dinner,            :dependent => :destroy
   accepts_nested_attributes_for :dinner
 
+  validates :date, presence: true
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719045354) do
+ActiveRecord::Schema.define(version: 20170719054608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,14 @@ ActiveRecord::Schema.define(version: 20170719045354) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"
+    t.text     "info"
+    t.integer  "age"
     t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
   end
 
   create_table "budgets", force: :cascade do |t|
     t.integer  "trip_id"
     t.integer  "value"
-    t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["trip_id"], name: "index_budgets_on_trip_id", using: :btree
@@ -47,7 +48,6 @@ ActiveRecord::Schema.define(version: 20170719045354) do
     t.integer  "day_id"
     t.boolean  "todo"
     t.integer  "style"
-    t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["day_id"], name: "index_dinners_on_day_id", using: :btree
@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 20170719045354) do
     t.integer  "day_id"
     t.boolean  "todo"
     t.integer  "style"
-    t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["day_id"], name: "index_lunches_on_day_id", using: :btree
@@ -87,25 +86,23 @@ ActiveRecord::Schema.define(version: 20170719045354) do
   create_table "rythmes", force: :cascade do |t|
     t.integer  "trip_id"
     t.integer  "value"
-    t.text     "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "walking"
-    t.integer  "transport"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "first",      default: false
+    t.boolean  "offtrack",   default: false
     t.index ["trip_id"], name: "index_rythmes_on_trip_id", using: :btree
   end
 
   create_table "styles", force: :cascade do |t|
     t.integer  "trip_id"
-    t.boolean  "culture"
-    t.boolean  "nature"
-    t.boolean  "sport"
-    t.boolean  "food"
-    t.boolean  "shopping"
-    t.boolean  "kid"
-    t.text     "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "culture",    default: false
+    t.boolean  "nature",     default: false
+    t.boolean  "sport",      default: false
+    t.boolean  "food",       default: false
+    t.boolean  "shopping",   default: false
+    t.boolean  "kid",        default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["trip_id"], name: "index_styles_on_trip_id", using: :btree
   end
 
@@ -115,16 +112,16 @@ ActiveRecord::Schema.define(version: 20170719045354) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "style"
+    t.text     "gallery"
   end
 
   create_table "trips", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.date     "date"
     t.text     "comment"
     t.integer  "adults"
     t.integer  "kids"
