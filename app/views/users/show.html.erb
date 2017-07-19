@@ -1,3 +1,39 @@
+<header class="business-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <div class="chapeau-header">
+              <div class="box">  <div class="icon"><div class="image"><i class="fa fa-user"></i></div></div></div>
+            <h2 class="tagline"><%= @user.account.name %></h1>
+            <hr>
+            <p class="lead tagline text-center">Merci de prendre un moment pour remplir votre profil. Ces informations nous aident à mieux préparer votre voyage.</p>
+            <p class="text-center">
+              <%= link_to "Modifier mon profil", edit_user_path(@user),  class: "btn btn-block btn-success btn-lg" %>
+              <%= link_to "Voir mes informations", "#infos-row", class: "btn btn-block btn-success btn-lg" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row" id="infos-row">
+    <div class="form-low-container">
+      <div class="box">  <div class="icon"><div class="image"><i class="fa fa-user"></i></div></div></div>
+      <h3 class="title">Informations personnelles</h3>
+      <p>Ces informations sont facultatives mais nous permettent de mieux organiser votre voyage pour votre confort.</p>
+      
+
+    </div>
+  </div>
+</div>
+
+
+
 <h2>Welcome<%= @user.account.name %>.</h2>
   <h4>Your email : <%= @user.email %></h4>
     <%= render @account %>

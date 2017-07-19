@@ -4,7 +4,6 @@ class CreateBudgets < ActiveRecord::Migration[5.0]
       t.references :trip, foreign_key: true
       t.integer :value
       t.text :comment
-
       t.timestamps
     end
   end
