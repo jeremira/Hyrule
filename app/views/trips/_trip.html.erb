@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-sm-6 text-center">
+<div class="col-md-4 col-sm-6 text-center">
   <a href = "<%= trip_path(trip) %>">
     <%= image_tag "femme.png", class: "img-circle img-responsive img-center" %>
     <h3><%= trip.name %></a>
@@ -6,5 +6,5 @@
                             method: :delete, data: {confirm: "Delete this trip ?"},
                             class: "btn btn-danger btn-xs" %></small>
     </h3>
-    <p><%= trip.description %> TODO add a visual for status somewhere around here</p>
+    <p>TODO add a visual for status somewhere around here</p>
 </div>

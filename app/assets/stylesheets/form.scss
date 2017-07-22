@@ -1,17 +1,3 @@
-label > input{ /* HIDE RADIO */
-  visibility: hidden; /* Makes input not-clickable */
-  position: absolute; /* Remove input from document flow */
-}
-label > input + img{ /* IMAGE STYLES */
-  cursor:pointer;
-  border:2px solid transparent;
-}
-label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
-  border:4px solid green;
-}
-
-
-
 /* From Bootsnip for information about trip Box
 https://bootsnipp.com/snippets/featured/boxes-with-icon-hover*/
 
@@ -31,13 +17,8 @@ https://bootsnipp.com/snippets/featured/boxes-with-icon-hover*/
 .box .space { height: 30px; }
 
 /* From bootsnip for custom check box
-https://bootsnipp.com/snippets/featured/material-design-switchn */
-
+https://bootsnipp.com/snippets/featured/material-design-switch */
 .material-switch > input[type="checkbox"] {
-    display: none;
-}
-
-.material-switch > input[type="radio"] {
     display: none;
 }
 
@@ -77,18 +58,7 @@ https://bootsnipp.com/snippets/featured/material-design-switchn */
     background: inherit;
     opacity: 0.5;
 }
-
-.material-switch > input[type="radio"]:checked + label::before {
-    background: inherit;
-    opacity: 0.5;
-}
-
 .material-switch > input[type="checkbox"]:checked + label::after {
-    background: inherit;
-    left: 20px;
-}
-
-.material-switch > input[type="radio"]:checked + label::after {
     background: inherit;
     left: 20px;
 }

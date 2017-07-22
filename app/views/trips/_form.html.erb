@@ -1,128 +1,138 @@
- <% if trip.errors.any? %>
- <section id="flash-section">
-   <div class="alert alert-warning alert-dismissable fade in">
-     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-     <strong>Votre voyage n'a pas pu être sauvegardé :</strong>
-     <ul>
-     <% trip.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-     <% end %>
-     </ul>
-   </div>
-</section>
-<% end %>
-
-<%= form_for trip do |f| %>
-
+<!-- Image Section -->
 <header class="business-header">
-    <div class="container">
-      <div class="row">
-       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1  ">
-
-         <div class="form-container form-container-spacing">
-           <div class="row">
-             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
-               <div class="form-group">
-                 <%= f.label :name, 'Un joli nom pour votre voyage :' %>
-                 <%= f.text_field :name, class: "form-control input-lg", placeholder: "Mon superbe voyage à Tokyo." %>
-               </div>
-             </div>
-           </div>
-           <div class="row">
-             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
-               <hr>
-               <div class="form-group">
-                 <%= f.label :comment, 'Quelque choses à partager avec nous sur votre voyage ?' %>
-                 <%= f.text_area :comment, class: "form-control trip-comment-area",
-                      placeholder: "Vous souhaitez absolument voir quelque chose ? Ou au contraire vous ne voulez pas visiter ce musée ? Vous aimez les ramens ? Dites nous tout. :)" %>
-               </div>
-             </div>
-           </div>
-           <div class="row">
-             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
-                 <hr>
-                 <%= link_to "ADD JS TO SCROLL PAGE", "", class: "btn btn-success btn-lg" %>
-             </div>
-           </div>
-         </div>
-
-      </div>
-    </div><!-- row -->
-  </div><!-- cont -->
 </header>
+<%= form_for trip do |f| %>
+<section class="container content-section">
+  <div class="header-wrapper">
+    <div class="row bottom-space text-center">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
+        <h1 class="bottom-space">Mon nouveau voyage</h1>
+        <p>Tout d'abord choisissez un joli nom pour votre voyage :</p>
+        <div class="form-group">
+            <%= f.text_field :name, class: "form-control input-lg", placeholder: "Mon superbe voyage à Tokyo." %>
+        </div>
+      </div>
+    </div>
 
-<!-- Page Content -->
-<div class="container">
-  <br>
-  <div class="row" id = "option-row">
-    <br>
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 text-center">
-      <hr>
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
-      <h1>Votre voyage comme vous l'aimez !</h1>
-      <p class="lead">Introduce the visitor to the business using clear, informative text.
-        Use well-targeted keywords within your sentences to make sure search engines can find the business.</P>
+    <div class="row bottom-space text-center">
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-money"></i></div></div></div>
+      <h1 class="bottom-space">Au sujet de l'organisation</h1>
+      <p>Quel budget pour ce voyage ?</p>
+      <div class ="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+              <%= f.fields_for :budget do |ff| %>
+              <%= ff.range_field( :value, in: 0..4 ) %>
+              <% end %>
+            </div>
+            <div class="alert alert-success">
+              <strong>Budget Eco</strong> Mais toujours le best du best!
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+      <p>Indiquez le nombre de personne pour ce voyage :</p>
+      <div class="form-group">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-3">
+          <span>
+              <i class="fa fa-user"></i>
+          </span>
+          <%= f.label :adults, "Adulte(s) :  " %>
+          <%= f.number_field :adults %>
+        </div>
+        <div class="col-md-3">
+          <span>
+              <i class="fa fa-child"></i>
+          </span>
+          <%= f.label :kids, "Enfant(s) :" %>
+          <%= f.number_field :kids %>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+    </div>
+
+    <div class="row bottom-space">
+      <div class="col-md-6 col-md-offset-3">
+        <ul class="list-group">
+          <%= f.fields_for :style do |ff| %>
+          <li class="list-group-item">
+            Je souhaite un voyage fun pour les enfants.
+            <div class="material-switch pull-right">
+                <%= ff.check_box :kid, id: "kidsfriendly" %>
+                <label for="kidsfriendly" class="label-success"></label>
+            </div>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row bottom-space text-center">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
+        <h3>Mon voyage comme je l'aime</h3>
+        <p>Personalisez votre voyage pour qu'il vous corresponde.<br>
+          Vous pourrez modifier ces options plus tard si vous désirez.</p>
+      </div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-8 col-md-offset-2">
+        <p>A quel rythme aimez-vous passez vos vacances ?</p>
+        <%= f.fields_for :rythme do |ff| %>
+          <%= ff.range_field( :value, in: 0..4, class: "form-control" ) %>
+        <div class="alert alert-success">
+          <strong>A fond !</strong> Vous aimez les vacances chargé, t'es un homme vite !
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+      <ul class="list-group">
+        <li class="list-group-item">
+          Ceci est mon premier voyage à Tokyo.
+          <div class="material-switch pull-right">
+              <%= ff.check_box :first, id: "firsttimer" %>
+              <label for="firsttimer" class="label-success"></label>
+          </div>
+        </li>
+        <li class="list-group-item">
+          Je préfere visiter hors des sentiers battus.
+          <div class="material-switch pull-right">
+              <%= ff.check_box :offtrack, id: "offtrack" %>
+              <label for="offtrack" class="label-success"></label>
+          </div>
+        </li>
+      </ul>
+    </div>
+      <% end %>
     </div>
   </div>
-  <br>
-  <div class="form-low-container">
+
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-lg-4">
-      <h4 class="form-label">Nombres de personnes</h4>
-      <div class="form-group form-inline decal-left">
-        <span>
-            <i class="fa fa-user"></i>
-        </span>
-        <%= f.label :adults, "Adulte(s) :  " %>
-        <%= f.number_field :adults, class: "form-control" %>
-      </div>
-      <div class="form-group form-inline decal-left">
-        <span>
-            <i class="fa fa-child"></i>
-        </span>
-        <%= f.label :kids, "Enfant(s) :" %>
-        <%= f.number_field :kids, class: "form-control" %>
-      </div>
-      <div class="form-group form-inline decal-left">
-        <%= f.fields_for :style do |ff| %>
-          <%= ff.check_box :kid %>
-          <%= ff.label :kid, "Du fun pour les enfants !" %>
-        <% end %>
-      </div>
-      <h4 class="form-label">Budget</h4>
-      <div class="form-group form-inline decal-left">
-        <span>
-          <i class="fa fa-money"></i>
-        </span>
-        <%= f.fields_for :budget do |ff| %>
-        <%= ff.range_field( :value, in: 0..4, class: "form-control" ) %>
-        <% end %>
-      </div>
-    </div>
-      <div class="col-xs-12 col-sm-12 col-lg-4">
-      <h4 class="form-label">Rythme de vos journée</h4>
-      <div class="form-group form-inline decal-left">
-        <%= f.fields_for :rythme do |ff| %>
-        <span>
-            <i class="fa fa-tree"></i>
-        </span>
-          <%= ff.range_field( :value, in: 0..4, class: "form-control" ) %>
-        <% end %>
-      </div>
-      <div class="form-group form-inline decal-left">
-        <p>X Checkbox 1st timer  </p>
-        <p>X Checkbox Off beaten track  </p>
-      </div>
-    </div>
-      <div class="col-xs-12 col-sm-12 col-lg-4">
-      <h4 class="form-label">Nous aimons :</h4>
       <%= f.fields_for :style do |ff| %>
+      <p class="text-center">Ce que je préfere pendant mes vacances :</p>
+      <div class="col-md-8 col-md-offset-2">
         <ul class="list-group">
           <li class="list-group-item">
-            Culture, histoire et patrimoine
-            <div class="material-switch pull-right">
-            <%= ff.check_box :culture, id: "culturebox" %>
-            <label for="culturebox" class="label-success"></label>
+            <div class="row">
+              <div class="col-xs-8">
+                <p>Culture vlvl aqdj q qlsd lkqsd qsdqs dnq dkq sdqs dk qsdk qsk dqsd
+              </div>
+              <div class="col-xs-4">
+                <div class="material-switch pull-right">
+                <%= ff.check_box :culture, id: "culturebox" %>
+                <label for="culturebox" class="label-success"></label>
+                </div>
+              </div>
             </div>
           </li>
           <li class="list-group-item">
@@ -154,36 +164,42 @@
             </div>
           </li>
         </ul>
-      <% end %>
-    </div>
-    </div><!--row -->
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
-        <hr>
-        <%= f.submit "Save trip !", class: "btn btn-success btn-lg" %>
-        <% end %> <!-- form end -->
+        <%end%>
       </div>
-    </div><!-- row -->
-  </div><!-- form container -->
-  <br>
+    </div>
 
+      </div><!-- form row-->
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <%= f.label :comment, 'Quelque choses à partager avec nous sur votre voyage ?' %>
+          <%= f.text_area :comment, class: "form-control trip-comment-area",
+               placeholder: "Vous souhaitez absolument voir quelque chose ? Ou au contraire vous ne voulez pas visiter ce musée ? Vous aimez les ramens ? Dites nous tout. :)" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <%= f.submit "Save trip !", class: "btn btn-success btn-lg" %>
+          <% end %>
+        </div>
+      </div>
+  </div><!-- header-wrapper -->
+</section>
 
-
-    <footer>
-       <a class="anchor" id="comment-row"></a>
-        <div class="row">
-            <div class="col-lg-10 col-lg-offset-1">
-              FOOTER_CONTENT
+<!-- Image Section -->
+<section class="content-section text-center">
+    <div class="download-section">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>TODO name theme</h2>
+                <p>TODO JS : take a random theme and display image and legend</p>
+                <a href="" class="btn btn-default btn-lg">Réserver mon voyage</a>
             </div>
         </div>
+    </div>
+</section>
 
 
 
-
-        <!-- /.row -->
-    </footer>
-
-
+<div class="container">
 
 </div>
-<!-- /.container -->

@@ -3,7 +3,7 @@
     <div class="intro-body">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6 col-md-offset-3">
                   <div class="wrapper">
                     <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
                     <h3 class="tagline">Créer un compte</h3>
@@ -20,39 +20,13 @@
                                             placeholder: 'Confirmez votre mot de passe', :class => 'form-control' %>
                     </div>
                     <div class="form-group">
-                      <%= f.submit "Créer mon compte !", :class => 'form-control btn-success btn-block' %>
+                      <strong><%= f.submit "Créer mon compte !", :class => 'form-control btn-success btn-block' %></strong>
                       <% end %>
                     </div>
-                    <hr>
                     <%= render "devise/shared/links" %>
-
-
-
-
                   </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
-
-
-
-
-
-
-<!-- Image Background Page Header -->
-<!-- Note: The background image is set within the business-casual.css file. -->
-<header class="business-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-4 col-lg-offset-4 text-center">
-          <div class="form-low-container">
-            <div class="wrapper">
-              <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
-              </div>
-          </div>
-        </div>
-      </div>
     </div>
 </header>

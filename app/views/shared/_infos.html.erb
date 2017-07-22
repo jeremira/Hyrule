@@ -1,0 +1,60 @@
+  <div class="header-wrapper">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+        <div class="box"><div class="icon"><div class="image"><i class="fa fa-question"></i></div></div></div>
+        <h3>Comment ça marche ?</h3>
+        <p> Simple et rapide, personalisez vos vacances a Tokyo et profitez des conseils de locaux connaisant la ville.
+            Dites-nous comment vous aimez passez vos vacances, nous organisons votre séjour pour qu'il vous corresponde.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-lg-4">
+      <div class="box">
+        <div class="icon">
+          <div class="image"><i class="fa fa-tasks"></i></div>
+          <div class="info">
+            <h3 class="title">Un voyage idéal</h3>
+            <p>Choisissez vos dates, le nombre de personne et le budget de votre voyage.</p>
+            <p>Personalisez votre voyage en choisissant les horaires, le rythme, le style et les thème de votre voyage.</p>
+            <p>Dites nous ce que vous aimez et ce que vous n'aimez pas pendant vos vacances.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <div class="box">
+        <div class="icon">
+          <div class="image"><i class="fa fa-calendar"></i></div>
+          <div class="info">
+            <h3 class="title">Des journées sur mesure</h3>
+            <p>Choisissez le thème de votre journée, nous vous conseillons le meilleur programme selon vos préférences.</p>
+            <p>Recevez un programme détaillé personnel créé sur mesure par des guides locaux, ou bien réservez un de nos guide locaux !</p>
+            <p>Vous ne visiterez pas Tokyo comme tout le monde : restaurant, monuments, visites, ne voyez que ce qu'il vous plait !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <div class="box">
+        <div class="icon">
+          <div class="image"><i class="fa fa-plane"></i></div>
+          <div class="info">
+            <h3 class="title">Une réservation sécurisé</h3>
+            <p>Réservation et paiement en ligne sécurisé.</p>
+            <p>Une équipe professionnel à votre écoute pour toute demande spéciale.</p>
+            <p>Bla bla bla commercial ?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- row containing three sub-info box end -->
+  <br>
+  <div class="row">
+    <% if current_user %>
+      <%= link_to "Réservez mon voyage", new_trip_path, class: "btn btn-block btn-success" %>
+    <% else %>
+      <%= link_to "Créer un compte et réservez votre premier voyage ", new_user_registration_path, class: "btn btn-block btn-success" %>
+    <% end %>
+  </div>

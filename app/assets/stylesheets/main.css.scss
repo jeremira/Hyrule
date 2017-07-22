@@ -27,9 +27,36 @@
   color: grey;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
-  padding: 10px 50px;
+  padding: 20px 50px;
   margin-bottom: 50px;
+  background-color: rgba(255,255,255,0.5)
 }
+
+.bottom-space {
+  margin-bottom: 40px;
+}
+
+
+/*?*/
+
+.form-label {
+  text-align: center;
+  background-color: #5bc0de;
+  border-radius: 5px;
+  line-height: 2em;
+  padding :0;
+  margin: 10px 10px 25px 10px;
+  color: #f9f9f9;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -82,15 +109,7 @@
   background-color: #f9f9f9;
 }
 
-.form-label {
-  text-align: center;
-  background-color: #5bc0de;
-  border-radius: 5px;
-  line-height: 2em;
-  padding :0;
-  margin: 10px 10px 25px 10px;
-  color: #f9f9f9;
-}
+
 
 
 .fa {
@@ -117,15 +136,15 @@
  /* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)*/
 
 .business-header {
- height: 600px;
+ height: 300px;
  /*'http://placehold.it/1920x400'*/
- background: asset-data-url("main.jpg") center center no-repeat scroll;
+ background: asset-data-url("pano.jpg") center center no-repeat scroll;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  background-size: cover;
  -o-background-size: cover;
- padding-top: 75px;
- margin-bottom: 50px;
+ padding-top: 0;
+ margin-bottom: 10px;
 }
 
 /* Customize the text color and shadow color and to optimize text legibility. */

@@ -39,12 +39,12 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li>
-                      <% if current_user %>
-                        <%= link_to 'Mes voyages', trips_path, class: "page-scroll" %>
-                      <% else %>
-                        <%= link_to 'Se connecter', new_user_session_path, class: "page-scroll" %>
-                      <% end %>
+                    <% if current_user %>
+                      <li><%= link_to 'Mes voyages', trips_path, class: "page-scroll" %></li>
+                    <% else %>
+                      <li><%= link_to 'Se connecter',    new_user_session_path(anchor: 'login-row'), class: "page-scroll" %></li>
+                      <li><%= link_to 'Créer un compte', new_user_registration_path, class: "page-scroll" %></li>
+                    <% end %>
                     </li>
                     <% if current_user %>
                       <li><%= link_to 'Mon profil', user_path(current_user), class: "page-scroll" %></li>
@@ -85,7 +85,7 @@
     <% end %>
   </section>
 
-  
+
     <%= yield %>
 
     <!-- Footer -->

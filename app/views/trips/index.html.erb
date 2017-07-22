@@ -1,100 +1,47 @@
+<!-- Header -->
 <header class="business-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
-          <div class="chapeau-header">
-            <h1 class="tagline">KraKou</h1>
-            <hr>
-            <p class="lead tagline text-center">Tour personalisé de Tokyo</p>
-            <p class="text-center">
-              <%= link_to "Créer un nouveau voyage", new_trip_path,  class: "btn btn-block btn-success btn-lg" %>
-              <%= link_to "Voir mes voyages", "#voyages-row", class: "btn btn-block btn-success btn-lg" %>
-              <%= link_to "Informations", "#information-row", class: "btn btn-block btn-success btn-lg" %>
-            </p>
-          </div>
-        </div>
+</header>
+<!-- Header -->
+<section class="container content-section text-center">
+  <div class="header-wrapper">
+    <div class="row bottom-space">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
+        <% if @trips.length == 0 %>
+        <h3>Créer votre premier voyage</h3>
+        <p> Vous n'avez pas encore créé de voyage. C'est simple, rapide et extraordinaire ! Vite, créez-en un.</p>
+        <p><%= link_to 'Créer mon premier voyage', new_trip_path, class: 'btn btn-block btn-success btn-lg' %></p>
+        <br>
+        <% else %>
+          <h3>Mes voyages</h3>
+          <p>Vous avez <%= @trips.length %> voyage(s) en préparation. Personalisez votre voyage, pouponner vos vacances,
+          prenez en soin ! Quand elles vous semblent parfaites, réservez-les et nous faisons le reste !</p>
+      <% end %>
       </div>
     </div>
-</header>
-
-<div class="container">
-  <!-- Trip rendering Row -->
-  <br>
-  <div class="row" id="voyages-row">
-      <div class="col-lg-12">
-        <h1 class="page-header">
-            <% if @trips.length >0 %>
-            Vos voyages :
-            <small>Vous avez <%= @trips.length %> voyage(s) en préparation.</small>
-            <% else %>
-            Aucun voyage !
-            <small>Il est temps de <%= link_to "créer", new_trip_path %> votre premier voyage !</small>
-            <% end %>
-        </h1>
-      </div>
-      <%= render @trips %>
+  <div class="row">
+    <%= render @trips %>
+    <br>
+    <div class="col-md-4">
+      <%= link_to "Nouveau voyage", new_trip_path, class: 'btn btn-success btn-lg' %>
+    </div>
   </div>
-  <!-- Footer -->
-  <footer id="information-row">
-    <div class="row" id="info-row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 text-center">
-        <hr>
-        <div class="box"><div class="icon"><div class="image"><i class="fa fa-question"></i></div></div></div>
-        <h3>Comment ça marche ?</h3>
-        <p> Simple et rapide, personalisez vos vacances a Tokyo et profitez des conseils de locaux connaisant la ville.
-            Dites-nous comment vous aimez passez vos vacances, nous organisons votre séjour pour qu'il vous corresponde.</p>
-        </div>
-        <div class="col-lg-10 col-lg-offset-1">
-          <div class="row">
-            <br>
-            <div class="col-xs-12 col-sm-6 col-lg-4">
-              <div class="box">
-                <div class="icon">
-                  <div class="image"><i class="fa fa-plus"></i></div>
-                  <div class="info">
-                    <h3 class="title">Crer un voyage</h3>
-                    <p>Blabla</p>
-                    <h3 class="title">Ajouter une journée</h3>
-                    <p>Blabla</p>
-                  </div>
-                </div>
-                <div class="space"></div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-lg-4">
-              <div class="box">
-                <div class="icon">
-                  <div class="image"><i class="fa fa-tasks"></i></div>
-                  <div class="info">
-                    <h3 class="title">Personaliser votre voyage</h3>
-                    <p>Restaurants, visites, shopping dsq dqsd qssqdqsdsqdsqdqsd dsq dqsd qsd qsdsqd en fonction de vos gouts.</p>
-                    <h3 class="title">Personaliser vos journée</h3>
-                    <p>Restaurants, visites, shopping dsq dqsd qsdqsdqs d qsd qs dsq dqs d qsd qsdsqd en fonction de vos gouts.</p>
-                  </div>
-                </div>
-                <div class="space"></div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-lg-4">
-              <div class="box">
-                <div class="icon">
-                  <div class="image"><i class="fa fa-plane"></i></div>
-                  <div class="info">
-                    <h3 class="title">Réservez vos dates</h3>
-                    <p>Restaurants, visites, shopping dsq dqsd qssqdqsdsqdsqdqsd dsq dqsd qsd qsdsqd en fonction de vos gouts.</p>
-                    <h3 class="title">Hop en route pour Tokyo !</h3>
-                    <p>Restaurants, visites, shopping dsq dqsd qsdqsdqs d qsd qs dsq dqs d qsd qsdsqd en fonction de vos gouts.</p>
-                  </div>
-                </div>
-                <div class="space"></div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <%= link_to "Créer un nouveau voyage ", new_trip_path, class: "btn btn-block btn-success" %>
-          </div>
-        </div>
-      </div>
-        <!-- /.row -->
-  </footer>
 </div>
+</section>
+
+<!-- Image Section -->
+<section class="content-section text-center">
+    <div class="download-section">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>TODO name theme</h2>
+                <p>TODO JS : take a random theme and display image and legend</p>
+                <a href="" class="btn btn-default btn-lg">Réserver mon voyage</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Infos Section -->
+<section  id="info-row" class="container content-section text-center">
+  <%= render 'shared/infos' %>
+</section>
