@@ -7,7 +7,7 @@
     <div class="row bottom-space text-center">
       <div class="col-md-8 col-md-offset-2">
         <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
-        <h1 class="bottom-space">Mon nouveau voyage</h1>
+        <h1 class="bottom-space">Mon voyage idéal</h1>
         <p>Tout d'abord choisissez un joli nom pour votre voyage :</p>
         <div class="form-group">
             <%= f.text_field :name, class: "form-control input-lg", placeholder: "Mon superbe voyage à Tokyo." %>
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-
+    <br>
     <div class="row bottom-space">
       <div class="col-md-6 col-md-offset-3">
         <ul class="list-group">
@@ -124,10 +124,10 @@
         <ul class="list-group">
           <li class="list-group-item">
             <div class="row">
-              <div class="col-xs-8">
-                <p>Culture vlvl aqdj q qlsd lkqsd qsdqs dnq dkq sdqs dk qsdk qsk dqsd
+              <div class="col-sm-8">
+                Visitez les monuments et sites historiques.
               </div>
-              <div class="col-xs-4">
+              <div class="col-sm-4">
                 <div class="material-switch pull-right">
                 <%= ff.check_box :culture, id: "culturebox" %>
                 <label for="culturebox" class="label-success"></label>
@@ -136,31 +136,55 @@
             </div>
           </li>
           <li class="list-group-item">
-            Nature, grand air et extérieurs
-            <div class="material-switch pull-right">
-            <%= ff.check_box :nature, id: "naturebox" %>
-            <label for="naturebox" class="label-success"></label>
+            <div class="row">
+            <div class="col-sm-8">
+              Nature, grand air et extérieurs
+            </div>
+            <div class="col-sm-4">
+              <div class="material-switch pull-right">
+              <%= ff.check_box :nature, id: "naturebox" %>
+              <label for="naturebox" class="label-success"></label>
+              </div>
+            </div>
             </div>
           </li>
           <li class="list-group-item">
-            Sport, activités physiques
-            <div class="material-switch pull-right">
-            <%= ff.check_box :sport, id: "sportbox" %>
-            <label for="sportbox" class="label-success"></label>
+            <div class="row">
+            <div class="col-sm-8">
+              Sport, activités physiques
+            </div>
+            <div class="col-sm-4">
+              <div class="material-switch pull-right">
+              <%= ff.check_box :sport, id: "sportbox" %>
+              <label for="sportbox" class="label-success"></label>
+              </div>
+            </div>
             </div>
           </li>
           <li class="list-group-item">
-            Gastronomie, boissons et patisseries
-            <div class="material-switch pull-right">
-            <%= ff.check_box :food, id: "foodbox" %>
-            <label for="foodbox" class="label-success"></label>
+            <div class="row">
+            <div class="col-sm-8">
+              Gastronomie, boissons et patisseries
+            </div>
+            <div class="col-sm-4">
+              <div class="material-switch pull-right">
+              <%= ff.check_box :food, id: "foodbox" %>
+              <label for="foodbox" class="label-success"></label>
+              </div>
+            </div>
             </div>
           </li>
           <li class="list-group-item">
-            Shopping, grands magasins et artisanat.
-            <div class="material-switch pull-right">
-            <%= ff.check_box :shopping, id: "shoppingbox" %>
-            <label for="shoppingbox" class="label-success"></label>
+            <div class="row">
+            <div class="col-sm-8">
+              Shopping, grands magasins et artisanat.
+            </div>
+            <div class="col-sm-4">
+              <div class="material-switch pull-right">
+              <%= ff.check_box :shopping, id: "shoppingbox" %>
+              <label for="shoppingbox" class="label-success"></label>
+              </div>
+            </div>
             </div>
           </li>
         </ul>
@@ -168,20 +192,20 @@
       </div>
     </div>
 
-      </div><!-- form row-->
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <%= f.label :comment, 'Quelque choses à partager avec nous sur votre voyage ?' %>
-          <%= f.text_area :comment, class: "form-control trip-comment-area",
-               placeholder: "Vous souhaitez absolument voir quelque chose ? Ou au contraire vous ne voulez pas visiter ce musée ? Vous aimez les ramens ? Dites nous tout. :)" %>
-        </div>
+    <div class="row text-center">
+      <div class="col-md-8 col-md-offset-2">
+        <p>Quelque chose à rajouter ? Dites nous tout ce qui vous semble important pour que vos vacances soient parfaites.</p>
+        <%= f.text_area :comment, class: "form-control", rows: 6,
+             placeholder: "Vous souhaitez absolument voir quelque chose ? Ou au contraire vous ne voulez pas visiter ce musée ? Vous aimez les ramens ? Dites nous tout. :)" %>
       </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <%= f.submit "Save trip !", class: "btn btn-success btn-lg" %>
-          <% end %>
-        </div>
+    </div>
+
+    <div class="row bottom-spaceloca">
+      <div class="col-md-8 col-md-offset-2">
+        <%= f.submit "Save trip !", class: "btn btn-success btn-lg btn-block" %>
       </div>
+    </div>
+    <% end %>
   </div><!-- header-wrapper -->
 </section>
 
@@ -197,9 +221,3 @@
         </div>
     </div>
 </section>
-
-
-
-<div class="container">
-
-</div>

@@ -1,3 +1,5 @@
+TODO ajouter link en fonction du case
+
 <% if trip.gestion.status == 'new' %>
   <h3 class="title">Réserver mon trip !</h3>
   <p>Votre trip vous semble parfait ? Ok alors réservons le !</p>
@@ -5,6 +7,11 @@
     Une fois validé vous pourrez procéder au paiment.</p><br>
     <p><%= link_to "Book it!", trip_gestion_path(trip, trip.gestion, :status => :pending ),
                               :method => :put, class: 'btn btn-default btn-lg' %></p>
+                              <p>
+                                <%= link_to "Modifier mon voyage", edit_trip_path(@trip),  class: "btn btn-block btn-warning" %>
+                                <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
+                                             data: {confirm: "Delete this trip ?"}, class: "btn btn-block btn-danger" %>
+                              </p>
 
 <% elsif trip.gestion.status == 'pending' %>
     <h3 class="title">En cours..</h3>

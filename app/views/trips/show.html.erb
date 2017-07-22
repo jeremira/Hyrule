@@ -1,175 +1,219 @@
-<!-- Header -->
-<header class="business-header">
-</header>
-<!-- Header -->
-
-<!-- Image Background Page Header -->
-<!-- Note: The background image is set within the business-casual.css file. -->
-<header class="business-header">
+<!-- Intro Header -->
+<header class="intro">
+  <div class="intro-body">
     <div class="container">
       <div class="row">
-       <div class="col-lg-6 col-lg-offset-3">
-         <div class="chapeau-header">
-          <h1 class="tagline"><%= @trip.name.capitalize %></h1>
-          <hr>
-           <p class="lead tagline text-center">Pour 2 Adultes et 1 enfant.</p>
-           <p class="text-center">
-             <%= link_to "Planning du voyage", "#day-row", class: "btn btn-block btn-success" %>
-             <%= link_to "Préférences", "#info-row", class: "btn btn-block btn-success" %>
-           </p>
-          </div>
+        <h3 class="brand-heading tagline"><%= @trip.name.capitalize %></h3>
+        <p class="intro-text tagline">Pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</p>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-offset-3">
+          <p><%= link_to "Planning du voyage", "#day-row", class: "btn btn-block btn-success" %></p>
+          <p><%= link_to "Préférences", "#infos-row", class: "btn btn-block btn-success" %></p>
         </div>
       </div>
     </div>
+  </div>
 </header>
-<!-- Page Content -->
-<div class="container">
-    <a class="anchor" id="day-row"></a>
-    <div class="row">
-      <div class="col-sm-4 text-center">
-        <div class="form-low-container">
-          <div class="wrapper">
-            <%= render partial: 'book_status', locals: { trip: @trip }%>
+<!-- Header -->
 
-            <% if @trip.gestion.status == "new" %>
-                <p>
-                  <%= link_to "Modifier mon voyage", edit_trip_path(@trip),  class: "btn btn-block btn-warning" %>
-                  <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
-                               data: {confirm: "Delete this trip ?"}, class: "btn btn-block btn-danger" %>
-                </p>
-            <%end%>
-          </div>
-        </div>
+<section id="day-row" class="container content-section text-center">
+  <div class="header-wrapper">
+    <div class="row bottom-space">
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+      <h2>Mon planning</h2>
+      <p>Ce voyage comprend <%= @days.length %> journée(s).</p>
+      <div class="col-sm-6 col-sm-offset-3">
+        <% if @trip.gestion.status == "new" %>
+          <%= link_to "Ajouter une journée", new_trip_day_path(@trip), class: 'btn btn-block btn-success' %>
+        <%end%>
       </div>
+    </div>
+    <div class="row">
       <%= render @days %>
-      <div class="col-sm-4 text-center">
-        <div class="wrapper">
-          <h4> Ce voyage comprend <%= @days.length %> journée.</h4>
-          <% if @trip.gestion.status == "new" %>
-            <p><a href="<%= new_trip_day_path(@trip) %>">
-              <button type="button" class="btn btn-block btn btn-success"><strong>Ajouter une nouvelle journée</strong></button>
-            </p></a>
-          <% end %>
-        </div>
+      <div class="col-md-4 panel panel-default">
+        <%= render partial: 'book_status', locals: { trip: @trip }%>
       </div>
     </div>
-    <!-- /.row -->
-    <br>
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 text-center">
-      <hr>
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
-      <h3>Votre voyage idéal</h3>
-        <p>Comment aimez-vous passez vos vacances ? Vérifier ces informations afin que nous puissions préparer le voyage
-        parfait pour vous. N'hésitez pas à laisser un LINK_TO pour nous donner encore plus de précisions.</p>
-    </div>
-    <a class="anchor" id="info-row"></a>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-lg-4">
-      <div class="box">
-        <div class="icon">
-          <div class="image"><i class="fa fa-flag"></i></div>
-          <div class="info">
-            <h3 class="title">Vous avez choisi un Eco Trip!</h3>
-              <p><b>Petit budget, Best experience !</b> Priorité aux activités gratuites
-              et aux restaurants locaux. :-)</p>
-              <h3 class="title">Avec   un guide privé !</h3>
-                <p><b>Un guide personnel </b>vous accompagnera toute la journée.
-                Profitez de ses conseils locaux et experimenté.</p>
-            <div class="more">
-              <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
-                Modifier mon voyage <i class="fa fa-angle-double-right"></i>
-              </a>
+  </div>
+</section>
+
+<!-- Image Section -->
+<section class="content-section text-center">
+    <div class="download-section">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>TODO name theme</h2>
+                <p>TODO JS : take a random theme and display image and legend</p>
+                <a href="" class="btn btn-default btn-lg">Réserver mon voyage</a>
             </div>
-          </div>
         </div>
-        <div class="space"></div>
+    </div>
+</section>
+
+
+<section id="infos-row" class="container content-section text-center">
+  <div class="header-wrapper">
+
+    <div class="row bottom-space">
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
+      <h2>Mes préférences</h2>
+      <p>Blabla commercial modifier toussa</p>
+      <div class="col-sm-6 col-sm-offset-3">
+        <% if @trip.gestion.status == 'new' %>
+          <%= link_to "Modifier mon voyage", edit_trip_path(@trip), class: 'btn btn-block btn-success' %>
+        <%end%>
       </div>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-lg-4">
-    <div class="box">
-      <div class="icon">
-        <div class="image"><i class="fa fa-flag"></i></div>
-        <div class="info">
-          <h3 class="title">Vous voulez profitez en priorité :</h3>
-          <% if @trip.style.culture %>
-            <p><b>Culture et Histoire :</b>
-            Découverte des musées, monuments et sites touristiques.</p>
-          <%end%>
-          <% if @trip.style.nature %>
-            <p><b>Nature et exterieur :</b>
-            Profiter de la nature et des grands espaces. Parcs et jardins...</p>
-          <%end%>
-          <% if @trip.style.sport %>
-            <p><b>Sport :</b>
-            Bouger, courir, sauter...  Faire du sport.</p>
-          <%end%>
-          <% if @trip.style.food %>
-            <p><b>Foodies :</b>
-            Manger ! Restaurant, marchés, snacks.. tout doit disparaitre !</p>
-          <%end%>
-          <% if @trip.style.shopping %>
-            <p><b>Shopping :</b>
-            Faire les magasins, pour moi et pour les autres.</p>
-          <%end%>
-          <% if @trip.style.kid %>
-          <p> KIDs FRIDLY STICKER TODO</p>
-          <%end%>
-          <div class="more">
-            <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
-              Modifier mon voyage <i class="fa fa-angle-double-right"></i>
-            </a>
-          </div>
+    <div class="row bottom-space">
+      <h4>Organisation de votre voyage</h4>
+      <% if @trip.style.kid %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          Votre voyage sera organisé pour que les enfants s'amusent !
         </div>
       </div>
-      <div class="space"></div>
-    </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6 col-lg-4">
-    <div class="box">
-      <div class="icon">
-        <div class="image"><i class="fa fa-flag"></i></div>
-        <div class="info">
-          <h3 class="title">Avec un rythme relax !</h3>
-            <p><b>Un rythme relaxant !</b> Votre trip sera organisé pour que
-              vous ayez le temps de vous reposer.</p>
-            <p>C'est votre <strong>première fois</strong> à Tokyo et vous <strong>souaitez</strong>
-              sortir des sentiers battus et visiter des endroits plus secret.</p>
-              <div class="more">
-                <a href="<%= edit_trip_path(@trip) %>" title="Title Link">
-                  Modifier mon voyage <i class="fa fa-angle-double-right"></i>
-                </a>
-              </div>
-        </div>
-      </div>
-      <div class="space"></div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- /.row -->
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
-      <%= form_for @trip do |f| %>
-        <div class="form-group">
-        <%= f.label :description, "Information sur votre voyage :" %>
-        <%= f.text_area :description, placeholder: "C'est votre lune de miel ? Un anniversaire ? Vous voulez faire du cosplay ?
-        Mangez des sushis au marché ou voir du Kabuki ? Dites nous toute ce que vous voulez !", class: 'form-control trip-comment-area' %>
-        <%= f.submit "Sauvegarder", class: "btn btn-block btn-success" %>
-        </div>
       <% end %>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <ul class="list-group">
+            <li class="list-group-item">Voyage pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</li>
+            <li class="list-group-item">
+              <% if @trip.budget.value == 1 %>
+                <strong>Budget économique : </strong>Nous privilègerons les activités et les visites gratuites.
+              <% elsif @trip.budget.value == 2 %>
+                <strong>Budget économique : </strong>Nous privilègerons les activités et les visites gratuites.
+              <% elsif @trip.budget.value == 3 %>
+                <strong>Budget économique : </strong>Nous privilègerons les activités et les visites gratuites.
+              <% elsif @trip.budget.value == 4 %>
+                <strong>Budget économique : </strong>Nous privilègerons les activités et les visites gratuites.
+              <% else %>
+                Oups, quelque chose ne vas pas....
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    <!-- Footer -->
-    <footer>
-       <a class="anchor" id="comment-row"></a>
-        <div class="row">
-            <div class="col-lg-10 col-lg-offset-1">
-              FOOTER_CONTENT
-            </div>
+
+    <div class="row bottom-space">
+      <h4>Rythme de votre voyage</h4>
+      <% if @trip.rythme.first %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          C'est votre premier voyage à Tokyo. Nous en prendrons compte.
         </div>
-        <!-- /.row -->
-    </footer>
-</div>
-<!-- /.container -->
+      </div>
+      <% else %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          Ce n'est pas votre premier voyage à Tokyo. Nous en prendrons compte.
+        </div>
+      </div>
+      <% end %>
+      <% if @trip.rythme.offtrack %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          Vous aimez visiter hors des sentiers battus. Nous ne privilégerons pas les activités touristiques classiques.
+        </div>
+      </div>
+      <% end %>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <% if @trip.rythme.value == 1 %>
+                <strong>Tranquillement : </strong>Vos journées seront organisés sur un rythme très relaxant, pour
+                que vous ayez le temps de vous reposer et vous détendre, sans courir entre les visites.
+              <% elsif @trip.rythme.value == 2 %>
+                <strong>En prenant le temps : </strong>Des visites agréable en ayant le temps d'apprécier les moments.
+                Vous aurez le temps de flaner tout en visitant.
+              <% elsif @trip.rythme.value == 3 %>
+                <strong>Sans trop trainer : </strong>Vous souhaitez voir beaucoup de chose mais vous ne voulez pas non
+                plus courrir. C'est les vacances.
+              <% elsif @trip.rythme.value == 4 %>
+                <strong>Pour voir beaucoup : </strong>Vous voulez profiter au maximum de votre temps à Tokyo. Vos envies
+                de visites sont infinis... suivez le guide, car il y'a beaucoup à faire. :)
+              <% else %>
+                Oups, quelque chose ne vas pas....
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row bottom-space">
+      <h4>Points importants de votre voyage</h4>
+
+      <% if @trip.style.culture %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          La culture, l'histoire et les traditions du Japon vous passionne. Nous nous assurerons
+          que vos visites vous permettent de voir monuments, sites historiques, musées...
+        </div>
+      </div>
+      <% else %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          Les visites culturelles ne sont pas votre priorité. Nous visiterons les sites les plus majestueux
+          sans passer nos journées au musée. :)
+        </div>
+      </div>
+      <% end %>
+
+      <% if @trip.style.nature %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          Vous aimez la nature et les grands espaces, ... mais à Tokyo ? Pas de problème ! Tokyo est riche en parc
+           et jardin magnifique. Nous nous assurerons que vous en profitiez.
+        </div>
+      </div>
+      <% end %>
+
+      <% if @trip.style.sport %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          Amateur de sport, Tokyo est là pour vous ! Evenement, démonstration et match en tout genre sont nombreux.
+          Nous vous proposerons les meilleures opportunités pour des vacances sportive pleine de découverte.
+        </div>
+      </div>
+      <% end %>
+
+      <% if @trip.style.food %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          La gastronomie japonaise peut-elle rivaliser avec la cuisine française ? Mettons notre fierté de coté un instant et
+          partons à la découverte des toutes ces merveilles disponible ici ! Ramen, sushi, unagi, soba, donburi, taiyaki... goutons tout !
+        </div>
+      </div>
+      <% end %>
+
+      <% if @trip.style.shopping %>
+      <div class="row">
+        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+          <span><i class="fa fa-check"></i></span>
+          Shopping ! Grands magasins ! Petites boutiques d'artisans ou centre commerciaux géants ! Vous avez une liste de
+          souvenir à ramener longue comme un jour sans pain ? Pas de problème ! On vous soutient et vous guide pour que vous
+          trouviez tout ce que vous chercher.
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="row bottom-space">
+      <div class="col-sm-6 col-sm-offset-3">
+        <%= link_to "Modifier mon voyage", edit_trip_path(@trip), class: 'btn btn-lg btn-block btn-success' %>
+      </div>
+    </div>
+  </div>
+</section>
