@@ -70,6 +70,6 @@ class ThemesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def theme_params
-      params.require(:theme).permit(:name, :descr, :image)
+      params.require(:theme).permit(:name, :descr, :image, :style, :gallery)
     end
 end

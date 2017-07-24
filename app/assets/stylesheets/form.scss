@@ -1,3 +1,27 @@
+/*For Thumbnais Image radiobutton */
+
+.radio-thumbnail > input[type="radio"] {
+    display: none;
+}
+
+.radio-thumbnail > input[type="radio"]:checked + img {
+    padding: 3px;
+    border: 3px solid #5bc0de;
+}
+
+.thumbnail-container {
+  position: relative;
+}
+
+.thumbnail-container h4 {
+  position: absolute;
+  width: 100%;
+  top: 160px;
+  background-color: rgba(255,255,255,0.6);
+}
+
+
+
 /* From Bootsnip for information about trip Box
 https://bootsnipp.com/snippets/featured/boxes-with-icon-hover*/
 
@@ -19,6 +43,10 @@ https://bootsnipp.com/snippets/featured/boxes-with-icon-hover*/
 /* From bootsnip for custom check box
 https://bootsnipp.com/snippets/featured/material-design-switch */
 .material-switch > input[type="checkbox"] {
+    display: none;
+}
+
+.material-switch > input[type="radio"] {
     display: none;
 }
 
@@ -59,6 +87,15 @@ https://bootsnipp.com/snippets/featured/material-design-switch */
     opacity: 0.5;
 }
 .material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+
+.material-switch > input[type="radio"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="radio"]:checked + label::after {
     background: inherit;
     left: 20px;
 }

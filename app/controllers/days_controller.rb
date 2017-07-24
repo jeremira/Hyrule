@@ -33,7 +33,7 @@ class DaysController < ApplicationController
         format.html { redirect_to @trip, notice: 'Day was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'Could not save the day' + @day.errors.to_s }
         format.json { render json: @day.errors, status: :unprocessable_entity }
       end
     end
@@ -84,8 +84,8 @@ class DaysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def day_params
       params.require(:day).permit(:date, :comment, :theme_id,
-                                lunch_attributes:  [:id, :todo, :style, :comment],
-                                dinner_attributes: [:id, :todo, :style, :comment]
+                                lunch_attributes:  [:id, :todo, :style],
+                                dinner_attributes: [:id, :todo, :style]
                                 )
     end
 end

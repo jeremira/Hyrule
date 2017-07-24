@@ -1,100 +1,43 @@
-<div class="row">
-<div id="carousel-example-generic" class="carousel slide debug" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <% Theme.all.each_with_index do |theme, index| %>
-      <li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
-    <% end %>
-  </ol>
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <%= image_tag "car01.jpg" %>
-      <div class="carousel-caption">
-          <h3>MAIN ACTIVE</h3>
-          <p>Default carousel slide</p>
-      </div>
-    </div>
-  <% Theme.all.each do |theme| %>
-    <div class="item">
-      <%= image_tag theme.image %>
-      <div class="carousel-caption">
-        <h3><%= theme.name %></h3>
-        <p><%= theme.descr %></p>
-    </div>
-    </div>
-  <% end %>
-  </div>
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Précédent</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Suivant</span>
-  </a>
-</div>
-</div>
+<!-- Image Section -->
+<header class="business-header">
+</header>
 
-<div class="container">
-  <div class="row">
-    <%= form_for [trip, day] do |f| %>
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="page-header">
-            <div class="box"><div class="icon"><div class="image"><i class="fa fa-star"></i></div></div></div>
-            <h3 class="text-center">Choisissez un thème pour votre journée</h3>
-          </div>
-        </div>
-        <div class="row">
-          <%= f.collection_radio_buttons(:theme_id, Theme.all, :id, :name) do |button| %>
-            <div class="col-xs-6 col-sm-3 col-lg-4">
-              <%= button.label { button.radio_button + image_tag('femme.png', class: 'thumb-img')} %>
-            </div>
-            <% end %>
+<%= form_for [trip, day] do |f| %>
+<section class="container content-section">
+  <div class="header-wrapper">
+
+    <div class="row bottom-space text-center">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
+        <h3 class="bottom-space">Date de votre journée</h3>
+        <p>Indiquer la date pour cette journée. Vous pourrez modifier la date plus tard si vous désirez.</p>
+        <div class="form-group">
+          <%= f.date_field :date, class: 'input-lg' %>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="row">
-          <div class="page-header">
-            <div class="box"><div class="icon"><div class="image"><i class="fa fa-info"></i></div></div></div>
-            <h3 class="text-center">Vous avez choisi :</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="theme-details">
-            WILL UPDATE DETAIL VIA JS
-          </div>
-        </div>
-        <div class="row">
-          <div class="page-header">
-            <div class="box"><div class="icon"><div class="image"><i class="fa fa-clock-o"></i></div></div></div>
-          </div>
-        </div>
-        <div class="form-low-container form-group">
-          <%= f.label :date, 'Choisissez la date pour cette journée' %>
-          <%= f.date_field :date, class: 'form-control' %>
-        </div>
-        <div class="row">
-          <div class="page-header">
-            <div class="box"><div class="icon"><div class="image"><i class="fa fa-cutlery"></i></div></div></div>
-          </div>
-        </div>
-        <div class="form-low-container">
-          <div class="row">
-            <%= f.fields_for :lunch do |ff| %>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <strong>Réserver mon déjeuner</strong>
-                  <div class="material-switch pull-right">
-                    <%= ff.check_box :todo, id: "lunchbox" %>
-                    <label for="lunchbox" class="label-success"></label>
-                  </div>
-                </li>
-              </ul>
-          </div>
+    </div>
+
+    <div class="row bottom-space text-center">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
+        <h3 class="text-center bottom-space">Vos repas</h3>
+        <p class="text-center">Si vous le désirez, nous choisissons et réservons pour vous les restaurants pour votre
+          déjeuner et/ou diner. Nous sélectionnerons le meilleur blabla locaux toussa.</p>
+      </div>
+    </div>
+
+    <div class="row bottom-space">
+      <div class="col-md-6">
+        <%= f.fields_for :lunch do |ff| %>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>Réserver mon déjeuner</strong>
+              <div class="material-switch pull-right">
+                <%= ff.check_box :todo, id: "lunchbox" %>
+                <label for="lunchbox" class="label-success"></label>
+              </div>
+            </li>
+          </ul>
           <div class="row">
             <div class="col-xs-10 col-xs-offset-2">
               <ul class="list-group">
@@ -122,19 +65,19 @@
               </ul>
             </div>
           </div>
-          <% end %>
-          <div class="row">
-            <%= f.fields_for :dinner do |ff| %>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <strong>Réserver mon Diner</strong>
-                  <div class="material-switch pull-right">
-                    <%= ff.check_box :todo, id: "dinnerbox" %>
-                    <label for="dinnerbox" class="label-success"></label>
-                  </div>
-                </li>
-              </ul>
-          </div>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <%= f.fields_for :dinner do |ff| %>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>Réserver mon Diner</strong>
+              <div class="material-switch pull-right">
+                <%= ff.check_box :todo, id: "dinnerbox" %>
+                <label for="dinnerbox" class="label-success"></label>
+              </div>
+            </li>
+          </ul>
           <div class="row">
             <div class="col-xs-10 col-xs-offset-2">
               <ul class="list-group">
@@ -162,16 +105,43 @@
               </ul>
             </div>
           </div>
-          <% end %>
-        </div>
-  </div> <!-- main row end -->
-  <div class="row">
-    <div class="col-lg-6 col-lg-offset-3 page-header">
-      <%= f.submit 'Enregistrer les modifications', class: 'btn btn-block btn-success btn-lg' %>
-      <% end %>
+        <% end %>
+      </div>
     </div>
+
+    <div class="row text-center">
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-star"></i></div></div></div>
+      <h3>Choisissez un thème pour votre journée</h3>
+    </div>
+    <div class="row bottom-space">
+      <div class="row">
+        <%= f.collection_radio_buttons(:theme_id, Theme.all, :id, :image) do |b| %>
+          <div class="col-xs-12 col-sm-6 col-md-3 text-center">
+            <div class="thumbnail-container">
+              <%= b.label(class: "radio-thumbnail") { b.radio_button + image_tag(b.object.image, class: 'thumbnail') } %>
+              <h4 class="tagline text-center"><%= b.object.name %></h4>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+
+
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= f.text_area :comment, class: "form-control", rows: 5,
+              placeholder: "Une demande spéciale pour cette journée ? Dites nous tout ce qui vous semble nécessaire !" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <%= f.submit 'Enregistrer', class: 'btn btn-block btn-success btn-lg' %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
-  <footer>
-    <%= render 'shared/footer_link' %>
-  </footer>
-</div><!-- container -->
+</section>
