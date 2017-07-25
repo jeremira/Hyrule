@@ -20,21 +20,21 @@
 <section id="day-row" class="container content-section text-center">
   <div class="header-wrapper">
     <div class="row bottom-space">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
-      <h2>Mon planning</h2>
-      <p>Ce voyage comprend <%= @days.length %> journée(s).</p>
-      <div class="col-sm-6 col-sm-offset-3">
-        <% if @trip.gestion.status == "new" %>
-          <%= link_to "Ajouter une journée", new_trip_day_path(@trip), class: 'btn btn-block btn-success' %>
-        <%end%>
-      </div>
+        <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+        <h2>Mon planning</h2>
+        <p>Ce voyage comprend <%= @days.length %> journée(s).</p>
     </div>
-    <div class="row">
+    <div class="row bottom-space">
       <%= render @days %>
-      <div class="col-md-4 panel panel-default">
-        <%= render partial: 'book_status', locals: { trip: @trip }%>
+      <div class="col-sm-6 col-md-4">
+        <%= render partial: 'book_status', locals: { trip: @trip } %>
       </div>
     </div>
+
+    <div class="row bottom-space" id ="booking">
+      <%= render partial: 'book_status_full', locals: { trip: @trip } %>
+    </div>
+
   </div>
 </section>
 

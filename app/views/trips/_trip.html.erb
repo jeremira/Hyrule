@@ -1,10 +1,16 @@
 <div class="col-md-4 col-sm-6 text-center">
-  <a href = "<%= trip_path(trip) %>">
-    <%= image_tag "femme.png", class: "img-circle img-responsive img-center" %>
-    <h3><%= trip.name %></a>
-        <small><%= link_to "Supprimer", trip_path(trip),
-                            method: :delete, data: {confirm: "Delete this trip ?"},
-                            class: "btn btn-danger btn-xs" %></small>
-    </h3>
-    <p>TODO add a visual for status somewhere around here</p>
+  <div class="row">
+    <%= image_tag "femme.png", class: "img-circle img-center" %>
+    <h3><%= trip.name %></a></h3>
+    <%= link_to "Détails du voyage", trip_path(trip), class: "btn btn-success" %>
+  </div>
+  <br>
+  <div class="row">
+      <% if trip.gestion.status == 'pending'%>
+        <div class="alert alert-warning">
+          <i class="fa fa-exclamation-circle"></i>
+          Ce voyage a été réservé. Merci de patienter : nos équipes organisent votre voyage.
+        </div>
+      <% end %>
+  </div>
 </div>

@@ -28,12 +28,13 @@ class DaysController < ApplicationController
   # POST /days.json
   def create
     @day = @trip.days.build(day_params)
+
     respond_to do |format|
       if @day.save
         format.html { redirect_to @trip, notice: 'Day was successfully created.' }
         format.json { render :show, status: :created, location: @trip }
       else
-        format.html { render :new, notice: 'Could not save the day' + @day.errors.to_s }
+        format.html { render :new, notice: 'ERROR ! Could not save the day' }
         format.json { render json: @day.errors, status: :unprocessable_entity }
       end
     end

@@ -1,24 +1,21 @@
-
 <% if trip.gestion.status == 'new' %>
   <div class="row bottom-space">
+    <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+    <h2>Réserver mon voyage</h3>
+    <p>Votre voyage est prêt ? Tout est comme vous le souhaitez ? Cliquez sur le bouton "Réserver mon voyage" pour finaliser
+    votre réservation. Nos équipes organiseront votre voyage et vous pourrez ensuite procéder au paiement sécurisé.</p>
   </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-        <a href = "<%= new_trip_day_path(trip) %>", class="btn btn-block btn-success">
-          <span><i class="fa fa-plus"></i></span> Nouvelle journée</a>
-        <%= link_to "Réserver mon voyage", "#booking", class: 'btn btn-block btn-success' %>
+  <div class="row bottom-space">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <span class="alert alert-warning"><i class="fa fa-exclamation-circle"></i><strong> Vous ne pourrez plus modifier votre voyage ensuite !</strong></span>
     </div>
   </div>
-  <hr>
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <%= link_to "Modifier mon voyage", edit_trip_path(@trip),  class: "btn btn-block btn-warning" %>
-      <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
-                                                   data: {confirm: "Delete this trip ?"}, class: "btn btn-block btn-danger" %>
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <%= link_to "Réserver mon voyage", trip_gestion_path(trip, trip.gestion, :status => :pending ),
+                  :method => :put, data: {confirm: "Vous ne pourrez plus modifier ce voyage. Réserver ?"}, class: 'btn btn-block btn-success btn-lg' %>
     </div>
   </div>
-  <hr>
 
 <% elsif trip.gestion.status == 'pending' %>
     <h3 class="title">En cours..</h3>
