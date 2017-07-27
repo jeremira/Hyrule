@@ -1,0 +1,28 @@
+$(document).on('turbolinks:load', function() {
+
+  var timeToDisplay = 5000;
+  var slideshow = $('.intro');
+  var urls = [
+    "url(<%= asset_url("main.jpg") %>)",
+    "url(<%= asset_url("main01.jpg") %>)", "url(<%= asset_url("main02.jpg") %>)",
+    "url(<%= asset_url("main03.jpg") %>)", "url(<%= asset_url("main04.jpg") %>)"
+    ];
+
+    var transition = function() {
+        index = Math.floor((Math.random() * 4) + 1);
+        var url = urls[index];
+        slideshow.css('background', url + 'no-repeat bottom center scroll');
+    };
+
+    var run = function() {
+        transition();
+        slideshow.fadeIn(1000, function() {
+            setTimeout(function() {
+                slideshow.fadeOut(2000, run);
+            }, timeToDisplay);
+        });
+    }
+
+    run();
+
+}); //$ready function ending
