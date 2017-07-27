@@ -1,29 +1,54 @@
 $(document).on('turbolinks:load', function() {
 
-  var timeToDisplay = 6000;
   var slideshow = $('.slideshow');
+  var topBanner = $('.slidebanner')
   var urls = [
-    "url(<%= asset_url("main.jpg") %>)",
-    "url(<%= asset_url("main01.jpg") %>)", "url(<%= asset_url("main02.jpg") %>)",
-    "url(<%= asset_url("main03.jpg") %>)", "url(<%= asset_url("main04.jpg") %>)"
-    ];
+    "url(<%= asset_url("001.jpg") %>)", "url(<%= asset_url("002.jpg") %>)",
+    "url(<%= asset_url("003.jpg") %>)", "url(<%= asset_url("004.jpg") %>)",
+    "url(<%= asset_url("005.jpg") %>)", "url(<%= asset_url("006.jpg") %>)",
+    "url(<%= asset_url("007.jpg") %>)", "url(<%= asset_url("008.jpg") %>)",
+    "url(<%= asset_url("009.jpg") %>)", "url(<%= asset_url("010.jpg") %>)",
+    "url(<%= asset_url("011.jpg") %>)", "url(<%= asset_url("012.jpg") %>)",
+    "url(<%= asset_url("013.jpg") %>)", "url(<%= asset_url("014.jpg") %>)",
+    "url(<%= asset_url("015.jpg") %>)", "url(<%= asset_url("016.jpg") %>)",
+    "url(<%= asset_url("017.jpg") %>)", "url(<%= asset_url("018.jpg") %>)",
+    "url(<%= asset_url("019.jpg") %>)", "url(<%= asset_url("020.jpg") %>)",
+    "url(<%= asset_url("021.jpg") %>)", "url(<%= asset_url("022.jpg") %>)"
+  ];
+  var bannerUrls = [
 
-    var transition = function() {
-        index = Math.floor((Math.random() * 4) + 1);
-        var url = urls[index];
-        slideshow.css('background', url + 'no-repeat bottom center scroll');
-    };
+  ];
 
-    var run = function() {
-      console.log(slideshow)
-        transition();
-        slideshow.fadeIn(2000, function() {
-            setTimeout(function() {
-                slideshow.fadeOut(4000, run);
-            }, timeToDisplay);
-        });
-    }
+  var introSlide = function() {
+    index = Math.floor((Math.random() * urls.length));
+    var url = urls[index];
+    slideshow.css('background', url );
+    slideshow.css('position', 'absolute' );
+    slideshow.css('background-size', 'cover' );
+    slideshow.css('background-position', 'center center' );
+    slideshow.css('background-repeat', 'no-repeat' );
+    slideshow.fadeIn(1000, function() {
+      setTimeout(function() {
+        slideshow.fadeOut(2000, introSlide);
+      }, 6000);
+    });
+  }
+  introSlide();
 
-    run();
+  var bannerSlide = function() {
+    index = Math.floor((Math.random() * urls.length));
+    var url = urls[index];
+    topBanner.css('background', url );
+    topBanner.css('position', 'absolute' );
+    topBanner.css('background-size', 'cover' );
+    topBanner.css('background-position', 'center center' );
+    topBanner.css('background-repeat', 'no-repeat' );
+    topBanner.fadeIn(1000, function() {
+      setTimeout(function() {
+        topBanner.fadeOut(1000, bannerSlide);
+      }, 6000);
+    });
+  }
+  bannerSlide();
 
 }); //$ready function ending

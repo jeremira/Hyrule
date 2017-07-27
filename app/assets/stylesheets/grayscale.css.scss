@@ -133,8 +133,11 @@ a:focus {
 }
 
 .slideshow{
-  background: asset-data-url("main.jpg") no-repeat bottom center scroll;
+  /*background: asset-data-url("main.jpg") /*no-repeat bottom center scroll*/;
   position: absolute;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
 }
