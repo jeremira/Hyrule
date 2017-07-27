@@ -18,16 +18,24 @@
   </div>
 
 <% elsif trip.gestion.status == 'pending' %>
-    <h3 class="title">En cours..</h3>
-    <p>Votre voyage est en ce moment organisé par nos équipes.</p>
-    <p>Un peu de patience et votre voyage sera bientôt prêt. :)</p>
+  <div class="row bottom-space">
+    <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+    <h2 class="title">En préparation</h3>
+    <p>Nous avons bien reçu votre réservation. Votre voyage est en ce moment organisé par nos équipes. Nous organisons
+    et préparons votre voyage sur mesure selon vos options personnelles. Dès que tout est prèt vous pourrez finaliser
+    votre réservation en procédant au paiement.</p>
+  </div>
+
 
 
 <% elsif trip.gestion.status == 'approved' %>
-    <h3 class="title">Votre voyage est pret !</h3>
-    <p>Votre voyage est pret, merci de votre patience. :)</p>
-    <p>Ci-dessous blabla le lien pour payer :</p>
-    <div>
+   <div class="row bottom-space">
+     <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+     <h2>Paiement</h2>
+     <p><strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement en cliquant sur le bouton ci-dessous.
+       Et ensuite ? Tout est prêt, vous pouvez préparer vos valises. :)</p>
+   </div>
+    <div class="row">
       <%= form_tag charges_path do %>
         <% if flash[:error].present? %>
          <div id="error_explanation"><p><%= flash[:error] %></p></div>
@@ -46,22 +54,24 @@
     <% end %>
    </div>
 
-<% elsif trip.gestion.status == 'payed' %>
-   <h3 class="title">Voyage payé et confirmé. :)</h3>
-      <p>Merci. Votre voyage est maintenant payé. Nos équipes finalisent votre
-      voyage. Vous recevrez sous peu tous les détails nécessaires.</p>
-
-<% elsif trip.gestion.status == 'final' %>
-   <h3 class="title">Nous vous attendons. :)</h3>
-   <p>Votre voyage est prêt. Nous vous attendons avec impatience à Tokyo.
-      A bientot !</p>
-    <p>Encore XXXX jours avant votre voyage.</p>
+<% elsif trip.gestion.status == 'payed' || trip.gestion.status == 'final' %>
+<div class="row bottom-space">
+  <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+  <h2>Confirmé</h2>
+  <p><strong>Votre voyage est prêt !</strong> Nous vous attendons le INPUT FIRSTDAY DATE pour vos vacances personalisé à Tokyo.</p>
+  <p>Encore XXXX jours avant votre voyage.</p>
+</div>
 
 <% elsif trip.gestion.status == 'done' %>
-  <h4>Voyage terminé.</h4>
+<div class="row bottom-space">
+  <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+  <h2>Voyage terminé</h2>
   <p>Comment s'est passé votre voyage ? Laissez nous un commentaire ici :</p>
   <%= link_to "Feedback", '#' %>
+</div>
 <% else %>
-  <h1>DEBUG SHOULD NOT APPEAR - Status was not implemented</h1>
-  <p><%= trip.gestion.inspect %></p>
+<div class="row bottom-space">
+  <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+  <h2>Oups, quelque chose ne va pas...</h2>
+</div>
 <% end %>

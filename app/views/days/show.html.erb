@@ -19,7 +19,7 @@
   <div class="header-wrapper">
     <div class="row bottom-space">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-cutlery"></i></div></div></div>
-      <h2>Mn déjeuner</h2>
+      <h2>Mon déjeuner</h2>
     </div>
     <div class="row">
       <% if @day.lunch.todo %>
@@ -49,7 +49,9 @@
     </div>
     <div class="row bottom-space">
       <div class="col-sm-6 col-sm-offset-3">
-        <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
+        <% if @trip.gestion.status == 'new' %>
+          <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
+        <% end %>
         <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
       </div>
     </div>
@@ -85,7 +87,9 @@
     </div>
     <div class="row bottom-space">
       <div class="col-sm-6 col-sm-offset-3">
-        <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
+        <% if @trip.gestion.status == 'new' %>
+          <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
+        <% end %> 
         <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
       </div>
     </div>

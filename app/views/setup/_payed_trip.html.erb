@@ -1,7 +1,9 @@
 <li>
   <h3>TripID:<%= payed_trip.id %></h3>
-  <h5><%= link_to 'Show trip', payed_trip %>
-  Name : <%= payed_trip.name %> | Date : <%= payed_trip.date %>
+  <h5><%= link_to 'Show trip', payed_trip %></h5>
+  <p>Name : <%= payed_trip.name %> | for user : <%= payed_trip.user.email %></p>
+  <p>Adult : <%= payed_trip.adults %> & Kids : <%= payed_trip.kids %></p>
   <%= link_to "Finalize this Trip", trip_gestion_path(payed_trip, payed_trip.gestion,
-              :status => :final), :method => :put, :data => {:confirm => 'Approve this trip ?'} %>
+              :status => :final), :method => :put, :data => {:confirm => 'Finalize this trip ?'},
+              class: 'btn btn-success' %>
 </li>

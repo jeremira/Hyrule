@@ -1,13 +1,70 @@
-<h2>Edit your profile</h2>
-  <%= form_for @user do |f| %>
-    <%= f.email_field :email %>
-    <%= f.fields_for :account do |account_f| %>
-     <%= account_f.label      :name %>
-     <%= account_f.text_field :name %>
-     <%= account_f.label      :about %>
-     <%= account_f.text_area :about %>
-    <% end %>
-   <%= f.submit 'Save' %>
-  <% end %>
+<header class="business-header">
+</header>
+
+<section class="container content-section text-center">
+  <div class="header-wrapper">
+    <div class="row bottom-space">
+      <div class="box">  <div class="icon"><div class="image"><i class="fa fa-user"></i></div></div></div>
+      <h2>Bienvenue, <%= @user.account.name %></h2>
+      <p>Merci de prendre un moment pour remplir votre profil. Ces informations nous aident à mieux préparer votre voyage.</p>
+    </div>
+    <div class="row">
+      <%= form_for @user do |f| %>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+          <%= f.fields_for :account do |account_f| %>
+          <div class="panel-heading">Mon nom</div>
+          <div class="panel-body">
+            <%= account_f.text_field :name, class: 'form-control', placeholder: 'Entrez votre nom et prénom' %>
+          </div>
+          <% end %>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">Mon email</div>
+          <div class="panel-body">
+          <%= f.email_field :email, class: 'form-control', placeholder: 'Entrez votre email' %>
+          </div>
+        </div>
+        <%= f.fields_for :account do |account_f| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">A mon sujet</div>
+          <div class="panel-body">
+            <%= account_f.text_area :about, class: 'form-control', rows: 4, placeholder: 'Dites nous en plus sur vous et vos habitudes. Nous tiendrons compte de ces informations pour organiser votre voyage' %>
+          </div>
+        </div><div class="panel panel-default">
+          <div class="panel-heading">Informations importantes</div>
+          <div class="panel-body">
+            <%= account_f.text_area :info, class: 'form-control', rows: 5,  placeholder: 'Indiquez nous toutes informations importantes que vous sugez utiles de partager avec nous.' %>
+            <div class='alert alert-warning'><i class="fa fa-exclamation-circle"></i>Indiquez nous toute restriction alimentaire, alergie, besoins spéciaux ou condition médicale ici.</div>
+          </div>
+          <% end %>
+         <%= f.submit 'Enregistrer', class: 'btn btn-block btn-success' %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image Section -->
+<section class="content-section text-center">
+    <div class="download-section">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>TODO name theme</h2>
+                <p>TODO JS : take a random theme and display image and legend</p>
+                <a href="" class="btn btn-default btn-lg">Réserver mon voyage</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
 <%= link_to "Signout", destroy_user_session_path, method: :delete %>
 <%= link_to 'Profile page', user_path(@user) %>

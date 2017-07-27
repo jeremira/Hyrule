@@ -1,6 +1,9 @@
 <li>
   <h3>TripID:<%= pending_trip.id %></h3>
-  Name : <%= pending_trip.name %> | Date : <%= pending_trip.date %>
+  <p>Name : <%= pending_trip.name %> | for user : <%= pending_trip.user.email %></p>
+  <p>Adult : <%= pending_trip.adults %> & Kids : <%= pending_trip.kids %></p>
+  <p>As <%= pending_trip.days.length %> days planned !</p>
   <%= link_to "Approve this Trip", trip_gestion_path(pending_trip, pending_trip.gestion,
-              :status => :approved), :data => {:confirm => 'Approve this trip ?'}, :method => :put %>
+              :status => :approved), :data => {:confirm => 'Approve this trip ?'}, :method => :put,
+              class: 'btn btn-success' %>
 </li>

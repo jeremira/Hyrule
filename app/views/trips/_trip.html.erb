@@ -6,11 +6,6 @@
   </div>
   <br>
   <div class="row">
-      <% if trip.gestion.status == 'pending'%>
-        <div class="alert alert-warning">
-          <i class="fa fa-exclamation-circle"></i>
-          Ce voyage a été réservé. Merci de patienter : nos équipes organisent votre voyage.
-        </div>
-      <% end %>
+      <%= render partial: 'book_status_mini', locals: { trip: trip } %>
   </div>
 </div>
