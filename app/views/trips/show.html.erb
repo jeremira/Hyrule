@@ -1,10 +1,13 @@
 <!-- Intro Header -->
 <header class="intro">
+  <div class="slideshow"></div>
   <div class="intro-body">
     <div class="container">
       <div class="row">
-        <h3 class="brand-heading tagline"><%= @trip.name.capitalize %></h3>
-        <p class="intro-text tagline">Pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</p>
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="brand-heading tagline"><%= @trip.name.capitalize %></h3>
+          <p class="intro-text tagline">Pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</p>
+        </div>
       </div>
       <div class="row">
         <div class="col-sm-6 col-lg-offset-3">

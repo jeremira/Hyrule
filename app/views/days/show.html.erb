@@ -1,11 +1,14 @@
 <!-- Intro Header -->
 <header class="intro">
+  <div class="slideshow"></div>
   <div class="intro-body">
     <div class="container">
       <div class="row">
-        <h3 class="brand-heading tagline"><%= @day.theme.name.capitalize %></h3>
-        <p class="intro-text tagline">Prévu pour le <%= @day.date %>.</p>
-        <p class="tagline small-text"><%= @day.theme.descr %></p>
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="brand-heading tagline"><%= @day.theme.name.capitalize %></h3>
+          <p class="intro-text tagline">Prévu pour le <%= @day.date %>.</p>
+          <p class="tagline small-text"><%= @day.theme.descr %></p>
+        </div>
       </div>
       <div class="row">
         <div class="col-sm-6 col-lg-offset-3">
@@ -89,7 +92,7 @@
       <div class="col-sm-6 col-sm-offset-3">
         <% if @trip.gestion.status == 'new' %>
           <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
-        <% end %> 
+        <% end %>
         <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
       </div>
     </div>

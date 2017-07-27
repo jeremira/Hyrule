@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function() {
 
-  var timeToDisplay = 5000;
-  var slideshow = $('.intro');
+  var timeToDisplay = 6000;
+  var slideshow = $('.slideshow');
   var urls = [
     "url(<%= asset_url("main.jpg") %>)",
     "url(<%= asset_url("main01.jpg") %>)", "url(<%= asset_url("main02.jpg") %>)",
@@ -15,10 +15,11 @@ $(document).on('turbolinks:load', function() {
     };
 
     var run = function() {
+      console.log(slideshow)
         transition();
-        slideshow.fadeIn(1000, function() {
+        slideshow.fadeIn(2000, function() {
             setTimeout(function() {
-                slideshow.fadeOut(2000, run);
+                slideshow.fadeOut(4000, run);
             }, timeToDisplay);
         });
     }
