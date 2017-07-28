@@ -43,25 +43,11 @@
       <i class="fa fa-check"></i>
       <strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement pour finaliser votre réservation.
     </div>
+    <div class="col-sm-10 col-sm-offset-1">
+      <%= link_to "Payer mon voyage", '#paiement', class: 'btn btn-block btn-success' %>
+    </div>
   </div>
-  <div class="row">
-    <%= form_tag charges_path do %>
-      <% if flash[:error].present? %>
-       <div id="error_explanation"><p><%= flash[:error] %></p></div>
-      <% end %>
-      <%= hidden_field_tag :trip_id, trip.id %>
-      <label class="amount">
-        <span>Amount: $10.00 /TODO change price here and in script below with trip.price</span>
-      </label>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-description="A trip payment"
-      data-amount="1000" data-locale="auto" data-name="Stripe.com"
-      data-description="Widget" data-zip-code="true"
-      data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
-    </script>
-  <% end %>
-  </div>
+
 
 <% elsif trip.gestion.status == 'payed' %>
   <div class="row bottom-space">
@@ -78,7 +64,7 @@
     les informations concernant votre voyage par email. Nous nous occupons de tout. Pensez à vos valises et votre passeport !</div>
     </div>
   </div>
-  <hr>  
+  <hr>
 
 <% elsif trip.gestion.status == 'final' %>
    <h3 class="title">Nous vous attendons. :)</h3>

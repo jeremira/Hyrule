@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719054608) do
+ActiveRecord::Schema.define(version: 20170728041544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,12 @@ ActiveRecord::Schema.define(version: 20170719054608) do
 
   create_table "days", force: :cascade do |t|
     t.integer  "theme_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.text     "comment"
     t.date     "date"
+    t.boolean  "guide",      default: false
+    t.integer  "price",      default: 0
     t.index ["theme_id"], name: "index_days_on_theme_id", using: :btree
   end
 
@@ -118,9 +120,9 @@ ActiveRecord::Schema.define(version: 20170719054608) do
 
   create_table "trips", force: :cascade do |t|
     t.string   "name"
-    t.integer  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "price",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
     t.text     "comment"
     t.integer  "adults"

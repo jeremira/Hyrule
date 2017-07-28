@@ -1,27 +1,35 @@
 <% if trip.gestion.status == 'new' %>
 
 <% elsif trip.gestion.status == 'pending' %>
+<div class="col-xs-10 col-xs-offset-1">
 <div class="alert alert-warning">
   <i class="fa fa-exclamation-circle"></i>
   Ce voyage a été réservé. Merci de patienter : nos équipes organisent votre voyage.
 </div>
-
-<% elsif trip.gestion.status == 'approved' %>
-<div class="alert alert-success">
-  <i class="fa fa-check"></i>
-  <strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement pour finaliser votre réservation.
 </div>
 
+<% elsif trip.gestion.status == 'approved' %>
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="alert alert-success">
+      <i class="fa fa-check"></i>
+      <strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement pour finaliser votre réservation.
+    </div>
+  </div>
+
 <% elsif trip.gestion.status == 'payed' %>
+<div class="col-xs-10 col-xs-offset-1">
 <div class="alert alert-success">
   <i class="fa fa-check"></i>
   Nous avons bien reçu votre paiement. Avez-vous fait vos valises ?
 </div>
+</div>
 
 <% elsif trip.gestion.status == 'final' %>
+<div class="col-xs-10 col-xs-offset-1">
 <div class="alert alert-success">
   <i class="fa fa-check"></i>
   Nous vous attendons. Pensez à votre passeport !
+</div>
 </div>
 
 <% elsif trip.gestion.status == 'done' %>

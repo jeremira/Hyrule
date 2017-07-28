@@ -3,7 +3,7 @@
   <div class="slideshow"></div>
   <div class="intro-body">
     <div class="container">
-      <div class="row">
+      <div class="row bottom-space">
         <div class="col-md-8 col-md-offset-2">
           <h3 class="brand-heading tagline"><%= @day.theme.name.capitalize %></h3>
           <p class="intro-text tagline">Prévu pour le <%= @day.date %>.</p>
@@ -11,7 +11,15 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-lg-offset-3">
+        <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+          <% if @day.guide %>
+            <div class="alert alert-success"><i class="fa fa-check"></i>
+              Vous avez demandé un guide personel pour cette journée.
+            </div>
+          <% end %>
+          <div class="alert alert-info"><i class="fa fa-check"></i>
+            Prix pour la journée : <strong><%= @day.price %>€</strong>
+          </div>
         </div>
       </div>
     </div>

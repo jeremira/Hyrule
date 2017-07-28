@@ -9,6 +9,10 @@
       <% if day.dinner.todo %>
       <span class="label label-success"><i class="fa fa-check"></i>Dinner prévu !</span>
       <% end %>
+      <% if day.guide %>
+      <span class="label label-success"><i class="fa fa-check"></i>Avec un guide personel !</span>
+      <% end %>
+      <span class="label label-success"><i class="fa fa-check"></i>Mon plan de voyage personalisé inclus !</span>
     </div><br>
     <%= link_to 'Details', trip_day_path(@trip, day) %>
     <% if @trip.gestion.status == 'new' %>

@@ -12,6 +12,7 @@
   </div>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <div class="alert alert-info">Prix du voyage : <%= trip.price %>€.</div>
       <%= link_to "Réserver mon voyage", trip_gestion_path(trip, trip.gestion, :status => :pending ),
                   :method => :put, data: {confirm: "Vous ne pourrez plus modifier ce voyage. Réserver ?"}, class: 'btn btn-block btn-success btn-lg' %>
     </div>
@@ -29,11 +30,28 @@
 
 
 <% elsif trip.gestion.status == 'approved' %>
-   <div class="row bottom-space">
+   <div class="row bottom-space" id="paiement">
      <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
      <h2>Paiement</h2>
      <p><strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement en cliquant sur le bouton ci-dessous.
        Et ensuite ? Tout est prêt, vous pouvez préparer vos valises. :)</p>
+   </div>
+   <div class="row">
+     <div class="col-md-6 col-md-offset-3">
+       <div class="panel panel-info">
+         <div class="panel-heading">Cout total du voyage</div>
+         <div class="panel-body">
+           <p><%= trip.price %> €</p>
+           <hr>
+           <% trip.days.each do |day| %>
+            <div class="panel panel-default">
+              <%= day.date %> | <%= day.price %>€.
+              <% if day.guide %> <div class="label label-success">Journée avec guide</div><% end %>
+            </div>
+            <% end %>
+         </div>
+       </div>
+     </div>
    </div>
     <div class="row">
       <%= form_tag charges_path do %>
@@ -41,14 +59,13 @@
          <div id="error_explanation"><p><%= flash[:error] %></p></div>
         <% end %>
         <%= hidden_field_tag :trip_id, trip.id %>
-        <label class="amount">
-          <span>Amount: $10.00 /TODO change price here and in script below with trip.price</span>
-        </label>
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-description="A trip payment"
-        data-amount="1000" data-locale="auto" data-name="Stripe.com"
-        data-description="Widget" data-zip-code="true"
+        data-description="Paiement de mon voyage"
+        data-amount="<%= trip.price * 100 %>" data-locale="auto" data-name="Stripe.com"
+        data-description="Voyage à Tokyo" data-zip-code="true"
+        data-panel-label="Payer par carte banquaire"
+        data-label="Payer par carte banquaire"
         data-image="https://stripe.com/img/documentation/checkout/marketplace.png">
       </script>
     <% end %>

@@ -1,8 +1,9 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_trip,            only: [:show, :edit, :update, :destroy, :book]
+  before_action :set_trip,            only: [:show, :edit, :update, :destroy]
   before_action :can_edit_it?  ,      only: [:edit, :update]
   before_action :can_delete_it?,      only: [:destroy]
+  after_action  :setup_trip_price,    only: [:create, :update, :show]
   # GET /trips
   # GET /trips.json
   def index
@@ -84,6 +85,14 @@ private
     end
     def set_trip
       @trip = Trip.find(params[:id])
+    end
+
+    def setup_trip_price
+      @trip.price = 10
+      @trip.days.each do |day|
+        @trip.price = @trip.price + day.price
+      end
+      @trip.save
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
