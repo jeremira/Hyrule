@@ -1,20 +1,20 @@
 <% if trip.gestion.status == 'new' %>
+<div class="alert alert-success">
+  <i class="fa fa-check"></i>
+  Modifier votre voyage comme vous voulez.
+</div>
 
 <% elsif trip.gestion.status == 'pending' %>
-<div class="col-xs-10 col-xs-offset-1">
 <div class="alert alert-warning">
   <i class="fa fa-exclamation-circle"></i>
   Ce voyage a été réservé. Merci de patienter : nos équipes organisent votre voyage.
 </div>
-</div>
 
 <% elsif trip.gestion.status == 'approved' %>
-  <div class="col-xs-10 col-xs-offset-1">
     <div class="alert alert-success">
       <i class="fa fa-check"></i>
-      <strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement pour finaliser votre réservation.
+      <strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement.
     </div>
-  </div>
 
 <% elsif trip.gestion.status == 'payed' %>
 <div class="col-xs-10 col-xs-offset-1">

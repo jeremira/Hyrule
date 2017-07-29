@@ -12,6 +12,10 @@ class DaysController < ApplicationController
   # GET /days/1
   # GET /days/1.json
   def show
+    @images = @day.theme.gallery.split(' ')
+    @images.map! do |img|
+      "url("+ActionController::Base.helpers.asset_url(img)+")"
+    end
   end
 
   # GET /days/new
