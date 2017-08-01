@@ -2,8 +2,8 @@ $(document).on('turbolinks:load', function() {
 
 //Function for commercial banner:  request a random JSON theme at /commercial and change
 //banner content
-  var commercialBanner = $('.download-section');
-  //make condition for ajax running si commercial est la
+var commercialBanner = $('.download-section');
+if (commercialBanner.data('ajax') == true ) {
   $.ajax({
     url: "/commercial",
     context: commercialBanner,
@@ -17,12 +17,13 @@ $(document).on('turbolinks:load', function() {
     $('#theme-title').html(response['name']);
     $('#theme-descr').html(response['descr']);
   });
+};
 
 
 
 //Function for Slider : change image background on top of page banner
   var slideshow = $('.slideshow');
-  if ( slideshow.data("images") ) {
+  if ( slideshow && slideshow.data("images") ) {
     //the data-images is an array of all image_url for this page
     var urls= slideshow.data("images");
   } else {

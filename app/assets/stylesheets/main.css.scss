@@ -46,6 +46,31 @@
   margin: 4px;
 }
 
+.colle-serre {
+  margin: 0;
+  padding: 0;
+}
+
+.container-theme {
+  position: relative;
+  width: 100%;
+  height: 350px;
+}
+
+.container-theme row {
+  background: red;
+}
+
+.overlay { //background image cover without JS ajax request, used for _theme
+  position: absolute;
+  background: asset-data-url("001.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
 
 /*
 

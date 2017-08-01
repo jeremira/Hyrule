@@ -1,8 +1,32 @@
-<header class="business-header">
-  <p class="bottom-space"></p>
-  <h1 class="tagline">ADMIN CONTROL PAGE</h1>
-  <h3 class="tagline">INDEX THEME PAGE</h1>
+<!-- Intro Header -->
+<header class="intro">
+  <div class="slideshow" id="slider"></div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="brand-heading tagline">Tokyo</h3>
+          <p class="intro-text tagline">Besoin d'idée pour visiter Tokyo ? Ne cherchez pas, nous organisons tout pour vous.
+            Choisissez un thème ou un quartier et nous sélectionnerons les visites et les activités les mieux adaptés
+            pour vous.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
+<!-- Header -->
+
+<%= render @themes %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= link_to "Nouveau voyage", new_trip_path, class: 'btn btn-success btn-lg' %>
+  </div>
+</div>
+
+
+
+
 
 
 <p id="notice"><%= notice %></p>
