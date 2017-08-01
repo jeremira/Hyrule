@@ -3,6 +3,7 @@ $(document).on('turbolinks:load', function() {
 //Function for commercial banner:  request a random JSON theme at /commercial and change
 //banner content
   var commercialBanner = $('.download-section');
+  //make condition for ajax running si commercial est la
   $.ajax({
     url: "/commercial",
     context: commercialBanner,
@@ -16,7 +17,6 @@ $(document).on('turbolinks:load', function() {
     $('#theme-title').html(response['name']);
     $('#theme-descr').html(response['descr']);
   });
-
 
 
 
