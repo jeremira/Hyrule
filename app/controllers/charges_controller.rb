@@ -21,14 +21,14 @@ class ChargesController < ApplicationController
       :currency    => 'usd'
     )
 
-    flash[:notice] = "Card charged successfully ! "
+    flash[:notice] = "Votre paiement a bien été pris en compte. "
     rescue Stripe::CardError => e
-      flash[:warning] = "This card is on fire ! " + e.message
+      flash[:warning] = "Problème de paiement :" + e.message
     rescue
-      flash[:warning] = "Something went wrong ?"
+      flash[:warning] = "Quelque chose ne va pas..."
     else
       @trip.gestion.update(status: :payed)
-      flash[:notice] = "Card charge success !"
+      flash[:notice] = "Votre voyage est payé !"
     ensure
       redirect_to trip_path(@trip)
     end

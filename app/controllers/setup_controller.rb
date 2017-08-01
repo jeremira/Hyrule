@@ -1,6 +1,6 @@
 class SetupController < ApplicationController
   before_action :only_admin
-
+  #This controller is for admin page control
   def index
 
     @pending_trips = []

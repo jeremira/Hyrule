@@ -15,5 +15,5 @@ Rails.application.routes.draw do
 
   get 'commercial', to: 'themes#commercial'
 
-  root 'trips#index'
+  root 'users#index'
   end

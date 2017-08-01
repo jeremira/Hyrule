@@ -40,7 +40,8 @@
                         <a href="#page-top"></a>
                     </li>
                     <% if current_user %>
-                      <li><%= link_to 'Que faire ?', themes_path, class: "page-scroll" %></li>
+                      <li><%= link_to 'Mes voyages', trips_path, class: "page-scroll" %></li>
+                      <li><%= link_to 'Que faire à Tokyo ?', themes_path, class: "page-scroll" %></li>
                       <li><%= link_to 'Mon profil', user_path(current_user), class: "page-scroll" %></li>
                       <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "page-scroll" %></li>
                       <% if current_user && current_user.admin %>
@@ -50,9 +51,6 @@
                       <li><%= link_to 'Se connecter',    new_user_session_path(anchor: 'login-row'), class: "page-scroll" %></li>
                       <li><%= link_to 'Créer un compte', new_user_registration_path, class: "page-scroll" %></li>
                     <% end %>
-                    </li>
-                    <li>
-                        <%= link_to 'Informations', "#", class: "page-scroll" %>
                     </li>
                 </ul>
             </div>

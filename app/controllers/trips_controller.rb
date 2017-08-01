@@ -36,7 +36,7 @@ class TripsController < ApplicationController
     @trip.build_gestion
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.html { redirect_to @trip, notice: 'Félicitations ! Un nouveau voyage a été crée.' }
         format.json { render :show, status: :created, location: @trip }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class TripsController < ApplicationController
   def update
     respond_to do |format|
       if @trip.update(trip_params)
-        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
+        format.html { redirect_to @trip, notice: 'Changements enregistrés' }
         format.json { render :show, status: :ok, location: @trip }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class TripsController < ApplicationController
   def destroy
     @trip.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Trip was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Ce voyage a été supprimé.' }
       format.json { head :no_content }
     end
   end
@@ -74,13 +74,13 @@ private
     def can_edit_it?
       if @trip.gestion.status != 'new'
         redirect_to root_url
-        flash[:alert] = 'Cant edit a booked trip.'
+        flash[:alert] = 'Vous ne pouvez pas modifier ce voyage.'
       end
     end
     def can_delete_it?
       unless ['new', 'pending', 'approved'].include? @trip.gestion.status
         redirect_to root_url
-        flash[:alert] = 'Cant delete a booked trip'
+        flash[:alert] = 'Vous ne pouvez pas supprimer ce voyage.'
       end
     end
     def set_trip

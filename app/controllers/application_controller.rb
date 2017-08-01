@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def only_admin
     unless current_user && current_user.admin
-      flash[:alert] = "Only admin here !"
+      flash[:alert] = "Cette section est réservé aux administrateurs."
       redirect_to root_url
     end
   end

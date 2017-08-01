@@ -36,10 +36,13 @@ class DaysController < ApplicationController
 
     respond_to do |format|
       if @day.save
-        format.html { redirect_to @trip, notice: 'Day was successfully created.' }
+        format.html { redirect_to @trip, notice: 'Une journée a été ajoutée à votre voyage.' }
         format.json { render :show, status: :created, location: @trip }
       else
-        format.html { render :new, notice: 'ERROR ! Could not save the day' }
+        format.html {
+          flash.now[:alert] = "Erreur : Cette journée n'a pas été enregistré"
+          render :new
+        }
         format.json { render json: @day.errors, status: :unprocessable_entity }
       end
     end
@@ -51,7 +54,7 @@ class DaysController < ApplicationController
     respond_to do |format|
       if @day.update(day_params)
         @day.save
-        format.html { redirect_to @trip, notice: 'Day was successfully updated.' }
+        format.html { redirect_to @trip, notice: 'Changements enregistrés.' }
         format.json { render :show, status: :ok, location: @trip }
       else
         format.html { render :edit }
@@ -65,7 +68,7 @@ class DaysController < ApplicationController
   def destroy
     @day.destroy
     respond_to do |format|
-      format.html { redirect_to trip_url(@trip), notice: 'Day was successfully destroyed.' }
+      format.html { redirect_to trip_url(@trip), notice: 'Journée supprimée.' }
       format.json { head :no_content }
     end
   end
@@ -83,7 +86,7 @@ class DaysController < ApplicationController
     def trip_must_be_editable
       if @trip.gestion.status != 'new'
         redirect_to root_url
-        flash[:alert] = "You cant modify days planning for a booked trip"
+        flash[:alert] = "Désolé, ce voyage ne peut être modifié."
       end
     end
 

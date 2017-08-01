@@ -9,24 +9,24 @@ class GestionsController < ApplicationController
       if current_user == @trip.user && @gestion.status == 'new'
         @gestion.status = 'pending'
         if @gestion.save
-          flash[:notice] = "Thank you, we will now review your trip."
+          flash[:notice] = "Merci de votre réservation. Nos équipes vont prendre en charge votre demande."
         else
-          flash[:alert] = "Could not save change to this trip."
+          flash[:alert] = "Les changements n'ont pu être enregistrés"
         end
       else
-        flash[:alert] = "You're not allowed to do this change."
+        flash[:alert] = "Désolé, vous ne pouvez pas modifier ce voyage.."
       end
 
     when 'approved'
       if current_user.admin && @gestion.status == 'pending'
         @gestion.status = 'approved'
         if @gestion.save
-          flash[:notice] = "This trip has been approved."
+          flash[:notice] = "Vous avez approuvé ce voyage."
         else
-          flash[:alert] = "Could not save change to this trip."
+          flash[:alert] = "Les changements n'ont pu être enregistrés."
         end
       else
-        flash[:alert] = "You're not allowed to do this change."
+        flash[:alert] = "Vous n'êtes pas authorisé à effectuer cette opération."
       end
 
     when 'payed'
@@ -35,18 +35,18 @@ class GestionsController < ApplicationController
       if current_user.admin && @gestion.status == 'payed'
         @gestion.status = 'final'
         if @gestion.save
-          flash[:notice] = "This trip has been put in a FINAL mode."
+          flash[:notice] = "Ce voyage est validé."
         else
-          flash[:alert] = "Could not save change to this trip."
+          flash[:alert] = "Les changements n'ont pu être enregistrés."
         end
       else
-        flash[:alert] = "You're not allowed to do this change."
+        flash[:alert] = "Vous n'êtes pas authorisé à effectuer cette opération."
       end
 
     when 'done'
 
     else
-      flash[:alert] = "Got an invalid status : #{params[:status]}"
+      flash[:alert] = "Error: Got an invalid status : #{params[:status]}"
     end
     redirect_back(fallback_location: root_url)
   end
