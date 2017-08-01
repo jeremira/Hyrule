@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     resources :days
     resources :gestions, :only => [:update]
   end
-
   #resource for stripe payment
   resources :charges
+
+  get 'commercial', to: 'themes#commercial'
 
   root 'trips#index'
   end

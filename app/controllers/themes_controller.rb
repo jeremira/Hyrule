@@ -1,5 +1,5 @@
 class ThemesController < ApplicationController
-  before_action :only_admin
+  before_action :only_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_theme, only: [:show, :edit, :update, :destroy]
 
   # GET /themes
@@ -20,6 +20,19 @@ class ThemesController < ApplicationController
 
   # GET /themes/1/edit
   def edit
+  end
+
+  def commercial
+    #Send a random theme Jsonified for commercial banner
+    #{"name":"balbalba","descr":"Blablabla","image":"url(/assets/019-2161216d4qsd31qs3.jpg)"}
+    @random_theme = Theme.all.sample
+    @theme = {}
+    @theme['name'] = @random_theme.name
+    @theme['descr'] = @random_theme.descr
+    @theme['image'] = "url("+ActionController::Base.helpers.asset_url(@random_theme.gallery.split(" ").sample)+")"
+    respond_to do |format|
+      format.json { render json: @theme }
+    end
   end
 
   # POST /themes

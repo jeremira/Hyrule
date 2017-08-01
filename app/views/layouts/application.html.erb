@@ -28,7 +28,7 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="<%= root_path %>">
-                    <i class="fa fa-play-circle"></i> <span class="light">Home</span>
+                    <i class="fa fa-play-circle"></i> <span class="light">Voyagez</span>
                 </a>
             </div>
 
@@ -40,19 +40,17 @@
                         <a href="#page-top"></a>
                     </li>
                     <% if current_user %>
-                      <li><%= link_to 'Mes voyages', trips_path, class: "page-scroll" %></li>
+                      <li><%= link_to 'Que faire ?', themes_path, class: "page-scroll" %></li>
+                      <li><%= link_to 'Mon profil', user_path(current_user), class: "page-scroll" %></li>
+                      <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "page-scroll" %></li>
+                      <% if current_user && current_user.admin %>
+                        <li><%= link_to 'Admin Control', setup_index_path, class: "page-scroll" %></li>
+                      <% end %>
                     <% else %>
                       <li><%= link_to 'Se connecter',    new_user_session_path(anchor: 'login-row'), class: "page-scroll" %></li>
                       <li><%= link_to 'Créer un compte', new_user_registration_path, class: "page-scroll" %></li>
                     <% end %>
                     </li>
-                    <% if current_user %>
-                      <li><%= link_to 'Mon profil', user_path(current_user), class: "page-scroll" %></li>
-                      <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "page-scroll" %></li>
-                    <% end %>
-                    <% if current_user && current_user.admin %>
-                    <li><%= link_to 'Admin Control', setup_index_path, class: "page-scroll" %></li>
-                    <% end %>
                     <li>
                         <%= link_to 'Informations', "#", class: "page-scroll" %>
                     </li>

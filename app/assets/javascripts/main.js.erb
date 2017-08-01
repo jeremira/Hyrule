@@ -1,7 +1,27 @@
 $(document).on('turbolinks:load', function() {
 
+//Function for commercial banner:  request a random JSON theme at /commercial and change
+//banner content
+  var commercialBanner = $('.download-section');
+  $.ajax({
+    url: "/commercial",
+    context: commercialBanner,
+    datatype: "json",
+  }).done(function(response) {
+    $('.image-overlay').css("background", response['image']);
+    $('.image-overlay').css('position', 'absolute' );
+    $('.image-overlay').css('background-size', 'cover' );
+    $('.image-overlay').css('background-position', 'center center' );
+    $('.image-overlay').css('background-repeat', 'no-repeat' );
+    $('#theme-title').html(response['name']);
+    $('#theme-descr').html(response['descr']);
+  });
+
+
+
+
+//Function for Slider : change image background on top of page banner
   var slideshow = $('.slideshow');
-  
   if ( slideshow.data("images") ) {
     //the data-images is an array of all image_url for this page
     var urls= slideshow.data("images");
@@ -21,7 +41,6 @@ $(document).on('turbolinks:load', function() {
       "url(<%= asset_url("021.jpg") %>)", "url(<%= asset_url("022.jpg") %>)"
     ];
   };
-
 
   var introSlide = function() {
     index = Math.floor((Math.random() * urls.length));
