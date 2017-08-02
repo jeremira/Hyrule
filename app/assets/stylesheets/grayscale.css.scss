@@ -122,7 +122,8 @@ a:focus {
   display: table;
   width: 100%;
   height: auto;
-  padding: 100px 0;
+  padding: 0;
+  padding-top: 50px;
   text-align: center;
   color: white;
   background-color: black;
@@ -130,6 +131,7 @@ a:focus {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+  margin-bottom: 50px;
 }
 
 .slideshow{
@@ -210,7 +212,7 @@ a:focus {
 
 .image-overlay {
   position: absolute;
-  background: asset-data-url("001.jpg");
+  background: grey;//asset-data-url("main001.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

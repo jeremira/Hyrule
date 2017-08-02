@@ -63,7 +63,7 @@
 
 .overlay { //background image cover without JS ajax request, used for _theme
   position: absolute;
-  background: asset-data-url("001.jpg");
+  background: grey;//asset-data-url("001.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -71,98 +71,6 @@
   height: 100%;
 }
 
-
-/*
-
-.form-label {
-  text-align: center;
-  background-color: #5bc0de;
-  border-radius: 5px;
-  line-height: 2em;
-  padding :0;
-  margin: 10px 10px 25px 10px;
-  color: #f9f9f9;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-.theme-details {
-  display: inline-block;
-  width: 100%;
-  height: 300px;
-  background-color: rgba(210,200,200,0.8);
-  border: 1px solid grey;
-}
-
-.thumb-img {
-  height: 100%;
-  width: 100%;
-}
-
-.chapeau-header{
-  text-align: center;
-  padding-top: 50px;
-}
-
-.chapeau-header h1 {
-  font-size: 6em;
-}
-
-.form-container {
-  border: 1px solid grey;
-  background-color: rgba(210,200,200,0.8)
-}
-
-.form-container-spacing {
-  margin-top: 90px;
-  padding: 60px 10px;
-}
-
-.header-background {
-  background-color: rgba(210,200,200,0.8);
-  padding: 15px 20px;
-  border: 1px solid grey;
-  border-radius: 3px;
-}
-
-.form-low-container {
-  margin: 0;
-  padding: 15px 20px;
-  color: grey;
-  border-radius: 10px;
-  border: 1px solid grey;
-  background-color: #f9f9f9;
-}
-
-
-
-
-.fa {
-  padding: 0 5px;
-}
-
-.decal-left {
-  margin-left: 60px;
-}
-
-#trip_adults {
-  width: 60px;
-}
-
-#trip_kids {
-  width: 60px;
-}
-*/
  /* Start Bootstrap - Business Frontpage (http://startbootstrap.com/)
  /* Copyright 2013-2016 Start Bootstrap
  /* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)*/
@@ -183,7 +91,6 @@
 
 .surligne {
   background-color: rgba(210,200,200,0.5);
-  padding: 4px;
 }
 
 /*for image centering in the thumbnails*/
