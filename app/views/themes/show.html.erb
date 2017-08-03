@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @theme.name %>
-</p>
-
-<p>
-  <strong>Descr:</strong>
-  <%= @theme.descr %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @theme.image %>
-</p>
-
-<%= link_to 'Edit', edit_theme_path(@theme) %> |
-<%= link_to 'Back', themes_path %>
+<!-- Intro Header -->
+<header class="intro">
+  <div class="slideshow" data-images="<%= images_urls_from @theme.gallery %>"></div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h3 class="brand-heading tagline"><%= @theme.name %></h3>
+          <p class="intro-text tagline"><%= @theme.descr %></p>
+          <a href="#about" class="label">
+              <i class="fa fa-angle-double-down fa-2x"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Header -->
+<section id="about" class="container content-section text-center">
+  <div class="header-wrapper">
+    <%= render('themes/details/'+@theme.name.downcase) %>
+  </div>
+</section>

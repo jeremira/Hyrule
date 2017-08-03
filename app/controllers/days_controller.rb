@@ -14,7 +14,7 @@ class DaysController < ApplicationController
   def show
     @images = @day.theme.gallery.split(' ')
     @images.map! do |img|
-      "url("+ActionController::Base.helpers.asset_url(img)+")"
+      ActionController::Base.helpers.asset_url(img)
     end
   end
 
