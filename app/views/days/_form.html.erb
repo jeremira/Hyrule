@@ -138,9 +138,9 @@
     <div class="row bottom-space">
       <div class="row">
         <%= f.collection_radio_buttons(:theme_id, Theme.all, :id, :image) do |b| %>
-          <div class="col-xs-12 col-sm-6 col-md-3 text-center">
+          <div class="col-xs-6 col-sm-4 col-md-3 text-center">
             <div class="thumbnail-container">
-              <%= b.label(class: "radio-thumbnail") { b.radio_button + image_tag(b.object.image, class: 'thumbnail') } %>
+              <%= b.label(class: "radio-thumbnail") { b.radio_button + image_tag(b.object.image, class: 'img-responsive img-center thumbnail') } %>
               <h4 class="tagline text-center"><%= b.object.name %></h4>
             </div>
           </div>

@@ -45,8 +45,8 @@
            <hr>
            <% trip.days.each do |day| %>
             <div class="panel panel-default">
-              <%= day.date %> | <%= day.price %>€.
-              <% if day.guide %> <div class="label label-success">Journée avec guide</div><% end %>
+              <%= day.date %> | <%= day.price %>€.<br>
+              <% if day.guide %><div class="label label-success">Journée avec guide</div><% end %>
             </div>
             <% end %>
          </div>

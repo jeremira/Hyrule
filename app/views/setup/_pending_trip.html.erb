@@ -1,9 +1,9 @@
 <li>
-  <h3>TripID:<%= pending_trip.id %></h3>
-  <p>Name : <%= pending_trip.name %> | for user : <%= pending_trip.user.email %></p>
-  <p>Adult : <%= pending_trip.adults %> & Kids : <%= pending_trip.kids %></p>
-  <p>As <%= pending_trip.days.length %> days planned !</p>
+  <strong>TripID:<%= pending_trip.id %></strong> |
+  <%= pending_trip.name %> | <%= pending_trip.user.email %> |
+  <%= pending_trip.adults %> adults & <%= pending_trip.kids %> kids |
+  <%= link_to 'details', trip_path(pending_trip), class: 'btn btn-warning btn-xs' %>
   <%= link_to "Approve this Trip", trip_gestion_path(pending_trip, pending_trip.gestion,
               :status => :approved), :data => {:confirm => 'Approve this trip ?'}, :method => :put,
-              class: 'btn btn-success' %>
+              class: 'btn btn-success btn-xs' %>
 </li>

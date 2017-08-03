@@ -3,6 +3,8 @@ class SetupController < ApplicationController
   #This controller is for admin page control
   def index
 
+    @themes = Theme.all
+
     @pending_trips = []
     Trip.all.each do |trip|  #TODO has to be done with an activerecord query, thats shit
       if trip.gestion.status == 'pending'
