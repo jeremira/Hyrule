@@ -6,6 +6,9 @@ class ThemesController < ApplicationController
   # GET /themes.json
   def index
     @themes = Theme.all
+    @tokyo_themes = Theme.where(style: 'tokyo')
+    @around_theme = Theme.where(style: 'around')
+    @theme_themes = Theme.where(style: 'theme')
   end
 
   # GET /themes/1
