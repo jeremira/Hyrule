@@ -6,7 +6,7 @@ class ChargesController < ApplicationController
   def create
     # Amount in cents
     @trip = Trip.find(params[:trip_id])
-    @amount = 500
+    @amount = params[:amount]
     #TODO move this mess in a model
     begin
     customer = Stripe::Customer.create(
@@ -18,7 +18,7 @@ class ChargesController < ApplicationController
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
-      :currency    => 'usd'
+      :currency    => 'eur'
     )
 
     flash[:notice] = "Votre paiement a bien été pris en compte. "
@@ -27,7 +27,10 @@ class ChargesController < ApplicationController
     rescue
       flash[:warning] = "Quelque chose ne va pas..."
     else
-      @trip.gestion.update(status: :payed)
+      @trip.gestion.update_attributes(:status => :payed,
+                                      :token => charge.id,
+                                      :payment_date => Time.now,
+                                      :amount_payed => @amount)
       flash[:notice] = "Votre voyage est payé !"
     ensure
       redirect_to trip_path(@trip)

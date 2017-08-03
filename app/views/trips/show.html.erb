@@ -204,7 +204,9 @@
     </div>
     <div class="row bottom-space">
       <div class="col-sm-6 col-sm-offset-3">
-        <%= link_to "Modifier mon voyage", edit_trip_path(@trip), class: 'btn btn-lg btn-block btn-success' %>
+        <% if @trip.gestion.status == 'new' %>
+          <%= link_to "Modifier mon voyage", edit_trip_path(@trip), class: 'btn btn-lg btn-block btn-success' %>
+        <% end %>
       </div>
     </div>
   </div>

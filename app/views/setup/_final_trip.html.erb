@@ -1,4 +1,4 @@
 <li>
-  <h3>TripID:<%= final_trip.id %></h3>
-  <p>Name : <%= final_trip.name %> | for user : <%= final_trip.user.email %></p>
+  <strong>TripID:<%= final_trip.id %></strong>  | <%= final_trip.user.email %> |
+  <%= link_to 'show trip', trip_path(final_trip), class: 'btn btn-warning btn-xs' %>
 </li>
