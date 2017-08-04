@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
 
   def index #root page
-
   end
 
   def show #profile page

@@ -4,6 +4,7 @@
 </header>
 
 <%= form_for trip do |f| %>
+
 <section class="container content-section">
   <div class="header-wrapper">
     <div class="row bottom-space text-center">
@@ -14,6 +15,13 @@
         <div class="form-group">
             <%= f.text_field :name, class: "form-control input-lg", placeholder: "Mon superbe voyage à Tokyo." %>
         </div>
+        <% if trip.errors.full_messages_for(:name).any? %>
+        <div class="alert alert-warning">
+          <% trip.errors.full_messages_for(:name).each do |error| %>
+            <%= error %>
+          <% end %>
+        </div>
+        <% end %>
       </div>
     </div>
 
@@ -46,6 +54,13 @@
           </span>
           <%= f.label :adults, "Adulte(s) :  " %>
           <%= f.number_field :adults %>
+          <% if trip.errors.full_messages_for(:adults).any? %>
+          <div class="alert alert-warning">
+            <% trip.errors.full_messages_for(:adults).each do |error| %>
+              <%= error %>
+            <% end %>
+          </div>
+          <% end %>
         </div>
         <div class="col-md-3">
           <span>
@@ -204,7 +219,7 @@
 
     <div class="row bottom-spaceloca">
       <div class="col-md-8 col-md-offset-2">
-        <%= f.submit "Save trip !", class: "btn btn-success btn-lg btn-block" %>
+        <%= f.submit "Valider mon voyage !", class: "btn btn-success btn-lg btn-block" %>
       </div>
     </div>
     <% end %>

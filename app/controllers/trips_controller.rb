@@ -40,7 +40,10 @@ class TripsController < ApplicationController
         format.html { redirect_to @trip, notice: 'Félicitations ! Un nouveau voyage a été crée.' }
         format.json { render :show, status: :created, location: @trip }
       else
-        format.html { render :new }
+        format.html {
+          flash.now[:alert] = "Votre voyage n'a pas pu être enregistré : pensez à donner un nom et à indiquer le nombre d'adultes pour ce voyage."
+          render action: "new"
+        }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
       end
     end
@@ -54,7 +57,10 @@ class TripsController < ApplicationController
         format.html { redirect_to @trip, notice: 'Changements enregistrés' }
         format.json { render :show, status: :ok, location: @trip }
       else
-        format.html { render :edit }
+        format.html {
+          flash.now[:alert] = "Votre voyage n'a pas pu être enregistré : pensez à donner un nom et à indiquer le nombre d'adultes pour ce voyage."
+          render action: "edit"
+          }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
       end
     end

@@ -15,6 +15,4 @@ class Trip < ApplicationRecord
   has_many   :plannings,                      :dependent => :destroy
   has_many   :days,      through: :plannings
 
-
-
 end

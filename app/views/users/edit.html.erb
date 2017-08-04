@@ -24,6 +24,13 @@
           <div class="panel-heading">Mon email</div>
           <div class="panel-body">
           <%= f.email_field :email, class: 'form-control', placeholder: 'Entrez votre email' %>
+          <% if @user.errors.full_messages_for(:email).any? %>
+          <div class="alert alert-warning">
+            <% @user.errors.full_messages_for(:email).each do |error| %>
+              <%= error %>
+            <% end %>
+          </div>
+          <% end %>
           </div>
         </div>
         <%= f.fields_for :account do |account_f| %>

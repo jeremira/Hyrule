@@ -9,6 +9,7 @@
                     <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
                     <h3 class="tagline">Créer un compte</h3>
                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
                     <div class="form-group">
                         <%= f.email_field :email, placeholder: 'Entrez votre email', :class => 'form-control' %>
                     </div>

@@ -40,7 +40,7 @@ class DaysController < ApplicationController
         format.json { render :show, status: :created, location: @trip }
       else
         format.html {
-          flash.now[:alert] = "Erreur : Cette journée n'a pas été enregistré"
+          flash.now[:alert] = "Cette journée n'a pas été enregistré. Veuillez vérifier le formulaire."
           render :new
         }
         format.json { render json: @day.errors, status: :unprocessable_entity }
@@ -57,7 +57,10 @@ class DaysController < ApplicationController
         format.html { redirect_to @trip, notice: 'Changements enregistrés.' }
         format.json { render :show, status: :ok, location: @trip }
       else
-        format.html { render :edit }
+        format.html {
+          flash.now[:alert] = "Cette journée n'a pas été enregistré. Veuillez vérifier le formulaire."
+          render :edit
+        }
         format.json { render json: @day.errors, status: :unprocessable_entity }
       end
     end
