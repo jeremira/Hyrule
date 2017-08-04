@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
+  #TODO : before_action :user_is_current_user_or_admin
   before_action :set_trip,            only: [:show, :edit, :update, :destroy]
   before_action :can_edit_it?  ,      only: [:edit, :update]
   before_action :can_delete_it?,      only: [:destroy]
