@@ -85,6 +85,19 @@
  color: #fff;
 }
 
+.txt-on-img {
+ text-shadow: 0 0 10px #000;
+ color: #fff;
+ line-height: 350px;
+ font-size: 16vw;
+}
+
+@media (min-width: 768px) {
+  .txt-on-img{
+    font-size: 9vw;
+  }
+}
+
 .surligne {
   background-color: rgba(210,200,200,0.5);
 }
@@ -92,4 +105,13 @@
 /*for image centering in the thumbnails*/
 .img-center {
 	margin: 0 auto;
+}
+
+.row.no-pad {
+  margin-right:0;
+  margin-left:0;
+}
+.row.no-pad > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
 }

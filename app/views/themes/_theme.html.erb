@@ -1,14 +1,13 @@
 <!-- Image Section -->
-<section class="content-section colle-serre text-center">
+<div class="col-md-6 col-md-4">
+  <a href ="<%= theme_path(theme) %>">
   <div class="container-theme">
     <div class="overlay" style="background: url(<%= asset_url(theme.image) %>) center center / cover no-repeat; position: absolute; display: block;"></div>
     <div class="row bottom-space">
-      <a href ="<%= theme_path(theme) %>">
-        <div class="col-xs-12 tagline surligne">
-          <h3><%= theme.name %></h3>
-          <p><%= theme.descr %></p>
+        <div class="col-xs-12">
+          <span class="txt-on-img txt-uppercase"><%= theme.name %></span>
         </div>
-      </a>
     </div>
   </div>
-</section>
+  </a>
+</div>
