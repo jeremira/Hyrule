@@ -1,6 +1,6 @@
 class DaysController < ApplicationController
-  before_action :set_day,                only: [:show, :edit, :update, :destroy]
   before_action :set_trip,               only: [:show, :new, :edit, :create, :update, :destroy]
+  before_action :set_day,                only: [:show, :edit, :update, :destroy]
   before_action :trip_must_be_editable,  only: [:new, :edit, :create, :update, :destroy]
   after_action  :check_and_adjust_price, only: [:update, :create]
   # GET /days
@@ -79,11 +79,15 @@ class DaysController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_day
-      @day = Day.find(params[:id])
+      @day = @trip.days.find(params[:id])
     end
 
     def set_trip
-      @trip = Trip.find(params[:trip_id])
+      if current_user.admin
+        @trip = Trip.find(params[:trip_id])
+      else
+        @trip = current_user.trips.find(params[:trip_id])
+      end
     end
 
     def trip_must_be_editable

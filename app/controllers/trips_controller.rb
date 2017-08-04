@@ -91,7 +91,11 @@ private
       end
     end
     def set_trip
-      @trip = Trip.find(params[:id])
+      if current_user.admin
+        @trip = Trip.find(params[:id])
+      else
+        @trip = current_user.trips.find(params[:id])
+      end
     end
 
     def setup_trip_price
