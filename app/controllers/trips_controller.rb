@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,  except: [:infos]
   before_action :set_trip,            only: [:show, :edit, :update, :destroy]
   before_action :can_edit_it?  ,      only: [:edit, :update]
   before_action :can_delete_it?,      only: [:destroy]
@@ -14,6 +14,9 @@ class TripsController < ApplicationController
   # GET /trips/1.json
   def show
     @days = @trip.days
+  end
+
+  def infos
   end
 
   # GET /trips/new
