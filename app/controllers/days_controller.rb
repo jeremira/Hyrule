@@ -98,8 +98,8 @@ class DaysController < ApplicationController
     end
 
     def check_and_adjust_price
-      @day.price = 15
-      @day.price = 45 if @day.guide
+      @day.price = 20
+      @day.price = 225 if @day.guide
       @day.save
     end
 

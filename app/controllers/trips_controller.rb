@@ -98,7 +98,10 @@ private
     end
 
     def setup_trip_price
-      @trip.price = 10
+      #to change price depending of number of people, no change until 4 people
+      people_weight = (@trip.adults + @trip.kids/2) - 4
+      people_weight = 1 if people_weight < 1
+      @trip.price = (people_weight + 5) * @trip.days.length
       @trip.days.each do |day|
         @trip.price = @trip.price + day.price
       end
