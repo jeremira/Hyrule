@@ -12,7 +12,40 @@
   </div>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <div class="alert alert-info">Prix du voyage : <%= trip.price %>€.</div>
+      <div class="alert alert-info"><strong>Prix du voyage : <%= trip.price %>€.</strong></div>
+      <div class="alert alert-info text-left">
+        <ul class="list-unstyled"><% trip.days.each do |day| %>
+          <li>
+            <div class="row">
+              <%= day.date %> : <%= day.price %>€
+            </div>
+            <div class="row">
+              <span class="label label-default">Thème de la journée : <%= day.theme.name %></span>
+              <span class="label label-success">Organisation de votre journée à la carte.</span>
+              <% if day.guide %>
+                <span class="label label-success">Journée avec guide personnel.</span>
+              <% end %>
+            </div>
+          </li>
+          <% end %>
+          <% days_price = 0 %>
+          <% trip.days.each do |day| %>
+            <% days_price += day.price %>
+          <% end %>
+        <li>Organisation générale du voyage : <%= trip.price - days_price  %>€</li>
+        </ul>
+      </div>
+      <hr>
+        <div class="row text-left">
+          <strong>Qu'est-ce-qui est inclus ?</strong> Votre guide personnel, votre planning détaillé et personnel
+          jour par jour, les réservations et l'organisation de vos activités et visites.
+        </div>
+        <br>
+        <div class="row text-left">
+          <strong>Qu'est-ce-qui n'est pas inclus ?</strong> La nourriture, les boissons, les frais de transports et le
+           coût éventuel des activités et des entrées aux monuments, musées... sont à payer sur place.
+        </div>
+        <hr>
       <%= link_to "Réserver mon voyage", trip_gestion_path(trip, trip.gestion, :status => :pending ),
                   :method => :put, data: {confirm: "Vous ne pourrez plus modifier ce voyage. Réserver ?"}, class: 'btn btn-block btn-success btn-lg' %>
     </div>
