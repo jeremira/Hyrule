@@ -27,17 +27,43 @@
 
     <div class="row bottom-space text-center">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-money"></i></div></div></div>
-      <h1 class="bottom-space">Au sujet de l'organisation</h1>
-      <p>Quel budget pour ce voyage ?</p>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1 class="bottom-space">Au sujet de l'organisation</h1>
+          <p>Quel budget pour ce voyage ?</p>
+        </div>
+        <div class="col-md-6 col-md-offset-3 panel panel-default">
+          Lors de votre voyage les entrées aux monuments, musée, visites... restent à votre charge.
+          Indiquez nous quel budget vous souhaitez y accorder. Nous organiserons vos journées en conséquence.</br>
+          Ceci ne modifie pas le prix de nos prestations.
+        </div>
+      </div>
       <div class ="row">
           <div class="col-md-8 col-md-offset-2">
             <div class="form-group">
               <%= f.fields_for :budget do |ff| %>
-              <%= ff.range_field( :value, in: 0..4 ) %>
+              <%= ff.range_field( :value, in: 0..4 , id: 'budget-range') %>
               <% end %>
             </div>
-            <div class="alert alert-success">
-              <strong>Budget Eco</strong> Mais toujours le best du best!
+            <div class="alert alert-success budget-infos" id="budget0">
+              <strong>€ Mini Budget :</strong> Nous privilègerons les activités et les visites
+              gratuites et nous limiterons les frais de transports.
+            </div>
+            <div class="alert alert-success budget-infos" id="budget1">
+              <strong>€€ Petit budget :</strong> Nous veillerons à ce que vos journées reste
+              économique tout en profitant de la ville.
+            </div>
+            <div class="alert alert-success budget-infos" id="budget2">
+              <strong>€€€ Budget normal :</strong> Profitez de Tokyo dans toute sa richesse sans
+              sacrifier votre portefeuille.
+            </div>
+            <div class="alert alert-success budget-infos" id="budget3">
+              <strong>€€€€ Budget Plaisir :</strong>Prêt à quelques petites folies pour découvrir
+              les merveilles de Tokyo ?
+            </div>
+            <div class="alert alert-success budget-infos" id="budget4">
+              <strong>€€€€€ Budget Luxe :</strong> Pas de limite, le luxe et la démesure vont très bien
+              avec Tokyo. :)
             </div>
           </div>
         </div>
@@ -79,12 +105,18 @@
         <ul class="list-group">
           <%= f.fields_for :style do |ff| %>
           <li class="list-group-item">
-            Je souhaite un voyage fun pour les enfants.
-            <div class="material-switch pull-right">
-                <%= ff.check_box :kid, id: "kidsfriendly" %>
-                <label for="kidsfriendly" class="label-success"></label>
+            <div class="row">
+              <div class="col-sm-10">
+                Je souhaite que ma journée soit fun et interessante pour les enfants.
+              </div>
+              <div class="col-sm-2">
+                <div class="material-switch pull-right">
+                    <%= ff.check_box :kid, id: "kidsfriendly" %>
+                    <label for="kidsfriendly" class="label-success"></label>
+                </div>
+              </div>
             </div>
-            <% end %>
+          <% end %>
           </li>
         </ul>
       </div>
@@ -103,11 +135,35 @@
       <div class="col-md-8 col-md-offset-2">
         <p>A quel rythme aimez-vous passez vos vacances ?</p>
         <%= f.fields_for :rythme do |ff| %>
-          <%= ff.range_field( :value, in: 0..4, class: "form-control" ) %>
-        <div class="alert alert-success">
+          <%= ff.range_field( :value, in: 0..4, class: "form-control", id: "rythme-range" ) %>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="alert alert-success rythme-infos" id="rythme0">
+          <strong>A 000 !</strong> Vous aimez les vacances chargé, t'es un homme vite !
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="alert alert-success rythme-infos" id="rythme1">
+          <strong>A 111 !</strong> Vous aimez les vacances chargé, t'es un homme vite !
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="alert alert-success rythme-infos" id="rythme2">
+          <strong>A 222 !</strong> Vous aimez les vacances chargé, t'es un homme vite !
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="alert alert-success rythme-infos" id="rythme3">
+          <strong>A333 !</strong> Vous aimez les vacances chargé, t'es un homme vite !
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="alert alert-success rythme-infos" id="rythme4">
           <strong>A fond !</strong> Vous aimez les vacances chargé, t'es un homme vite !
         </div>
       </div>
+
+
     </div>
 
     <div class="row">
