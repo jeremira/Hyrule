@@ -6,8 +6,16 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <h3 class="brand-heading tagline">Tokyo</h3>
-          <p class="intro-text tagline">Choisissez un thème pour votre journée, ou bien un lieu, et nous organisons le reste.
-          Nous sélectionnons le meilleur pour vous selon vos préférences.</p>
+          <p class="intro-text tagline">Comme vous l'aimez</p>
+          <div class="wrapper">
+            <div class="row tagline">Ne passez plus vos vacances le nez dans un guide touristique, ne stressez pas pour l'organisation
+            et évitez les piège à touriste. Nous sélectionnons le meilleur, dites jous juste ce que vous voulez faire :</div>>
+            <div class="row">
+              <%= link_to 'Journée thématique', '#theme', class: 'btn btn-default btn-xs' %>
+              <%= link_to "Visite d'un quartier", '#tokyo', class: 'btn btn-default btn-xs' %>
+              <%= link_to 'Autour de Tokyo', '#around', class: 'btn btn-default btn-xs' %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -16,7 +24,7 @@
 <!-- Header -->
 <section class="container content-section text-center">
   <div class="header-wrapper">
-    <div class="row">
+    <div class="row" id="theme">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
       <h3>Selon vos préférence</h3>
       <p>Choisissez un thème pour votre journée selon vos préférences et nous
@@ -30,7 +38,7 @@
 <%= render('shared/commercial') %>
 <section class="container content-section text-center">
 <div class="header-wrapper">
-  <div class="row">
+  <div class="row" id="tokyo">
     <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
     <h3>Visitez par quartier</h3>
     <p>Un ou des quartiers à Tokyo que vous souhaiteriez visitez ? Pas de problème ! Nous centrerons votre journée sur cet endroit,
@@ -44,7 +52,7 @@
 <%= render('shared/commercial') %>
 <section class="container content-section text-center">
 <div class="header-wrapper">
-  <div class="row">
+  <div class="row" id="around">
     <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
     <h3>Autour de Tokyo</h3>
     <p>A proximité de Tokyo de nombreux endroits magnifiques peuvent être visité sur une journée. Campagne, montagne, mer...

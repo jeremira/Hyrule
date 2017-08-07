@@ -10,78 +10,51 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4">
-          <p class="text-center"><%= link_to "Se connecter", "#login-row", class: "btn btn-default btn-block" %></p>
+        <div class="col-md-8 col-md-offset-2 wrapper">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="row">
+              <div class="form-group col-md-8 col-md-offset-2">
+                <%= f.email_field :email, placeholder: 'Enter your email', :class => 'form-control' %>
+              </div>
+              <div class="form-group col-md-8 col-md-offset-2">
+                <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password', :class => 'form-control' %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="checkbox tagline">
+                <% if devise_mapping.rememberable? -%>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me, 'Se souvenir de moi' %>
+                <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-8 col-md-offset-2">
+                <%= f.submit "Se connecter", :class => 'btn btn-success btn-block' %>
+               <% end %>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Se connecter via Facebook</span>"),
+                  omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-social btn-facebook" %>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                  <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Se connecter via Twitter</span>"),
+                  omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-default btn-social btn-twitter" %>
+                </div>
+            </div>
+            <br>
+            <%= render "devise/shared/links" %>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Main Section -->
-<section id="login-row" class="container content-section text-center">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-      <div class="wrapper">
-        <div class="row">
-          <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
-          <h2>Se connecter</h2>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-               <div class="form-group">
-                 <%= f.email_field :email, placeholder: 'Enter your email', :class => 'form-control' %>
-               </div>
-               <div class="form-group">
-                 <%= f.password_field :password, autocomplete: "off", placeholder: 'Enter your password', :class => 'form-control' %>
-               </div>
-               <div class="checkbox">
-                 <% if devise_mapping.rememberable? -%>
-                   <%= f.check_box :remember_me %>
-                   <%= f.label :remember_me, 'Se souvenir de moi' %>
-                 <% end %>
-               </div>
-               <div class="form-group">
-                 <%= f.submit "Log in", :class => 'btn btn-success btn-block' %>
-                <% end %>
-              </div>
-          </div>
-        </div>
-        <div class ="row">
-          <p class="text-center"><strong>ou</strong>  </p>
-        </div>
-        <div class="row">
-          <div class="col-xs-8 col-xs-offset-2">
-            <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Se connecter avec Facebook</span>"),
-            omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-social btn-facebook" %>
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-xs-8 col-xs-offset-2">
-            <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Se connecter avec Twitter</span>"),
-            omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-default btn-social btn-twitter" %>
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-xs-8 col-xs-offset-2">
-            <%= link_to raw("<i class='fa fa-google fa-fw'></i> <span class='network-name'>Se connecter avec Google</span>"),
-            omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-default btn-social btn-google" %>
-          </div>
-        </div>
-        <hr>
-        <%= render "devise/shared/links" %>
-      </div>
-    </div>
-  </div>
-</section>
-
-<%= render ('shared/commercial') %>
-
 <!-- Infos Section -->
 <section  id="info-row" class="container content-section text-center">
   <%= render('shared/infos') %>
 </section>
+
+<%= render ('shared/commercial') %>
