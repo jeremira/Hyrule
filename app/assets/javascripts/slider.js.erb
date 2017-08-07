@@ -1,23 +1,4 @@
 $(document).on('turbolinks:load', function() {
-//Function for commercial banner:  request a random JSON theme at /commercial and change
-//banner content
-var commercialBanner = $('.download-section');
-if (commercialBanner.data('ajax') == true ) {
-  $.ajax({
-    url: "/commercial",
-    context: commercialBanner,
-    datatype: "json",
-  }).done(function(response) {
-    $('.image-overlay').css("background", response['image']);
-    $('.image-overlay').css('position', 'absolute' );
-    $('.image-overlay').css('background-size', 'cover' );
-    $('.image-overlay').css('background-position', 'center center' );
-    $('.image-overlay').css('background-repeat', 'no-repeat' );
-    $('#theme-title').html(response['name']);
-    $('#theme-descr').html(response['descr']);
-  });
-};
-
 //Function for Slider : change image background on top of page banner
   var slideshow = $('.slideshow');
   if ( slideshow && slideshow.data("images") ) {
