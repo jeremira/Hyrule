@@ -13,6 +13,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :omniauthable, :omniauth_providers => [:facebook, :instagram]
 
+  after_create :send_greeting_email
+
   def self.from_fbomniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
      user.email = auth.info.email
@@ -35,6 +37,11 @@ class User < ApplicationRecord
      # uncomment the line below to skip the confirmation emails.
      # user.skip_confirmation!
    end
+  end
+
+  def send_greeting_email
+    # Sends email to user when user is created.
+      MainMailer.greeting_email(self).deliver
   end
 
 end
