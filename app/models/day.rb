@@ -10,4 +10,16 @@ class Day < ApplicationRecord
 
   validates :date, presence: true
 
+  after_save :update_trip_price
+
+  def update_trip_price
+    if self.guide
+      new_price = 225
+    else
+      new_price = 20
+    end
+    self.update_column(:price, new_price) #update day.price
+    self.trip.setup_trip_price #update his trip price
+  end
+
 end

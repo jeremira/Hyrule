@@ -2,7 +2,6 @@ class DaysController < ApplicationController
   before_action :set_trip,               only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_day,                only: [:show, :edit, :update, :destroy]
   before_action :trip_must_be_editable,  only: [:new, :edit, :create, :update, :destroy]
-  after_action  :check_and_adjust_price, only: [:update, :create]
   # GET /days
   # GET /days.json
   def index
@@ -95,12 +94,6 @@ class DaysController < ApplicationController
         redirect_to root_url
         flash[:alert] = "Désolé, ce voyage ne peut être modifié."
       end
-    end
-
-    def check_and_adjust_price
-      @day.price = 20
-      @day.price = 225 if @day.guide
-      @day.save
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

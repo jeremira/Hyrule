@@ -4,7 +4,7 @@ class Trip < ApplicationRecord
   validates :adults, presence: true
   belongs_to :user
 
-  after_initialize :setup_trip_price
+  after_save :setup_trip_price
 
   has_one    :budget,           :dependent => :destroy
   accepts_nested_attributes_for :budget
