@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   get 'commercial',  to: 'themes#commercial'
   get 'information', to: 'trips#infos'
 
-  root 'users#index'
+  root 'static#index'
   end

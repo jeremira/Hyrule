@@ -120,3 +120,33 @@
   padding-right:0;
   padding-left:0;
 }
+
+.btn-hop {
+  background-color: #ffe1ca;
+  border: none;
+  color: #823800;
+  border-radius: 10px;
+}
+
+.btn-hop:hover,
+.btn-hop:focus {
+  border: none;
+  outline: none;
+  color: #823800;
+  background-color: #FECACB;
+}
+
+.back-green {
+  background-color: #279c64;
+  color: #fff;
+}
+
+.back-pink {
+  background-color: #dc3740;
+  color: #fff;
+}
+
+.back-brown {
+  background-color: #e08138;
+  color: #fff;
+}
