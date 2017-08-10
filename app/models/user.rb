@@ -13,7 +13,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :omniauthable, :omniauth_providers => [:facebook, :instagram]
 
-  after_create :send_greeting_email
+  #activate to send email on creation, TODO when valid DNS email
+  #after_create :send_greeting_email
 
   def self.from_fbomniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
