@@ -9,12 +9,6 @@
   <div class="header-wrapper">
     <div class="row bottom-space text-center">
       <div class="col-md-8 col-md-offset-2">
-        <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
-        <h1 class="bottom-space">Mon voyage idéal</h1>
-        <p>Tout d'abord choisissez un joli nom pour votre voyage :</p>
-        <div class="form-group">
-            <%= f.text_field :name, class: "form-control input-lg", placeholder: "Mon superbe voyage à Tokyo." %>
-        </div>
         <% if trip.errors.full_messages_for(:name).any? %>
         <div class="alert alert-warning">
           <% trip.errors.full_messages_for(:name).each do |error| %>
@@ -24,18 +18,21 @@
         <% end %>
       </div>
     </div>
-
     <div class="row bottom-space text-center">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-money"></i></div></div></div>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="bottom-space">Au sujet de l'organisation</h1>
-          <p>Quel budget pour ce voyage ?</p>
+          <p>Tout d'abord choisissez un joli nom pour votre voyage :</p>
+          <div class="form-group">
+              <%= f.text_field :name, class: "form-control input-lg", placeholder: "Mon superbe voyage à Tokyo." %>
+          </div>
+          <br>
+          <h3>Budget de vos journées</h3>
         </div>
-        <div class="col-md-6 col-md-offset-3 panel panel-default">
-          Lors de votre voyage les entrées aux monuments, musée, visites... restent à votre charge.
-          Indiquez nous quel budget vous souhaitez y accorder. Nous organiserons vos journées en conséquence.</br>
-          Ceci ne modifie pas le prix de nos prestations.
+        <div class="col-md-8 col-md-offset-2">
+          <p class="small-text text-left">Les frais de transports et d'admissions aux différents sites, monuments et activités
+           sont à régler sur place. Quel budget journalier souhaitez-vous y accorder ?</p>
         </div>
       </div>
       <div class ="row">
@@ -48,29 +45,34 @@
             <div class="alert alert-success budget-infos" id="budget0">
               <strong>€ Mini Budget :</strong> Nous privilègerons les activités et les visites
               gratuites et nous limiterons les frais de transports.
+              <span class="label label-default">Budget moyen pour une journée : 0~10€/personne</span>
             </div>
             <div class="alert alert-success budget-infos" id="budget1">
               <strong>€€ Petit budget :</strong> Nous veillerons à ce que vos journées reste
               économique tout en profitant de la ville.
+              <span class="label label-default">Budget moyen pour une journée : 10~20€/personne</span>
             </div>
             <div class="alert alert-success budget-infos" id="budget2">
               <strong>€€€ Budget normal :</strong> Profitez de Tokyo dans toute sa richesse sans
               sacrifier votre portefeuille.
+              <span class="label label-default">Budget moyen pour une journée : 15~30€/personne</span>
             </div>
             <div class="alert alert-success budget-infos" id="budget3">
               <strong>€€€€ Budget Plaisir :</strong>Prêt à quelques petites folies pour découvrir
               les merveilles de Tokyo ?
+              <span class="label label-default">Budget moyen pour une journée : 25~50€/personne</span>
             </div>
             <div class="alert alert-success budget-infos" id="budget4">
               <strong>€€€€€ Budget Luxe :</strong> Pas de limite, le luxe et la démesure vont très bien
               avec Tokyo. :)
+              <span class="label label-default">Budget moyen pour une journée : + de 50€/personne</span>
             </div>
           </div>
         </div>
     </div>
 
     <div class="row text-center">
-      <p>Indiquez le nombre de personne pour ce voyage :</p>
+      <p class="small-text">Merci de nous indiquer le nombre de personne participant à ce voyage :</p>
       <div class="form-group">
         <div class="col-md-3">
         </div>
@@ -107,7 +109,7 @@
           <li class="list-group-item">
             <div class="row">
               <div class="col-sm-10">
-                Je souhaite que ma journée soit fun et interessante pour les enfants.
+                Je souhaite que mes journées soient organisées pour que les enfants s'amusent.
               </div>
               <div class="col-sm-2">
                 <div class="material-switch pull-right">
@@ -125,45 +127,44 @@
     <div class="row bottom-space text-center">
       <div class="col-md-8 col-md-offset-2 bottom-space">
         <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
-        <h3>Mon voyage comme je l'aime</h3>
+        <h1>Mon voyage à la carte</h1>
         <p>Personalisez votre voyage pour qu'il vous corresponde.<br>
           Vous pourrez modifier ces options plus tard si vous désirez.</p>
       </div>
-      <div class="col-md-8 col-md-offset-2 panel panel-default little-padding">
-        Nous organiserons vos journées avec plus ou moins d'activités selon le rythme que vous choisissez.
+      <div class="col-md-8 col-md-offset-2">
+        <p class="small-text text-left">Aimez-vous les vacances calmes ou au contraire aimez-vous des journées bien remplis ? Dites-nous
+        à quel rythme vous souhaitez découvrir Tokyo :</p>
       </div>
     </div>
-
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
-        <p>A quel rythme aimez-vous passez vos vacances ?</p>
         <%= f.fields_for :rythme do |ff| %>
           <%= ff.range_field( :value, in: 0..4, class: "form-control", id: "rythme-range" ) %>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme0">
-          <strong>Vacances vieu matou :</strong> Vous aimez vous prélassez et profiter doucement de chaque instant
+          <strong>Vieux matou :</strong> Vous aimez vous prélassez et profiter doucement de chaque instant
           et lieu que vous visitez tout en déambulant gentilment.
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme1">
-          <strong>Vacance petit chiot :</strong> Vous aimez avoir le temps de visiter tranquilement, mais sans perdre de temps à révasser.
+          <strong>Chiot joyeux :</strong> Vous aimez avoir le temps de visiter tranquilement, mais sans perdre de temps à révasser.
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme2">
-          <strong>Vacance girafe de savanne : </strong> Vous ne voulez pas courrir mais il y'a tant à voir !
+          <strong>Giraffe gambadante: </strong> Vous ne voulez pas courrir mais il y'a tant à voir !
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme3">
-          <strong>Vacance lapin de garenne : </strong>Vous voulez profitez des richesses de Tokyo, et vous êtes prêt à avoir des journées chargés pour ça.
+          <strong>Lapin de garenne : </strong>Vous voulez profitez des richesses de Tokyo, et vous êtes prêt à avoir des journées chargés pour ça.
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme4">
-          <strong>Vacance guépart :</strong> Vous courrez un marathon tous les matins, rien ne vous effraie.
+          <strong>Guépard agité :</strong> Vous courrez un marathon tous les matins, rien ne vous effraie.
         </div>
       </div>
 
@@ -271,7 +272,7 @@
 
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
-        <p>Quelque chose à rajouter ? Dites nous tout ce qui vous semble important pour que vos vacances soient parfaites.</p>
+        <p class="small-text text-left">Quelque chose à rajouter ? Dites nous tout ce qui vous semble important pour que vos vacances soient parfaites.</p>
         <%= f.text_area :comment, class: "form-control", rows: 6,
              placeholder: "Vous souhaitez absolument voir quelque chose ? Ou au contraire vous ne voulez pas visiter ce musée ? Vous aimez les ramens ? Dites nous tout. :)" %>
       </div>
@@ -279,11 +280,12 @@
 
     <div class="row bottom-spaceloca">
       <div class="col-md-8 col-md-offset-2">
-        <%= f.submit "Valider mon voyage !", class: "btn btn-success btn-lg btn-block" %>
+        <%= f.submit "Enregistrer mon voyage !", class: "btn btn-success btn-lg btn-block" %>
       </div>
     </div>
     <% end %>
   </div><!-- header-wrapper -->
 </section>
+<br>
 
 <%= render('shared/commercial') %>

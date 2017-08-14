@@ -3,36 +3,26 @@
   <div class="slideshow"></div>
 </header>
 <!-- Header -->
-<section class="container content-section text-center">
-  <div class="header-wrapper">
-    <div class="row bottom-space">
-      <div class="col-md-8 col-md-offset-2">
+<section class="container content-section text-center tb-padding">
+  <div class="row bottom-space">
+    <div class="col-md-8 col-md-offset-2">
         <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
+        <h1>Mes voyages</h1>
         <% if @trips.length == 0 %>
-        <h3>Créer votre premier voyage</h3>
-        <p> Vous n'avez pas encore créé de voyage. C'est simple, rapide et extraordinaire ! Vite, créez-en un.</p>
-        <p><%= link_to 'Créer mon premier voyage', new_trip_path, class: 'btn btn-block btn-success btn-lg' %></p>
-        <br>
+          <p>Créer votre premier voyage en quelques clics ! Personalisez votre séjour à volonté et réservez dès que vous
+            êtes prêt.</p>
+            <hr>
+            <p><%= link_to 'Créer mon premier voyage', new_trip_path, class: 'btn btn-block btn-success btn-lg' %></p>
         <% else %>
-          <h3>Mes voyages</h3>
-          <p>Vous avez <%= @trips.length %> voyage(s) en préparation. Personalisez votre voyage, pouponner vos vacances,
-          prenez en soin ! Quand elles vous semblent parfaites, réservez-les et nous faisons le reste !</p>
+          <p>Vous avez <%= @trips.length %> voyage(s) en préparation.</p>
+          <p><%= link_to 'Créer un nouveau voyage', new_trip_path, class: 'btn btn-block btn-success btn-lg' %></p>
       <% end %>
-      </div>
-    </div>
-  <div class="row">
-    <%= render @trips %>
-    <br>
-    <div class="col-md-4">
-      <%= link_to "Nouveau voyage", new_trip_path, class: 'btn btn-success btn-lg' %>
     </div>
   </div>
-</div>
+  <div class="row">
+    <%= render @trips %>
+  </div>
 </section>
 
 <%= render('shared/commercial') %>
-
-<!-- Infos Section -->
-<section  id="info-row" class="container content-section text-center">
-  <%= render 'shared/infos' %>
-</section>
+<%= render 'shared/infos' %>

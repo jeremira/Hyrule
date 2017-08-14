@@ -122,17 +122,18 @@
 }
 
 .btn-hop {
-  background-color: #ffe1ca;
-  border: none;
-  color: #823800;
+  //background-color: #ffe1ca;
+  background-color: #dc3740;
+  border: 2px solid #FECACB ;
+  color: #FECACB;
   border-radius: 10px;
 }
 
 .btn-hop:hover,
 .btn-hop:focus {
-  border: none;
+  border: 2px solid #FECACB;
   outline: none;
-  color: #823800;
+  color: #dc3740;
   background-color: #FECACB;
 }
 
@@ -149,4 +150,8 @@
 .back-brown {
   background-color: #e08138;
   color: #fff;
+}
+
+.tb-padding {
+  padding: 25px 0;
 }

@@ -12,10 +12,10 @@
       <div class="row bottom-space">
         <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
           <% if current_user %>
-            <%= link_to 'Voyagez', users_path, class: "btn btn-block btn-hop" %>
+            <%= link_to 'Voyagez!', trips_path, class: "btn btn-block btn-hop" %>
           <% else %>
-            <%= link_to 'Se connecter', new_user_session_path, class: "btn btn-hop btn-block" %>
-            <%= link_to 'Créer un compte', user_session_path, class: "btn btn-hop btn-block" %>
+            <%= link_to 'Se connecter', user_session_path, class: "btn btn-hop btn-block" %>
+            <%= link_to 'Créer un compte', new_user_session_path, class: "btn btn-hop btn-block" %>
           <% end %>
         </div>
       </div>
