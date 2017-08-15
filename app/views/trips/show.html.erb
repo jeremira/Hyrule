@@ -6,13 +6,14 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <h3 class="brand-heading tagline"><%= @trip.name.capitalize %></h3>
-          <p class="intro-text tagline">Pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</p>
+          <p class="intro-text tagline">Votre séjour à Tokyo à la carte avec TokyoHop!.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-6 col-lg-offset-3">
-          <p><%= link_to "Planning du voyage", "#day-row", class: "btn btn-block btn-success" %></p>
-          <p><%= link_to "Préférences", "#infos-row", class: "btn btn-block btn-success" %></p>
+          <%= link_to "Organisation du voyage", "#booking", class: "btn btn-block btn-hop" %>
+          <%= link_to "Planning du voyage", "#day-row", class: "btn btn-block btn-hop" %>
+          <%= link_to "Options du voyage", "#infos-row", class: "btn btn-block btn-hop" %>
         </div>
       </div>
     </div>
@@ -21,42 +22,41 @@
 <!-- Header -->
 
 <section id="day-row" class="container content-section text-center">
-  <div class="header-wrapper">
-    <div class="row bottom-space">
-        <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
-        <h2>Mon planning</h2>
-        <p>Ce voyage comprend <%= @days.length %> journée(s).</p>
+  <div class="row bottom-space">
+    <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+    <h2>Programme de votre séjour</h2>
+    <p>Ce voyage comprend <%= @days.length %> journée(s).</p>
+  </div>
+  <div class="row bottom-space">
+    <%= render @days %>
+    <div class="col-sm-6 col-md-4">
+      <%= render partial: 'book_status', locals: { trip: @trip } %>
     </div>
-    <div class="row bottom-space">
-      <%= render @days %>
-      <div class="col-sm-6 col-md-4">
-        <%= render partial: 'book_status', locals: { trip: @trip } %>
-      </div>
-    </div>
-
-    <div class="row bottom-space" id ="booking">
-      <%= render partial: 'book_status_full', locals: { trip: @trip } %>
-    </div>
-
   </div>
 </section>
 
 <%= render('shared/commercial') %>
 
 
-<section id="infos-row" class="container content-section text-center">
-  <div class="header-wrapper">
+<section id="booking" class="container content-section text-center tb-padding">
+  <div class="row bottom-space">
+    <%= render partial: 'book_status_full', locals: { trip: @trip } %>
+  </div>
+</section>
 
-    <div class="row bottom-space">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
-      <h2>Mes préférences</h2>
-      <p>Blabla commercial modifier toussa</p>
-      <div class="col-sm-6 col-sm-offset-3">
-        <% if @trip.gestion.status == 'new' %>
-          <%= link_to "Modifier mon voyage", edit_trip_path(@trip), class: 'btn btn-block btn-success' %>
-        <%end%>
-      </div>
+<%= render('shared/commercial') %>
+
+<section id="infos-row" class="container content-section text-center tb-padding">
+  <div class="row bottom-space">
+    <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
+    <h2>Préférence de votre séjour</h2>
+    <br>
+    <div class="col-sm-6 col-sm-offset-3">
+      <% if @trip.gestion.status == 'new' %>
+        <%= link_to "Modifier mon voyage", edit_trip_path(@trip), class: 'btn btn-block btn-success' %>
+      <%end%>
     </div>
+  </div>
 
     <div class="row bottom-space">
       <h4>Organisation de votre voyage</h4>
@@ -73,14 +73,26 @@
           <ul class="list-group">
             <li class="list-group-item">Voyage pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</li>
             <li class="list-group-item">
-              <% if @trip.budget.value == 1 %>
-                <strong>Budget économique : </strong>Nous privilègerons les activités et les visites gratuites.
+              <% if @trip.budget.value == 0 %>
+                <strong>€ Mini Budget :</strong> Nous privilègerons les activités et les visites
+                gratuites et nous limiterons les frais de transports.
+                <span class="label label-default">Budget moyen pour une journée : 0~10€/personne</span>
+              <% elsif @trip.budget.value == 1 %>
+                <strong>€€ Petit budget :</strong> Nous veillerons à ce que vos journées reste
+                économique tout en profitant de la ville.
+                <span class="label label-default">Budget moyen pour une journée : 10~20€/personne</span>
               <% elsif @trip.budget.value == 2 %>
-                <strong>Budget économique : </strong>Nous privilègerons les activités et les visites gratuites.
+                <strong>€€€ Budget normal :</strong> Profitez de Tokyo dans toute sa richesse sans
+                sacrifier votre portefeuille.
+                <span class="label label-default">Budget moyen pour une journée : 15~30€/personne</span>
               <% elsif @trip.budget.value == 3 %>
-                <strong>Budget économique : </strong>Nous privilègerons les activités et les visites gratuites.
+                <strong>€€€€ Budget Plaisir :</strong>Prêt à quelques petites folies pour découvrir
+                les merveilles de Tokyo ?
+                <span class="label label-default">Budget moyen pour une journée : 25~50€/personne</span>
               <% elsif @trip.budget.value == 4 %>
-                <strong>Budget économique : </strong>Nous privilègerons les activités et les visites gratuites.
+                <strong>€€€€€ Budget Luxe :</strong> Pas de limite, le luxe et la démesure vont très bien
+                avec Tokyo. :)
+                <span class="label label-default">Budget moyen pour une journée : + de 50€/personne</span>
               <% else %>
                 Oups, quelque chose ne vas pas....
               <% end %>
@@ -111,7 +123,7 @@
       <div class="row">
         <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          Vous aimez visiter hors des sentiers battus. Nous ne privilégerons pas les activités touristiques classiques.
+          Vous aimez visiter hors des sentiers battus. Nous incluerons des visites hors des attractions touristiques majeures.
         </div>
       </div>
       <% end %>
@@ -119,18 +131,22 @@
         <div class="col-sm-6 col-sm-offset-3">
           <ul class="list-group">
             <li class="list-group-item">
-              <% if @trip.rythme.value == 1 %>
-                <strong>Tranquillement : </strong>Vos journées seront organisés sur un rythme très relaxant, pour
-                que vous ayez le temps de vous reposer et vous détendre, sans courir entre les visites.
+              <% if @trip.rythme.value == 0 %>
+              <strong>Vieux matou :</strong> Vous aimez vous prélassez et profiter doucement de chaque instant
+               tout en déambulant gentilment. Des journées très relaxantes qui vous laissent le temps de vous
+               reposer et vous détendre.
+              <% elsif @trip.rythme.value == 1 %>
+                <strong>Chiot joyeux :</strong> Vous aimez avoir le temps de visiter tranquilement et d'apprécier le moment.
+                Vos journées vous permettent de voir plus sans se dépécher et en prenant le temps de flaner si besoin.
               <% elsif @trip.rythme.value == 2 %>
-                <strong>En prenant le temps : </strong>Des visites agréable en ayant le temps d'apprécier les moments.
-                Vous aurez le temps de flaner tout en visitant.
+                <strong>Girafe gambadante: </strong> Vous ne souhaitez pas courrir mais il y'a tant à voir ! Des journées plus
+                complètes mais qui demandent aussi un peu plus d'énergie.
               <% elsif @trip.rythme.value == 3 %>
-                <strong>Sans trop trainer : </strong>Vous souhaitez voir beaucoup de chose mais vous ne voulez pas non
-                plus courrir. C'est les vacances.
+                <strong>Lapin de garenne : </strong>Des journées chargés ne vous font pas peur. Vous voulez visiter la ville
+                dans tous ces recoins. Un peu de marche rapide est bon pour la santé en plus.
               <% elsif @trip.rythme.value == 4 %>
-                <strong>Pour voir beaucoup : </strong>Vous voulez profiter au maximum de votre temps à Tokyo. Vos envies
-                de visites sont infinis... suivez le guide, car il y'a beaucoup à faire. :)
+                <strong>Guépard agité :</strong> Vous courrez un marathon tous les matins, rien ne vous effraie. Les visites
+                s'enchainent, les souvenirs s'accumulent. Tokyo n'aura plus de secret pour vous.
               <% else %>
                 Oups, quelque chose ne vas pas....
               <% end %>
@@ -145,18 +161,10 @@
 
       <% if @trip.style.culture %>
       <div class="row">
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+        <div class='col-xs-12 col-md-6 col-md-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          La culture, l'histoire et les traditions du Japon vous passionne. Nous nous assurerons
-          que vos visites vous permettent de voir monuments, sites historiques, musées...
-        </div>
-      </div>
-      <% else %>
-      <div class="row">
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
-          <span><i class="fa fa-check"></i></span>
-          Les visites culturelles ne sont pas votre priorité. Nous visiterons les sites les plus majestueux
-          sans passer nos journées au musée. :)
+          La culture, l'histoire et les traditions du Japon vous passionnent. Vos journées vous permettront de
+          découvrir les sites et monuments majestueux qu'offre Tokyo ainsi que les plus beaux musées de la capitale.
         </div>
       </div>
       <% end %>
@@ -165,8 +173,8 @@
       <div class="row">
         <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          Vous aimez la nature et les grands espaces, ... mais à Tokyo ? Pas de problème ! Tokyo est riche en parc
-           et jardin magnifique. Nous nous assurerons que vous en profitiez.
+          Vous aimez la nature et les grands espaces, ... mais à Tokyo ? Pas de problème ! Tokyo est riche de parcs
+           et jardins magnifiques. Jardins japonais et parcs immenses parsemment la capitale nipponne.
         </div>
       </div>
       <% end %>
@@ -175,8 +183,9 @@
       <div class="row">
         <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          Amateur de sport, Tokyo est là pour vous ! Evenement, démonstration et match en tout genre sont nombreux.
-          Nous vous proposerons les meilleures opportunités pour des vacances sportive pleine de découverte.
+          Vous aimez utiliser vos mains pendant vos vacances, vos journées inclueront des ateliers ou des cours particuliers,
+          pour que vous puissez vous initier à des pratiques ou traditions japonaises. Pourquoi ne pas apprendre à cuisiner japonais,
+          ou bien à porter un kimono ?
         </div>
       </div>
       <% end %>
@@ -185,8 +194,8 @@
       <div class="row">
         <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          La gastronomie japonaise peut-elle rivaliser avec la cuisine française ? Mettons notre fierté de coté un instant et
-          partons à la découverte des toutes ces merveilles disponible ici ! Ramen, sushi, unagi, soba, donburi, taiyaki... goutons tout !
+          Partons à la découverte des toutes ces merveilles gastronomiques ! Ramen, sushi, unagi, soba, donburi, taiyaki...
+          la liste est longue. Vos journées inclueront des nombreuses pauses repas, casse-croute, patisserie et gouter.
         </div>
       </div>
       <% end %>
@@ -195,9 +204,8 @@
       <div class="row">
         <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          Shopping ! Grands magasins ! Petites boutiques d'artisans ou centre commerciaux géants ! Vous avez une liste de
-          souvenir à ramener longue comme un jour sans pain ? Pas de problème ! On vous soutient et vous guide pour que vous
-          trouviez tout ce que vous chercher.
+          Vous aimez faire les magasins et découvrir de petites boutiques. Nous vous conseillerons les meilleures boutiques et magasins
+          tout au long de votre séjour pour que vous puissiez trouver les souvenirs idéaux. Attention à la limite de poids de vos bagages. ;)
         </div>
       </div>
       <% end %>

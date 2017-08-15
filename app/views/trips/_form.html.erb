@@ -5,8 +5,7 @@
 
 <%= form_for trip do |f| %>
 
-<section class="container content-section">
-  <div class="header-wrapper">
+<section class="container content-section tb-padding">
     <div class="row bottom-space text-center">
       <div class="col-md-8 col-md-offset-2">
         <% if trip.errors.full_messages_for(:name).any? %>
@@ -128,8 +127,8 @@
       <div class="col-md-8 col-md-offset-2 bottom-space">
         <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
         <h1>Mon voyage à la carte</h1>
-        <p>Personalisez votre voyage pour qu'il vous corresponde.<br>
-          Vous pourrez modifier ces options plus tard si vous désirez.</p>
+        <br>
+        <span class="alert alert-success"><i class="fa fa-check"></i> Vous pouvez modifier ces options à volonté plus tard.</span>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <p class="small-text text-left">Aimez-vous les vacances calmes ou au contraire aimez-vous des journées bien remplis ? Dites-nous
@@ -144,33 +143,35 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme0">
           <strong>Vieux matou :</strong> Vous aimez vous prélassez et profiter doucement de chaque instant
-          et lieu que vous visitez tout en déambulant gentilment.
+           tout en déambulant gentilment. Des journées très relaxantes qui vous laissent le temps de vous
+           reposer et vous détendre.
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme1">
-          <strong>Chiot joyeux :</strong> Vous aimez avoir le temps de visiter tranquilement, mais sans perdre de temps à révasser.
+          <strong>Chiot joyeux :</strong> Vous aimez avoir le temps de visiter tranquilement et d'apprécier le moment.
+          Vos journées vous permettent de voir plus sans se dépécher et en prenant le temps de flaner si besoin.
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme2">
-          <strong>Giraffe gambadante: </strong> Vous ne voulez pas courrir mais il y'a tant à voir !
+          <strong>Girafe gambadante: </strong> Vous ne souhaitez pas courrir mais il y'a tant à voir ! Des journées plus
+          complètes mais qui demandent aussi un peu plus d'énergie.
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme3">
-          <strong>Lapin de garenne : </strong>Vous voulez profitez des richesses de Tokyo, et vous êtes prêt à avoir des journées chargés pour ça.
+          <strong>Lapin de garenne : </strong>Des journées chargés ne vous font pas peur. Vous voulez visiter la ville
+          dans tous ces recoins. Un peu de marche rapide est bon pour la santé en plus.
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme4">
-          <strong>Guépard agité :</strong> Vous courrez un marathon tous les matins, rien ne vous effraie.
+          <strong>Guépard agité :</strong> Vous courrez un marathon tous les matins, rien ne vous effraie. Les visites
+          s'enchainent, les souvenirs s'accumulent. Tokyo n'aura plus de secret pour vous.
         </div>
       </div>
-
-
     </div>
-
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
@@ -216,7 +217,7 @@
           <li class="list-group-item">
             <div class="row">
             <div class="col-sm-8">
-              Nature, activités en extèrieur et parc.
+              Escapade dans la nature, promenade dans les parcs.
             </div>
             <div class="col-sm-4">
               <div class="material-switch pull-right">
@@ -283,9 +284,8 @@
         <%= f.submit "Enregistrer mon voyage !", class: "btn btn-success btn-lg btn-block" %>
       </div>
     </div>
-    <% end %>
-  </div><!-- header-wrapper -->
+
 </section>
-<br>
+<% end %>
 
 <%= render('shared/commercial') %>

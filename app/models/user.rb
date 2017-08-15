@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :trips, :dependent => :destroy
 
   validates :email, presence: true
+  validates :email, confirmation: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
