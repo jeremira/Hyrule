@@ -15,7 +15,7 @@
             <p><%= link_to 'Créer mon premier voyage', new_trip_path, class: 'btn btn-block btn-success btn-lg' %></p>
         <% else %>
           <p>Vous avez <%= @trips.length %> voyage(s) en préparation.</p>
-          <p><%= link_to 'Créer un nouveau voyage', new_trip_path, class: 'btn btn-block btn-success btn-lg' %></p>
+          <p><%= link_to 'Créer un nouveau voyage', new_trip_path, class: 'btn btn-success btn-lg' %></p>
       <% end %>
     </div>
   </div>
