@@ -25,11 +25,11 @@
   <div class="row bottom-space">
     <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
     <h2>Programme de votre séjour</h2>
-    <p>Ce voyage comprend <%= @days.length %> journée(s).</p>
+    <p><%= @days.length %> journées prévues.</p>
   </div>
   <div class="row bottom-space">
     <%= render @days %>
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-4 col-md-3">
       <%= render partial: 'book_status', locals: { trip: @trip } %>
     </div>
   </div>

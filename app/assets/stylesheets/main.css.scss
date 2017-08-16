@@ -7,10 +7,15 @@
   border: 1px solid red;
 }
 
+.row {
+  margin: 0;
+}
+
 #flash-section {
   position: absolute;
-  margin-top: 110px;
-  width: 100%;
+  top: 90px;
+  left: 10%;
+  width: 80%;
   z-index: 999;
 }
 
@@ -154,4 +159,14 @@
 
 .tb-padding {
   padding: 25px 0;
+}
+
+.height-fixed {
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .height-fixed {
+    height: 450px;
+  }
 }

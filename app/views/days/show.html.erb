@@ -1,108 +1,108 @@
-<!-- Intro Header -->
 <header class="intro">
   <div class="slideshow" data-images="<%= @images %>"></div>
   <div class="intro-body">
     <div class="container">
-      <div class="row bottom-space">
+      <div class="row tb-padding">
         <div class="col-md-8 col-md-offset-2">
           <h3 class="brand-heading tagline"><%= @day.theme.name.capitalize %></h3>
-          <p class="intro-text tagline">Prévu pour le <%= @day.date %>.</p>
-          <p class="tagline small-text"><%= @day.theme.descr %></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-          <% if @day.guide %>
-            <div class="alert alert-success"><i class="fa fa-check"></i>
-              Vous avez demandé un guide personel pour cette journée.
-            </div>
-          <% end %>
-          <div class="alert alert-info"><i class="fa fa-check"></i>
-            Prix pour la journée : <strong><%= @day.price %>€</strong>
+          <div class="wrapper tagline">
+            <p><%= @day.theme.descr %></p>
+            <p class="small-text tagline"><%= @day.date %></p>
+            <%= render('themes/details/'+@day.theme.name.downcase) %>
+            <% if @day.guide %>
+              <span class="label label-success"><i class="fa fa-check"></i>
+                Un guide privé vous accompagnera toute la journée.
+              </span>
+            <% end %>
+            <span class="label label-success little-margin"><i class="fa fa-check"></i>
+              Un programme de visite personnel est prévu pour cette journée.
+            </span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </header>
-<!-- Header -->
+
 <section id="day-row" class="container content-section text-center">
-  <div class="header-wrapper">
-    <div class="row bottom-space">
+  <div class="row tb-padding">
+    <div class="col-md-10 col-md-offset-1">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-cutlery"></i></div></div></div>
       <h2>Mon déjeuner</h2>
     </div>
-    <div class="row">
-      <% if @day.lunch.todo %>
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
-          <span><i class="fa fa-check"></i></span>
-          Nous organisons votre déjeuner !
-        </div>
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
-          <% if @day.lunch.style == 1 %>
-            <span><i class="fa fa-check"></i></span>
-            Vous avez choisi un déjeuner <strong>sur le pouce</strong> : Nous privéligerions un déjeuner simple et
-            rapide mais toujours de qualité et local.
-          <% elsif @day.lunch.style == 2 %>
-            <span><i class="fa fa-check"></i></span>
-            Vous avez choisi un déjeuner <strong>local</strong> : Restaurant local et simple de ouf toutssa
-          <% elsif @day.lunch.style ==3 %>
-            <span><i class="fa fa-check"></i></span>
-            Vous avez choisi un déjeuner <strong>gastronomique</strong> : Top du top, mega budget mega qualité
-          <% end %>
-        </div>
-        <% else %>
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-warning'>
-          <span><i class="fa fa-times"></i></span>
-          Nous n'organisons pas votre déjeuner.
-        </div>
-      <% end %>
-    </div>
-    <div class="row bottom-space">
-      <div class="col-sm-6 col-sm-offset-3">
-        <% if @trip.gestion.status == 'new' %>
-          <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
-        <% end %>
-        <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
+  </div>
+  <div class="row">
+    <% if @day.lunch.todo %>
+      <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+        <span><i class="fa fa-check"></i></span>
+        Nous organisons votre déjeuner !
       </div>
-    </div>
-    <div class="row bottom-space">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-cutlery"></i></div></div></div>
-      <h2>Mon diner</h2>
-    </div>
-    <div class="row">
-      <% if @day.dinner.todo %>
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+      <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+        <% if @day.lunch.style == 1 %>
           <span><i class="fa fa-check"></i></span>
-          Nous organisons votre diner !
-        </div>
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
-          <% if @day.dinner.style == 1 %>
-            <span><i class="fa fa-check"></i></span>
-            Vous avez choisi un diner <strong>sur le pouce</strong> : Nous privéligerions un déjeuner simple et
-            rapide mais toujours de qualité et local.
-          <% elsif @day.dinner.style == 2 %>
-            <span><i class="fa fa-check"></i></span>
-            Vous avez choisi un diner <strong>local</strong> : Restaurant local et simple de ouf toutssa
-          <% elsif @day.dinner.style ==3 %>
-            <span><i class="fa fa-check"></i></span>
-            Vous avez choisi un diner <strong>gastronomique</strong> : Top du top, mega budget mega qualité
-          <% end %>
-        </div>
-        <% else %>
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-warning'>
-          <span><i class="fa fa-times"></i></span>
-          Nous n'organisons pas votre diner.
-        </div>
-      <% end %>
-    </div>
-    <div class="row bottom-space">
-      <div class="col-sm-6 col-sm-offset-3">
-        <% if @trip.gestion.status == 'new' %>
-          <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
+          Vous avez choisi un déjeuner <strong>sur le pouce</strong> : un repas simple et
+          rapide sur le parcours de vos visites.
+        <% elsif @day.lunch.style == 2 %>
+          <span><i class="fa fa-check"></i></span>
+          Vous avez choisi un déjeuner <strong>local</strong> : un déjeuner japonais typique dans un restaurant de quartier.
+        <% elsif @day.lunch.style ==3 %>
+          <span><i class="fa fa-check"></i></span>
+          Vous avez choisi un déjeuner <strong>gastronomique</strong> : un déjeuner dont vous vous souviendrez dans un restaurant haut de gamme.
         <% end %>
-        <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
       </div>
+      <% else %>
+      <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-warning'>
+        <span><i class="fa fa-times"></i></span>
+        Nous n'organisons pas votre déjeuner.
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <% if @trip.gestion.status == 'new' %>
+        <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
+      <% end %>
+      <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
     </div>
   </div>
+  <div class="row tb-padding">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-cutlery"></i></div></div></div>
+      <h2>Mon dîner</h2>
+    </div>
+  </div>
+  <div class="row">
+    <% if @day.dinner.todo %>
+      <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+        <span><i class="fa fa-check"></i></span>
+        Nous organisons votre dîner !
+      </div>
+      <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+        <% if @day.dinner.style == 1 %>
+          <span><i class="fa fa-check"></i></span>
+          Vous avez choisi un dîner <strong>local</strong> : un dîner dans un restaurant traditionnel familial.
+        <% elsif @day.dinner.style == 2 %>
+          <span><i class="fa fa-check"></i></span>
+          Vous avez choisi un dîner <strong>élaboré</strong> : une cuisine de qualité pour un dîner japonais exceptionnel.
+        <% elsif @day.dinner.style ==3 %>
+          <span><i class="fa fa-check"></i></span>
+          Vous avez choisi un dîner <strong>gastronomique</strong> : Un dîner dans l'un des meilleurs restaurants de la capitale.
+        <% end %>
+      </div>
+      <% else %>
+      <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-warning'>
+        <span><i class="fa fa-times"></i></span>
+        Nous n'organisons pas votre dîner.
+      </div>
+    <% end %>
+  </div>
+  <div class="row bottom-space">
+    <div class="col-sm-6 col-sm-offset-3">
+      <% if @trip.gestion.status == 'new' %>
+        <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
+      <% end %>
+      <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
+    </div>
 </section>
+
+<%= render('shared/commercial') %>

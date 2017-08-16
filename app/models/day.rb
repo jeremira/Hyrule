@@ -14,7 +14,7 @@ class Day < ApplicationRecord
 
   def update_trip_price
     if self.guide
-      new_price = 225
+      new_price = 215
     else
       new_price = 20
     end

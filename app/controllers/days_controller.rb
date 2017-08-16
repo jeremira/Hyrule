@@ -2,6 +2,7 @@ class DaysController < ApplicationController
   before_action :set_trip,               only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_day,                only: [:show, :edit, :update, :destroy]
   before_action :trip_must_be_editable,  only: [:new, :edit, :create, :update, :destroy]
+  before_action :format_theme_collection, only: [:new, :edit, :create, :update]
   # GET /days
   # GET /days.json
   def index
@@ -96,11 +97,17 @@ class DaysController < ApplicationController
       end
     end
 
+    def format_theme_collection
+      @themes_by_theme = Theme.where(style: 'theme').compact
+      @themes_out_tokyo = Theme.where(style: 'around').compact
+      @themes_in_tokyo = Theme.where(style: 'tokyo').compact
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def day_params
       params.require(:day).permit(:date, :comment, :theme_id, :guide,
                                 lunch_attributes:  [:id, :todo, :style],
-                                dinner_attributes: [:id, :todo, :style]
+                                dinner_attributes: [:id, :todo, :style],
                                 )
     end
 end
