@@ -2,33 +2,33 @@
 <header class="intro">
   <div class="slideshow"></div>
     <div class="intro-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                  <div class="wrapper">
-                    <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
-                    <h3 class="tagline">Créer un compte</h3>
-                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                    <%= devise_error_messages! %>
-                    <div class="form-group">
-                        <%= f.email_field :email, placeholder: 'Entrez votre email', :class => 'form-control' %>
-                    </div>
-                    <div class="form-group">
-                      <%= f.password_field :password, autocomplete: "off", placeholder: 'Entrez votre mot de passe',
-                                           :class => 'form-control' %>
-                    </div>
-                    <div class="form-group">
-                      <%= f.password_field :password_confirmation, autocomplete: "off",
-                                            placeholder: 'Confirmez votre mot de passe', :class => 'form-control' %>
-                    </div>
-                    <div class="form-group">
-                      <strong><%= f.submit "Créer mon compte !", :class => 'form-control btn btn-success btn-block' %></strong>
-                      <% end %>
-                    </div>
-                    <%= render "devise/shared/links" %>
-                  </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="wrapper">
+              <div class="box"><div class="icon"><div class="image"><i class="fa fa-sign-in"></i></div></div></div>
+              <h3 class="tagline">Créer un compte</h3>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= devise_error_messages! %>
+                <div class="form-group">
+                  <%= f.email_field :email, placeholder: 'Entrez votre email', class: 'form-control' %>
                 </div>
+                <div class="form-group">
+                  <%= f.password_field :password, autocomplete: "off", placeholder: 'Entrez votre mot de passe',
+                                       class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= f.password_field :password_confirmation, autocomplete: "off",
+                                        placeholder: 'Confirmez votre mot de passe', class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= f.submit "Créer mon compte !", class: 'btn btn-success btn-block' %></strong>
+                </div>
+              <% end %>
+              <%= render "devise/shared/links" %>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 </header>
