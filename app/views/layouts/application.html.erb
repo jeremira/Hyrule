@@ -53,36 +53,51 @@
         </div>
       </div>
     </nav>
-
-  <section id="flash-section">
-    <%if flash[:notice] %>
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+    <section id="flash-section">
+      <%if flash[:notice] %>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
           <div class="alert alert-success alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <%= flash[:notice] %>
           </div>
-      </div>
-    </div>
-    <% end %>
-    <%if flash[:alert] %>
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-        <div class="alert alert-warning alert-dismissable fade in">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <%= flash[:alert] %>
         </div>
       </div>
-    </div>
-    <% end %>
-  </section>
+      <% end %>
+      <%if flash[:alert] %>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+            <div class="alert alert-warning alert-dismissable fade in">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <%= flash[:alert] %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </section>
 
-  <%= yield %>
+    <%= yield %>
 
-  <footer>
-    <div class="container text-center">
-        <p>Copyright &copy; KwutKwut 2016</p>
-    </div>
-  </footer>
+    <footer>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <ul class="list-unstyled list-inline">
+              <li><%= link_to 'Nous contacter', '#' %></li>
+              <li><%= link_to 'Que faire à Tokyo ?', themes_path %></li>
+              <li><%= link_to 'Informations', informations_path %></li>
+              <% if current_user %>
+                <li><%= link_to 'Mes voyages', trips_path %></li>
+                <li><%= link_to 'Mon profil', user_path(current_user) %></li>
+                <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'Se connecter',    new_user_session_path(anchor: 'login-row')%></li>
+                <li><%= link_to 'Créer un compte', new_user_registration_path%></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,68 +1,101 @@
-<section  id="info-row" class="content-section text-left back-green tb-padding">
-  <div class="row bottom-space">
+<section  id="info-row" class="content-section text-center back-green">
+  <div class="row tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-question"></i></div></div></div>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
       <hr>
-      <h3 class="text-center">Votre voyage à la carte !</h3>
-      <p>Visitez et profitez de Tokyo comme personne. Découvrez toute la richesse de Tokyo en suivant un programme personnel,
-      élaboré spécialement pour vous selon vos préférences par une équipe locale passionnée.</p>
-      <p>Dites adieu aux visites de groupe préformattées et rendez votre collegue Mathilde jalouse avec vos photos uniques.
-      Vous maitrisez toutes les facettes de votre voyage depuis votre téléphone ou votre ordinateur. En toute simplicité
-      et sans stress, nous organisons et réservons vos visites. Vous n'avez qu'à vous laissez guider. :) </p>
+      <h3>Tokyo Zen</h3>
+      <p><strong>Visitez Tokyo totalement serein grâce à notre aide.</strong> Transport, visites, réservation, restaurants...
+      Nous organisons vos journées et vos visites : vous êtes en vacances, détendez-vous !</p>
       <hr>
     </div>
   </div>
-  <div class="row text-center">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <p class="lead">Voulez-vous en savoir plus ?</p>
-      <%= link_to "Comment personaliser mon voyage ?", "#", class: "btn btn-hop" %>
-    </div>
+  <div class="row back-pink">
+    <% if current_user %>
+      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+    <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+    <% end %>
   </div>
 </section>
 
-<section  id="info-row" class="content-section text-center back-brown tb-padding">
-  <div class="row bottom-space">
+<section  id="info-row" class="content-section text-center">
+  <div class="row bottom-space tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-cogs"></i></div></div></div>
       <hr>
-      <h3>A chaque jour son bohneur</h3>
-      <p class="text-left">Ne vous tracassez pas pour décider quoi visiter, nos équipes sélectionneront le meilleur
-      pour vous. Laissez-vous guider par nos suggestions et choisissez un thème pour chaque journée. Vous voulez découvrir
-      la Tokyo impériale d'autrefois ? Vous plonger dans la folie électro-pop des quartiers nocturnes ? Vous imprégner
-      de culture et traditions japonaises ? On est avec vous ! Ne passez pas des mois à fouillez internet et bibliothèque
-      pour organisez votre voyage, notre passion pour cette ville est à votre portée. :)</p>
-      <p class="text-left">De bons restaurants et la découverte des mets locaux est important à tout voyage ! Nous le savons
-        bien et réservons pour vous le restaurant qui vous correspond. Déjeuner et/ou diner, la gastronomie japonaise vous attend !</p>
+      <h3>Tokyo à la carte</h3>
+      <p><Strong>Soyez sûr de passer un séjour idéal</strong> sans refaire les mêmes visites que tout le monde.
+      Vos journées seront organisées spécialement pour vous, selon vos intérêts et vos préférences par nos guides
+      locaux pour une expérience unique.</p>
     </div>
   </div>
-  <div class="row text-center">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <p class="lead">Voulez-vous en savoir plus ?</p>
-      <%= link_to "Que faire à Tokyo ?", themes_path, class: "btn btn-hop" %>
-    </div>
+  <div class="row back-pink">
+    <% if current_user %>
+      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+    <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+    <% end %>
   </div>
 </section>
 
-<section  id="info-row" class="content-section text-center back-pink tb-padding">
-  <div class="row bottom-space">
+<section  id="info-row" class="content-section text-center back-green">
+  <div class="row tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-cab"></i></div></div></div>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
       <hr>
-      <h3>Laissez-vous guider !</h3>
-      <p class="text-left">Trois semaines avant votre départ, vous recevez votre guide-livret personnel par email.
-      Fait sur mesure, ce guide contient toutes les informations nécessaires à votre séjour. Chaque journée est
-      détaillée étape par étape : transport, direction, carte... impossible de se perdre !</p>
-      <p class="text-left">Le livret vous indiquera les activités et visites prévues, les informations utiles et les conseils pour
-        profiter au mieu de ses endroits.</p>
-      <p class="text-left">Vous souhaitez visitez la ville avec un guide personnelprivé qui vous accompagne
-      tout au long de la journée ? C'est possible ! Nos guides locaux et passionnés seront à vos cotés pendant tout
-      votre séjour.</p>
+      <h3>Pas de mauvaises surprises</h3>
+      <p><strong>Maîtrisez totalement votre séjour : </strong>Ambiance, rythme, budget.. vous avez le contrôle
+        sur tous les aspects de votre voyage.
+      <hr>
     </div>
   </div>
-  <div class="row text-center">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <p class="lead">Voulez-vous en savoir plus ?</p>
-      <%= link_to "Comment se présente mon guide-livret ?", "#", class: "btn btn-hop" %>
+  <div class="row back-pink">
+    <% if current_user %>
+      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+    <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+    <% end %>
+  </div>
+</section>
+
+<section  id="info-row" class="content-section text-center">
+  <div class="row bottom-space tb-padding">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-cogs"></i></div></div></div>
+      <hr>
+      <h3>Votre guide-livret</h3>
+      <p><strong>Votre séjour dans votre guide-livret !</strong> Cartes, informations pour les transports et les accès,
+      prix des visites, conseils et astuces de nos guides... toutes les informations nécessaires ainsi que le planning détaillé
+      de vos journées sont réunis dans votre guide-livret. Suivez le guide et profitez.</p>
+      <%= link_to 'Voir un exemple de guide-livret', "#" %>
+      <hr>
     </div>
+  </div>
+  <div class="row back-pink">
+    <% if current_user %>
+      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+    <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+    <% end %>
+  </div>
+</section>
+
+<section  id="info-row" class="content-section text-center back-green">
+  <div class="row tb-padding">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
+      <hr>
+      <h3>Avec votre guide privé</h3>
+      <p><Strong>Ajoutez un guide privé</strong> et profiter d'un expert local parlant français pour vous guider tout
+      au long de votre journée. </p>
+      <hr>
+    </div>
+  </div>
+  <div class="row back-pink">
+    <% if current_user %>
+      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+    <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+    <% end %>
   </div>
 </section>
