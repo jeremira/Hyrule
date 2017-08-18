@@ -25,24 +25,27 @@ $(document).on('turbolinks:load', function() {
       "<%= asset_url("main027.jpg") %>"
     ];
   };
+
   var introSlide = function() {
     index = Math.floor((Math.random() * urls.length));
     var url = urls[index];
     var nextImage = new Image;
-    nextImage.src = url; //start load image
-    nextImage.onload = function() {
-      console.log(url);
-      slideshow.fadeOut(500, function() {
-        slideshow.css('background', "url(" + url + ")" );
-        slideshow.css('position', 'absolute' );
-        slideshow.css('background-size', 'cover' );
-        slideshow.css('background-position', 'center center' );
-        slideshow.css('background-repeat', 'no-repeat' );
-      });
-      slideshow.fadeIn(500, function() {
-        setTimeout(function(){introSlide()} , 5000);
+    nextImage.onload = function() { //change background when image is loaded
+      console.log(this.src);
+      slideshow.css('background', "url(" + this.src + ")" );
+      slideshow.css('position', 'absolute' );
+      slideshow.css('background-size', 'cover' );
+      slideshow.css('background-position', 'center center' );
+      slideshow.css('background-repeat', 'no-repeat' );
+      slideshow.fadeIn(1000, function() {
+        setTimeout(function() { //change background again after few second
+          slideshow.fadeOut(3000, introSlide);
+        }, 6000);
       });
     };
-  };
+
+    nextImage.src = url; //start load image
+  }
   introSlide();
+
 }); //$ready function ending
