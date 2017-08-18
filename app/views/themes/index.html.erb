@@ -1,19 +1,18 @@
-<!-- Intro Header -->
 <header class="intro">
   <div class="slideshow"></div>
   <div class="intro-body">
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h3 class="brand-heading tagline">TOKYOHOP!</h3>
+          <h3 class="brand-heading tagline">TOKYOP!</h3>
           <p class="intro-text tagline">Laissez vous guider...</p>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-            <%= link_to 'Par thème', '#theme', class: 'btn btn-hop btn-block' %>
-            <%= link_to "Par quartier", '#tokyo', class: 'btn btn-hop btn-block' %>
-            <%= link_to 'En dehors de Tokyo', '#around', class: 'btn btn-hop btn-block' %>
+            <%= link_to 'Une ambiance', '#theme', class: 'btn btn-hop btn-block' %>
+            <%= link_to "Un quartier", '#tokyo', class: 'btn btn-hop btn-block' %>
+            <%= link_to 'Autour de Tokyo', '#around', class: 'btn btn-hop btn-block' %>
           </div>
         </div>
       </div>
@@ -25,19 +24,21 @@
     <div class="row" id="theme">
       <div class="col-xs-12">
         <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
-        <h1>Vibrez pour une ambiance</h1>
-        <p>Perdu dans l'immensité de Tokyo ? Choisissez le thème de votre journée, nous sélectionnerons le meilleur intinéraire pour vous ravir !</p>
+        <h1>Une ambiance</h1>
+        <p>Passez une journée merveilleuse organisée autour d'un thème particulier.</p>
       </div>
     </div>
+    <hr>
     <div class="row no-pad">
       <%= render @theme_themes %>
     </div>
+    <hr>
 </section>
 
 <section class="container content-section text-center tb-padding">
   <div class="row">
     <div class="col-xs-12">
-      <%= link_to "Réserver mon voyage !", new_trip_path, class: 'btn btn-hop btn-lg btn-block' %>
+      <%= link_to "Préparer mon voyage !", new_trip_path, class: 'btn btn-hop btn-lg btn-block' %>
     </div>
   </div>
 </section>
@@ -46,19 +47,21 @@
   <div class="row" id="tokyo">
     <div class="col-xs-12">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-globe"></i></div></div></div>
-      <h1>Découvrez un quartier</h1>
-      <p>Explorez un quartier et ses alentours en profondeur en profitant de nos conseils d'expert.</p>
+      <h1>Un quartier</h1>
+      <p>Explorez Tokyo quartier par quartier grâce aux conseils de nos guides locaux.</p>
     </div>
   </div>
+  <hr>
   <div class="row no-pad">
     <%= render @tokyo_themes %>
   </div>
+  <hr>
 </section>
 
 <section class="container content-section text-center tb-padding">
   <div class="row">
     <div class="col-xs-12">
-      <%= link_to "Réserver mon voyage !", new_trip_path, class: 'btn btn-hop btn-lg btn-block' %>
+      <%= link_to "Préparer mon voyage !", new_trip_path, class: 'btn btn-hop btn-lg btn-block' %>
     </div>
   </div>
 </section>
@@ -67,21 +70,22 @@
   <div class="row" id="around">
     <div class="col-xs-12">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-subway"></i></div></div></div>
-      <h3>Echappez vous de Tokyo</h3>
-      <p>Tokyo est idéalement situé pour des escapades d'une journée. Proche de la mer et des montagnes,
-         de magnifiques endroits attendent à votre porté.</p>
+      <h3>Autour de Tokyo</h3>
+      <p>Echappez vous de la folie Tokyoïte pour une escapade d'une journée.</p>
       </div>
     </div>
+  <hr>
   <div class="row no-pad">
     <%= render @around_themes %>
   </div>
+  <hr>
 </div>
 </section>
 
 <section class="container content-section text-center tb-padding">
   <div class="row">
     <div class="col-xs-12">
-      <%= link_to "Réserver mon voyage !", new_trip_path, class: 'btn btn-hop btn-lg btn-block' %>
+      <%= link_to "Préparer mon voyage !", new_trip_path, class: 'btn btn-hop btn-lg btn-block' %>
     </div>
   </div>
 </section>

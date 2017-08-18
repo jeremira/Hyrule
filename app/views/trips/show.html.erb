@@ -1,4 +1,4 @@
-<!-- Intro Header -->
+
 <header class="intro">
   <div class="slideshow"></div>
   <div class="intro-body">
@@ -19,9 +19,8 @@
     </div>
   </div>
 </header>
-<!-- Header -->
 
-<section id="day-row" class="container content-section text-center">
+<section id="day-row" class="container content-section text-center tb-padding">
   <div class="row bottom-space">
     <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
     <h2>Programme de votre séjour</h2>
@@ -37,83 +36,77 @@
 
 <%= render('shared/commercial') %>
 
-
-<section id="booking" class="container content-section text-center tb-padding">
-  <div class="row bottom-space">
-    <%= render partial: 'book_status_full', locals: { trip: @trip } %>
-  </div>
-</section>
-
-<%= render('shared/commercial') %>
-
 <section id="infos-row" class="container content-section text-center tb-padding">
   <div class="row bottom-space">
     <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
-    <h2>Préférence de votre séjour</h2>
+    <h2>Options de votre séjour</h2>
     <br>
     <div class="col-sm-6 col-sm-offset-3">
       <% if @trip.gestion.status == 'new' %>
         <%= link_to "Modifier mon voyage", edit_trip_path(@trip), class: 'btn btn-block btn-success' %>
+        <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
+                     data: {confirm: "Supprimer ce voyage ?"}, class: "btn btn-block btn-danger" %>
       <%end%>
     </div>
   </div>
-
-    <div class="row bottom-space">
-      <h4>Organisation de votre voyage</h4>
-      <% if @trip.style.kid %>
+  <div class="row bottom-space">
+    <h4>Organisation de votre voyage</h4>
+    <% if @trip.style.kid %>
       <div class="row">
         <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
           Votre voyage sera organisé pour que les enfants s'amusent !
         </div>
       </div>
-      <% end %>
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-          <ul class="list-group">
-            <li class="list-group-item">Voyage pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</li>
-            <li class="list-group-item">
-              <% if @trip.budget.value == 0 %>
+    <% end %>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <ul class="list-group">
+          <li class="list-group-item">Voyage pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</li>
+          <li class="list-group-item">
+            <% if @trip.budget.value == 0 %>
                 <strong>€ Mini Budget :</strong> Nous privilègerons les activités et les visites
                 gratuites et nous limiterons les frais de transports.
                 <span class="label label-default">Budget moyen pour une journée : 0~10€/personne</span>
-              <% elsif @trip.budget.value == 1 %>
-                <strong>€€ Petit budget :</strong> Nous veillerons à ce que vos journées reste
-                économique tout en profitant de la ville.
+            <% elsif @trip.budget.value == 1 %>
+                <strong>€€ Petit budget :</strong> Nous veillerons à ce que vos journées restent
+                économiques tout en profitant de la ville.
                 <span class="label label-default">Budget moyen pour une journée : 10~20€/personne</span>
-              <% elsif @trip.budget.value == 2 %>
+            <% elsif @trip.budget.value == 2 %>
                 <strong>€€€ Budget normal :</strong> Profitez de Tokyo dans toute sa richesse sans
                 sacrifier votre portefeuille.
                 <span class="label label-default">Budget moyen pour une journée : 15~30€/personne</span>
-              <% elsif @trip.budget.value == 3 %>
+            <% elsif @trip.budget.value == 3 %>
                 <strong>€€€€ Budget Plaisir :</strong>Prêt à quelques petites folies pour découvrir
                 les merveilles de Tokyo ?
                 <span class="label label-default">Budget moyen pour une journée : 25~50€/personne</span>
-              <% elsif @trip.budget.value == 4 %>
+            <% elsif @trip.budget.value == 4 %>
                 <strong>€€€€€ Budget Luxe :</strong> Pas de limite, le luxe et la démesure vont très bien
                 avec Tokyo. :)
                 <span class="label label-default">Budget moyen pour une journée : + de 50€/personne</span>
-              <% else %>
+            <% else %>
                 Oups, quelque chose ne vas pas....
-              <% end %>
+            <% end %>
             </li>
           </ul>
         </div>
       </div>
     </div>
-
     <div class="row bottom-space">
-      <h4>Rythme de votre voyage</h4>
-      <% if @trip.rythme.first %>
+      <div class="col-md-6 col-md-offset-3">
+        <h4>Rythme de votre voyage</h4>
+      </div>
+    </div>
+    <% if @trip.rythme.first %>
       <div class="row">
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+        <div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
           C'est votre premier voyage à Tokyo. Nous en prendrons compte.
         </div>
       </div>
       <% else %>
       <div class="row">
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+        <div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
           Ce n'est pas votre premier voyage à Tokyo. Nous en prendrons compte.
         </div>
@@ -121,7 +114,7 @@
       <% end %>
       <% if @trip.rythme.offtrack %>
       <div class="row">
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+        <div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
           Vous aimez visiter hors des sentiers battus. Nous incluerons des visites hors des attractions touristiques majeures.
         </div>
@@ -132,18 +125,18 @@
           <ul class="list-group">
             <li class="list-group-item">
               <% if @trip.rythme.value == 0 %>
-              <strong>Vieux matou :</strong> Vous aimez vous prélassez et profiter doucement de chaque instant
-               tout en déambulant gentilment. Des journées très relaxantes qui vous laissent le temps de vous
-               reposer et vous détendre.
+                <strong>Vieux matou :</strong> Vous aimez vous prélasser et profiter doucement de chaque instant
+                tout en déambulant gentilment. Des journées très relaxantes qui vous laissent le temps de vous
+                reposer et vous détendre.
               <% elsif @trip.rythme.value == 1 %>
-                <strong>Chiot joyeux :</strong> Vous aimez avoir le temps de visiter tranquilement et d'apprécier le moment.
+                <strong>Chiot joyeux :</strong> Vous aimez avoir le temps de visiter tranquillement et d'apprécier le moment.
                 Vos journées vous permettent de voir plus sans se dépécher et en prenant le temps de flaner si besoin.
               <% elsif @trip.rythme.value == 2 %>
-                <strong>Girafe gambadante: </strong> Vous ne souhaitez pas courrir mais il y'a tant à voir ! Des journées plus
+                <strong>Girafe gambadante: </strong> Vous ne souhaitez pas courrir, mais il y a tant à voir ! Des journées plus
                 complètes mais qui demandent aussi un peu plus d'énergie.
               <% elsif @trip.rythme.value == 3 %>
-                <strong>Lapin de garenne : </strong>Des journées chargés ne vous font pas peur. Vous voulez visiter la ville
-                dans tous ces recoins. Un peu de marche rapide est bon pour la santé en plus.
+                <strong>Lapin de garenne : </strong>Des journées chargées ne vous font pas peur. Vous voulez visiter la ville
+                dans tous ces recoins. Bonus : un peu de marche rapide est bon pour la santé.
               <% elsif @trip.rythme.value == 4 %>
                 <strong>Guépard agité :</strong> Vous courrez un marathon tous les matins, rien ne vous effraie. Les visites
                 s'enchainent, les souvenirs s'accumulent. Tokyo n'aura plus de secret pour vous.
@@ -155,26 +148,23 @@
         </div>
       </div>
     </div>
-
     <div class="row bottom-space">
       <h4>Points importants de votre voyage</h4>
-
       <% if @trip.style.culture %>
       <div class="row">
-        <div class='col-xs-12 col-md-6 col-md-offset-3 alert alert-success'>
+        <div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
           La culture, l'histoire et les traditions du Japon vous passionnent. Vos journées vous permettront de
           découvrir les sites et monuments majestueux qu'offre Tokyo ainsi que les plus beaux musées de la capitale.
         </div>
       </div>
       <% end %>
-
       <% if @trip.style.nature %>
       <div class="row">
-        <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
+        <div class='col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          Vous aimez la nature et les grands espaces, ... mais à Tokyo ? Pas de problème ! Tokyo est riche de parcs
-           et jardins magnifiques. Jardins japonais et parcs immenses parsemment la capitale nipponne.
+          Vous aimez la nature et les grands espaces, ... mais à Tokyo ? Pas de problème !
+          Jardins japonais et parcs immenses parsèment la capitale nipponne.
         </div>
       </div>
       <% end %>
@@ -183,9 +173,9 @@
       <div class="row">
         <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          Vous aimez utiliser vos mains pendant vos vacances, vos journées inclueront des ateliers ou des cours particuliers,
-          pour que vous puissez vous initier à des pratiques ou traditions japonaises. Pourquoi ne pas apprendre à cuisiner japonais,
-          ou bien à porter un kimono ?
+          Vos journées vous donneront l'occasion d'apprendre des techniques ou des savoirs locaux traditionnels grâce à
+          des ateliers ou des cours particuliers.
+          </details>
         </div>
       </div>
       <% end %>
@@ -194,8 +184,8 @@
       <div class="row">
         <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          Partons à la découverte des toutes ces merveilles gastronomiques ! Ramen, sushi, unagi, soba, donburi, taiyaki...
-          la liste est longue. Vos journées inclueront des nombreuses pauses repas, casse-croute, patisserie et gouter.
+          Partez à la découverte des toutes les merveilles gastronomiques nippones ! Ramen,
+          sushi, unagi, soba, donburi, taiyaki... vos visites seront parsemées d'encas et restaurants fabuleux.
         </div>
       </div>
       <% end %>
@@ -204,8 +194,8 @@
       <div class="row">
         <div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 alert alert-success'>
           <span><i class="fa fa-check"></i></span>
-          Vous aimez faire les magasins et découvrir de petites boutiques. Nous vous conseillerons les meilleures boutiques et magasins
-          tout au long de votre séjour pour que vous puissiez trouver les souvenirs idéaux. Attention à la limite de poids de vos bagages. ;)
+          Vous aimez faire les magasins et découvrir de petites boutiques. Profitez de notre expertise locale
+          pour trouver votre bonheur.
         </div>
       </div>
       <% end %>
@@ -214,8 +204,19 @@
       <div class="col-sm-6 col-sm-offset-3">
         <% if @trip.gestion.status == 'new' %>
           <%= link_to "Modifier mon voyage", edit_trip_path(@trip), class: 'btn btn-lg btn-block btn-success' %>
+          <%= link_to "Réserver du voyage", "#booking", class: "btn btn-lg btn-block btn-success" %>
         <% end %>
       </div>
     </div>
   </div>
 </section>
+
+<%= render('shared/commercial') %>
+
+<section id="booking" class="container content-section text-center tb-padding">
+  <div class="row bottom-space">
+    <%= render partial: 'book_status_full', locals: { trip: @trip } %>
+  </div>
+</section>
+
+<%= render('shared/commercial') %>

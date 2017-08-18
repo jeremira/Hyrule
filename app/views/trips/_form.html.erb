@@ -22,7 +22,7 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="bottom-space">Au sujet de l'organisation</h1>
-          <p>Tout d'abord choisissez un joli nom pour votre voyage :</p>
+          <p>Choisissez un joli nom pour votre voyage :</p>
           <div class="form-group">
               <%= f.text_field :name, class: "form-control input-lg", placeholder: "Mon superbe voyage à Tokyo." %>
           </div>
@@ -30,8 +30,8 @@
           <h3>Budget de vos journées</h3>
         </div>
         <div class="col-md-8 col-md-offset-2">
-          <p class="small-text text-left">Les frais de transports et d'admissions aux différents sites, monuments et activités
-           sont à régler sur place. Quel budget journalier souhaitez-vous y accorder ?</p>
+          <p class="small-text text-left">Quel budget souhaitez-vous accorder à vos journées ? (Transport,
+            frais d'entrée aux différents sites... )</p>
         </div>
       </div>
       <div class ="row">
@@ -42,13 +42,13 @@
               <% end %>
             </div>
             <div class="alert alert-success budget-infos" id="budget0">
-              <strong>€ Mini Budget :</strong> Nous privilègerons les activités et les visites
+              <strong>€ Mini Budget :</strong> Nous privilégierons les activités et les visites
               gratuites et nous limiterons les frais de transports.
               <span class="label label-default">Budget moyen pour une journée : 0~10€/personne</span>
             </div>
             <div class="alert alert-success budget-infos" id="budget1">
-              <strong>€€ Petit budget :</strong> Nous veillerons à ce que vos journées reste
-              économique tout en profitant de la ville.
+              <strong>€€ Petit budget :</strong> Nous veillerons à ce que vos journées restent
+              économiques tout en profitant de la ville.
               <span class="label label-default">Budget moyen pour une journée : 10~20€/personne</span>
             </div>
             <div class="alert alert-success budget-infos" id="budget2">
@@ -93,8 +93,9 @@
           <span>
               <i class="fa fa-child"></i>
           </span>
-          <%= f.label :kids, "Enfant(s) :" %>
+          <%= f.label :kids, "Enfant(s):" %>
           <%= f.number_field :kids %>
+          <p class="label label-info"><i class="fa fa-info"></i> moins de 14 ans</p>
         </div>
         <div class="col-md-3">
         </div>
@@ -128,11 +129,11 @@
         <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
         <h1>Mon voyage à la carte</h1>
         <br>
-        <span class="alert alert-success"><i class="fa fa-check"></i> Vous pouvez modifier ces options à volonté plus tard.</span>
+        <span class="alert alert-success"><i class="fa fa-check"></i>Il est possible de modifier ces options plus tard.</span>
       </div>
       <div class="col-md-8 col-md-offset-2">
-        <p class="small-text text-left">Aimez-vous les vacances calmes ou au contraire aimez-vous des journées bien remplis ? Dites-nous
-        à quel rythme vous souhaitez découvrir Tokyo :</p>
+        <p class="small-text text-left">A quel rythme souhaitez-vous découvrir Tokyo :
+          Préférez-vous des vacances calmes ou au contraire des journées bien remplies ? </p>
       </div>
     </div>
     <div class="row text-center">
@@ -142,7 +143,7 @@
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme0">
-          <strong>Vieux matou :</strong> Vous aimez vous prélassez et profiter doucement de chaque instant
+          <strong>Vieux matou :</strong> Vous aimez vous prélasser et profiter doucement de chaque instant
            tout en déambulant gentilment. Des journées très relaxantes qui vous laissent le temps de vous
            reposer et vous détendre.
         </div>
@@ -155,14 +156,14 @@
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme2">
-          <strong>Girafe gambadante: </strong> Vous ne souhaitez pas courrir mais il y'a tant à voir ! Des journées plus
-          complètes mais qui demandent aussi un peu plus d'énergie.
+          <strong>Girafe gambadante: </strong> Vous ne souhaitez pas courrir, mais il y'a tant à voir ! Des journées plus
+          complètes qui demandent toutefois un peu plus d'énergie.
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success rythme-infos" id="rythme3">
-          <strong>Lapin de garenne : </strong>Des journées chargés ne vous font pas peur. Vous voulez visiter la ville
-          dans tous ces recoins. Un peu de marche rapide est bon pour la santé en plus.
+          <strong>Lapin de garenne : </strong>Des journées chargées ne vous font pas peur. Vous voulez visiter la ville
+          dans tous ses recoins. Bonus : un peu de marche rapide est bon pour la santé.
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
@@ -204,7 +205,7 @@
           <li class="list-group-item">
             <div class="row">
               <div class="col-sm-8">
-                Visite culturelle, site historique et musée.
+                Visites culturelles, sites historiques et musées.
               </div>
               <div class="col-sm-4">
                 <div class="material-switch pull-right">
@@ -217,7 +218,7 @@
           <li class="list-group-item">
             <div class="row">
             <div class="col-sm-8">
-              Escapade dans la nature, promenade dans les parcs.
+              Escapade dans la nature, promenade dans les parcs et jardins.
             </div>
             <div class="col-sm-4">
               <div class="material-switch pull-right">
@@ -230,7 +231,7 @@
           <li class="list-group-item">
             <div class="row">
             <div class="col-sm-8">
-              Activités manuelles, ateliers artisanaux, cours traditionnels
+              Activités manuelles, ateliers artisanaux, cours traditionnels.
             </div>
             <div class="col-sm-4">
               <div class="material-switch pull-right">
@@ -243,7 +244,7 @@
           <li class="list-group-item">
             <div class="row">
             <div class="col-sm-8">
-              Gastronomie, boissons et patisseries
+              Gastronomie, boissons et patisseries.
             </div>
             <div class="col-sm-4">
               <div class="material-switch pull-right">
@@ -256,7 +257,7 @@
           <li class="list-group-item">
             <div class="row">
             <div class="col-sm-8">
-              Shopping, grands magasins et boutiques
+              Shopping, grands magasins et boutiques.
             </div>
             <div class="col-sm-4">
               <div class="material-switch pull-right">
@@ -273,9 +274,10 @@
 
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
-        <p class="small-text text-left">Quelque chose à rajouter ? Dites nous tout ce qui vous semble important pour que vos vacances soient parfaites.</p>
+        <p class="small-text text-left">Quelque chose à rajouter ? Dites-nous tout ce qui vous semble
+           important pour que vos vacances soient parfaites.</p>
         <%= f.text_area :comment, class: "form-control", rows: 6,
-             placeholder: "Vous souhaitez absolument voir quelque chose ? Ou au contraire vous ne voulez pas visiter ce musée ? Vous aimez les ramens ? Dites nous tout. :)" %>
+             placeholder: "Vous souhaitez absolument voir quelque chose ? Ou au contraire vous ne voulez pas visiter ce musée ? Vous aimez les ramens ? C'est votre voyage de noce ? Demandez nous tout ce que vous voulez. :)" %>
       </div>
     </div>
 

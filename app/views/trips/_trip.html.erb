@@ -1,7 +1,8 @@
 <div class="col-md-4 col-sm-6 text-center">
-  <div class="row bottom-space">
     <%= image_tag "thumb.jpg", class: "img-circle img-responsive img-center" %>
-    <h3><%= trip.name %></a></h3>
-    <%= link_to "Détails du voyage", trip_path(trip), class: "btn btn-default" %>
+    <h2><%= link_to trip.name, trip_path(trip) %></h2>
+    <%= link_to 'Modifier', edit_trip_path(trip), class: "btn btn-warning btn-xs" %>
+    <%= link_to "Supprimer", trip_path(trip), method: :delete, class: "btn btn-danger btn-xs",
+                 data: {confirm: "Supprimer ce voyage ?"} %>
   </div>
 </div>
