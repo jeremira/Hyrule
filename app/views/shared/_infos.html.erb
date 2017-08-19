@@ -1,3 +1,23 @@
+<section  id="info-row" class="content-section text-center">
+  <div class="row tb-padding">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-star"></i></div></div></div>
+      <hr>
+      <h3>Votre expèrience</h3>
+      <p><strong>Ne choisissez pas vos vacances dans une liste !</strong> Tokyop! vous permet des visites
+      sur mesure sans avoir à se soucier de l'organisation. Nous organisons votre voyage spécialement pour
+      vous, selon vos gôuts. </p>
+      <hr>
+    </div>
+  </div>
+  <div class="row back-pink">
+    <% if current_user %>
+      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+    <% else %>
+      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+    <% end %>
+  </div>
+</section>
 <section  id="info-row" class="content-section text-center back-green">
   <div class="row tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
@@ -41,7 +61,7 @@
 <section  id="info-row" class="content-section text-center back-green">
   <div class="row tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-hand-peace-o"></i></div></div></div>
       <hr>
       <h3>Pas de mauvaises surprises</h3>
       <p><strong>Maîtrisez totalement votre séjour : </strong>Ambiance, rythme, budget.. vous avez le contrôle
@@ -61,7 +81,7 @@
 <section  id="info-row" class="content-section text-center">
   <div class="row bottom-space tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-cogs"></i></div></div></div>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-book"></i></div></div></div>
       <hr>
       <h3>Votre guide-livret</h3>
       <p><strong>Votre séjour dans votre guide-livret !</strong> Cartes, informations pour les transports et les accès,
@@ -83,7 +103,7 @@
 <section  id="info-row" class="content-section text-center back-green">
   <div class="row tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-street-view"></i></div></div></div>
       <hr>
       <h3>Avec votre guide privé</h3>
       <p><Strong>Ajoutez un guide privé</strong> et profiter d'un expert local parlant français pour vous guider tout

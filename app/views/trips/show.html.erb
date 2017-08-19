@@ -63,6 +63,7 @@
       <div class="col-md-6 col-md-offset-3">
         <ul class="list-group">
           <li class="list-group-item">Voyage pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</li>
+          <li class="list-group-item">Vos journées commenceront et finiront à : <strong><%= @trip.pickup_place %><strong></li>
           <li class="list-group-item">
             <% if @trip.budget.value == 0 %>
                 <strong>€ Mini Budget :</strong> Nous privilègerons les activités et les visites

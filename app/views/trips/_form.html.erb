@@ -7,29 +7,43 @@
 
 <section class="container content-section tb-padding">
     <div class="row bottom-space text-center">
-      <div class="col-md-8 col-md-offset-2">
-        <% if trip.errors.full_messages_for(:name).any? %>
-        <div class="alert alert-warning">
-          <% trip.errors.full_messages_for(:name).each do |error| %>
-            <%= error %>
-          <% end %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="row bottom-space text-center">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-plane"></i></div></div></div>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="bottom-space">Au sujet de l'organisation</h1>
           <p>Choisissez un joli nom pour votre voyage :</p>
+          <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+              <% if trip.errors.full_messages_for(:name).any? %>
+              <div class="alert alert-warning">
+                <% trip.errors.full_messages_for(:name).each do |error| %>
+                  <%= error %>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+          </div>
           <div class="form-group">
               <%= f.text_field :name, class: "form-control input-lg", placeholder: "Mon superbe voyage à Tokyo." %>
           </div>
-          <br>
-          <h3>Budget de vos journées</h3>
+          <p>Et indiquez nous d'où vos journées vont commencer :</p>
+          <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+              <% if trip.errors.full_messages_for(:pickup_place).any? %>
+              <div class="alert alert-warning">
+                <% trip.errors.full_messages_for(:pickup_place).each do |error| %>
+                  <%= error %>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-group">
+              <%= f.text_field :pickup_place, class: "form-control input-lg", placeholder: "Nom de votre hotel, station de métro..." %>
+          </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
+          <h3>Budget de vos journées</h3>
           <p class="small-text text-left">Quel budget souhaitez-vous accorder à vos journées ? (Transport,
             frais d'entrée aux différents sites... )</p>
         </div>

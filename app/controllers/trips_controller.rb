@@ -102,7 +102,7 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:id, :name, :price, :status, :comment, :date, :adults, :kids,
+      params.require(:trip).permit(:id, :name, :price, :status, :comment, :date, :adults, :kids, :pickup_place,
                                     budget_attributes: [:id, :value],
                                     rythme_attributes: [:id, :value, :first, :offtrack],
                                     style_attributes:  [:id, :culture, :nature, :sport, :food, :shopping, :kid]

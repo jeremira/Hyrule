@@ -82,7 +82,7 @@ Theme.create(
 name:      'Kamakura',
 descr:     "Temple et nature.",
 image:     "kamakura.jpg",
-gallery:   "kamakura001.jpg kamajura002.jpg kamakura003.jpg kamakura004.jpg",
+gallery:   "kamakura001.jpg kamakura002.jpg kamakura003.jpg kamakura004.jpg",
 style:     "around"
 )
 Theme.create(

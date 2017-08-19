@@ -1,7 +1,8 @@
 class Trip < ApplicationRecord
 
-  validates :name,   presence: true
-  validates :adults, presence: true
+  validates :name,          presence: true
+  validates :pickup_place,  presence: true
+  validates :adults,        presence: true
   belongs_to :user
 
   after_save :setup_trip_price
