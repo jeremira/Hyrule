@@ -1,7 +1,6 @@
 class StaticController < ApplicationController
 
-  def index
-    
+  def contact
   end
 
 end

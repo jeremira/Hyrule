@@ -37,7 +37,7 @@
             <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
             <li class="hidden"><a href="#page-top"></a></li>
             <li><%= link_to 'Que faire à Tokyo ?', themes_path, class: "page-scroll" %></li>
-            <li><%= link_to 'Informations', informations_path, class: "page-scroll" %></li>
+            <li><%= link_to 'Une question ?', root_path, class: "page-scroll" %></li>
             <% if current_user %>
               <li><%= link_to 'Mes voyages', trips_path, class: "page-scroll" %></li>
               <li><%= link_to 'Mon profil', user_path(current_user), class: "page-scroll" %></li>
@@ -85,7 +85,7 @@
             <ul class="list-unstyled list-inline">
               <li><%= link_to 'Nous contacter', '#' %></li>
               <li><%= link_to 'Que faire à Tokyo ?', themes_path %></li>
-              <li><%= link_to 'Informations', informations_path %></li>
+              <li><%= link_to 'Informations', root_path %></li>
               <% if current_user %>
                 <li><%= link_to 'Mes voyages', trips_path %></li>
                 <li><%= link_to 'Mon profil', user_path(current_user) %></li>

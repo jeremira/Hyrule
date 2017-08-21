@@ -15,9 +15,6 @@ class TripsController < ApplicationController
     @days = @trip.days
   end
 
-  def infos
-  end
-
   # GET /trips/new
   def new
     @trip = current_user.trips.build

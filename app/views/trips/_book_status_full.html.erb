@@ -1,55 +1,66 @@
 <% if trip.gestion.status == 'new' %>
-  <div class="row bottom-space">
-    <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
-    <h2>Réserver mon voyage</h3>
-    <p>Votre voyage est prêt ? Tout est comme vous le souhaitez ? Cliquez sur le bouton "Réserver mon voyage" pour finaliser
-    votre réservation. Nos équipes organiseront votre voyage et vous pourrez ensuite procéder au paiement sécurisé.</p>
-  </div>
-  <div class="row bottom-space">
+  <div class="row tb-padding">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <span class="alert alert-warning"><i class="fa fa-exclamation-circle"></i><strong> Vous ne pourrez plus modifier votre voyage ensuite !</strong></span>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+      <h2>Réserver mon voyage</h3>
+      <p>Veuillez vérifier les détails de votre voyage ci-dessous. Si tout est prêt réservez votre voyage.</p>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-      <div class="alert alert-info"><strong>Prix du voyage : <%= trip.price %>€.</strong></div>
-      <div class="alert alert-info text-left">
-        <ul class="list-unstyled"><% trip.days.each do |day| %>
-          <li>
-            <div class="row">
-              <%= day.date %> : <%= day.price %>€
-            </div>
-            <div class="row">
+      <div class="alert alert-info"><strong>Prix total de votre voyage : <%= trip.price %>€.</strong></div>
+      <p class="small-text">Récapitulatif de votre séjour :</p>
+      <ul class="list-unstyled list-group">
+          <% trip.days.each do |day| %>
+          <li class="list-group-item back-green">
+              Journée du <%= day.date %> : <%= day.price %>€
+          </li>
+          <li class="list-group-item">
               <span class="label label-default">Thème de la journée : <%= day.theme.name %></span>
               <span class="label label-success">Organisation de votre journée à la carte.</span>
               <% if day.guide %>
                 <span class="label label-success">Journée avec guide personnel.</span>
               <% end %>
-            </div>
           </li>
           <% end %>
           <% days_price = 0 %>
           <% trip.days.each do |day| %>
             <% days_price += day.price %>
           <% end %>
-        <li>Organisation générale du voyage : <%= trip.price - days_price  %>€</li>
-        </ul>
-      </div>
+        <li class="list-group-item back-green">Organisation du séjour : <%= trip.price - days_price  %>€</li>
+      </ul>
       <hr>
-        <div class="row text-left">
-          <strong>Qu'est-ce-qui est inclus ?</strong> Votre guide personnel, votre planning détaillé et personnel
-          jour par jour, les réservations et l'organisation de vos activités et visites.
-        </div>
-        <br>
-        <div class="row text-left">
-          <strong>Qu'est-ce-qui n'est pas inclus ?</strong> La nourriture, les boissons, les frais de transports et le
-           coût éventuel des activités et des entrées aux monuments, musées... sont à payer sur place.
-        </div>
-        <hr>
-      <%= link_to "Réserver mon voyage", trip_gestion_path(trip, trip.gestion, :status => :pending ),
-                  :method => :put, data: {confirm: "Vous ne pourrez plus modifier ce voyage. Réserver ?"}, class: 'btn btn-block btn-success btn-lg' %>
+      <ul class="list-unstyled list-group text-left">
+        <li class="list-group-item back-pink">Est inclu dans ce prix :</li>
+        <li class="list-group-item">L'organisation de votre séjour et de vos journées selon vos préférences.</li>
+        <li class="list-group-item">Votre guide-livret personnel contenant toutes les informations nécessaires pour
+        un voyage zen.</li>
+        <li class="list-group-item">Les réservations nécessaires aux restaurants, activités et lieux de visites.</li>
+        <li class="list-group-item">Votre guide accompagnateur privé pour les journées où vous en avez fait la demande.</li>
+        <li class="list-group-item back-pink">Reste à votre charge :</li>
+        <li class="list-group-item">Les frais de logement et votre transport jusqu'à Tokyo.</li>
+        <li class="list-group-item">Les frais de transports lors de vos visites (métro, bus, taxi...).</li>
+        <li class="list-group-item">La nourriture, les boissons et les petits casse-croutes.</li>
+        <li class="list-group-item">Les frais d'entrées et de visites des différents sites et activités.</li>
+      </ul>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <div class="alert alert-warning"><i class="fa fa-exclamation-circle">
+        </i><strong> Atention, vous ne pourrez plus modifier votre voyage ensuite !</strong>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= link_to "Réserver mon voyage", trip_gestion_path(trip, trip.gestion, :status => :pending ),
+                :method => :put, data: {confirm: "Vous ne pourrez plus modifier ce voyage. Réserver ?"},
+                class: 'btn btn-block btn-success btn-lg' %>
+    </div>
+  </div>
+</div>
 
 <% elsif trip.gestion.status == 'pending' %>
   <div class="row bottom-space">
@@ -63,7 +74,7 @@
 
 
 <% elsif trip.gestion.status == 'approved' %>
-   <div class="row bottom-space" id="paiement">
+   <div class="row bottom-space" id="paiemet">
      <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
      <h2>Paiement</h2>
      <p><strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement en cliquant sur le bouton ci-dessous.

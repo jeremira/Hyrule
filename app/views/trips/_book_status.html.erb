@@ -1,21 +1,12 @@
 <% if trip.gestion.status == 'new' %>
-  <hr>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-        <a href = "<%= new_trip_day_path(trip) %>", class="btn btn-block btn-success">
-          <span><i class="fa fa-plus"></i></span> Nouvelle journée</a>
-        <%= link_to "Réserver mon voyage", "#booking", class: 'btn btn-block btn-success' %>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <%= link_to "Modifier mon voyage", edit_trip_path(@trip),  class: "btn btn-block btn-warning" %>
-      <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
-                                                   data: {confirm: "Delete this trip ?"}, class: "btn btn-block btn-danger" %>
-    </div>
-  </div>
-  <hr>
+  <p class="tb-padding"></p>
+  <a href = "<%= new_trip_day_path(trip) %>", class="btn btn-block btn-success">
+      <span><i class="fa fa-plus"></i></span> Nouvelle journée</a>
+  <%= link_to "Réserver mon voyage", "#booking", class: 'btn btn-block btn-success' %>
+  <%= link_to "Modifier mon voyage", edit_trip_path(@trip),  class: "btn btn-block btn-warning" %>
+  <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
+                                    data: {confirm: "Delete this trip ?"}, class: "btn btn-block btn-danger" %>
+
 
 <% elsif trip.gestion.status == 'pending' %>
   <div class="row bottom-space">

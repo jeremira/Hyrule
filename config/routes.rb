@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :charges
 
   get 'commercial',  to: 'themes#commercial'
-  get 'informations', to: 'trips#infos'
 
   root 'static#index'
+
   end
