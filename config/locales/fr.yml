@@ -1,18 +1,27 @@
 ---
 fr:
   activerecord:
+    models:
+      user: "utilisateur"
+      trip: "voyage"
+      day: "journée"
+      account: "compte"
+      theme: "thème"
     attributes:
+      user:
+        password: "le mot de passe"
+        password_confirmation: "la confirmation du mot de passe"
       trip:
-        name: "Le nom"
-        price: "Le prix"
-        adults: "Le nombre d'adultes"
-        kids: "Le nombre d'enfants"
-        pickup_place: "Le point de rencontre"
+        name: "le nom"
+        price: "le prix"
+        adults: "le nombre d'adultes"
+        kids: "le nombre d'enfants"
+        pickup_place: "le point de rencontre"
       day:
-        date: "La date"
-        price: "Le prix"
+        date: "la date"
+        price: "le prix"
       account:
-        name: "Votre nom"
+        name: "votre nom"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
