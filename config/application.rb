@@ -9,7 +9,7 @@ module Hyrule
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
+    config.i18n.default_locale = :fr
     #Use Rspec to generate starter file for application test suite
     #everydayrails.com rspec tutorial
     config.generators do |g|
