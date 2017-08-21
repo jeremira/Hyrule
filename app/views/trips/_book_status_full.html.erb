@@ -3,7 +3,7 @@
     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
       <h2>Réserver mon voyage</h3>
-      <p>Veuillez vérifier les détails de votre voyage ci-dessous. Si tout est prêt réservez votre voyage.</p>
+      <p>Veuillez vérifier les détails de votre voyage ci-dessous. Si tout est prêt, réservez-le !</p>
     </div>
   </div>
   <div class="row">
@@ -19,7 +19,7 @@
               <span class="label label-default">Thème de la journée : <%= day.theme.name %></span>
               <span class="label label-success">Organisation de votre journée à la carte.</span>
               <% if day.guide %>
-                <span class="label label-success">Journée avec guide personnel.</span>
+                <span class="label label-success">Journée avec guide privé.</span>
               <% end %>
           </li>
           <% end %>
@@ -63,40 +63,53 @@
 </div>
 
 <% elsif trip.gestion.status == 'pending' %>
-  <div class="row bottom-space">
-    <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
-    <h2 class="title">En préparation</h3>
-    <p>Nous avons bien reçu votre réservation. Votre voyage est en ce moment organisé par nos équipes. Nous organisons
-    et préparons votre voyage sur mesure selon vos options personnelles. Dès que tout est prèt vous pourrez finaliser
-    votre réservation en procédant au paiement.</p>
+  <div class="row tb-padding">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-thumbs-up"></i></div></div></div>
+      <h2 class="title">En préparation</h3>
+      <p class="small-text">Nous avons bien reçu votre demande de réservation. Merci pour votre confiance !</p>
+      <div class="alert alert-success text-left">
+        <i class="fa fa-check"></i> Votre voyage est en ce moment organisé et validé par nos équipes.
+         Vous pourrez confirmer et payer votre voyage très bientôt.</div>
+    </div>
   </div>
 
 
 
 <% elsif trip.gestion.status == 'approved' %>
-   <div class="row bottom-space" id="paiemet">
-     <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
-     <h2>Paiement</h2>
-     <p><strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement en cliquant sur le bouton ci-dessous.
-       Et ensuite ? Tout est prêt, vous pouvez préparer vos valises. :)</p>
-   </div>
-   <div class="row">
-     <div class="col-md-6 col-md-offset-3">
-       <div class="panel panel-info">
-         <div class="panel-heading">Cout total du voyage</div>
-         <div class="panel-body">
-           <p><%= trip.price %> €</p>
-           <hr>
-           <% trip.days.each do |day| %>
-            <div class="panel panel-default">
-              <%= day.date %> | <%= day.price %>€.<br>
-              <% if day.guide %><div class="label label-success">Journée avec guide</div><% end %>
-            </div>
-            <% end %>
-         </div>
-       </div>
+   <div class="row tb-padding">
+     <div class="col-sm-8 col-sm-offset-2">
+       <div class="box"><div class="icon"><div class="image"><i class="fa fa-thumbs-up"></i></div></div></div>
+       <h2>Paiement</h2>
+       <p>Votre voyage est prêt !</p>
+       <p class="small-text">Merci de procéder au paiement sécurisé en cliquant sur le bouton ci-dessous.</p>
      </div>
    </div>
+   <div class="row">
+     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+       <div class="alert alert-info"><strong>Prix total de votre voyage : <%= trip.price %>€.</strong></div>
+       <p class="small-text">Récapitulatif de votre séjour :</p>
+       <ul class="list-unstyled list-group">
+           <% trip.days.each do |day| %>
+           <li class="list-group-item back-green">
+               Journée du <%= day.date %> : <%= day.price %>€
+           </li>
+           <li class="list-group-item">
+               <span class="label label-default">Thème de la journée : <%= day.theme.name %></span>
+               <span class="label label-success">Organisation de votre journée à la carte.</span>
+               <% if day.guide %>
+                 <span class="label label-success">Journée avec guide privé.</span>
+               <% end %>
+           </li>
+           <% end %>
+           <% days_price = 0 %>
+           <% trip.days.each do |day| %>
+             <% days_price += day.price %>
+           <% end %>
+         <li class="list-group-item back-green">Organisation du séjour : <%= trip.price - days_price  %>€</li>
+       </ul>
+     </div>
+    </div>
     <div class="row">
       <%= form_tag charges_path do %>
         <% if flash[:error].present? %>
@@ -117,16 +130,21 @@
    </div>
 
 <% elsif trip.gestion.status == 'payed' || trip.gestion.status == 'final' %>
-<div class="row bottom-space">
-  <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
-  <h2>Confirmé</h2>
-  <p><strong>Votre voyage est prêt !</strong> Nous vous attendons le INPUT FIRSTDAY DATE pour vos vacances personalisé à Tokyo.</p>
-  <p>Encore XXXX jours avant votre voyage.</p>
+<div class="row tb-padding">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="box"><div class="icon"><div class="image"><i class="fa fa-thumbs-up"></i></div></div></div>
+    <h2 class="title">Voyage confirmé</h3>
+    <p class="small-text">Merci pour votre confiance ! Votre séjour est prêt !</p>
+    <div class="alert alert-success text-left">
+      <i class="fa fa-check"></i> Votre guide-livret contenant tous les détails de votre
+      voyage sera envoyé 2 à 3 semaine avant votre départ par email.
+    </div>
+  </div>
 </div>
 
 <% elsif trip.gestion.status == 'done' %>
 <div class="row bottom-space">
-  <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
+  <div class="box"><div class="icon"><div class="image"><i class="fa fa-comments"></i></div></div></div>
   <h2>Voyage terminé</h2>
   <p>Comment s'est passé votre voyage ? Laissez nous un commentaire ici :</p>
   <%= link_to "Feedback", '#' %>

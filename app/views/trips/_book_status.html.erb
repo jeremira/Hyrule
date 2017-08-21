@@ -9,62 +9,48 @@
 
 
 <% elsif trip.gestion.status == 'pending' %>
-  <div class="row bottom-space">
+  <p class="tb-padding"></p>
+  <div class="alert alert-success">
+    <i class="fa fa-check"></i> Voyage réservé !
   </div>
-  <hr>
-  <div class="row">
-      <div class="alert alert-success">
-        <span><i class="fa fa-check"></i></span>Ce voyage a été réservé !
-    </div>
+  <div class="wrapper text-left"><i class="fa fa-info-circle"></i> Votre voyage est en ce moment organisé et validé par nos équipes.
+   Vous pourrez confirmer et payer votre voyage très bientôt.
   </div>
-  <div class="row">
-    <div class="panel panel-default text-left little-padding">Ce voyage est en ce moment organisé et vérifié par nos équipes.
-      Merci de votre patience. Votre voyage sera bientôt prêt.</div>
-    </div>
-    <hr>
+
 
 <% elsif trip.gestion.status == 'approved' %>
-  <div class="row bottom-space">
-  </div>
-  <hr>
-  <div class="row">
-    <div class="alert alert-success">
-      <i class="fa fa-check"></i>
-      <strong>Votre voyage est prêt !</strong> Vous pouvez procéder au paiement pour finaliser votre réservation.
-    </div>
-    <div class="col-sm-10 col-sm-offset-1">
-      <%= link_to "Payer mon voyage", '#paiement', class: 'btn btn-block btn-success' %>
-    </div>
-  </div>
+<p class="tb-padding"></p>
+<div class="alert alert-success">
+  <i class="fa fa-check"></i> Tout est prêt ! Vous pouvez confirmer et payer votre voyage.
+</div>
+<%= link_to "Payer mon voyage", '#booking', class: 'btn btn-block btn-success' %>
 
 
 <% elsif trip.gestion.status == 'payed' %>
-  <div class="row bottom-space">
-  </div>
-  <hr>
-  <div class="row">
-    <div class="alert alert-success">
-      <i class="fa fa-check"></i>
-      Nous avons bien reçu votre paiement. Votre voyage est prêt !
-    </div>
-  </div>
-  <div class="row">
-    <div class="panel panel-default text-left little-padding">Ce voyage est prêt et confirmé. Vous recevrez très vite
-    les informations concernant votre voyage par email. Nous nous occupons de tout. Pensez à vos valises et votre passeport !</div>
-    </div>
-  </div>
-  <hr>
+<p class="tb-padding"></p>
+<div class="alert alert-success">
+  <i class="fa fa-check"></i> Voyage réservé et payé !
+</div>
+<div class="wrapper text-left"><i class="fa fa-info-circle"></i> Merci pour votre confiance ! Votre voyage est prêt,
+ vous recevrez prochainement les détails de votre voyage par email.
+</div>
 
 <% elsif trip.gestion.status == 'final' %>
-   <h3 class="title">Nous vous attendons. :)</h3>
-   <p>Votre voyage est prêt. Nous vous attendons avec impatience à Tokyo.
-      A bientot !</p>
-    <p>Encore XXXX jours avant votre voyage.</p>
+<p class="tb-padding"></p>
+<div class="alert alert-success">
+  <i class="fa fa-check"></i> Voyage réservé et payé !
+</div>
+<div class="wrapper text-left"><i class="fa fa-info-circle"></i> Merci pour votre confiance ! Votre voyage est prêt,
+ vous recevrez prochainement les détails de votre voyage par email.
+</div>
 
 <% elsif trip.gestion.status == 'done' %>
-  <h4>Voyage terminé.</h4>
-  <p>Comment s'est passé votre voyage ? Laissez nous un commentaire ici :</p>
-  <%= link_to "Feedback", '#' %>
+<p class="tb-padding"></p>
+<div class="alert alert-success">
+  <i class="fa fa-check"></i> Nous espèrons vous revoir bientôt !
+</div>
+
+
 <% else %>
   <h1>DEBUG SHOULD NOT APPEAR - Status was not implemented</h1>
   <p><%= trip.gestion.inspect %></p>
