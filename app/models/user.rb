@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :send_greeting_email
 
   has_one :account, :dependent => :destroy
   accepts_nested_attributes_for :account
