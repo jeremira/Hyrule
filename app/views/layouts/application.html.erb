@@ -12,7 +12,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <title>Hyrule</title>
+    <title>Tokyhop!</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -39,7 +39,7 @@
             Menu <i class="fa fa-bars"></i>
           </button>
           <a class="navbar-brand page-scroll" href="<%= root_path %>">
-            <i class="fa fa-play-circle"></i> <span class="light">Tokyop!</span>
+            <i class="fa fa-play-circle"></i> <span class="light">Tokyhop!</span>
           </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,7 +48,7 @@
             <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
             <li class="hidden"><a href="#page-top"></a></li>
             <li><%= link_to 'Que faire à Tokyo ?', themes_path, class: "page-scroll" %></li>
-            <li><%= link_to 'Une question ?', root_path, class: "page-scroll" %></li>
+            <li><%= link_to 'Une question ?', root_path(anchor: 'contact-row'), class: "page-scroll" %></li>
             <% if current_user %>
               <li><%= link_to 'Mes voyages', trips_path, class: "page-scroll" %></li>
               <li><%= link_to 'Mon profil', user_path(current_user), class: "page-scroll" %></li>
@@ -94,7 +94,7 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <ul class="list-unstyled list-inline">
-              <li><%= link_to 'Nous contacter', '#' %></li>
+              <li><%= link_to 'Nous contacter', root_path(anchor: 'contact-row') %></li>
               <li><%= link_to 'Que faire à Tokyo ?', themes_path %></li>
               <li><%= link_to 'Informations', root_path %></li>
               <% if current_user %>
