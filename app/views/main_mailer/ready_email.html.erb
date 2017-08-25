@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Votre voyage "<%= @trip.name %>" est prêt !</h3>
+
+    <p>Les préparations pour votre voyage sont terminées. Afin de confirmer votre voyage, nous vous invitons à procéder
+      au paiement sur notre site Tokyhop!</p>
+
+    <%= link_to 'Procéder au paiement', trip_url(@trip) %>
+
+    <p>Pour toute demande, n'hésitez pas à nous contacter :</p>
+    <h4>contact@tokyhop.fun</h4>
+
+    <p>A très bientôt,<br>
+      L'équipe de Tokyhop!</p>
+  </body>
+</html>
