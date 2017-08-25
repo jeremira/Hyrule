@@ -31,6 +31,7 @@ class ChargesController < ApplicationController
                                       :token => charge.id,
                                       :payment_date => Time.now,
                                       :amount_payed => @amount)
+      MainMailer.payed_email(@trip.user, @trip).deliver
       flash[:notice] = "Votre voyage est payé !"
     ensure
       redirect_to trip_path(@trip)

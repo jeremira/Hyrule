@@ -10,6 +10,7 @@ class GestionsController < ApplicationController
         @gestion.status = 'pending'
         if @gestion.save
           flash[:notice] = "Merci de votre réservation. Nos équipes vont prendre en charge votre demande."
+          MainMailer.booking_email(@trip.user, @trip).deliver
         else
           flash[:alert] = "Les changements n'ont pu être enregistrés"
         end
@@ -22,6 +23,7 @@ class GestionsController < ApplicationController
         @gestion.status = 'approved'
         if @gestion.save
           flash[:notice] = "Vous avez approuvé ce voyage."
+          MainMailer.ready_email(@trip.user, @trip).deliver
         else
           flash[:alert] = "Les changements n'ont pu être enregistrés."
         end
@@ -36,6 +38,7 @@ class GestionsController < ApplicationController
         @gestion.status = 'final'
         if @gestion.save
           flash[:notice] = "Ce voyage est validé."
+          MainMailer.livret_ready_email(@trip.user).deliver
         else
           flash[:alert] = "Les changements n'ont pu être enregistrés."
         end
