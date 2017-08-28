@@ -40,7 +40,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+#papaerclip for file attachment
+gem "paperclip", "~> 5.0.0"
 #devise/omniauth autentification gem
 #gem 'therubyracer'
 gem 'devise'
@@ -51,7 +52,6 @@ gem 'omniauth-google'
 gem 'omniauth-twitter'
 #easy ENV variable gestion gem
 gem 'figaro'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -9,11 +9,15 @@ class Trip < ApplicationRecord
 
   has_one    :budget,           :dependent => :destroy
   accepts_nested_attributes_for :budget
+
   has_one    :rythme,           :dependent => :destroy
   accepts_nested_attributes_for :rythme
+
   has_one    :style,            :dependent => :destroy
   accepts_nested_attributes_for :style
+
   has_one    :gestion,          :dependent=>  :destroy
+  has_one    :livret,           :dependent=>  :destroy
 
   has_many   :plannings,                      :dependent => :destroy
   has_many   :days,      through: :plannings

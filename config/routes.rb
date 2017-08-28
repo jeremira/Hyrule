@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :accounts
   resources :setup, :only => [:index]
+  resources :livrets
   resources :themes
   resources :trips do
     resources :days

@@ -1,8 +1,11 @@
 <li>
   <strong>TripID:<%= payed_trip.id %></strong> | <%= payed_trip.name %> | <%= payed_trip.user.email %> |
-  <%= payed_trip.adults %>adults & <%= payed_trip.kids %> kids
-  <%= link_to "Finalize this Trip", trip_gestion_path(payed_trip, payed_trip.gestion,
-              :status => :final), :method => :put, :data => {:confirm => 'Finalize this trip ?'},
-              class: 'btn btn-success btn-xs' %>
+  <%= payed_trip.adults %>adults & <%= payed_trip.kids %> kids<br>
+  <%= payed_trip.price %>€
+  <% if payed_trip.livret %>
+    <%= link_to "Show Livret", livret_path(payed_trip.livret), class: 'btn btn-xs btn-info' %>
+  <% else %>
+    <%= link_to "Add Livret", new_livret_path(trip_id: payed_trip.id), class: 'btn btn-xs btn-info' %>
+  <% end %>
   <%= link_to 'Show trip', payed_trip, class: 'btn btn-warning btn-xs' %>
 </li>

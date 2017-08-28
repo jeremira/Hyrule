@@ -1,0 +1,15 @@
+<%= form_for livret, url: livrets_path, html: { multipart: true } do |f| %>
+
+<% if livret.errors.any? %>
+<div class="alert alert-warning">
+  <% livret.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
+</div>
+<% end %>
+
+  <%= f.label :trip_id %>
+  <%= f.text_field :trip_id %>
+  <%= f.file_field :htmlbook %>
+  <%= f.submit 'Create livret' %>
+<% end %>

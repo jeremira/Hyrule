@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819051615) do
+ActiveRecord::Schema.define(version: 20170828083356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,18 @@ ActiveRecord::Schema.define(version: 20170819051615) do
     t.date     "payment_date"
     t.integer  "amount_payed"
     t.index ["trip_id"], name: "index_gestions_on_trip_id", using: :btree
+  end
+
+  create_table "livrets", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "trip_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "htmlbook_file_name"
+    t.string   "htmlbook_content_type"
+    t.integer  "htmlbook_file_size"
+    t.datetime "htmlbook_updated_at"
+    t.index ["trip_id"], name: "index_livrets_on_trip_id", using: :btree
   end
 
   create_table "lunches", force: :cascade do |t|
@@ -156,6 +168,7 @@ ActiveRecord::Schema.define(version: 20170819051615) do
   add_foreign_key "days", "themes"
   add_foreign_key "dinners", "days"
   add_foreign_key "gestions", "trips"
+  add_foreign_key "livrets", "trips"
   add_foreign_key "lunches", "days"
   add_foreign_key "plannings", "days"
   add_foreign_key "plannings", "trips"
