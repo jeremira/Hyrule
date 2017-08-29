@@ -3,7 +3,7 @@
   <%= payed_trip.adults %>adults & <%= payed_trip.kids %> kids<br>
   <%= payed_trip.price %>€
   <% if payed_trip.livret %>
-    <%= link_to "Show Livret", livret_path(payed_trip.livret), class: 'btn btn-xs btn-info' %>
+    <%= link_to "Edit Livret", edit_livret_path(payed_trip.livret), class: 'btn btn-xs btn-info' %>
   <% else %>
     <%= link_to "Add Livret", new_livret_path(trip_id: payed_trip.id), class: 'btn btn-xs btn-info' %>
   <% end %>

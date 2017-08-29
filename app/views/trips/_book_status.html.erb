@@ -32,16 +32,16 @@
   <i class="fa fa-check"></i> Voyage réservé et payé !
 </div>
 <div class="wrapper text-left"><i class="fa fa-info-circle"></i> Merci pour votre confiance ! Votre voyage est prêt,
- vous recevrez prochainement les détails de votre voyage par email.
+ vous recevrez prochainement les détails de votre voyage et votre guide-livret.
 </div>
 
 <% elsif trip.gestion.status == 'final' %>
 <p class="tb-padding"></p>
 <div class="alert alert-success">
-  <i class="fa fa-check"></i> Voyage réservé et payé !
+  <i class="fa fa-check"></i> Votre programme est prêt !
 </div>
-<div class="wrapper text-left"><i class="fa fa-info-circle"></i> Merci pour votre confiance ! Votre voyage est prêt,
- vous recevrez prochainement les détails de votre voyage par email.
+<div class="wrapper text-left"><i class="fa fa-info-circle"></i> Votre guide-livret est disponible.
+  <%= link_to "Voir mon livret", livret_path(trip.livret), class: 'show-livret' %>
 </div>
 
 <% elsif trip.gestion.status == 'done' %>

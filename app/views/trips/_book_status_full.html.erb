@@ -129,7 +129,7 @@
     <% end %>
    </div>
 
-<% elsif trip.gestion.status == 'payed' || trip.gestion.status == 'final' %>
+<% elsif trip.gestion.status == 'payed' %>
 <div class="row tb-padding">
   <div class="col-sm-8 col-sm-offset-2">
     <div class="box"><div class="icon"><div class="image"><i class="fa fa-thumbs-up"></i></div></div></div>
@@ -138,6 +138,20 @@
     <div class="alert alert-success text-left">
       <i class="fa fa-check"></i> Votre guide-livret contenant tous les détails de votre
       voyage sera envoyé 2 à 3 semaine avant votre départ par email.
+    </div>
+  </div>
+</div>
+
+<% elsif trip.gestion.status == 'final' %>
+<div class="row tb-padding">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="box"><div class="icon"><div class="image"><i class="fa fa-thumbs-up"></i></div></div></div>
+    <h2 class="title">Votre programme est prêt !</h3>
+    <p class="small-text">Merci pour votre confiance ! Votre séjour est prêt !</p>
+    <div class="alert alert-success text-left">
+      <i class="fa fa-check"></i> Votre guide-livret contenant tous les détails de votre
+      voyage est disponible !
+      <%= link_to "Voir mon livret", livret_path(trip.livret), class: 'show-livret' %>
     </div>
   </div>
 </div>

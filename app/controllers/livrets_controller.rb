@@ -1,4 +1,6 @@
 class LivretsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :redirect_not_admin, only: [:index, :new, :edit, :create, :update, :destroy ]
 
   def index
     @livrets = Livret.all
@@ -6,6 +8,9 @@ class LivretsController < ApplicationController
 
   def show
     @livret = Livret.find(params[:id])
+    if @livret.trip.user != current_user
+      redirect_not_admin
+    end
     @trip = @livret.trip
   end
 
@@ -16,6 +21,7 @@ class LivretsController < ApplicationController
     # GET /trips/1/edit
   def edit
     @livret = Livret.find(params[:id])
+    @trip = @livret.trip
   end
 
   def create
@@ -65,6 +71,13 @@ class LivretsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def livret_params
       params.require(:livret).permit(:id, :trip_id, :htmlbook)
+    end
+
+    def redirect_not_admin
+      unless current_user.admin
+        redirect_to root_url
+        flash[:alert] = "Vous n'êtes pas authorisé à modifier cela."
+      end
     end
 
 end
