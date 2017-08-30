@@ -31,7 +31,6 @@ $(document).on('turbolinks:load', function() {
     var nextImage = new Image;
     nextImage.src = url; //start load image
     nextImage.onload = function() {
-      console.log(url);
       slideshow.fadeOut(500, function() {
         slideshow.css('background', "url(" + url + ")" );
         slideshow.css('position', 'absolute' );

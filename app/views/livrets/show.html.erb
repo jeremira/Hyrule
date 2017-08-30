@@ -1,16 +1,15 @@
 <!-- Header -->
-<header class="business-header">
+<header class="business-header no-print">
   <div class="slideshow"></div>
 </header>
 <!-- Header -->
-<section class="container content-section text-center tb-padding">
+<section class="container content-section text-center tb-padding no-print">
   <div class="row tb-padding">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-2 no-print">
       <div class="alert alert-success">Vous pouvez consultez votre guide-livret
          ci-dessous. Pour l'imprimer merci de suivre ce lien</div>
     </div>
-    <div class="col-md-12">
-      <%= render :file => @livret.htmlbook.path %>
-    </div>
   </div>
 </section>
+
+<%= render :file => @livret.htmlbook.path %>
