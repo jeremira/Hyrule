@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828083356) do
+ActiveRecord::Schema.define(version: 20170831061743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20170828083356) do
     t.text     "info"
     t.integer  "age"
     t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
+  end
+
+  create_table "assets", force: :cascade do |t|
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "map_file_name"
+    t.string   "map_content_type"
+    t.integer  "map_file_size"
+    t.datetime "map_updated_at"
+    t.integer  "livret_id"
+    t.index ["livret_id"], name: "index_assets_on_livret_id", using: :btree
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -164,6 +175,7 @@ ActiveRecord::Schema.define(version: 20170828083356) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "assets", "livrets"
   add_foreign_key "budgets", "trips"
   add_foreign_key "days", "themes"
   add_foreign_key "dinners", "days"
