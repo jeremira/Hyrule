@@ -17,11 +17,13 @@ class LivretsController < ApplicationController
   def new
     @trip = Trip.find(params[:trip_id])
     @livret = @trip.build_livret
+    10.times { @livret.assets.build }
   end
     # GET /trips/1/edit
   def edit
     @livret = Livret.find(params[:id])
     @trip = @livret.trip
+    10.times { @livret.assets.build }
   end
 
   def create
@@ -43,6 +45,7 @@ class LivretsController < ApplicationController
 
   def update
     @livret = Livret.find(params[:id])
+    @trip = @livret.trip
     respond_to do |format|
       if @livret.update(livret_params)
         format.html { redirect_to @livret, notice: 'Changements enregistrés' }
@@ -70,7 +73,8 @@ class LivretsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     # Never trust parameters from the scary internet, only allow the white list through.
     def livret_params
-      params.require(:livret).permit(:id, :trip_id, :htmlbook)
+      params.require(:livret).permit(:id, :trip_id, :htmlbook,
+                                      assets_attributes: [:id, :livret_id, :map])
     end
 
     def redirect_not_admin
