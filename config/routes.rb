@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   #resource for stripe payment
   resources :charges
 
-  get 'commercial',  to: 'themes#commercial'
+  get  'commercial',  to: 'themes#commercial'
+  get  'mappath', to: 'livrets#mappath'
 
   root 'static#index'
 

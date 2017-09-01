@@ -2,6 +2,15 @@ class LivretsController < ApplicationController
   before_action :authenticate_user!
   before_action :redirect_not_admin, only: [:index, :new, :edit, :create, :update, :destroy ]
 
+  def mappath #return map rails path  for livret use
+    @livret = Livret.find(params[:livret])
+    @asset = @livret.assets.first #where(map_file_name: params[:map])
+    @path = @asset.map.url
+    respond_to do |format|
+      format.json { render json: @path }
+    end
+  end
+
   def index
     @livrets = Livret.all
   end
@@ -12,6 +21,7 @@ class LivretsController < ApplicationController
       redirect_not_admin
     end
     @trip = @livret.trip
+    @maps = @livret.assets
   end
 
   def new
