@@ -4,7 +4,7 @@ class LivretsController < ApplicationController
 
   def mappath #return map rails path  for livret use
     @livret = Livret.find(params[:livret])
-    @asset = @livret.assets.first #where(map_file_name: params[:map])
+    @asset = @livret.assets.where(map_file_name: params[:map]).first
     @path = @asset.map.url
     puts @path.inspect
     respond_to do |format|

@@ -1,24 +1,23 @@
 $(document).on('turbolinks:load', function() {
 
 
-      //$('.download-section').each(function( index ) {
-      //change #map to .map and do for each if present
-
-
-    var livret_id = $('#map').data('livret');
-    var map_file_name = $('#map').data('map');
-    console.log("Ajax map path ...");
+  $( ".map" ).each(function( index ) {
+    console.log("Mapping")
+    var livret_id = $(this).data('livret');
+    var map_file_name = $(this).data('map');
+    console.log(livret_id);
+    console.log(map_file_name);
     $.ajax({
            url:'/mappath',
            type:'GET',
            dataType:'json',
+           context: $(this),
            data:{
                livret: livret_id,
                map: map_file_name
            },
            success:function(data){
-             console.log("Ajax map pather done : " + data['path'] );
-              $('#map').append("<img src='" + data['path'] + "' class='img-responsive'></img>");
+              this.append("<img src='" + data['path'] + "' class='img-responsive img-center'></img>");
               return false
            },
            error:function(data){
@@ -27,6 +26,6 @@ $(document).on('turbolinks:load', function() {
                return false
            }
         });
-
+  });
 
 }); //$ready function ending
