@@ -28,6 +28,10 @@ i {
     size: 210mm 297mm;
   }
 
+  .circled {
+    border-color: #fff;
+  }
+
   body {
   width: auto!important;
   margin: auto!important;
@@ -70,5 +74,8 @@ i {
   }
   img {
    max-width: auto !important;
+ }
+ .back-pink {
+   border: 2px solid black;
  }
 } // end media print

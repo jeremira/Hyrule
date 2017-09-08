@@ -7,6 +7,20 @@
   border: 1px solid red;
 }
 
+.circled {
+  background-color: #fff;
+  color: #dc3740;
+  border: 3px solid #dc3740;
+  border-radius: 100px;
+  padding: 20px;
+  margin: 25px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+}
+
 .row {
   margin: 0;
 }
