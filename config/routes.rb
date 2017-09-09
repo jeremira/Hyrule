@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get  'commercial',  to: 'themes#commercial'
   get  'mappath', to: 'livrets#mappath'
-
+  get  'preview', to: 'livrets#preview'
   root 'static#index'
 
   end

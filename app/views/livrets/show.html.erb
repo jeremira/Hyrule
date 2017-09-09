@@ -6,8 +6,12 @@
 <section class="container content-section text-center tb-padding no-print">
   <div class="row tb-padding">
     <div class="col-md-8 col-md-offset-2 no-print">
-      <div class="alert alert-success">Vous pouvez consultez votre guide-livret
-         ci-dessous. Pour l'imprimer merci de suivre ce lien</div>
+      <div class="alert alert-success"><p><i class="fa fa-2x fa-check"></i></p>
+        <p>Vous pouvez consultez votre guide-livret ci-dessous. Pour l'imprimer, cliquez sur le bouton suivant.</p>
+      </div>
+      <%= link_to 'Imprimer mon guide-livret', '#',
+                  class: 'btn btn-block btn-success',
+                  onclick: 'window.print();return false;'%>
     </div>
   </div>
 </section>

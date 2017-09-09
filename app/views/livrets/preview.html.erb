@@ -1,0 +1,24 @@
+<!-- Header -->
+<header class="business-header no-print">
+  <div class="slideshow"></div>
+</header>
+<!-- Header -->
+<section class="container content-section text-center tb-padding no-print">
+  <div class="row tb-padding">
+    <div class="col-md-8 col-md-offset-2 no-print">
+      <div class="alert alert-warning"><p><i class="fa fa-2x fa-exclamation"></i></p>
+        <p>Ce guide-livret a été préparé à titre d'exemple pouvant être consulté librement.<br>
+        Il ne peut être utilisé pour réellement plannifier votre journée à Tokyo.</p>
+      </div>
+      <div class="alert alert-success"><p><i class="fa fa-2x fa-exclamation"></i></p>
+        <p>Après avoir réservé votre séjour avec Tokyhop, vous recevrez un guide-livret
+          semblable personnalisé pour vous selon vos propres préférences.</p>
+      </div>
+      <%= link_to 'Imprimer mon guide-livret', '#',
+                  class: 'btn btn-block btn-success',
+                  onclick: 'window.print();return false;'%>
+    </div>
+  </div>
+</section>
+
+<%= render 'sample' %>

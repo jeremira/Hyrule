@@ -12,6 +12,9 @@ class LivretsController < ApplicationController
     end
   end
 
+  def preview
+  end
+
   def index
     @livrets = Livret.all
   end
