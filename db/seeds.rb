@@ -27,7 +27,7 @@ style:     "theme"
 )
 Theme.create(
 name:      'Hipster',
-descr:     "Découvrez un Tokyo vivant, tendance et contemporain."
+descr:     "Découvrez un Tokyo vivant, tendance et contemporain.",
 image:     "tradi.jpg",
 gallery:   "tradi002.jpg tradi003.jpg tradi004.jpg tradi005.jpg",
 style:     "theme"
@@ -64,49 +64,46 @@ gallery:   "fuji001.jpg",
 style:     "around"
 )
 
+#Theme by district
 
-
-
-
-__END__
 Theme.create(
 name:      'Shibuya',
-descr:     "Le coeur de la jeunesse Tokyoïte.",
+descr:     "Le quartier de la mode et de la jeunesse.",
 image:     "shibuya.jpg",
 gallery:   "shibuya000.jpg shibuya001.jpg shibuya002.jpg shibuya003.jpg shibuya004.jpg shibuya005.jpg shibuya006.jpg shibuya007.jpg shibuya008.jpg",
 style:     "tokyo"
 )
 Theme.create(
 name:      'Shinjuku',
-descr:     "La ville nocturne.",
+descr:     "Affaire et loisirs, les deux faces d'un quartier incontournable.",
 image:     "shinjuku.jpg",
 gallery:   "shinjuku002.jpg shinjuku003.jpg shinjuku004.jpg shinjuku005.jpg",
 style:     "tokyo"
 )
 Theme.create(
 name:      'Asakusa',
-descr:     "Tradition et modernité.",
+descr:     "Du parc d'Ueno au temple de Senso-Ji , un quartier populaire d'une ancienne époque.",
 image:     "asakusa.jpg",
 gallery:   "asakusa002.jpg asakusa003.jpg asakusa004.jpg asakusa005.jpg",
 style:     "tokyo"
 )
 Theme.create(
 name:      'Chiyoda',
-descr:     "Shopping impérial",
+descr:     "Le coeur de Tokyo autour du palais impérial",
 image:     "kanda.jpg",
 gallery:   "kanda002.jpg kanda003.jpg kanda004.jpg kanda005.jpg",
 style:     "tokyo"
 )
 Theme.create(
-name:      'Ueno',
-descr:     "Parc et pandas.",
+name:      'Harajuku',
+descr:     "Traditions millénaires et dernières tendances en harmonie.",
 image:     "ueno.jpg",
 gallery:   "ueno002.jpg ueno003.jpg",
 style:     "tokyo"
 )
 Theme.create(
-name:      'Roppongi',
-descr:     "Vie nocturne.",
+name:      'Odaiba',
+descr:     "Une ville moderne entièrement gagné sur l'océan.",
 image:     "roppongi.jpg",
 gallery:   "roppongi002.jpg roppongi003.jpg roppongi004.jpg roppongi005.jpg",
 style:     "tokyo"

@@ -5,19 +5,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h3 class="brand-heading tagline"><%= @theme.name %></h3>
+          <h2 class="brand-heading tagline"><%= @theme.name %></h2>
           <p class="intro-text tagline"><%= @theme.descr %></p>
-          <div class="wrapper tagline">
-            <%= render('themes/details/'+@theme.name.downcase) %>
-          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <%= link_to "Préparer mon voyage !", new_trip_path, class: 'btn btn-block btn-hop' %>
+          <%= link_to "Créer un voyage !", new_trip_path, class: 'btn btn-lg btn-hop' %>
         </div>
       </div>
     </div>
   </div>
 </header>
 <!-- Header -->
+
+<%= render('themes/details/'+@theme.name.downcase) %>
