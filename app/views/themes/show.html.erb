@@ -18,5 +18,7 @@
   </div>
 </header>
 <!-- Header -->
-
+<% if @theme.style == 'around' %>
+  <%= render 'warningoutoftokyo' %>
+<% end %>
 <%= render('themes/details/'+@theme.name.downcase) %>

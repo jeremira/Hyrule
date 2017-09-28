@@ -5,6 +5,8 @@ class SetupController < ApplicationController
 
     @themes = Theme.all
 
+    @users_regitered = User.count
+
     @pending_trips = []
     Trip.all.each do |trip|  #TODO has to be done with an activerecord query, thats shit
       if trip.gestion.status == 'pending'
