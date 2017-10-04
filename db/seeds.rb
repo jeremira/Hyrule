@@ -8,33 +8,54 @@ Theme.create(
 name:      'Gastronomes',
 descr:     "Goutez à toute la richesse de la gastronomie japonaise",
 image:     "food.jpg",
-gallery:   "food001.jpg food002.jpg food003.jpg food004.jpg",
+gallery:   "food001.jpg food002.jpg food003.jpg food004.jpg food005.jpg",
 style:     "theme"
 )
 Theme.create(
 name:      'Otaku',
-descr:     "Plongez dans l'univers des mangas et des animes.",
+descr:     "Plongée dans l'univers geek et coloré de Tokyo.",
 image:     "anime.jpg",
-gallery:   "anime002.jpg anime003.jpg",
+gallery:   "anime001.jpg anime002.jpg anime003.jpg anime004.jpg anime005.jpg",
 style:     "theme"
 )
 Theme.create(
 name:      'Tradition',
 descr:     "Laissez vous envahir par l'harmonie de la culture et des traditions du japon.",
 image:     "tradi.jpg",
-gallery:   "tradi002.jpg tradi003.jpg tradi004.jpg tradi005.jpg",
+gallery:   "tradi001.jpg tradi002.jpg tradi003.jpg tradi004.jpg tradi005.jpg",
 style:     "theme"
 )
 Theme.create(
-name:      'Hipster',
-descr:     "Découvrez un Tokyo vivant, tendance et contemporain.",
-image:     "tradi.jpg",
-gallery:   "tradi002.jpg tradi003.jpg tradi004.jpg tradi005.jpg",
+name:      'Tendance',
+descr:     "Découvrez un Tokyo vivant, branché et contemporain.",
+image:     "hipster.jpg",
+gallery:   "hipster001.jpg hipster002.jpg hipster003.jpg hipster004.jpg hipster005.jpg",
+style:     "theme"
+)
+Theme.create(
+name:      'Local',
+descr:     "Au calme des zones résidentielles, vivez la vie des tokyoïtes.",
+image:     "local.jpg",
+gallery:   "local001.jpg local002.jpg local003.jpg local004.jpg local005.jpg",
+style:     "theme"
+)
+Theme.create(
+name:      'Nature',
+descr:     "Respirez et détendez vous au coeur de la nature.",
+image:     "nature.jpg",
+gallery:   "nature001.jpg nature002.jpg nature003.jpg nature004.jpg nature005.jpg",
 style:     "theme"
 )
 
-#Theme Out of Tokyo
+#idee extra theme :
+#Shopping day
+#budo
+#architecture
+#bynight
+#kawai
 
+__END__
+#Theme Out of Tokyo
 Theme.create(
 name:      'Hakone',
 descr:     "Volcans et Onsen dans un cadre naturel magnifique.",
