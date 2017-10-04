@@ -9,13 +9,6 @@
           <p class="tagline">Laissez vous guider et visitez Tokyo de la plus belle des façons.</p>
           <hr>
         </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-            <%= link_to 'Une ambiance', '#theme', class: 'btn btn-hop btn-block' %>
-            <%= link_to "Un quartier", '#tokyo', class: 'btn btn-hop btn-block' %>
-            <%= link_to 'Autour de Tokyo', '#around', class: 'btn btn-hop btn-block' %>
-        </div>
-      </div>
     </div>
   </div>
 </header>
@@ -25,61 +18,26 @@
       <div class="col-xs-12">
         <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
         <h1>Une ambiance</h1>
-        <p>Choisissez le thème de votre journée, nous l'organisons pour vous.</p>
+        <p>Choisissez le thème de votre journée, nous l'organisons pour vous :-)</p>
       </div>
     </div>
-    <hr>
-    <div class="row no-pad">
-      <%= render @theme_themes %>
-    </div>
-    <hr>
-</section>
+    <div class="row">
+      <% @themes.each do |theme| %>
+        <div class="col-xs-6 col-sm-4 col-md-3 text-center">
 
-<section class="container content-section text-center tb-padding">
-  <div class="row">
-    <div class="col-xs-12">
-      <%= link_to "Préparer mon voyage !", new_trip_path, class: 'btn btn-hop btn-lg btn-block' %>
-    </div>
-  </div>
-</section>
+            <%= link_to (theme) do %>
+                <div class="thumbnail-container">
+                  <%= label_tag("theme_id_#{theme.id}", class: "radio-thumbnail") do
+                    radio_button_tag(:theme_id, theme.id) + image_tag(theme.image,
+                    class: 'img-responsive img-center thumbnail')
+                  end %>
+                  <h4 class="tagline text-center"><%= theme.name %></h4>
+                </div>
+            <% end %>
 
-<section class="container content-section text-center tb-padding">
-  <div class="row" id="tokyo">
-    <div class="col-xs-12">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-globe"></i></div></div></div>
-      <h1>Un quartier</h1>
-      <p>Explorez Tokyo quartier par quartier grâce aux conseils de nos guides locaux.</p>
+        </div>
+      <% end %>
     </div>
-  </div>
-  <hr>
-  <div class="row no-pad">
-    <%= render @tokyo_themes %>
-  </div>
-  <hr>
-</section>
-
-<section class="container content-section text-center tb-padding">
-  <div class="row">
-    <div class="col-xs-12">
-      <%= link_to "Préparer mon voyage !", new_trip_path, class: 'btn btn-hop btn-lg btn-block' %>
-    </div>
-  </div>
-</section>
-
-<section class="container content-section text-center">
-  <div class="row" id="around">
-    <div class="col-xs-12">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-subway"></i></div></div></div>
-      <h3>Autour de Tokyo</h3>
-      <p>Echappez vous de la folie Tokyoïte pour une escapade d'une journée.</p>
-      </div>
-    </div>
-  <hr>
-  <div class="row no-pad">
-    <%= render @around_themes %>
-  </div>
-  <hr>
-</div>
 </section>
 
 <section class="container content-section text-center tb-padding">

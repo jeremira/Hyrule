@@ -98,6 +98,8 @@ class DaysController < ApplicationController
     end
 
     def format_theme_collection
+      @themes = Theme.all
+      #deprecated, to delete :
       @themes_by_theme = Theme.where(style: 'theme').compact
       @themes_out_tokyo = Theme.where(style: 'around').compact
       @themes_in_tokyo = Theme.where(style: 'tokyo').compact

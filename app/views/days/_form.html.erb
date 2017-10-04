@@ -135,7 +135,7 @@
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
         <div class="box"><div class="icon"><div class="image"><i class="fa fa-star"></i></div></div></div>
-        <h2>Choisissez un thème pour votre journée</h2>
+        <h2>Choisissez une ambiance pour votre journée</h2>
       </div>
     </div>
 
@@ -149,51 +149,8 @@
       <% end %>
     </div>
 
-    <div class="row text-center tb-padding">
-      <div class="col-md-8 col-md-offset-2">
-        <h3>Laissez-vous guider par nos visites thématiques :</h3>
-      </div>
-    </div>
     <div class="row">
-      <% @themes_by_theme.each do |theme| %>
-        <div class="col-xs-6 col-sm-4 col-md-3 text-center">
-          <div class="thumbnail-container">
-            <%= f.label("theme_id_#{theme.id}", class: "radio-thumbnail") do
-              f.radio_button(:theme_id, theme.id) + image_tag(theme.image,
-              class: 'img-responsive img-center thumbnail')
-            end %>
-            <h4 class="tagline text-center"><%= theme.name %></h4>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="row text-center tb-padding">
-      <div class="col-md-8 col-md-offset-2">
-        <h3>Ou bien choisissez un quartier</h3>
-      </div>
-    </div>
-    <div class="row">
-      <% @themes_in_tokyo.each do |theme| %>
-        <div class="col-xs-6 col-sm-4 col-md-3 text-center">
-          <div class="thumbnail-container">
-            <%= f.label("theme_id_#{theme.id}", class: "radio-thumbnail") do
-              f.radio_button(:theme_id, theme.id) + image_tag(theme.image,
-              class: 'img-responsive img-center thumbnail')
-            end %>
-            <h4 class="tagline text-center"><%= theme.name %></h4>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="row text-center tb-padding">
-      <div class="col-md-8 col-md-offset-2">
-        <h3>A moins que vous souhaitiez une escapade en dehors de Tokyo ?</h3>
-      </div>
-    </div>
-    <div class="row">
-      <% @themes_out_tokyo.each do |theme| %>
+      <% @themes.each do |theme| %>
         <div class="col-xs-6 col-sm-4 col-md-3 text-center">
           <div class="thumbnail-container">
             <%= f.label("theme_id_#{theme.id}", class: "radio-thumbnail") do
