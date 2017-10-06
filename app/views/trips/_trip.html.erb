@@ -1,10 +1,19 @@
-<div class="col-md-4 col-sm-6 text-center">
-    <%= image_tag "thumb.jpg", class: "img-circle img-responsive img-center" %>
-    <h2><%= link_to trip.name, trip_path(trip) %></h2>
-    <% if trip.gestion.status == 'new' %>
-      <%= link_to 'Modifier', edit_trip_path(trip), class: "btn btn-warning btn-xs" %>
-      <%= link_to "Supprimer", trip_path(trip), method: :delete, class: "btn btn-danger btn-xs",
-                 data: {confirm: "Supprimer ce voyage ?"} %>
+<div class="col-xs-6 col-sm-4 col-md-3 text-center">
+    <%= link_to (trip) do %>
+        <div class="thumbnail-container">
+          <%= label_tag("", class: "radio-thumbnail") do
+            radio_button_tag('', '') + image_tag('thumb.jpg',
+            class: 'img-responsive img-center thumbnail')
+          end %>
+          <h4 class="tagline text-center"><%= trip.name %></h4>
+        </div>
+        <div>
+          <% if trip.gestion.status == 'new' %>
+            <%= link_to 'Modifier', edit_trip_path(trip), class: "btn btn-warning btn-xs" %>
+            <%= link_to "Supprimer", trip_path(trip), method: :delete, class: "btn btn-danger btn-xs",
+                       data: {confirm: "Supprimer ce voyage ?"} %>
+          <% end %>
+          <%= render partial: 'trips/book_status_mini', locals: { trip: trip } %>
+        </div>
     <% end %>
-    <%= render partial: 'trips/book_status_mini', locals: { trip: trip } %>
 </div>
