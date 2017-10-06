@@ -6,7 +6,6 @@ Bundler.require(*Rails.groups)
 
 module Hyrule
   class Application < Rails::Application
-    config.force_ssl = true
     #config email preview routes
     config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
     # Settings in config/environments/* take precedence over those specified here.

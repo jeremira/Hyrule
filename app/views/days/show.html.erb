@@ -4,19 +4,29 @@
     <div class="container">
       <div class="row tb-padding">
         <div class="col-md-8 col-md-offset-2">
+          <p class="tagline">Une journée</p>
           <h3 class="brand-heading tagline"><%= @day.theme.name.capitalize %></h3>
           <div class="wrapper tagline">
             <p><%= @day.theme.descr %></p>
             <p class="small-text tagline"><%= @day.date %></p>
-            <%= render('themes/details/'+@day.theme.name.downcase) %>
             <% if @day.guide %>
-              <span class="label label-success"><i class="fa fa-check"></i>
+              <div><span class="label label-success"><i class="fa fa-check"></i>
                 Un guide privé vous accompagnera toute la journée.
-              </span>
+              </span></div>
             <% end %>
-            <span class="label label-success little-margin"><i class="fa fa-check"></i>
+            <% if @day.lunch.todo %>
+                <div><span class="label label-success"><i class="fa fa-check"></i>
+                Nous organisons votre déjeuner.
+              </span></div>
+            <% end %>
+            <% if @day.dinner.todo %>
+              <div><span class="label label-success"><i class="fa fa-check"></i>
+                Nous organisons votre diner.
+              </span></div>
+            <% end %>
+            <div><span class="label label-success little-margin"><i class="fa fa-check"></i>
               Un programme de visite personnel est prévu pour cette journée.
-            </span>
+            </span></div>
           </div>
         </div>
       </div>
