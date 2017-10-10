@@ -33,7 +33,7 @@ gallery:   "hipster001.jpg hipster002.jpg hipster003.jpg hipster004.jpg hipster0
 style:     "theme"
 )
 Theme.create(
-name:      'Locale',
+name:      'Local',
 descr:     "Au calme des zones résidentielles, vivez la vie des tokyoïtes.",
 image:     "local.jpg",
 gallery:   "local001.jpg local002.jpg local003.jpg local004.jpg local005.jpg",
