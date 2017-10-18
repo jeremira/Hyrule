@@ -3,38 +3,51 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-star"></i></div></div></div>
       <hr>
-      <h3>Une expèrience unique</h3>
-      <p>Avec Tokyop! vous visiterez Tokyo et ses alentours comme personne : Votre séjour est organisé et personalisé
-      entièrement par nos équipes locales. A l'aide de votre <%= link_to 'guide-livret', preview_path %> ou bien accompagné d'un guide
-      privé, vous profiterez d'une expèrience unique dans la capitale nipponne en toute sérénité.</p>
-      <hr>
+      <h2 class="tb-padding">Découvrir Tokyo</h2>
+      <p class="text-left"><strong>Découvrir Tokyo</strong> est une expérience unique, mais parfois, difficile à organiser. Des immenses sites célèbres aux charmants
+        endroits cachés de la capitale, Tokyhop vous guide pas-à-pas et crée avec vous une expérience inoubliable sur mesure.<br>
+        <strong>Nos experts locaux</strong> composent avec vous <%= link_to 'votre voyage', trips_path %> et prépare votre
+        <%= link_to 'guide-livret', preview_path %> personnel. Pratique et détaillé, il vous guide pas-à-pas en toute
+        tranquillité pendant votre séjour.<br>
+        <strong>Découvrir Tokyo</strong> ne se limite pas aux sites célèbres inclus dans tous les tours préformatés. Nous
+        accordons une grande importance à vous faire découvrir les secrets cachés de Tokyo en sortant des sentiers battus.
+        <%= link_to 'Découvrez', themes_path %> la véritable âme de Tokyo et transformez votre séjour en une expérience
+        inoubliable.<br>
+        <hr>
     </div>
   </div>
-  <div class="row back-pink">
-    <% if current_user %>
-      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-    <% else %>
-      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-    <% end %>
+  <div class="row tb-padding">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <% if current_user %>
+        <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+        <% else %>
+        <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+        <% end %>
+      </div>
   </div>
 </section>
-<section  id="info-row" class="content-section text-center back-green">
+
+
+<section  id="info-row" class="content-section text-center">
   <div class="row tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
       <hr>
-      <h3>Tokyo Zen</h3>
-      <p><strong>Visitez Tokyo totalement serein grâce à notre aide.</strong> Transport, visites, réservation, restaurants...
-      Nous organisons vos journées et vos visites : vous êtes en vacances, détendez-vous !</p>
-      <hr>
+      <h2 class="tb-padding">Une expérience unique</h2>
+      <p class="text-left"><%= link_to 'Que faire à Tokyo ?', themes_path %> Nous vous proposons une réponse personnelle et adaptée à vos souhaits. Avec Tokyhop,
+        vous maîtrisez tous les aspects de votre voyage. Du budget aux restaurants, du rythme de vos journées à leur
+        ambiance, de vos passions à vos envies, nous écoutons tous vos souhaits pour vous proposer <strong>votre</strong>
+        expérience.<br>
+        Simplement et rapidement, vous <%= link_to 'personnalisez votre séjour', trips_path %> en ligne depuis le site Tokyhop et choisissez <%= link_to 'les thèmes', themes_path %> de vos
+        journées. Attentives à tous vos souhaits, nos équipes composent alors le programme de votre séjour à Tokyo.<br>
+        Un programme fait avec passion, uniquement pour vous, et qui ne se contente pas des sites incontournables. Vous découvrirez
+        aussi un Tokyo local et véritable, hors des sentiers battus. Vous profiterez des conseils de nos experts locaux pour
+        découvrir des endroits cachés généralement innaccéssibles aux voyageurs.<br>
+        Directions à prendre, que visiter, où vous restaurer, quelles boutiques sont intéressantes... Entièrement personnalisé
+        pour vous par nos équipes, votre <%= link_to 'guide-livret', preview_path %> prend en compte la météo et les événements
+        locaux pour vous proposer une journée inoubliable et unique à Tokyo.</p>
+    <hr>
     </div>
-  </div>
-  <div class="row back-pink">
-    <% if current_user %>
-      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-    <% else %>
-      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-    <% end %>
   </div>
 </section>
 
@@ -43,79 +56,43 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-cogs"></i></div></div></div>
       <hr>
-      <h3>Tokyo à la carte</h3>
-      <p><Strong>Soyez sûr de passer un séjour idéal</strong> sans refaire les mêmes visites que tout le monde.
-      Vos journées seront organisées spécialement pour vous, selon vos intérêts et vos préférences par nos guides
-      locaux pour une expérience unique.</p>
-    </div>
-  </div>
-  <div class="row back-pink">
-    <% if current_user %>
-      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-    <% else %>
-      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-    <% end %>
-  </div>
-</section>
-
-<section  id="info-row" class="content-section text-center back-green">
-  <div class="row tb-padding">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-hand-peace-o"></i></div></div></div>
-      <hr>
-      <h3>Pas de mauvaises surprises</h3>
-      <p><strong>Maîtrisez totalement votre séjour : </strong>Ambiance, rythme, budget.. vous avez le contrôle
-        sur tous les aspects de votre voyage.
+      <h2 class="tb-padding">Un séjour serein</h2>
+      <p class="text-left"><strong>Un séjour à Tokyo </strong>n'est pas toujours facile. Pays lointain aux coutumes si différentes, langue mystérieuse et réseau de
+        transports abracadabrantesque, nous vous délestons de tous ses tracas logistiques en organisant vos journées de A à Z pour que vous
+        puissiez profiter pleinement de la magie de Tokyo sans stress.<br>
+        Votre <%= link_to 'guide-livret', preview_path %> vous guide pas-à-pas, depuis votre hôtel, tout au long de votre journée.
+        Facile à utiliser, votre guide vous indique quels transports emprunter et vous guide avec des indications claires et faciles
+        ainsi qu'avec des cartes personnelles montrant votre parcours et les centres d'intérêts.<br>
+        Votre <%= link_to 'guide-livret', preview_path %> est disponible en ligne à tout moment et peut-être facilement imprimé
+        à volonté.</p>
       <hr>
     </div>
-  </div>
-  <div class="row back-pink">
-    <% if current_user %>
-      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-    <% else %>
-      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-    <% end %>
   </div>
 </section>
 
 <section  id="info-row" class="content-section text-center">
-  <div class="row bottom-space tb-padding">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-book"></i></div></div></div>
-      <hr>
-      <h3>Votre guide-livret</h3>
-      <p><strong>Votre séjour dans votre guide-livret !</strong> Cartes, informations pour les transports et les accès,
-      prix des visites, conseils et astuces de nos guides... toutes les informations nécessaires ainsi que le planning détaillé
-      de vos journées sont réunis dans votre guide-livret. Suivez le guide et profitez.</p>
-      <%= link_to 'Voir un exemple de guide-livret', preview_path %>
-      <hr>
-    </div>
-  </div>
-  <div class="row back-pink">
-    <% if current_user %>
-      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-    <% else %>
-      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-    <% end %>
-  </div>
-</section>
-
-<section  id="info-row" class="content-section text-center back-green">
   <div class="row tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <div class="box"><div class="icon"><div class="image"><i class="fa fa-street-view"></i></div></div></div>
+      <div class="box"><div class="icon"><div class="image"><i class="fa fa-hand-peace-o"></i></div></div></div>
       <hr>
-      <h3>Avec votre guide privé</h3>
-      <p><Strong>Ajoutez un guide privé</strong> et profiter d'un expert local parlant français pour vous guider tout
-      au long de votre journée. </p>
-      <hr>
+      <h2 class="tb-padding">Une équipe passionnée</h2>
+      <p class="text-left"><strong>Nos experts locaux</strong> comptent des Japonais passionnés de leurs villes, mais aussi des
+        Français vivant à Tokyo depuis de nombreuses années. Cosmopolite et jeune, notre équipe a pour vocation
+        de faire découvrir un Tokyo véritable et original.<br>
+        Basés à Tokyo, nous sommes à votre écoute avant et pendant votre séjour pour que votre expérience à Tokyo soit la plus douce
+        possible. Nous mettons à votre service notre amour du Japon et de Tokyo afin que vous puissiez profiter de toutes
+        les découvertes de nos équipes.<br>
+        Vous pouvez nous <%= link_to 'contacter par email', '#contact-row' %> si vous avez la moindre question sur votre prochain séjour.</p>
+    <hr>
     </div>
   </div>
-  <div class="row back-pink">
-    <% if current_user %>
-      <%= link_to "Réserver mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-    <% else %>
-      <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-    <% end %>
+  <div class="row tb-padding">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <% if current_user %>
+        <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+        <% else %>
+        <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+        <% end %>
+      </div>
   </div>
 </section>

@@ -1,20 +1,31 @@
+
 <!-- Intro Header -->
 <header class="intro">
   <div class="slideshow"></div>
   <div class="intro-body">
     <div class="container">
-      <div class="row tb-padding tagline">
-        <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline text-left">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Vivez Tokyo</h1>
           <hr>
-          <h1 class="brand-heading">TOKYHOP!</h1>
           <h3>Tokyo à la carte</h3>
-          <p>Visites thématiques et excursions privées sur mesure.</p>
-          <hr>
+          <p>Découvrir Tokyo et ses secrets les plus cachés, une expèrience unique et
+            sur mesure pour vivre un séjour inoubliable à Tokyo.</p>
+            <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
         </div>
       </div>
     </div>
   </div>
 </header>
+<%= render ('shared/3steps') %>
+
 <%= render('shared/infos') %>
-<%= render ('shared/commercial') %>
+
 <%= render ('shared/contact') %>

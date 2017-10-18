@@ -30,8 +30,10 @@
             <hr>
             <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Se connecter via Facebook</span>"),
                 omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-social btn-facebook" %>
+  <!-- TODO twitter or othr SNS login
             <%= link_to raw("<i class='fa fa-twitter fa-fw'></i> <span class='network-name'>Se connecter via Twitter</span>"),
                 omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-social btn-twitter" %>
+  -->
             <%= render "devise/shared/links" %>
           </div>
         </div>

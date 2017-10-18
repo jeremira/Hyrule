@@ -3,6 +3,14 @@
 @import "font-awesome";
 @import "bootstrap-social";
 
+//sakura pink FFB7C5
+//green comple C5FFB7
+$primary: #ff8a8a;
+$dark-pink: #bb3030;
+$secondary: #ffbf8a;
+$tertiary: #6fcd6f;
+
+
 .debug {
   border: 1px solid red;
 }
@@ -105,8 +113,9 @@
 
 /* Customize the text color and shadow color and to optimize text legibility. */
 .tagline {
- text-shadow: 0 0 10px #000;
- color: #fff;
+ text-shadow: 2px 2px 5px #000;
+ color: #fafafa;
+ font-weight: 00;
 }
 
 .txt-on-img {
@@ -142,25 +151,29 @@
 
 .btn-hop {
   //background-color: #ffe1ca;
-  background-color: #dc3740;
-  color: #FECACB;
+  background-color: $primary;
+  //background-color: #dc3740;
+  //color: #FECACB;
+  color: #fff;
   border-radius: 10px;
 }
 
 .btn-hop:hover,
 .btn-hop:focus {
   outline: none;
-  color: #dc3740;
-  background-color: #FECACB;
+  color: #fff;
+  //background-color: #FECACB;
+  background-color: $dark-pink;
 }
 
 .back-green {
-  background-color: #279c64;
+  //background-color: #279c64;
+  background-color: $tertiary;
   color: #fff;
 }
 
 .back-pink {
-  background-color: #dc3740;
+  background-color: $secondary;
   color: #fff;
 }
 
