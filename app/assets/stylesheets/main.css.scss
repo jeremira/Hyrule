@@ -8,25 +8,6 @@ $dark-pink: #bb3030;
 $secondary: #ffbf8a;
 $tertiary: #6fcd6f;
 
-.commercial-background{
-  position: absolute;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.background-image-01 {
-  background-image: url(main018.jpg);
-}
-
-.background-image-02 {
-    background-image: url(main006.jpg);
-}
-
 .debug {
   border: 1px solid red;
 }
@@ -131,7 +112,6 @@ $tertiary: #6fcd6f;
 .tagline {
  text-shadow: 2px 2px 5px #000;
  color: #fafafa;
- font-weight: 00;
 }
 
 .txt-on-img {

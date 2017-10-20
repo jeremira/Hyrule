@@ -1,72 +1,186 @@
-<section class="container content-section text-center tb-padding">
+<section class="container content-section tb-padding">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="box tb-padding"><div class="icon"><div class="image"><i class="fa fa-map-marker"></i></div></div></div>
-        <p>Le Japon possède une culture gastronomique extraordinaire. Les Japonais sont gourmands et les repas sont un moment important
-        dans la culture japonaise. Influencé par la Chine et la Corée, mais aussi par la cuisine occidentale, le Japon a réussi un savant
-        mélange entre tradition et modernité.<br>
-        Au long de votre journée, vous traverserez la capitale à la découverte des mets les plus réputés de la capitale et du pays.</p>
+        <p>
+          Le Japon possède une culture gastronomique extraordinaire. Les Japonais sont gourmands et les repas sont un moment important
+          dans la culture japonaise. Influencé par la Chine et la Corée, mais aussi par la cuisine occidentale, le Japon a réussi un savant
+          mélange entre tradition et modernité.<br>
+          Au long de votre journée, vous traverserez la capitale à la découverte des mets les plus réputés de la capitale et du pays.
+        </p>
       </div>
     </div>
 </section>
-<br>
-<section class="container content-section text-center tb-padding">
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Sushi</h1>
-        <p>Certainement la spécialité la plus emblématique du Japon, ces tranches de poissons crues déposées sur une boule de riz façonnée
-        à la main ont su conquérir le monde. Notre conseil : profitez des sushis pour le petit-déjeuner pour une fraicheur maximale,
-        et commencez votre journée d'un bon pied marin !</p>
+<section class="intro">
+  <div class="commercial-background background-image-food-01">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'food_theme_001.jpg', class: "img-responsive tb-padding" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Men</h1>
-        <p>Les nouilles ont une place importante dans la gastronomie japonaise. Ramen, Udon, Soba, Tsukement, Yakisoba... ces plats roboratifs
-        et délicieux sont particulièrement appréciés pour le déjeuner grâce à leur faible coût et la rapidité de préparation. Chaudes ou froides,
-      elles sont généralement servies dans ou avec un bouillon et différents ingrédients comme des légumes, viandes, oeufs...</p>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'food_theme_002.jpg', class: "img-responsive tb-padding" %>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Sushi</h1>
+          <hr>
+          <p>Dégustez vos sushis dans les échoppes de Tsukiji, le plus grand marché au poisson du monde.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Street food</h1>
-        <p>Ces petites échoppes bordant les rues ou les gares des quartiers populaires
-           proposent confiserie, petits encas, gâteaux et autres spécialités qui seront autant d'étapes
-           gourmandes entre vos principaux repas. Idéal pour picorer et découvrir de nouveaux goûts et sensations.</p>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'food_theme_003.jpg', class: "img-responsive tb-padding" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Pâtisserie</h1>
-        <p>Le Japon a nombre de douceurs à vous offrir. Des gourmandises traditionnelles à base de riz ou de pâte de haricots rouges
-        aux modernes et superbes pâtisseries d'influences occidentales, les chefs pâtissiers et chocolatiers japonais se sont fait
-      connaitre pour leurs oeuvres artistiques et gustatives. Au coeur de Tokyo, des pâtisseries d'une incroyable qualité vous attendent.</p>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'food_theme_004.jpg', class: "img-responsive tb-padding" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Washoku</h1>
-        <p>Le repas traditionnel gastronomique japonais est une symphonie de préparations décorées avec finesse à base d'ingrédient frais.
-         Ces plats sont servis dans une vaisselle spéciale et les ressources naturelles et locales sont favorisées tels
-      que le riz, le poissons ou les légumes sauvages. Inscrit en 2013 au patrimoine culturel de l'humanité par l'UNESCO, le savoir-faire de
-      la cuisine japonaise - Washoku - se transmet de génération en génération comme un précieux et fabuleux héritage. <br>
-      <%= link_to "Voir le site de l'Unesco", 'https://ich.unesco.org/fr/RL/le-washoku-traditions-culinaires-des-japonais-en-particulier-pour-feter-le-nouvel-an-00869' %>
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Certainement la spécialité la plus emblématique du Japon, ces tranches de poissons crues déposées sur une boule de riz façonnée
+          à la main ont su conquérir le monde. Notre conseil : profitez des sushis pour le petit-déjeuner pour une fraicheur maximale.<br>
+          Le marche de Tsukiji est une étape souvent incontournable pour tout amateur de sushi, toutefois la capitale regorge d'établissement
+          de qualité pour régaler vos papilles.
         </p>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'food_theme_005.jpg', class: "img-responsive tb-padding" %>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-food-02">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Men</h1>
+          <hr>
+          <p>Quoi de mieux qu'un délicieux ramen et sa soupe épaisse au porc pour se donner de l'énergie ?</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Les nouilles ont une place importante dans la gastronomie japonaise. Ramen, Udon, Soba, Tsukement, Yakisoba... ces plats roboratifs
+          et délicieux sont particulièrement appréciés pour le déjeuner grâce à leur faible coût et la rapidité de préparation. Chaudes ou froides,
+        elles sont généralement servies dans ou avec un bouillon et différents ingrédients comme des légumes, viandes, oeufs...
+        </p>
+      </div>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-food-03">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Encas</h1>
+          <hr>
+          <p>Sucrés ou salés, les découvertes sont présentes à chaque coin de rue.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Ces petites échoppes bordant les rues ou les gares des quartiers populaires
+          proposent confiserie, petits encas, gâteaux et autres spécialités qui seront autant d'étapes
+          gourmandes entre vos principaux repas. Idéal pour picorer et découvrir de nouveaux goûts et sensations.
+        </p>
+      </div>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-food-04">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Dessert</h1>
+          <hr>
+          <p>Régalez vos yeux avant de plonger dans un univers sucré extraordinaire.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Le Japon a nombre de douceurs à vous offrir. Des gourmandises traditionnelles à base de riz ou de pâte de haricots rouges
+          aux modernes et superbes pâtisseries d'influences occidentales, les chefs pâtissiers et chocolatiers japonais se sont fait
+          connaitre pour leurs oeuvres artistiques et gustatives. Au coeur de Tokyo, des pâtisseries d'une incroyable qualité vous attendent.
+        </p>
+      </div>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-food-05">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Washoku</h1>
+          <hr>
+          <p>Le diner gastronomique traditionnel, une symphonie de saveurs et de sensations.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Le repas traditionnel gastronomique japonais est une symphonie de préparations décorées avec finesse à base d'ingrédient frais.
+           Ces plats sont servis dans une vaisselle spéciale et les ressources naturelles et locales sont favorisées tels
+        que le riz, le poissons ou les légumes sauvages. Inscrit en 2013 au patrimoine culturel de l'humanité par l'UNESCO, le savoir-faire de
+        la cuisine japonaise - Washoku - se transmet de génération en génération comme un précieux et fabuleux héritage. <br>
+        <%= link_to "Voir le site de l'Unesco", 'https://ich.unesco.org/fr/RL/le-washoku-traditions-culinaires-des-japonais-en-particulier-pour-feter-le-nouvel-an-00869' %>
+        </p>
       </div>
     </div>
 </section>

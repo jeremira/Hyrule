@@ -1,6 +1,6 @@
-<section class="container content-section text-center tb-padding">
+<section class="container content-section tb-padding">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="box tb-padding"><div class="icon"><div class="image"><i class="fa fa-map-marker"></i></div></div></div>
         <p>
           Riche d'une culture millénaire, le Japon contribue aussi pleinement au monde moderne. Manga, animé, jeux-vidéo,
@@ -11,46 +11,109 @@
       </div>
     </div>
 </section>
-<br>
-<section class="container content-section text-center tb-padding">
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Anime et manga</h1>
-        <p>Un fan de manga ne s'ennuiera pas à Tokyo ! Des complexes entiers et des musées sont dédiés à vos héros préférés.
-          De l'univers poétique de Miyazaki aux aventures de Naruto ou Chapeau de paille, tout le monde sera comblé. Des quartiers,
-          comme Akihabara ou Nakano, concentrent un nombre important de boutiques, cafés et restaurants dédiés à cet univers.
-          En arpentant Tokyo, vous croiserez des lieux tirés tout droit de vos mangas ou séries adorés et, avec un peu de chance,
-          vous pourrez voir quelques jeunes s'adonnant au cosplay.
-        </p>
+<section class="intro">
+  <div class="commercial-background background-image-otaku-01">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'otaku_theme_001.jpg', class: "img-responsive tb-padding" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Jeux-vidéo</h1>
-        <p>Dans le pays qui a donné naissance à Nintendo et Sega, les jeux-vidéos sont toujours très populaires. Les Japonais de tout
-          âge en sont friands que ce soit sur console, ordinateur ou même sur leurs smartphones ! Il est commun de se rendre dans de
-          gigantesque salle d'arcade avec ses amis, ou bien dans les plus traditionnelles Pachinko. (machines à sous japonaise)
-          Récemment, des salles équipées de lunettes de réalités virtuelles permettent de s'essayer aux dernières nouveautés.
-        </p>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'otaku_theme_002.jpg', class: "img-responsive tb-padding" %>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Manga</h1>
+          <hr>
+          <p>Parcourez la capitale à la recherche des lieux qui ont inspiré vos séries préférées.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Pop musique</h1>
-        <p>La scène musicale japonaise n'est pas en reste ! Véritable phénomène de société, les idoles de musiques pop sont
-          omniprésentes et côtoient une jeunesse extrêmement créative et inventive friande de concert.
-          La scène underground électronique, punk et rock est aussi très vivante. De nombreux bars et restaurants donnant
-          leur chance à de nouveaux talents potentiels chaque soir.
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Un fan de manga ne s'ennuiera pas à Tokyo ! Des complexes entiers et des musées sont dédiés à vos héros préférés.
+            De l'univers poétique de Miyazaki aux aventures de Naruto ou Chapeau de paille, tout le monde sera comblé. Des quartiers,
+            comme Akihabara ou Nakano, concentrent un nombre important de boutiques, cafés et restaurants dédiés à cet univers.
+            En arpentant Tokyo, vous croiserez des lieux tirés tout droit de vos mangas ou séries adorés et, avec un peu de chance,
+            vous pourrez voir quelques jeunes s'adonnant au cosplay.
         </p>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'otaku_theme_003.jpg', class: "img-responsive tb-padding" %>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-otaku-02">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Jeux vidéo</h1>
+          <hr>
+          <p>Une partie de MarioKart dans une salle d'arcade géante au coeur de Shinjuku ? </p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Dans le pays qui a donné naissance à Nintendo et Sega, les jeux-vidéos sont toujours très populaires. Les Japonais de tout
+            âge en sont friands que ce soit sur console, ordinateur ou même sur leurs smartphones ! Il est commun de se rendre dans de
+            gigantesque salle d'arcade avec ses amis, ou bien dans les plus traditionnelles Pachinko. (machines à sous japonaise)
+            Récemment, des salles équipées de lunettes de réalités virtuelles permettent de s'essayer aux dernières nouveautés.
+        </p>
+      </div>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-otaku-03">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Musique</h1>
+          <hr>
+          <p>Révisez les chorégraphies de vos groupes de J-pop favoris !</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          La scène musicale japonaise n'est pas en reste ! Véritable phénomène de société, les idoles de musiques pop sont
+            omniprésentes et côtoient une jeunesse extrêmement créative et inventive friande de concert.<br>
+            La scène underground électronique, punk et rock est aussi très vivante. De nombreux bars et restaurants donnant
+            leur chance à de nouveaux talents potentiels chaque soir.
+        </p>
       </div>
     </div>
 </section>

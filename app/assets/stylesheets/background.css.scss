@@ -1,0 +1,104 @@
+$primary: #ff8a8a;
+
+.commercial-background{
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.border-link {
+  border-left: 4px solid $primary;
+}
+
+.background-image-01 {
+  background-image: url(main018.jpg);
+}
+
+.background-image-02 {
+    background-image: url(main006.jpg);
+}
+
+.background-image-tendance-01 {
+  background-image: url(hipster_theme_001.jpg);
+}
+
+.background-image-tendance-02 {
+  background-image: url(hipster_theme_002.jpg);
+}
+
+.background-image-tendance-03 {
+  background-image: url(hipster_theme_003.jpg);
+}
+
+.background-image-food-01 {
+  background-image: url(food_theme_001.jpg);
+}
+
+.background-image-food-02 {
+  background-image: url(food_theme_002.jpg);
+}
+
+.background-image-food-03 {
+  background-image: url(food_theme_003.jpg);
+}
+
+.background-image-food-04 {
+  background-image: url(food_theme_004.jpg);
+}
+
+.background-image-food-05 {
+  background-image: url(food_theme_005.jpg);
+}
+
+.background-image-local-01 {
+  background-image: url(local_theme_001.jpg);
+}
+
+.background-image-local-02 {
+  background-image: url(local_theme_002.jpg);
+}
+
+.background-image-local-03 {
+  background-image: url(local_theme_003.jpg);
+}
+
+.background-image-nature-01 {
+  background-image: url(nature_theme_001.jpg);
+}
+
+.background-image-nature-02 {
+  background-image: url(nature_theme_002.jpg);
+}
+
+.background-image-nature-03 {
+  background-image: url(nature_theme_003.jpg);
+}
+
+.background-image-otaku-01 {
+  background-image: url(otaku_theme_001.jpg);
+}
+
+.background-image-otaku-02 {
+  background-image: url(otaku_theme_002.jpg);
+}
+
+.background-image-otaku-03 {
+  background-image: url(otaku_theme_003.jpg);
+}
+
+.background-image-tradi-01 {
+  background-image: url(tradi_theme_001.jpg);
+}
+
+.background-image-tradi-02 {
+  background-image: url(tradi_theme_002.jpg);
+}
+
+.background-image-tradi-03 {
+  background-image: url(tradi_theme_003.jpg);
+}

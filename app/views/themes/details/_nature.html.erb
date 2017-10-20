@@ -1,55 +1,120 @@
-<section class="container content-section text-center tb-padding">
+<section class="container content-section tb-padding">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="box tb-padding"><div class="icon"><div class="image"><i class="fa fa-map-marker"></i></div></div></div>
         <p>
           Si les magnifiques parcs et jardins japonais du centre de Tokyo ne sont pas assez pour vous permettre de respirer,
           les environs de la capitale vous combleront. Tout autour de la mégalopole s'étend une campagne riche et verdoyante. Des forêts
           mystérieuses abritent des sanctuaires shintoïstes, les pentes du Mont Fuji se réfléchissent dans les lacs avoisinant et
-          les rizières verdoyantes continuent à perte de vue.</p>
+          les rizières verdoyantes continuent à perte de vue.
+        </p>
       </div>
     </div>
 </section>
-<br>
-<section class="container content-section text-center tb-padding">
+<section class="intro">
+  <div class="commercial-background background-image-nature-01">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Contemplation saisonnière</h1>
+          <hr>
+          <p>Une mer de pétales roses à la floraison des cérisiers et des montagnes de feu à l'automne.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Contemplation saisonnière</h1>
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <p>
           Les saisons au Japon sont très marquées. Chaque saison à ses moments dédiés à la contemplation de la nature.
           Les cerisiers en fleurs au printemps sont certainement le plus célèbre évènement. A l'automne, les montagnes
           se couvrent d'un dégradé impressionnant de rouge et de jaune et en été, de nombreux parcs et jardins se couvrent de
-          fleurs sur des kilomêtres offrant des vues à couper le souffle.
+          fleurs sur des kilomêtres offrant des vues à couper le souffle.<br>
+          Nos équipes veillent pour adapter vos parcours en fonction des saisons et vous conseilleront les meilleurs endroits pour admirer
+          ces merveilles naturelles.
         </p>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'nature_theme_001.jpg', class: "img-responsive tb-padding" %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Autour de Tokyo</h1>
-        <p>Tokyo est situé en bord de mer dans une plaine entourée de montagnes. Du volcan mythique Mont Fuji au sud à
-           l'ancienne capitale impériale Nikko cachée dans les forêts des montagnes au nord, de nombreux endroits
-          fabuleux sont accessibles facilement en train ou en bus depuis la capitale. Offrez-vous un bol d'air zen
-          après quelques jours de folie au centre de Tokyo.
-        </p>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-nature-02">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'nature_theme_002.jpg', class: "img-responsive tb-padding" %>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Autour de Tokyo</h1>
+          <hr>
+          <p>Echappez-vous de Tokyo pour une journée au coeur de la nature.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Parcs et jardins</h1>
-        <p>Même sans quitter Tokyo, il est possible de se détendre au coeur de la verdure. Tokyo compte nombre de parcs immenses
-          où les Japonais pratiquent leurs activités favorites et mangent un Bento dans l'herbe. Dans les jardins de style
-           japonais, plus calmes et avec une esthétique très travaillée, asseyez-vous auprès d'un érable japonais rougeoyant et
-           nourrissez les carpes de l'étang. Détente garantie !
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Tokyo est situé en bord de mer dans une plaine entourée de montagnes. Du volcan mythique Mont Fuji au sud à
+             l'ancienne capitale impériale Nikko cachée dans les forêts des montagnes au nord, de nombreux endroits
+            fabuleux sont accessibles facilement en train ou en bus depuis la capitale. Offrez-vous un bol d'air zen
+            après quelques jours de folie au centre de Tokyo.
         </p>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'nature_theme_003.jpg', class: "img-responsive tb-padding" %>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-nature-03">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Parcs et jardins</h1>
+          <hr>
+          <p>Goutez au Zen des jardins japonais qui colorent la capitale.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Même sans quitter Tokyo, il est possible de se détendre au coeur de la verdure. Tokyo compte nombre de parcs immenses
+            où les Japonais pratiquent leurs activités favorites et mangent un Bento dans l'herbe. Dans les jardins de style
+             japonais, plus calmes et avec une esthétique très travaillée, asseyez-vous auprès d'un érable japonais rougeoyant et
+             nourrissez les carpes de l'étang. Détente garantie !
+        </p>
       </div>
     </div>
 </section>

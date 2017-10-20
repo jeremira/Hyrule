@@ -1,51 +1,115 @@
-<section class="container content-section text-center tb-padding">
+<section class="container content-section tb-padding">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="box tb-padding"><div class="icon"><div class="image"><i class="fa fa-map-marker"></i></div></div></div>
         <p>
           Si le centre de Tokyo regroupe la plupart des grands sites et monuments prestigieux, tout autour s'étend un Tokyo
           souvent méconnu riche en charmants petits trésors. Eloignez-vous de la folie des zones touristiques pour découvrir
-          un Tokyo plus calme et humain.
+          un Tokyo plus calme et humain, à la rencontre des habitants et de leur quotidien.
         </p>
       </div>
     </div>
 </section>
-<br>
-<section class="container content-section text-center tb-padding">
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Quartiers populaires</h1>
-        <p>Souvent construits après la guerre pour héberger les populations locales, ces quartiers sont aujourd'hui un lieu de vie
-          typique pour de nombreux habitants de Tokyo. Autour de rues commerçantes vivantes, de marchés couverts et de boutiques
-          d'artisans, vous pourrez vous fondre dans le quotidien des Tokyoïtes et découvrir leur vie.
-        </p>
+<section class="intro">
+  <div class="commercial-background background-image-local-01">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'local_theme_001.jpg', class: "img-responsive tb-padding" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Zones résidentielles</h1>
-        <p>Plus huppés et plus sereins, des quartiers rénovés ou nouvellement bâtis laissent plus de place à la verdure et
-          au confort personnel. Ces lieux où il fait bon-vivre contrastent avec l'hyper-centre de la capitale.
-           Quelques pas dans ces voisinages paisibles vous permettront de découvrir de véritables trésors cachés.</p>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'local_theme_002.jpg', class: "img-responsive tb-padding" %>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Quotidien populaire</h1>
+          <hr>
+          <p>Une tranche de vie tokyoïte autour des marchés locaux</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Sortie familliale</h1>
-        <p>Il y a toujours quelque chose à faire à Tokyo et les habitants le savent bien ! Dans les immenses parcs fleuris
-          bordant la capitale, les locaux peuvent profiter de l'espace pour pratiquer leurs sports favoris ou bien pique-niquer à
-          l'ombre des cerisiers. Les week-ends de nombreux festivals et foires de saison attirent de nombreux visiteurs locaux et
-          internationaux.
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Souvent construits après la guerre pour héberger les populations locales, ces quartiers denses sont aujourd'hui un lieu de vie
+            typique pour de nombreux habitants de Tokyo. Autour de rues commerçantes vivantes, de marchés couverts et de boutiques
+            d'artisans, vous pourrez vous fondre dans le quotidien des Tokyoïtes et découvrir une vie trépidante et joyeuse.
         </p>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'local_theme_003.jpg', class: "img-responsive tb-padding" %>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-local-02">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Lieu de vie</h1>
+          <hr>
+          <p>Des îlots de calme au coeur de la mégalopole.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Plus huppés et plus sereins, des quartiers rénovés ou nouvellement bâtis laissent plus de place à la verdure et
+            au confort personnel. Ces lieux où il fait bon-vivre contrastent avec l'hyper-centre de la capitale.
+             Quelques pas dans ces voisinages paisibles vous permettront de découvrir de véritables trésors cachés.
+        </p>
+      </div>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-local-03">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Festivités</h1>
+          <hr>
+          <p>Mélez vous aux habitants le temps d'un festival saisonnier ou d'une foire gastronomique.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Il y a toujours quelque chose à faire à Tokyo et les habitants le savent bien ! Dans les immenses parcs fleuris
+            bordant la capitale, les locaux peuvent profiter de l'espace pour pratiquer leurs sports favoris ou bien pique-niquer à
+            l'ombre des cerisiers. Les week-ends de nombreux festivals et foires de saison attirent de nombreux visiteurs locaux et
+            internationaux.
+        </p>
       </div>
     </div>
 </section>

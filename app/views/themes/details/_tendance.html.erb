@@ -1,6 +1,6 @@
-<section class="container content-section text-center tb-padding">
+<section class="container content-section tb-padding">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="box tb-padding"><div class="icon"><div class="image"><i class="fa fa-map-marker"></i></div></div></div>
         <p>
           A l'écart des endroits les plus connus de Tokyo, mais jamais très loin, des quartiers tendance et branchés se développent et
@@ -11,11 +11,34 @@
       </div>
     </div>
 </section>
-<br>
-<section class="container content-section text-center tb-padding">
+
+<section class="intro">
+  <div class="commercial-background background-image-tendance-01">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Art de Vivre</h1>
+          <hr>
+          <p>Un quotidien harmonieux qui mèle habilement énergie et sérénité.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container content-section tb-padding border-link">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Art de vivre</h1>
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <p>
           Véritable luxe à Tokyo, ces quartiers à taille humaine offrent beaucoup d'espace avec de large trottoirs et
           beaucoup d'espace vert. Calme et serein, les habitués de ces quartiers aiment se détendre en flânant dans des
@@ -23,13 +46,37 @@
           des Japonais, ces lieux témoignent de l'amour fort des habitants de Tokyo pour un art de vivre harmonieux.
         </p>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'hipster_theme_001.jpg', class: "img-responsive tb-padding" %>
+    </div>
+</section>
+
+<section class="intro">
+  <div class="commercial-background background-image-tendance-02">
+      <!-- background image div -->
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Art Créatif</h1>
+          <hr>
+          <p>Un esprit artistique omniprésent et obnibulant.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="container content-section tb-padding border-link">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Créativité</h1>
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <p>
           Omniprésent, l'art se décline sous toutes ses formes. Des roues des vélos aux toits des immeubles, la créativité de ces
           quartiers s'exprime par une esthétique cultivée mêlant tradition et innovation. Les boutiques tendances et vintages se mêlent
@@ -37,13 +84,38 @@
           sous toutes ces formes. D'anciennes habitations traditionnelles côtoient des bâtiments modernes et originaux.
         </p>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'hipster_theme_002.jpg', class: "img-responsive tb-padding" %>
+    </div>
+</section>
+
+
+<section class="intro">
+  <div class="commercial-background background-image-tendance-03">
+      <!-- background image div -->
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Shopping Gourmand</h1>
+          <hr>
+          <p>Merveilleuses pâtisseries et boutiques exentriques.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="container content-section tb-padding border-link">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Shopping branché et gourmand</h1>
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <p>
           Les charmantes petites boutiques à la dernière mode et les ateliers traditionnels
           proposant des oeuvres artisanales de qualité résistent farouchement aux centres commerciaux géants inexistant dans ces
@@ -51,9 +123,6 @@
           littérature japonaise ou ateliers de bijoutiers... vous vous découvrirez de nouvelles passions. Après vos déambulations, vous
           pourrez profiter des nombreux restaurants, pâtisseries et coffee-shop aux produits bio et équitable.
         </p>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'hipster_theme_003.jpg', class: "img-responsive tb-padding" %>
       </div>
     </div>
 </section>

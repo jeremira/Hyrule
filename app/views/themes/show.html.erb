@@ -4,21 +4,22 @@
   <div class="intro-body">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h2 class="brand-heading tagline"><%= @theme.name %></h2>
-          <p class="intro-text tagline"><%= @theme.descr %></p>
-        </div>
+        <div class="empty-space"></div>
       </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <%= link_to "Créer un voyage !", new_trip_path, class: 'btn btn-lg btn-hop' %>
+      <div class="row tb-padding tagline text-left">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1><%= @theme.name %></h1>
+          <hr>
+          <p><%= @theme.descr %></p>
+            <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
         </div>
       </div>
     </div>
   </div>
 </header>
 <!-- Header -->
-<% if @theme.style == 'around' %>
-  <%= render 'warningoutoftokyo' %>
-<% end %>
 <%= render('themes/details/'+@theme.name.downcase) %>

@@ -1,6 +1,6 @@
-<section class="container content-section text-center tb-padding">
+<section class="container content-section tb-padding">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <div class="box tb-padding"><div class="icon"><div class="image"><i class="fa fa-map-marker"></i></div></div></div>
         <p>
           Le Japon transporte qui le souhaite dans un monde mystique et coloré. Le voyageur sera ébahi par ses temples majestueux
@@ -10,46 +10,109 @@
       </div>
     </div>
 </section>
-<br>
-<section class="container content-section text-center tb-padding">
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Histoire et religions</h1>
-        <p>Fortement influencé par les cultures et religions asiatiques voisines, le Japon a développé une culture unique après
-        une époque médiévale dans l'isolement. De nombreuses religions sont ou ont été présentes au Japon. Souvent
-        soutenues par le pouvoir impérial ou militaire, de fastueux complexes religieux ont été bâtis dans tous le pays.<br>
-        Temples et sanctuaires majestueux, nombreux musées et quartiers historiques témoignent de ce passé riche et
-        tumultueux.
-        </p>
+<section class="intro">
+  <div class="commercial-background background-image-tradi-01">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'tradi_theme_001.jpg', class: "img-responsive tb-padding" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Cérémonie</h1>
-        <p>Les Japonais sont fiers de leurs traditions et coutumes les plus anciennes. Avec leur persévérance empreinte d'humilité,
-          ils ont conservé des gestes millénaires et des savoir-faire ancestraux. L'élégante cérémonie du thé, l'art de porter un Kimono,
-          la pratique de la calligraphie ou encore les harmonieux arrangements floraux d'Ikebana sont autant d'exemple d'arts traditionnels,
-          souvent inspirés des pratiques du bouddhisme Zen.
-        </p>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag 'tradi_theme_002.jpg', class: "img-responsive tb-padding" %>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Histoire et Religion</h1>
+          <hr>
+          <p>Vestiges des temps impériaux, les sanctuaires immenses et colorés de Tokyo n'échouent jamais à impressionner.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
     <div class="row">
-      <div class="col-md-6">
-        <h1>Artisanat</h1>
-      <p>L'artisanat a été florisant tout au long de l'histoire du japon. La céramique et la poterie sont
-        les plus anciens, et perdurent encore aujourd'hui. Les techniques de forge qui ont donné naissance au célèbre Katana
-        ont été développées sur des centaines d'années. Aujourd'hui, les plus grands maîtres et leurs oeuvres majeures sont classés en
-        tant que "Trésor nationaux du Japon" par le ministère de l'éducation.
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Fortement influencé par les cultures et religions asiatiques voisines, le Japon a développé une culture unique après
+          une époque médiévale dans l'isolement. De nombreuses religions sont ou ont été présentes au Japon. Souvent
+          soutenues par le pouvoir impérial ou militaire, de fastueux complexes religieux ont été bâtis dans tous le pays.<br>
+          Temples et sanctuaires majestueux, nombreux musées et quartiers historiques témoignent de ce passé riche et
+          tumultueux.
         </p>
       </div>
-      <div class="col-md-6">
-        <%= image_tag 'tradi_theme_003.jpg', class: "img-responsive tb-padding" %>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-tradi-02">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Cérémonie</h1>
+          <hr>
+          <p>Apprenez à porter un Kimono ou participez à une élégante cérémonie du Thé.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          Les Japonais sont fiers de leurs traditions et coutumes les plus anciennes. Avec leur persévérance empreinte d'humilité,
+            ils ont conservé des gestes millénaires et des savoir-faire ancestraux. L'élégante cérémonie du thé, l'art de porter un Kimono,
+            la pratique de la calligraphie ou encore les harmonieux arrangements floraux d'Ikebana sont autant d'exemple d'arts traditionnels,
+            souvent inspirés des pratiques du bouddhisme Zen.
+        </p>
+      </div>
+    </div>
+</section>
+<section class="intro">
+  <div class="commercial-background background-image-tradi-03">
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Artisanat</h1>
+          <hr>
+          <p>Admirez les chefs d'oeuvre du savoir-faire japonais.</p>
+          <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container content-section tb-padding border-link">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <p>
+          L'artisanat a été florisant tout au long de l'histoire du japon. La céramique et la poterie sont
+            les plus anciens, et perdurent encore aujourd'hui. Les techniques de forge qui ont donné naissance au célèbre Katana
+            ont été développées sur des centaines d'années. Aujourd'hui, les plus grands maîtres et leurs oeuvres majeures sont classés en
+            tant que "Trésor nationaux du Japon" par le ministère de l'éducation.
+        </p>
       </div>
     </div>
 </section>
