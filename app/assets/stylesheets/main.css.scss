@@ -137,13 +137,14 @@ $tertiary: #6fcd6f;
 .txt-on-img {
  text-shadow: 0 0 10px #000;
  color: #fff;
- line-height: 350px;
- font-size: 12vw;
+ line-height: 50px;;
+ font-size: 8vw;
+ font-weight: 900;
 }
 
 @media (min-width: 768px) {
   .txt-on-img{
-    font-size: 6vw;
+    font-size: 3vw;
   }
 }
 

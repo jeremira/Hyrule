@@ -1,38 +1,42 @@
+<!-- Intro Header -->
 <header class="intro">
   <div class="slideshow"></div>
   <div class="intro-body">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline text-left">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Découvrez Tokyo</h1>
           <hr>
-          <h3 class="brand-heading tagline">TOKYHOP!</h3>
-          <p class="tagline">Laissez vous guider et visitez Tokyo de la plus belle des façons.</p>
-          <hr>
+          <h3>Une journée, une ambiance</h3>
+          <p>Choisissez un thème pour chaque journée de votre séjour et faites-nous confiance pour organiser
+          une journée parfaite à votre attention.</p>
+            <%= link_to "Voir tous les thèmes de visite", '#theme', class: "btn btn-block btn-hop" %>
+            <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
         </div>
+      </div>
     </div>
   </div>
 </header>
 <!-- Header -->
-<section class="container content-section text-center tb-padding">
-    <div class="row" id="theme">
-      <div class="col-xs-12">
-        <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
-        <h1>Une ambiance</h1>
-        <p>Choisissez le thème de votre journée, nous l'organisons pour vous :-)</p>
-      </div>
-    </div>
+<section class="container content-section text-center tb-padding" id="theme">
     <div class="row">
       <!-- a partial for that -->
       <% @themes.each do |theme| %>
         <div class="col-xs-12 col-sm-6 col-md-4 text-center">
-
             <%= link_to (theme) do %>
                 <div class="thumbnail-container">
                   <%= label_tag("theme_id_#{theme.id}", class: "radio-thumbnail") do
                     radio_button_tag(:theme_id, theme.id) + image_tag(theme.image,
                     class: 'img-responsive img-center thumbnail')
                   end %>
-                  <h4 class="tagline text-center"><%= theme.name %></h4>
+                  <h4 class="text-center txt-on-img"><%= theme.name %></h4>
                 </div>
             <% end %>
 
