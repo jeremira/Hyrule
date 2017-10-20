@@ -2,18 +2,30 @@
   <div class="row tb-padding">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
       <div class="box"><div class="icon"><div class="image"><i class="fa fa-star"></i></div></div></div>
-      <hr>
-      <h2 class="tb-padding">Découvrir Tokyo</h2>
-      <p class="text-left"><strong>Découvrir Tokyo</strong> est une expérience unique, mais parfois, difficile à organiser. Des immenses sites célèbres aux charmants
-        endroits cachés de la capitale, Tokyhop vous guide pas-à-pas et crée avec vous une expérience inoubliable sur mesure.<br>
-        <strong>Nos experts locaux</strong> composent avec vous <%= link_to 'votre voyage', trips_path %> et prépare votre
-        <%= link_to 'guide-livret', preview_path %> personnel. Pratique et détaillé, il vous guide pas-à-pas en toute
-        tranquillité pendant votre séjour.<br>
-        <strong>Découvrir Tokyo</strong> ne se limite pas aux sites célèbres inclus dans tous les tours préformatés. Nous
-        accordons une grande importance à vous faire découvrir les secrets cachés de Tokyo en sortant des sentiers battus.
-        <%= link_to 'Découvrez', themes_path %> la véritable âme de Tokyo et transformez votre séjour en une expérience
-        inoubliable.<br>
-        <hr>
+      <h2>Découvrir Tokyo</h2>
+    </div>
+  </div>
+  <div class="row text-left">
+    <div class="col-xs-12 col-md-4">
+      <p>
+        <strong>Découvrir Tokyo</strong> est une expérience unique, mais parfois, difficile à organiser. Des immenses sanctuaires
+       aux charmants endroits cachés de la capitale, Tokyhop vous guide pas-à-pas et crée avec vous une expérience inoubliable sur mesure.
+      </p>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <p>
+        <strong>Nos experts locaux</strong> composent avec vous <%= link_to 'votre voyage', trips_path %>  selon vos souhaits
+        et prépare votre <%= link_to 'guide-livret', preview_path %> personnel.  Pratique et détaillé, il vous guide
+        pas-à-pas en toute tranquillité pendant votre séjour. Evitez les soucis de dernière minute en confiant votre organisation
+        à nos équipes locales.
+      </p>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <p>
+        <strong>Un Tokyo secret</strong> et charmant se laisse découvrir aux initiés. Nous accordons une grande importance
+        à vous faire découvrir la véritable âme de Tokyo en sortant des sentiers battus. Selon vos goûts, nous sélectionnons
+        les visites, restaurants et activités qui vous correspondent.
+      </p>
     </div>
   </div>
   <div class="row tb-padding">
@@ -24,6 +36,34 @@
         <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
         <% end %>
       </div>
+  </div>
+</section>
+
+
+<section class="intro">
+  <div class="commercial-background background-image-01">
+      <!-- background image div -->
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline text-left">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Découvrez Tokyo</h1>
+          <hr>
+          <h3>A partir de 20€ / Jour</h3>
+          <p>Recevez un programme fait sur mesure par des experts locaux et découvrez un Tokyo
+          authentique et secret.</p>
+            <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -60,6 +100,9 @@
       <p class="text-left"><strong>Un séjour à Tokyo </strong>n'est pas toujours facile. Pays lointain aux coutumes si différentes, langue mystérieuse et réseau de
         transports abracadabrantesque, nous vous délestons de tous ses tracas logistiques en organisant vos journées de A à Z pour que vous
         puissiez profiter pleinement de la magie de Tokyo sans stress.<br>
+        Nos guides partagent avec vous leurs découvertes et leur passion à travers votre programme. Mangez dans de délicieux
+        restaurants locaux, déambulez dans des ruelles vibrantes encore du charme de l'ancienne Edo et découvrez des boutiques
+        originales, antres de collectionneurs passionnés.<br>
         Votre <%= link_to 'guide-livret', preview_path %> vous guide pas-à-pas, depuis votre hôtel, tout au long de votre journée.
         Facile à utiliser, votre guide vous indique quels transports emprunter et vous guide avec des indications claires et faciles
         ainsi qu'avec des cartes personnelles montrant votre parcours et les centres d'intérêts.<br>
@@ -94,5 +137,32 @@
         <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
         <% end %>
       </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="commercial-background background-image-02">
+      <!-- background image div -->
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline text-left">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Une expérience unique</h1>
+          <hr>
+          <h3>Maitrisez votre voyage</h3>
+          <p>Personalisez votre séjour et partez en toute confiance : une équipe d'experts locaux veille
+          pour s'assurer que votre voyage se passe sans aucun souci.</p>
+            <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
