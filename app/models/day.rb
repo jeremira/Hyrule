@@ -24,8 +24,10 @@ class Day < ApplicationRecord
   end
 
   def is_older_than_30_days?
-    if date < Date.today + 30.days
-      errors.add(:date, 'de votre journée ne peut être avant 30 jours.')
+    if !date.nil?
+      if date < Date.today + 30.days
+        errors.add(:date, 'de votre journée ne peut être avant 30 jours.')
+      end
     end
   end
 
