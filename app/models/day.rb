@@ -9,7 +9,7 @@ class Day < ApplicationRecord
   accepts_nested_attributes_for :dinner
 
   validates :date, presence: true
-  validate :is_older_than_30_days?
+  validate :is_older_than_15_days?
 
   after_save :update_trip_price
 
@@ -25,8 +25,8 @@ class Day < ApplicationRecord
 
   def is_older_than_30_days?
     if !date.nil?
-      if date < Date.today + 30.days
-        errors.add(:date, 'de votre journée ne peut être avant 30 jours.')
+      if date < Date.today + 14.days
+        errors.add(:date, 'de votre journée ne peut être avant 14 jours.')
       end
     end
   end
