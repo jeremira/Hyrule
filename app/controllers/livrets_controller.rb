@@ -1,8 +1,8 @@
 class LivretsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:preview]
   before_action :redirect_not_admin, only: [:index, :new, :edit, :create, :update, :destroy ]
 
-  def mappath #return map rails path  for livret use
+  def mappath #return maps rails image_path for livret use
     @livret = Livret.find(params[:livret])
     @asset = @livret.assets.where(map_file_name: params[:map]).first
     @path = @asset.map.url
