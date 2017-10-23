@@ -2,18 +2,61 @@
 <header class="business-header">
   <div class="slideshow"></div>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-xs-12">
       <h1 class="tagline">ADMIN CONTROL CENTER</h1>
     </div>
   </div>
 </header>
 <!-- Header -->
 <section class="container content-section">
-  <div class="header-wrapper">
     <div class="row">
-      <p><%= @users_regitered %> users enregitrés</p>
+      <div class="col-xs-12">
+        <p><%= @users_regitered %> users enregitrés</p>
+        <p><%= @trips_total %> trips saved</p>
+        <ul>
+          <p>5 Last trips saved :</p>
+          <% @last_trips.each do |trip| %>
+            <li><%= trip.id %> | <%= trip.user.email %> >>> <%= link_to 'Show', trip %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-    <div class="row bottom-space">
+</section>
+<hr>
+<section class="container content-section">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Pending Trip</h3>
+      <p>Below are trip with status "pending" : Review and approve</p>
+      <ol>
+        <%= render partial: 'pending_trip', collection: @pending_trips %>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Payed Trip</h3>
+      <p>Below are trip with status "payed", Do livret and confirm it</p>
+      <ol>
+        <%= render partial: 'payed_trip', collection: @payed_trips %>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Final Trip</h2>
+      <p>Final Trip, guy comming</p>
+      <ol>
+        <%= render partial: 'final_trip', collection: @final_trips %>
+      </ol>
+    </div>
+  </div>
+</section>
+<hr>
+<section class="container content-section">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>Themes management</h4>
       <table>
         <thead>
           <tr>
@@ -38,44 +81,6 @@
         </tbody>
       </table>
       <%= link_to 'New Theme', new_theme_path, class: 'btn btn-success' %>
-    </div>
-  </div>
-</section>
-
-<section class="container content-section">
-  <div class="header-wrapper">
-    <div class="row bottom-space">
-      <h2>Pending Trip</h2>
-      <p>Below are trip with status "pending", waiting to be approved before to send
-        payment link</p>
-      <ol>
-        <%= render partial: 'pending_trip', collection: @pending_trips %>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<section class="container content-section">
-  <div class="header-wrapper">
-    <div class="row bottom-space">
-      <h2>Payed Trip</h2>
-      <p>Below are trip with status "payed", waiting review and confirm from us</p>
-      <p>From customer perspective this is a BOOKED TRIP, guy already payed !</p>
-      <ol>
-        <%= render partial: 'payed_trip', collection: @payed_trips %>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<section class="container content-section">
-  <div class="header-wrapper">
-    <div class="row bottom-space">
-      <h2>Final Trip</h2>
-      <p>Below are trip who have been finalized. Thats means customer is coming.</p>
-      <ol>
-        <%= render partial: 'final_trip', collection: @final_trips %>
-      </ol>
     </div>
   </div>
 </section>
