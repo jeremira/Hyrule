@@ -52,3 +52,30 @@
     </div>
   </div>
 </section>
+
+<section class="intro">
+  <div class="commercial-background background-image-03">
+      <!-- background image div -->
+  </div>
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline text-left">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1>Un séjour unique</h1>
+          <hr>
+          <h3>A partir de 20€ / Jour</h3>
+          <p>Ne suivez pas une liste anonyme "Top 10 à Tokyo" comme tout le monde. Offrez-vous une expèrience unique
+          et inoubliable.</p>
+            <% if current_user %>
+              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
