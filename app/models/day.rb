@@ -23,7 +23,7 @@ class Day < ApplicationRecord
     self.trip.setup_trip_price #update his trip price
   end
 
-  def is_older_than_30_days?
+  def is_older_than_15_days?
     if !date.nil?
       if date < Date.today + 14.days
         errors.add(:date, 'de votre journée ne peut être avant 14 jours.')

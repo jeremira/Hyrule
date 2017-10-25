@@ -28,15 +28,6 @@
       </p>
     </div>
   </div>
-  <div class="row tb-padding">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <% if current_user %>
-        <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-        <% else %>
-        <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-        <% end %>
-      </div>
-  </div>
 </section>
 
 <%= render('shared/3steps') %>

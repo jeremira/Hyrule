@@ -114,5 +114,14 @@
       <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
     </div>
 </section>
-
-<%= render('shared/commercial') %>
+<% if @day.comment.present? %>
+<hr>
+<section id="day-row" class="container content-section text-left">
+  <div class="row tb-padding">
+    <div class="col-xs-12">
+      <h4>Commentaire : </h4>
+      <p><%= @day.comment %></p>
+    </div>
+  </div>
+</section>
+<% end %>

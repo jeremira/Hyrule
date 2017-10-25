@@ -34,8 +34,6 @@
   </div>
 </section>
 
-<%= render('shared/commercial') %>
-
 <section id="infos-row" class="container content-section text-center tb-padding">
   <div class="row bottom-space">
     <div class="box"><div class="icon"><div class="image"><i class="fa fa-heart"></i></div></div></div>
@@ -63,7 +61,7 @@
       <div class="col-md-6 col-md-offset-3">
         <ul class="list-group">
           <li class="list-group-item">Voyage pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s).</li>
-          <li class="list-group-item">Vos journées commenceront et finiront à : <strong><%= @trip.pickup_place %><strong></li>
+          <li class="list-group-item">Vos journées commenceront et finiront à : <strong><%= @trip.pickup_place %></strong></li>
           <li class="list-group-item">
             <% if @trip.budget.value == 0 %>
                 <strong>€ Mini Budget :</strong> Nous privilègerons les activités et les visites
@@ -89,6 +87,9 @@
                 Oups, quelque chose ne vas pas....
             <% end %>
             </li>
+            <% if @trip.comment.present? %>
+              <li class="list-group-item">Commentaire :<br><%= @trip.comment %></li>
+            <% end %>
           </ul>
         </div>
       </div>

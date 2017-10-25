@@ -8,9 +8,9 @@
           <h4 class="tagline text-center"><%= trip.name %></h4>
         </div>
         <div>
+          <%= link_to 'Organiser', trip_path(trip) %> |
           <% if trip.gestion.status == 'new' %>
-            <%= link_to 'Modifier', edit_trip_path(trip), class: "btn btn-warning btn-xs" %>
-            <%= link_to "Supprimer", trip_path(trip), method: :delete, class: "btn btn-danger btn-xs",
+            <%= link_to "Supprimer", trip_path(trip), method: :delete,
                        data: {confirm: "Supprimer ce voyage ?"} %>
           <% end %>
           <%= render partial: 'trips/book_status_mini', locals: { trip: trip } %>
