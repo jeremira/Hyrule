@@ -12,6 +12,38 @@ $tertiary: #6fcd6f;
   border: 1px solid red;
 }
 
+//======================================================================
+//======================================================================
+//for 3step partial
+//======================================================================
+//======================================================================
+.circle-container {
+  width: 100%;
+  height:480px;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.step-blabla {
+  padding: 10px;
+  position: absolute;
+  width: 100%;
+  top: 12%;
+}
+
+
+//======================================================================
+//======================================================================
+//??? todo check all those shit, whats useless ?
+//======================================================================
+//======================================================================
+
 .circled {
   background-color: #fff;
   color: #dc3740;
@@ -192,3 +224,18 @@ $tertiary: #6fcd6f;
     height: 450px;
   }
 }
+
+/* From Bootsnip for information about trip Box
+https://bootsnipp.com/snippets/featured/boxes-with-icon-hover*/
+.box > .icon { text-align: center; position: relative; }
+.box > .icon > .image { position: relative; z-index: 2; margin: auto; width: 88px; height: 88px; border: 8px solid white; line-height: 88px; border-radius: 50%; background: $primary; vertical-align: middle; }
+.box > .icon > .image > i { font-size: 36px !important; color: #fff !important; }
+.box > .icon:hover > .image > i { color: white !important; }
+.box > .icon > .info { margin-top: -24px; background: rgba(0, 0, 0, 0.04); border: 1px solid #e0e0e0; padding: 15px 0 10px 0; }
+.box > .icon:hover > .info { background: rgba(0, 0, 0, 0.04); border-color: #e0e0e0; color: white; }
+.box > .icon > .info > h3.title { font-family: "Roboto",sans-serif !important; font-size: 16px; color: #222; font-weight: 500; }
+.box > .icon > .info > p { font-family: "Roboto",sans-serif !important; font-size: 13px; color: #666; line-height: 1.5em; margin: 20px;}
+.box > .icon:hover > .info > h3.title, .box > .icon:hover > .info > p, .box > .icon:hover > .info > .more > a { color: #222; }
+.box > .icon > .info > .more a { font-family: "Roboto",sans-serif !important; font-size: 14px; color: #222; line-height: 16px; text-transform: uppercase; text-decoration: none; }
+.box > .icon:hover > .info > .more > a { color: #fff; padding: 6px 8px; background-color: #63B76C; }
+.box .space { height: 30px; }

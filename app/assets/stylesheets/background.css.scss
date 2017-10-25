@@ -15,6 +15,25 @@ $primary: #ff8a8a;
   border-left: 4px solid $primary;
 }
 
+.background-3step-01 {
+  background-image: url(3steps01.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.background-3step-02 {
+  background-image: url(3steps02.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.background-3step-03 {
+  background-image: url(3steps03.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .background-image-01 {
   background-image: url(main018.jpg);
 }
