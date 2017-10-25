@@ -23,6 +23,7 @@ class GestionsController < ApplicationController
         @gestion.status = 'approved'
         if @gestion.save
           flash[:notice] = "Vous avez approuvé ce voyage."
+          #asking for payment
           MainMailer.ready_email(@trip.user, @trip).deliver
         else
           flash[:alert] = "Les changements n'ont pu être enregistrés."
@@ -38,7 +39,7 @@ class GestionsController < ApplicationController
         @gestion.status = 'final'
         if @gestion.save
           flash[:notice] = "Ce voyage est validé."
-          MainMailer.livret_ready_email(@trip.user).deliver
+          MainMailer.livret_ready_email(@trip.user, @trip).deliver
         else
           flash[:alert] = "Les changements n'ont pu être enregistrés."
         end

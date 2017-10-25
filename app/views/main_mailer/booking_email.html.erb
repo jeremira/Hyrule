@@ -3,21 +3,22 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body>
-    <h3>Nous avons bien pris en compte votre réservation pour votre séjour Tokyhop!</h3>
-
-    <p>Votre voyage "<%= @trip.name %>" pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s), est maintenant réservé.</p>
-
-    <p>Nos équipes vont maintenant vérifier et organiser votre voyage selon vos préférences.<br>
-    Ce processus peut prendre quelques jours, ne vous inquiétez pas ! Nous nous occupons de tout à partir de maintenant.
-    </p>
-    <p>Vous recevrez un email dès que votre voyage sera prêt. Vous pourrez alors procéder au paiement
-      sécurisé sur le site Tokyhop! pour confirmer votre voyage.</p>
-
-    <p>Pour toute demande, n'hésitez pas à nous contacter :</p>
-    <h4>contact@tokyhop.fun</h4>
-
-    <p>A très bientôt,<br>
-      L'équipe de Tokyhop!</p>
+  <body style="color:#000;text-align:center;text-transform: uppercase;font-family:'Montserrat','Helvetica Neue',
+   Helvetica, Arial, sans-serif;font-weight: 900;letter-spacing: 3px;;background-color:#ffbf8a;padding:50px 25px;">
+    <div style="padding:25px;border-left:10px solid #ff8a8a;border-right:10px solid #ff8a8a;background-color:#fff;">
+        <h1 style="margin-top:50px;">Réservation de votre séjour Tokyhop!</h1>
+        <h5><%= link_to 'www.tokyhop.fun', root_url, style:'text-decoration:underline;' %></h5>
+        <h3>Votre voyage a bien été réservé.</h3>
+        <h5>"<%= @trip.name %>" pour <%= @trip.adults %> adulte(s) et <%= @trip.kids %> enfant(s)</h5>
+        <p style="line-height: 1.5;letter-spacing: 0.5px;text-align:left;margin-top:75px;text-transform: none;">
+          Nos équipes s'occupent maintenant de votre demande.<br>
+          Votre programme est en cours de préparation. Afin de s'assurer des réservations et disponibilités des
+          différentes activités ce processus peut prendre plusieurs jours.<br>
+          Dès qu'il sera disponible, vous en serez notifié par email et vous pourrez le consulter sur le site
+          <%= link_to 'tokyhop.fun', root_url, style:'text-decoration:underline;' %><br>
+          Nous restons à votre disposition si vous avez la moindre demande.
+        <p>A très bientôt,<br>
+          L'équipe de Tokyhop!</p>
+    </div>
   </body>
 </html>

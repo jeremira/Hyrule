@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Rails Stripe customer',
+      :description => 'Séjour Tokyhop.fun',
       :currency    => 'eur'
     )
 
@@ -31,7 +31,8 @@ class ChargesController < ApplicationController
                                       :token => charge.id,
                                       :payment_date => Time.now,
                                       :amount_payed => @amount)
-      MainMailer.payed_email(@trip.user, @trip).deliver
+      #stripe automatic email only atm
+      #MainMailer.payed_email(@trip.user, @trip).deliver
       flash[:notice] = "Votre voyage est payé !"
     ensure
       redirect_to trip_path(@trip)

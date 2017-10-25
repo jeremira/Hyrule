@@ -24,8 +24,9 @@ class MainMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Confirmation de paiement de votre voyage Tokyhop!.')
   end
 
-  def livret_ready_email(user)
+  def livret_ready_email(user, trip)
     @user = user
+    @trip = trip
     mail(to: @user.email, subject: 'Le programme de votre séjour Tokyhop! est disponible !')
   end
 

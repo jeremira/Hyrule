@@ -18,7 +18,7 @@ class MainMailerPreview < ActionMailer::Preview
   end
 
   def livret_ready_email
-    MainMailer.livret_ready_email(User.first)
+    MainMailer.livret_ready_email(User.first, Trip.first)
   end
 
 end
