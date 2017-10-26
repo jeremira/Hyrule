@@ -78,14 +78,18 @@ private
     # Use callbacks to share common setup or constraints between actions.
     def can_edit_it?
       if @trip.gestion.status != 'new'
-        redirect_to root_url
-        flash[:alert] = 'Vous ne pouvez pas modifier ce voyage.'
+        unless current_user.admin
+          redirect_to root_url
+          flash[:alert] = 'Vous ne pouvez pas modifier ce voyage.'
+        end
       end
     end
     def can_delete_it?
       unless ['new', 'pending', 'approved'].include? @trip.gestion.status
-        redirect_to root_url
-        flash[:alert] = 'Vous ne pouvez pas supprimer ce voyage.'
+        unless current_user.admin
+          redirect_to root_url
+          flash[:alert] = 'Vous ne pouvez pas supprimer ce voyage.'
+        end
       end
     end
     def set_trip
