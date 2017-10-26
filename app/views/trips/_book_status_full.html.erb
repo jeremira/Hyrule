@@ -13,7 +13,7 @@
       <ul class="list-unstyled list-group">
           <% trip.days.each do |day| %>
           <li class="list-group-item back-green">
-              Journée du <%= day.date %> : <%= day.price %>€
+              Journée du <%= day.date.strftime("%d/%m/%Y") %> : <%= day.price %>€
           </li>
           <li class="list-group-item">
               <span class="label label-default">Thème de la journée : <%= day.theme.name %></span>

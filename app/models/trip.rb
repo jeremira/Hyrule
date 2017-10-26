@@ -1,7 +1,8 @@
 class Trip < ApplicationRecord
 
-  validates :name,          presence: true
-  validates :pickup_place,  presence: true
+  validates :name,          presence: true,
+                            length: { maximum: 20 }
+  validates :pickup_place,  presence: true, length: { maximum: 30 }
   validates :adults,        presence: true
   belongs_to :user
 
@@ -24,9 +25,9 @@ class Trip < ApplicationRecord
 
   def setup_trip_price
     #to change price depending of number of people, no change until 4 people
-    people_weight = (self.adults + self.kids/2) - 4
+    people_weight = (self.adults + self.kids/2) - 5
     people_weight = 1 if people_weight < 1
-    new_price = 10 + (people_weight + 5) * self.days.length
+    new_price = 10 + (people_weight + 5)
     self.days.each do |day|
       new_price = new_price + day.price
     end

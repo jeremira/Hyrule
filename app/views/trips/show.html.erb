@@ -1,19 +1,18 @@
-
 <header class="intro">
   <div class="slideshow"></div>
   <div class="intro-body">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h3 class="brand-heading tagline"><%= @trip.name.capitalize %></h3>
-          <p class="intro-text tagline">Votre séjour à Tokyo à la carte avec TokyoHop!.</p>
-        </div>
+        <div class="empty-space"></div>
       </div>
-      <div class="row">
-        <div class="col-sm-6 col-lg-offset-3">
-          <%= link_to "Organisation du voyage", "#booking", class: "btn btn-block btn-hop" %>
-          <%= link_to "Planning du voyage", "#day-row", class: "btn btn-block btn-hop" %>
-          <%= link_to "Options du voyage", "#infos-row", class: "btn btn-block btn-hop" %>
+      <div class="row tb-padding tagline text-left">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1><%= @trip.name.capitalize %></h1>
+          <hr>
+          <p>Votre séjour à Tokyo sur mesure avec TokyoHop!.</p>
+          <%= link_to "Réservation", "#booking", class: "btn btn-block btn-hop" %>
+          <%= link_to "Planning", "#day-row", class: "btn btn-block btn-hop" %>
+          <%= link_to "Préférences", "#infos-row", class: "btn btn-block btn-hop" %>
         </div>
       </div>
     </div>
