@@ -4,7 +4,8 @@ class SetupController < ApplicationController
   def index
     @themes = Theme.all
     @users_regitered = User.count
-    @trips_total = Trip.count
+    @all_trips = Trip.all
+    @trips_total = @all_trips.count
     @last_trips = Trip.last(5)
 
     @pending_trips = []
