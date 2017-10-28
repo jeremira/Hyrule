@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026033250) do
+ActiveRecord::Schema.define(version: 20171028020743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20171026033250) do
     t.integer  "value"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.boolean  "first",      default: false
+    t.boolean  "first",      default: true
     t.boolean  "offtrack",   default: false
     t.index ["trip_id"], name: "index_rythmes_on_trip_id", using: :btree
   end
