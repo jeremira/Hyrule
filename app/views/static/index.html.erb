@@ -1,5 +1,3 @@
-
-<!-- Intro Header -->
 <header class="intro">
   <div class="slideshow"></div>
   <div class="intro-body">
@@ -9,16 +7,12 @@
       </div>
       <div class="row tb-padding tagline text-left">
         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
-          <h1>Vivez Tokyo</h1>
+          <h1>Découvrez Tokyo</h1>
           <hr>
           <h3>Tokyo à la carte</h3>
-          <p>Découvrir Tokyo et ses secrets les plus cachés, une expérience unique et
-            sur mesure pour vivre un séjour inoubliable à Tokyo.</p>
-            <% if current_user %>
-              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-            <% else %>
-              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-            <% end %>
+          <p>Découvrez Tokyo avec un programme de visite personalisé selon vos goûts. Une expérience
+             unique et sur mesure pour vivre un séjour inoubliable à Tokyo.</p>
+                <%= link_to "Préparer mon voyage", themes_path, class: "btn btn-block btn-hop" %>
         </div>
       </div>
     </div>

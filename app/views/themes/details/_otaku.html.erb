@@ -24,12 +24,7 @@
           <h1>Manga</h1>
           <hr>
           <p>Parcourez la capitale à la recherche des lieux qui ont inspiré vos séries préférées.</p>
-          <% if current_user %>
-              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-            <% else %>
-              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-            <% end %>
-        </div>
+          <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>        </div>
       </div>
     </div>
   </div>
@@ -60,11 +55,7 @@
           <h1>Jeux vidéo</h1>
           <hr>
           <p>Une partie de MarioKart dans une salle d'arcade géante au coeur de Shinjuku ? </p>
-          <% if current_user %>
-              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-            <% else %>
-              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-            <% end %>
+          <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
         </div>
       </div>
     </div>
@@ -95,11 +86,7 @@
           <h1>Musique</h1>
           <hr>
           <p>Révisez les chorégraphies de vos groupes de J-pop favoris !</p>
-          <% if current_user %>
-              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-            <% else %>
-              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-            <% end %>
+          <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
         </div>
       </div>
     </div>

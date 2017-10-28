@@ -25,6 +25,9 @@
                   <%= f.submit "Créer mon compte !", class: 'btn btn-success btn-block' %></strong>
                 </div>
               <% end %>
+              <hr>
+              <%= link_to raw("<i class='fa fa-facebook fa-fw'></i> <span class='network-name'>Se connecter via Facebook</span>"),
+                  omniauth_authorize_path(resource_name, :facebook), :class => "btn btn-block btn-social btn-facebook" %>
               <%= render "devise/shared/links" %>
             </div>
           </div>

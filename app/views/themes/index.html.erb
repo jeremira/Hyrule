@@ -1,4 +1,3 @@
-<!-- Intro Header -->
 <header class="intro">
   <div class="slideshow"></div>
   <div class="intro-body">
@@ -8,17 +7,13 @@
       </div>
       <div class="row tb-padding tagline text-left">
         <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
-          <h1>Découvrez Tokyo</h1>
+          <h1>Composez votre Tokyo</h1>
           <hr>
-          <h3>Une journée, une ambiance</h3>
-          <p>Choisissez un thème pour chaque journée de votre séjour et faites-nous confiance pour organiser
-          une journée parfaite à votre attention.</p>
+          <h3>Une expérience sur mesure</h3>
+          <p>Personnalisez votre voyage de A à Z et choisissez un thème pour chaque journée. Nous composons
+          votre programme de visite personnel sur mesure.</p>
             <%= link_to "Voir tous les thèmes de visite", '#theme', class: "btn btn-block btn-hop" %>
-            <% if current_user %>
-              <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-            <% else %>
-              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-            <% end %>
+            <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
         </div>
       </div>
     </div>
@@ -26,6 +21,16 @@
 </header>
 <!-- Header -->
 <section class="container content-section text-center tb-padding" id="theme">
+    <div class="row tb-padding">
+      <div class="col-xs-12">
+        <h3>Une journée, une ambiance</h3>
+        <p class="text-left">Choisissez un thème pour chaque journée de votre séjour et faites-nous confiance pour organiser
+          une journée parfaite à votre attention. <br>
+          Chaque <%= link_to 'programme de visite', preview_path %> est différent et individuel, composé sur mesure, selon vos préférences.
+          Nous prenons soin de créer des expériences originales et interactives qui permettent de s'immerger au coeur d'un Tokyo véritable
+          et original.
+      </div>
+    </div>
     <div class="row">
       <!-- a partial for that -->
       <% @themes.each do |theme| %>
@@ -47,7 +52,11 @@
 
 <section class="container content-section text-center tb-padding">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 text-left">
+      <h4><strong>Connectez-vous et préparer votre voyage maintenant ! C'est gratuit. :)</strong></h3>
+      <p> 1. Connectez-vous et créez votre voyage.</p>
+      <p> 2. Personnalisez votre voyage et choisissez le thème de vos journées.</p>
+      <p> 3. Recevez votre programme de visite sur mesure.</p>
       <%= link_to "Préparer mon voyage !", new_trip_path, class: 'btn btn-hop btn-lg btn-block' %>
     </div>
   </div>
@@ -69,11 +78,7 @@
           <h3>A partir de 20€ / Jour</h3>
           <p>Ne suivez pas une liste anonyme "Top 10 à Tokyo" comme tout le monde. Offrez-vous une expèrience unique
           et inoubliable.</p>
-            <% if current_user %>
               <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-            <% else %>
-              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-            <% end %>
         </div>
       </div>
     </div>

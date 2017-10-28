@@ -11,11 +11,8 @@
           <h1><%= @theme.name %></h1>
           <hr>
           <p><%= @theme.descr %></p>
-            <% if current_user %>
               <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
-            <% else %>
-              <%= link_to "Se connecter", new_user_session_path, class: "btn btn-block btn-hop" %>
-            <% end %>
+              <%= link_to "Voir les autres thèmes", themes_path, class: "btn btn-block btn-hop" %>
         </div>
       </div>
     </div>

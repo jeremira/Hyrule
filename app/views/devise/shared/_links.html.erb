@@ -1,4 +1,4 @@
-<%- if controller_name != 'sessions' %>
+<h5><%- if controller_name != 'sessions' %>
   | <%= link_to "Se connecter", new_session_path(resource_name), class: 'tagline' %>
 <% end -%>
 
@@ -17,7 +17,7 @@
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   |<%= link_to "Didn't receive unlock instructions", new_unlock_path(resource_name), class: 'tagline' %>
 <% end -%>
-  |
+  |</h5>
 
 <!-- Link for Omniauth login
 <%- if devise_mapping.omniauthable? %>
