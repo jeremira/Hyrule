@@ -7,12 +7,16 @@ class GestionsController < ApplicationController
 
     when 'pending'
       if current_user == @trip.user && @gestion.status == 'new'
-        @gestion.status = 'pending'
-        if @gestion.save
-          flash[:notice] = "Merci de votre réservation. Nos équipes vont prendre en charge votre demande."
-          MainMailer.booking_email(@trip.user, @trip).deliver
+        if @trip.days.length > 0
+          @gestion.status = 'pending'
+          if @gestion.save
+            flash[:notice] = "Merci de votre réservation. Nos équipes vont prendre en charge votre demande."
+            MainMailer.booking_email(@trip.user, @trip).deliver
+          else
+            flash[:alert] = "Les changements n'ont pu être enregistrés"
+          end
         else
-          flash[:alert] = "Les changements n'ont pu être enregistrés"
+          flash[:alert] = "Votre séjour ne comporte aucune journée. Merci d'ajouter au moins un jour à votre voyage."
         end
       else
         flash[:alert] = "Désolé, vous ne pouvez pas modifier ce voyage.."
