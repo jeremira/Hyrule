@@ -9,4 +9,10 @@ describe Budget  do
     it "has a valid factory" do
       expect(@budget).to be_valid
     end
+
+    it "has a value" do
+      @budget.value = nil
+      expect(@budget).to_not be_valid
+    end
+    
 end

@@ -2,7 +2,8 @@ require 'faker'
 
 FactoryBot.define do
   factory :day do
+    trip
     theme
-    date {(Time.now + 1.month).to_date.to_s}
+    date Date.today + 1.month
   end
 end
