@@ -1,11 +1,7 @@
 <% if trip.gestion.status == 'new' %>
-  <p class="tb-padding"></p>
-  <a href = "<%= new_trip_day_path(trip) %>", class="btn btn-block btn-success">
-      <span><i class="fa fa-plus"></i></span> Nouvelle journée</a>
-  <%= link_to "Réserver mon voyage", "#booking", class: 'btn btn-block btn-success' %>
-  <%= link_to "Modifier mon voyage", edit_trip_path(@trip),  class: "btn btn-block btn-warning" %>
-  <%= link_to "Supprimer mon voyage", trip_path(@trip), method: :delete,
-                                    data: {confirm: "Delete this trip ?"}, class: "btn btn-block btn-danger" %>
+  <p class="text-left">Ajoutez autant de journées que vous souhaitez à votre séjour et choisissez un thème pour chacune
+    d'elles.</p>
+  <%= link_to 'Ajouter une journée', new_trip_day_path(@trip), class: 'btn btn-hop btn-block btn-lg' %>
 
 
 <% elsif trip.gestion.status == 'pending' %>

@@ -3,6 +3,7 @@
   <h3><%= day.theme.name %></h3>
   <h4><%= day.date %></h4>
   <div class="row ">
+    <div class="col-xs-12">
     <% if day.lunch.todo %>
       <span class="label label-success"><i class="fa fa-check"></i>Déjeuner prévu !</span>
     <% end %>
@@ -13,7 +14,8 @@
       <span class="label label-success"><i class="fa fa-check"></i>Avec un guide privé !</span>
     <% end %>
     <span class="label label-success"><i class="fa fa-check"></i>Mon guide-livret personnel inclus !</span>
-    </div><br>
+    </div>
+  </div><br>
     <%= link_to 'Details', trip_day_path(@trip, day) %>
     <% if @trip.gestion.status == 'new' %>
       | <%= link_to "Modifier", edit_trip_day_path(@trip, day) %>

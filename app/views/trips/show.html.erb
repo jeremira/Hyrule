@@ -10,8 +10,8 @@
           <h1><%= @trip.name.capitalize %></h1>
           <hr>
           <p>Votre séjour à Tokyo sur mesure avec TokyoHop!.</p>
-          <%= link_to "Réservation", "#booking", class: "btn btn-block btn-hop" %>
-          <%= link_to "Planning", "#day-row", class: "btn btn-block btn-hop" %>
+          <%= link_to "Préparer mon séjour", "#day-row", class: "btn btn-block btn-hop" %>
+          <%= link_to "Réserver mon séjour", "#booking", class: "btn btn-block btn-hop" %>
           <%= link_to "Préférences", "#infos-row", class: "btn btn-block btn-hop" %>
         </div>
       </div>
@@ -20,16 +20,49 @@
 </header>
 
 <section id="day-row" class="container content-section text-center tb-padding">
-  <div class="row bottom-space">
+  <div class="row">
     <div class="box"><div class="icon"><div class="image"><i class="fa fa-calendar"></i></div></div></div>
-    <h2>Programme de votre séjour</h2>
+    <h2>Préparer mon séjour</h2>
     <p><%= @days.length %> journées prévues.</p>
   </div>
-  <div class="row bottom-space">
-    <%= render @days %>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-      <%= render partial: 'book_status', locals: { trip: @trip } %>
+  <div class="row tb-padding">
+    <div class="col-xs-12 col-md-6">
+      <br>
+        <%= render partial: 'book_status', locals: { trip: @trip } %>
     </div>
+    <div class="col-xs-12 col-md-6">
+      <br>
+      <% if @trip.gestion.status == 'new' %>
+        <p class="text-left">Personnalisez et modifier les options de votre voyage : budget, rythme, centre d'intérêt....</p>
+        <%= link_to 'Personnaliser mon séjour', edit_trip_path(@trip), class: 'btn btn-hop btn-block btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row tb-padding">
+    <%= render @days %>
+  </div>
+  <div class="row tb-padding">
+    <div class="col-xs-12 col-md-6">
+      <br>
+      <% if @trip.gestion.status == 'new' %>
+        <p class="text-left">Votre voyage est prêt ? Réservez votre voyage et recevez votre programme de visite
+          fait sur mesure.</p>
+        <%= link_to "Réserver mon séjour", "#booking", class: "btn btn-hop btn-block btn-lg" %>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <br>
+      <% if @trip.gestion.status == 'new' %>
+        <p class="text-left">Personnalisez et modifier les options de votre voyage : budget, rythme, centre d'intérêt....</p>
+        <%= link_to 'Personnaliser mon séjour', edit_trip_path(@trip), class: 'btn btn-hop btn-block btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section id="booking" class="container content-section text-center tb-padding">
+  <div class="row bottom-space">
+    <%= render partial: 'book_status_full', locals: { trip: @trip } %>
   </div>
 </section>
 
@@ -211,13 +244,3 @@
     </div>
   </div>
 </section>
-
-<%= render('shared/commercial') %>
-
-<section id="booking" class="container content-section text-center tb-padding">
-  <div class="row bottom-space">
-    <%= render partial: 'book_status_full', locals: { trip: @trip } %>
-  </div>
-</section>
-
-<%= render('shared/commercial') %>
