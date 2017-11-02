@@ -60,7 +60,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   #Rspec gem from tutorial : https://everydayrails.com/2012/03/12/testing-series-rspec-setup.html
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem "factory_bot_rails", "~> 4.0"
 end
 
 group :development do
@@ -77,6 +77,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'simplecov'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

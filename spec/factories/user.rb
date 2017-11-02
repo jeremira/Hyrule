@@ -1,9 +1,8 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
-    email "test@test.com"
-    password "password"
-    password_confirmation "password"
+    email {'machin@truc.com'}
+    password {'password1234'}
   end
 end

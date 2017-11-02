@@ -1,14 +1,10 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :trip do
-    name {Faker::Company.catch_phrase}
-    price 999
-    description {Faker::Company.bs}
     user
-    date Time.now
-    comment {Faker::Company.catch_phrase}
-    adults 2
-    kids 0
+    name  'Mon voyage à Tokyo'
+    adults 3
+    pickup_place 'Tokyo Inn'
   end
 end

@@ -1,9 +1,9 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :day do
-    date     Time.now.to_date
-    comment {Faker::Company.bs}
+    trip
     theme
+    date Date.today + 1.month
   end
 end

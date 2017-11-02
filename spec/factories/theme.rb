@@ -1,9 +1,11 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :theme do
-    name   { Faker::Name.name + 'mega trip' }
-    descr  { Faker::Company.bs }
-    image  { Faker::File.file_name }
+    name 'ThemeBot'
+    descr 'Theme bot from Factory bot'
+    image { Faker::File.file_name }
+    style 'Rspec'
+    gallery '001.jpg 002.jpg 003.jpg'
   end
 end

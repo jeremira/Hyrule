@@ -1,9 +1,8 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :budget do
-    value 1
-    comment {Faker::Company.bs}
     trip
+    value 2
   end
 end

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Budget  do
 
     before :each do
-      @budget = FactoryGirl.create(:budget)
+      @budget = build(:budget)
     end
 
     it "has a valid factory" do
@@ -14,5 +14,5 @@ describe Budget  do
       @budget.value = nil
       expect(@budget).to_not be_valid
     end
-
+    
 end

@@ -1,16 +1,18 @@
 require 'rails_helper'
 
-describe Rythme  do
+describe Gestion  do
 
     before :each do
-      @gestion = FactoryGirl.create(:gestion)
+      @gestion = build(:gestion)
     end
 
     it "has a valid factory" do
       expect(@gestion).to be_valid
     end
-    it "has a status default value : 'contruction'" do
-      expect(@gestion.status).to eq 'new'
-    end
 
+    it "has a status" do
+      @gestion.status = nil
+      expect(@gestion).to_not be_valid
+    end
+    
 end
