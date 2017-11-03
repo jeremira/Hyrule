@@ -38,7 +38,11 @@
       <% end %>
     </div>
   </div>
-  <div class="row tb-padding">
+  <div class="row tb-hoppadding">
+    <% if @days.length < 1 %>
+      <p>Votre voyage ne comporte encore aucune journée.</p>
+      <%= link_to 'Ajouter une journée', new_trip_day_path(@trip), class: 'btn btn-success btn-block btn-lg' %>
+    <% end %>
     <%= render @days %>
   </div>
   <div class="row tb-padding">

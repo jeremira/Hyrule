@@ -2,37 +2,40 @@
   <div class="slideshow" data-images="<%= @images %>"></div>
   <div class="intro-body">
     <div class="container">
-      <div class="row tb-padding">
-        <div class="col-md-8 col-md-offset-2">
-          <p class="tagline">Une journée</p>
-          <h3 class="brand-heading tagline"><%= @day.theme.name.capitalize %></h3>
-          <div class="wrapper tagline">
-            <p><%= @day.theme.descr %></p>
-            <p class="small-text tagline"><%= @day.date %></p>
-            <% if @day.guide %>
-              <div><span class="label label-success"><i class="fa fa-check"></i>
-                Un guide privé vous accompagnera toute la journée.
-              </span></div>
-            <% end %>
-            <% if @day.lunch.todo %>
-                <div><span class="label label-success"><i class="fa fa-check"></i>
-                Nous organisons votre déjeuner.
-              </span></div>
-            <% end %>
-            <% if @day.dinner.todo %>
-              <div><span class="label label-success"><i class="fa fa-check"></i>
-                Nous organisons votre diner.
-              </span></div>
-            <% end %>
-            <div><span class="label label-success little-margin"><i class="fa fa-check"></i>
-              Un programme de visite personnel est prévu pour cette journée.
-            </span></div>
+      <div class="row">
+        <div class="empty-space"></div>
+      </div>
+      <div class="row tb-padding tagline text-left">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <h1><%= @day.theme.name.capitalize %></h1>
+          <hr>
+          <h3><%= l(@day.date, format: '%A %d %B %Y') %></h3>
+          <p><%= @day.theme.descr %></p>
+          <%= link_to "Planning du séjour", "#day-row", class: "btn btn-block btn-hop" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
+          <div class="alert alert-success"><i class="fa fa-check"></i>
+            Votre recevrez votre programme de visite sur mesure pour cette journée.
           </div>
+          <% if @day.lunch.todo %>
+          <div class="alert alert-success"><i class="fa fa-check"></i>
+            Nous organisons votre déjeuner pour cette journée !
+          </div>
+          <% end %>
+          <% if @day.dinner.todo %>
+          <div class="alert alert-success"><i class="fa fa-check"></i>
+            Un programme de visite personnel est prévu pour cette journée.
+          </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </header>
+
+<%= render('themes/details/'+@day.theme.name.downcase) %>
 
 <section id="day-row" class="container content-section text-center">
   <div class="row tb-padding">
@@ -72,7 +75,7 @@
       <% if @trip.gestion.status == 'new' %>
         <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
       <% end %>
-      <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
+      <%= link_to "Planning du séjour",  trip_path(@trip), class: "btn btn-block btn-hop" %>
     </div>
   </div>
   <div class="row tb-padding">
@@ -111,7 +114,7 @@
       <% if @trip.gestion.status == 'new' %>
         <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-success" %>
       <% end %>
-      <%= link_to "Voir mon voyage",  trip_path(@trip), class: "btn btn-block btn-success" %>
+      <%= link_to "Planning du séjour",  trip_path(@trip), class: "btn btn-block btn-hop" %>
     </div>
 </section>
 <% if @day.comment.present? %>
