@@ -3,11 +3,13 @@ class DaysController < ApplicationController
   before_action :set_day,                only: [:show, :edit, :update, :destroy]
   before_action :trip_must_be_editable,  only: [:new, :edit, :create, :update, :destroy]
   before_action :format_theme_collection, only: [:new, :edit, :create, :update]
+  
   # GET /days
   # GET /days.json
-  def index
-    @days = Day.all
-  end
+  #no days index atm
+  #def index
+  #  @days = Day.all
+  #end
 
   # GET /days/1
   # GET /days/1.json

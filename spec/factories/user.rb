@@ -2,7 +2,8 @@ require 'faker'
 
 FactoryBot.define do
   factory :user do
-    email {'machin@truc.com'}
-    password {'password1234'}
+    email { Faker::Internet.email }
+    password "password"
+    password_confirmation "password"
   end
 end
