@@ -35,11 +35,11 @@ class TripsController < ApplicationController
     @trip.build_gestion
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to @trip, notice: 'Félicitations ! Un nouveau voyage a été crée.' }
+        format.html { redirect_to @trip, notice: 'Votre nouveau séjour a bien été créé.' }
         format.json { render :show, status: :created, location: @trip }
       else
         format.html {
-          flash.now[:alert] = "Votre voyage n'a pas pu être enregistré : pensez à donner un nom et à indiquer le nombre d'adultes pour ce voyage."
+          flash.now[:alert] = "Votre séjour n'a pas pu être enregistré."
           render action: "new"
         }
         format.json { render json: @trip.errors, status: :unprocessable_entity }

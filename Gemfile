@@ -60,6 +60,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   #Rspec gem from tutorial : https://everydayrails.com/2012/03/12/testing-series-rspec-setup.html
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem "factory_bot_rails", "~> 4.0"
 end
 
