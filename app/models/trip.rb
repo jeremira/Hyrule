@@ -34,4 +34,20 @@ class Trip < ApplicationRecord
     self.update_column(:price, new_price)
   end
 
+  def can_be_deleted?
+    if ['new', 'pending', 'approved'].include? self.gestion.status
+        return true
+    else
+      return false
+    end
+  end
+
+  def can_be_edited?
+    if self.gestion.status == 'new'
+      return true
+    else
+      return false
+    end
+  end
+
 end

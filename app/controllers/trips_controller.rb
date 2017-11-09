@@ -1,8 +1,8 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_trip,            only: [:show, :edit, :update, :destroy]
-  before_action :can_edit_it?  ,      only: [:edit, :update]
-  before_action :can_delete_it?,      only: [:destroy]
+  before_action :set_trip,          only: [:show, :edit, :update, :destroy]
+  before_action :can_edit_it?,      only: [:edit, :update]
+  before_action :can_delete_it?,    only: [:destroy]
   # GET /trips
   # GET /trips.json
   def index
@@ -56,7 +56,7 @@ class TripsController < ApplicationController
         format.json { render :show, status: :ok, location: @trip }
       else
         format.html {
-          flash.now[:alert] = "Votre voyage n'a pas pu être enregistré : pensez à donner un nom et à indiquer le nombre d'adultes pour ce voyage."
+          flash.now[:alert] = "Les changements apportés à votre séjour n'ont pas pu être enregistrés."
           render action: "edit"
           }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
@@ -67,31 +67,40 @@ class TripsController < ApplicationController
   # DELETE /trips/1
   # DELETE /trips/1.json
   def destroy
-    @trip.destroy
-    respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Ce voyage a été supprimé.' }
-      format.json { head :no_content }
+    if @trip
+      @trip.destroy
+      respond_to do |format|
+        format.html { redirect_to trips_url, notice: 'Ce voyage a été supprimé.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to trips_url, notice: "Une erreur s'est produite, ce voyage n'existe pas." }
+        format.json { head :no_content }
+      end
     end
   end
 
 private
     # Use callbacks to share common setup or constraints between actions.
     def can_edit_it?
-      if @trip.gestion.status != 'new'
+      unless @trip.can_be_edited?
         unless current_user.admin
           redirect_to root_url
-          flash[:alert] = 'Vous ne pouvez pas modifier ce voyage.'
+          flash[:alert] = "Les changements apportés à votre séjour n'ont pas pu être enregistrés."
         end
       end
     end
+
     def can_delete_it?
-      unless ['new', 'pending', 'approved'].include? @trip.gestion.status
+      unless @trip.can_be_deleted?
         unless current_user.admin
           redirect_to root_url
           flash[:alert] = 'Vous ne pouvez pas supprimer ce voyage.'
         end
       end
     end
+
     def set_trip
       if current_user.admin
         @trip = Trip.find(params[:id])
@@ -99,7 +108,6 @@ private
         @trip = current_user.trips.find(params[:id])
       end
     end
-
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params

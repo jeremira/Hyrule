@@ -65,4 +65,64 @@ describe Trip  do
       end
     end
 
+    describe "can_be_deleted?" do
+      before :each do
+        create(:gestion, trip: @trip)
+      end
+      it "return true for a new trip" do
+        @trip.gestion.status = 'new'
+        expect(@trip.can_be_deleted?).to be true
+      end
+      it "return true for a pending trip" do
+        @trip.gestion.status = 'pending'
+        expect(@trip.can_be_deleted?).to be true
+      end
+      it "return true for a approved trip" do
+        @trip.gestion.status = 'approved'
+        expect(@trip.can_be_deleted?).to be true
+      end
+      it "return false for a payed trip" do
+        @trip.gestion.status = 'payed'
+        expect(@trip.can_be_deleted?).to be false
+      end
+      it "return false for a final trip" do
+        @trip.gestion.status = 'final'
+        expect(@trip.can_be_deleted?).to be false
+      end
+      it "return false for a invalid trip" do
+        @trip.gestion.status = nil
+        expect(@trip.can_be_deleted?).to be false
+      end
+    end
+
+    describe "can_be_edited?" do
+      before :each do
+        create(:gestion, trip: @trip)
+      end
+      it "return true for a new trip" do
+        @trip.gestion.status = 'new'
+        expect(@trip.can_be_edited?).to be true
+      end
+      it "return true for a pending trip" do
+        @trip.gestion.status = 'pending'
+        expect(@trip.can_be_edited?).to be false
+      end
+      it "return true for a approved trip" do
+        @trip.gestion.status = 'approved'
+        expect(@trip.can_be_edited?).to be false
+      end
+      it "return false for a payed trip" do
+        @trip.gestion.status = 'payed'
+        expect(@trip.can_be_edited?).to be false
+      end
+      it "return false for a final trip" do
+        @trip.gestion.status = 'final'
+        expect(@trip.can_be_edited?).to be false
+      end
+      it "return false for a invalid trip" do
+        @trip.gestion.status = nil
+        expect(@trip.can_be_edited?).to be false
+      end
+    end
+
 end
