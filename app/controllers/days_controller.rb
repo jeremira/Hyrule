@@ -1,15 +1,9 @@
 class DaysController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_trip,               only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_day,                only: [:show, :edit, :update, :destroy]
   before_action :trip_must_be_editable,  only: [:new, :edit, :create, :update, :destroy]
   before_action :format_theme_collection, only: [:new, :edit, :create, :update]
-  
-  # GET /days
-  # GET /days.json
-  #no days index atm
-  #def index
-  #  @days = Day.all
-  #end
 
   # GET /days/1
   # GET /days/1.json
@@ -35,14 +29,13 @@ class DaysController < ApplicationController
   # POST /days.json
   def create
     @day = @trip.days.build(day_params)
-
     respond_to do |format|
       if @day.save
-        format.html { redirect_to @trip, notice: 'Une journée a été ajoutée à votre voyage.' }
-        format.json { render :show, status: :created, location: @trip }
+        format.html { redirect_to [@trip, @day], notice: 'Une journée a été ajoutée à votre séjour.' }
+        format.json { render :show, status: :created, location: @day }
       else
         format.html {
-          flash.now[:alert] = "Cette journée n'a pas été enregistré. Veuillez vérifier le formulaire."
+          flash.now[:alert] = "Une erreur s'est produite. Votre journée n'a pas été enregistrée"
           render :new
         }
         format.json { render json: @day.errors, status: :unprocessable_entity }
@@ -60,7 +53,7 @@ class DaysController < ApplicationController
         format.json { render :show, status: :ok, location: @trip }
       else
         format.html {
-          flash.now[:alert] = "Cette journée n'a pas été enregistré. Veuillez vérifier le formulaire."
+          flash.now[:alert] = "Les changements n'ont pas pu être enregistrés."
           render :edit
         }
         format.json { render json: @day.errors, status: :unprocessable_entity }
@@ -73,7 +66,7 @@ class DaysController < ApplicationController
   def destroy
     @day.destroy
     respond_to do |format|
-      format.html { redirect_to trip_url(@trip), notice: 'Journée supprimée.' }
+      format.html { redirect_to trip_url(@trip), notice: 'Cette journée a bien été supprimée.' }
       format.json { head :no_content }
     end
   end
@@ -93,18 +86,16 @@ class DaysController < ApplicationController
     end
 
     def trip_must_be_editable
-      if @trip.gestion.status != 'new'
-        redirect_to root_url
-        flash[:alert] = "Désolé, ce voyage ne peut être modifié."
+      unless @trip.gestion.status == 'new'
+        unless current_user.admin
+          redirect_to trips_url
+          flash[:alert] = "Vous ne pouvez pas modifier ce voyage."
+        end
       end
     end
 
     def format_theme_collection
       @themes = Theme.all
-      #deprecated, to delete :
-      @themes_by_theme = Theme.where(style: 'theme').compact
-      @themes_out_tokyo = Theme.where(style: 'around').compact
-      @themes_in_tokyo = Theme.where(style: 'tokyo').compact
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

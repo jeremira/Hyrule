@@ -136,7 +136,8 @@ describe TripsController  do
           @trip_params = FactoryBot.attributes_for(:trip)
         end
         it "create a new Trip record" do
-          expect{ post :create, params: { trip: @trip_params } }.to change(@user.trips, :count).by(1)
+          expect{post :create, params: { trip: @trip_params }}.to change(Trip, :count).by(1)
+
         end
         it "redirect to the new Trip Show page" do
           expect(post :create, params: { trip: @trip_params }).to redirect_to(Trip.last)

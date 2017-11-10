@@ -2,10 +2,10 @@ require 'faker'
 
 FactoryBot.define do
   factory :theme do
-    name 'ThemeBot'
+    name 'default'
     descr 'Theme bot from Factory bot'
     image { Faker::File.file_name }
     style 'Rspec'
-    gallery '001.jpg 002.jpg 003.jpg'
+    gallery 'main001.jpg main002.jpg'
   end
 end
