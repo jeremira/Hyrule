@@ -31,6 +31,7 @@ class GestionsController < ApplicationController
     redirect_back(fallback_location: root_url)
   end
 
+#deprecated old version of gestion#update, no more in use
   def old_update
     case params[:status]
     when 'new'

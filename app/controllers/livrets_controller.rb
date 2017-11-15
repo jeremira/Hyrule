@@ -6,7 +6,6 @@ class LivretsController < ApplicationController
     @livret = Livret.find(params[:livret])
     @asset = @livret.assets.where(map_file_name: params[:map]).first
     @path = @asset.map.url
-    puts @path.inspect
     respond_to do |format|
       format.json { render json: {path: @path} }
     end
