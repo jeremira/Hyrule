@@ -11,7 +11,7 @@ describe Trip  do
     end
 
     describe "Trip name" do
-      it "require a name" do
+      it "is invalid without a name" do
         @trip.name = nil
         expect(@trip).to_not be_valid
       end
@@ -30,7 +30,7 @@ describe Trip  do
     end
 
     describe "Trip pickup place" do
-      it "require a pickup place" do
+      it "is invalid without a pickup place" do
         @trip.pickup_place = nil
         expect(@trip).to_not be_valid
       end
@@ -38,17 +38,17 @@ describe Trip  do
         @trip.pickup_place = "a" * 39
         expect(@trip).to be_valid
       end
-      it "accept a name of 40 chars" do
+      it "accept a pickup place of 40 chars" do
         @trip.pickup_place = "a" * 40
         expect(@trip).to be_valid
       end
-      it "dont accept a name of 41 chars" do
+      it "dont accept a pickup place of 41 chars" do
         @trip.pickup_place = "a" * 41
         expect(@trip).to_not be_valid
       end
     end
 
-    it "require adult count" do
+    it "is invalid without an adult count" do
       @trip.adults = nil
       expect(@trip).to_not be_valid
     end

@@ -59,7 +59,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   #Rspec gem from tutorial : https://everydayrails.com/2012/03/12/testing-series-rspec-setup.html
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~>3.6.0'
   gem 'rails-controller-testing'
   gem "factory_bot_rails", "~> 4.0"
 end

@@ -1,7 +1,37 @@
 class GestionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_trip_and_gestion
 
+
   def update
+    #Admin can update any trip to any status
+    if current_user.admin
+      new_status = params[:status]
+      @gestion.update_status(new_status)
+      if @gestion.save
+        MainMailer.ready_email(@trip.user, @trip).deliver          if @gestion.status == 'approved'
+        MainMailer.livret_ready_email(@trip.user, @trip).deliver   if @gestion.status == 'final'
+        flash[:notice] = "Trip status updated to #{new_status}"
+      else
+        flash[:alert] = "Trip status NOT updated to #{new_status}"
+      end
+    #Non-admin user can only go : New => Approved status
+    elsif @gestion.is_bookable?
+      @gestion.book_trip
+      if @gestion.save
+        MainMailer.ready_email(@trip.user, @trip).deliver
+        flash[:notice] = "Merci pour votre réservation !"
+      else
+        flash[:alert] = "Votre voyage n'a pas pu être réservé."
+      end
+    #Trip cant be booked/updated
+    else
+      flash[:alert] = "Vous devez rajouter au moins une journée à votre séjour."
+    end
+    redirect_back(fallback_location: root_url)
+  end
+
+  def old_update
     case params[:status]
     when 'new'
 
@@ -13,13 +43,13 @@ class GestionsController < ApplicationController
             flash[:notice] = "Merci de votre réservation. Nos équipes vont prendre en charge votre demande."
             MainMailer.booking_email(@trip.user, @trip).deliver
           else
-            flash[:alert] = "Les changements n'ont pu être enregistrés"
+            flash[:alert] = "Les changements n'ont pas pu être enregistrés."
           end
         else
-          flash[:alert] = "Votre séjour ne comporte aucune journée. Merci d'ajouter au moins un jour à votre voyage."
+          flash[:alert] = "Vous ne pouvez pas réserver un voyage sans journée."
         end
       else
-        flash[:alert] = "Désolé, vous ne pouvez pas modifier ce voyage.."
+        flash[:alert] = "Désolé, vous ne pouvez pas modifier ce voyage."
       end
 
     when 'approved'
@@ -54,15 +84,19 @@ class GestionsController < ApplicationController
     when 'done'
 
     else
-      flash[:alert] = "Error: Got an invalid status : #{params[:status]}"
+      flash[:alert] = "Une erreur s'est produite"
     end
     redirect_back(fallback_location: root_url)
   end
 
   private
     def set_trip_and_gestion
-      @trip    = Trip.find(params[:trip_id])
-      @gestion = @trip.gestion
+      if current_user.admin
+        @trip = Trip.find(params[:trip_id])
+      else
+        @trip = current_user.trips.find(params[:trip_id])
+      end
+        @gestion = @trip.gestion
     end
 
 end

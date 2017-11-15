@@ -308,37 +308,41 @@ describe DaysController  do
         @trip = create(:trip, user: @user)
         @gestion = create(:gestion, trip: @trip, status: 'pending')
         @day = create(:day, trip: @trip, theme: @theme)
+        same_old_date = @day.date
         @params = { trip_id: @trip, id: @day.id, day: { date: @new_date } }
         put :update, params: @params
         @day.reload
-        expect(@day.date).to eq Date.new(2018,11,10)
+        expect(@day.date).to eq same_old_date
       end
       it "do NOT update day for approved trip" do
         @trip = create(:trip, user: @user)
         @gestion = create(:gestion, trip: @trip, status: 'approved')
         @day = create(:day, trip: @trip, theme: @theme)
+        same_old_date = @day.date
         @params = { trip_id: @trip, id: @day.id, day: { date: @new_date } }
         put :update, params: @params
         @day.reload
-        expect(@day.date).to eq Date.new(2018,11,10)
+        expect(@day.date).to eq same_old_date
       end
       it "do NOT update day for payed trip" do
         @trip = create(:trip, user: @user)
         @gestion = create(:gestion, trip: @trip, status: 'payed')
         @day = create(:day, trip: @trip, theme: @theme)
+        same_old_date = @day.date
         @params = { trip_id: @trip, id: @day.id, day: { date: @new_date } }
         put :update, params: @params
         @day.reload
-        expect(@day.date).to eq Date.new(2018,11,10)
+        expect(@day.date).to eq same_old_date
       end
       it "do NOT update day for final trip" do
         @trip = create(:trip, user: @user)
         @gestion = create(:gestion, trip: @trip, status: 'pending')
         @day = create(:day, trip: @trip, theme: @theme)
+        same_old_date = @day.date
         @params = { trip_id: @trip, id: @day.id, day: { date: @new_date } }
         put :update, params: @params
         @day.reload
-        expect(@day.date).to eq Date.new(2018,11,10)
+        expect(@day.date).to eq same_old_date
       end
       it "do NOT update day of another user" do
         @user2 = create(:user)

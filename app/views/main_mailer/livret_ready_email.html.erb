@@ -8,8 +8,9 @@
     <div style="padding:25px;border-left:10px solid #ff8a8a;border-right:10px solid #ff8a8a;background-color:#fff;">
         <h1 style="margin-top:50px;">Votre guide-livret Tokyhop! est disponible !</h1>
         <h5><%= link_to 'www.tokyhop.fun', root_url, style:'text-decoration:underline;' %></h5>
-        <h3><%= link_to 'Voir mon programme', livret_url(@trip.livret), style:'text-decoration:underline;' %></h3>
-
+        <% if @trip.livret %>
+          <h3><%= link_to 'Voir mon programme', livret_url(@trip.livret), style:'text-decoration:underline;' %></h3>
+        <% end %>
         <p style="line-height: 1.5;letter-spacing: 0.5px;text-align:left;margin-top:75px;text-transform: none;">
           Merci pour votre patience ! Votre programme personnel est maintenant disponible !<br>
           Votre guide-livret reste disponible à n'importe quel moment sur <%= link_to 'www.tokyhop.fun', root_url, style:'text-decoration:underline;' %>.

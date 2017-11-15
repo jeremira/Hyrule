@@ -27,6 +27,7 @@ class ChargesController < ApplicationController
     rescue
       flash[:warning] = "Quelque chose ne va pas..."
     else
+      #refactor to a redirect to gestion update # payed
       @trip.gestion.update_attributes(:status => :payed,
                                       :token => charge.id,
                                       :payment_date => Time.now,
