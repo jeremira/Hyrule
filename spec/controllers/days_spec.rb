@@ -354,7 +354,7 @@ describe DaysController  do
         @params = { trip_id: @trip, id: @day.id, day: { theme_id: 'invalid' } }
         put :update, params: @params
         @day.reload
-        expect(@day.theme.name).to eq 'default'
+        expect(@day.theme.name).to eq @theme.name
         expect(flash[:alert]).to eq "Les changements n'ont pas pu être enregistrés."
         expect(subject).to render_template 'edit'
       end

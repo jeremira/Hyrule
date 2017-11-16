@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryBot.define do
   factory :theme do
-    name 'default'
+    sequence(:name) { |n| "default_test#{n}" }
     descr 'Theme bot from Factory bot'
     image 'test001.jpg'
     style 'Rspec'

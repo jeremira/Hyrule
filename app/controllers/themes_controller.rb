@@ -6,10 +6,6 @@ class ThemesController < ApplicationController
   # GET /themes.json
   def index
     @themes = Theme.all
-    #to remove deprecatededed :
-    @tokyo_themes  = Theme.where(style: 'tokyo')
-    @around_themes = Theme.where(style: 'around')
-    @theme_themes  = Theme.where(style: 'theme')
   end
 
   # GET /themes/1
@@ -24,19 +20,6 @@ class ThemesController < ApplicationController
 
   # GET /themes/1/edit
   def edit
-  end
-
-  def commercial
-    #Send a random theme Jsonified for commercial banner
-    #{"name":"balbalba","descr":"Blablabla","image":"url(/assets/019-2161216d4qsd31qs3.jpg)"}
-    @random_theme = Theme.all.sample
-    @theme = {}
-    @theme['name'] = @random_theme.name
-    @theme['descr'] = @random_theme.descr
-    @theme['image'] = "url("+ActionController::Base.helpers.asset_url(@random_theme.gallery.split(" ").sample)+")"
-    respond_to do |format|
-      format.json { render json: @theme }
-    end
   end
 
   # POST /themes
@@ -74,7 +57,7 @@ class ThemesController < ApplicationController
   def destroy
     @theme.destroy
     respond_to do |format|
-      format.html { redirect_to themes_url, notice: 'Theme was successfully destroyed.' }
+      format.html { redirect_to setup_index_url, notice: 'Theme was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
