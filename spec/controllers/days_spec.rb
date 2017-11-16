@@ -34,6 +34,9 @@ describe DaysController  do
       it "assign @trip" do
         expect(assigns(:trip)).to eq @trip
       end
+      it "assign @theme" do
+         expect(assigns(:theme)).to eq @theme
+      end
       it "assign @images" do
         @images = @day.theme.gallery.split(' ')
         @images.map! do |img|
@@ -51,7 +54,7 @@ describe DaysController  do
         expect{get :show, params: { trip_id: @trip2.id, id: @day2.id }}.to raise_exception(ActiveRecord::RecordNotFound)
       end
     end
-    context 'when admin is looged in' do
+    context 'when admin is logged in' do
       it "can see other user day" do
         @admin = create(:user, admin: true)
         sign_in @admin

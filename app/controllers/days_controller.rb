@@ -12,6 +12,7 @@ class DaysController < ApplicationController
     @images.map! do |img|
       ActionController::Base.helpers.asset_url(img)
     end
+    @theme = @day.theme
   end
 
   # GET /days/new
