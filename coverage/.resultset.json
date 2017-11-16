@@ -203,6 +203,9 @@
         null,
         null,
         null,
+        null,
+        null,
+        1,
         null
       ],
       "/home/kwuteg/Odin/Hyrule/config/initializers/application_controller_renderer.rb": [
@@ -579,6 +582,16 @@
         null,
         1
       ],
+      "/home/kwuteg/Odin/Hyrule/config/initializers/paperclip_media_type_spoof_detector_override.rb": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        null,
+        null,
+        null
+      ],
       "/home/kwuteg/Odin/Hyrule/config/initializers/session_store.rb": [
         null,
         null,
@@ -660,6 +673,16 @@
         null,
         null
       ],
+      "/home/kwuteg/Odin/Hyrule/spec/factories/livret.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        2,
+        null,
+        null
+      ],
       "/home/kwuteg/Odin/Hyrule/spec/factories/lunch.rb": [
         1,
         null,
@@ -722,7 +745,7 @@
         null,
         1,
         1,
-        358,
+        359,
         1,
         1,
         null,
@@ -783,7 +806,7 @@
         null,
         1,
         null,
-        354,
+        355,
         null,
         null,
         null
@@ -2942,8 +2965,8 @@
         1,
         null,
         1,
-        354,
-        354,
+        355,
+        355,
         null,
         null,
         1,
@@ -3339,6 +3362,35 @@
         null,
         null
       ],
+      "/home/kwuteg/Odin/Hyrule/spec/models/livret_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/home/kwuteg/Odin/Hyrule/app/models/livret.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
       "/home/kwuteg/Odin/Hyrule/spec/models/lunch_spec.rb": [
         1,
         null,
@@ -3599,13 +3651,13 @@
         null,
         1,
         null,
-        442,
-        442,
-        442,
-        442,
+        443,
+        443,
+        443,
+        443,
         28,
         null,
-        442,
+        443,
         null,
         null,
         1,
@@ -3674,22 +3726,8 @@
         1,
         1,
         null
-      ],
-      "/home/kwuteg/Odin/Hyrule/app/models/livret.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null
       ]
     },
-    "timestamp": 1510814139
+    "timestamp": 1510816260
   }
 }
