@@ -1,13 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user,    only: [:index, :show, :edit, :update]
-  before_action :set_account, only: [:index, :show, :edit]#create account if none
+  before_action :set_user,    only: [:show, :edit, :update]
+  before_action :set_account, only: [:show, :edit]
 
-
-  def index #root page
-  end
-
-  def show #profile page
+  def show
   end
 
   def edit
