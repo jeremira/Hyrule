@@ -2,18 +2,6 @@ class LivretsController < ApplicationController
   before_action :authenticate_user!, except: [:preview]
   before_action :redirect_not_admin, only: [:index, :new, :edit, :create, :update, :destroy ]
 
-  def mappath #return maps rails image_path for livret use
-    @livret = Livret.find(params[:livret])
-    @asset = @livret.assets.where(map_file_name: params[:map]).first
-    @path = @asset.map.url
-    respond_to do |format|
-      format.json { render json: {path: @path} }
-    end
-  end
-
-  def preview
-  end
-
   def index
     @livrets = Livret.all
   end
@@ -80,6 +68,18 @@ class LivretsController < ApplicationController
       format.html { redirect_to root_url, notice: 'Livret entry deleted !' }
       format.json { head :no_content }
     end
+  end
+
+  def mappath #return maps rails image_path for livret use
+    @livret = Livret.find(params[:livret])
+    @asset = @livret.assets.where(map_file_name: params[:map]).first
+    @path = @asset.map.url
+    respond_to do |format|
+      format.json { render json: {path: @path} }
+    end
+  end
+
+  def preview
   end
 
   private
