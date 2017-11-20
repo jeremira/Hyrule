@@ -205,17 +205,23 @@ describe LivretsController  do
     context "when admin is logged in" do
       before :each do
         @admin = create(:user, admin: true)
+        @trip = create(:trip)
+        @htmlbook = fixture_file_upload("#{Rails.root}/spec/support/fixtures/book.html", 'text/html')
         sign_in @admin
       end
-      it "grant access"
-      it "redirect to livret show page"
       context "with valid params" do
-        it "create a new livret"
-        it "redirect to livret show page"
-      end
-      context "with invalid params" do
-        it "do NOT create a new livret"
-        it "render new view"
+        it "create a new livret" do
+          params = FactoryBot.attributes_for(:livret, trip_id: @trip.id, htmlbook: @htmlbook)
+          expect {
+            post :create, params: { livret: params }
+          }.to change(Livret, :count).by(1)
+        end
+        it "redirect to livret show page" do
+          params = FactoryBot.attributes_for(:livret, trip_id: @trip.id, htmlbook: @htmlbook)
+          expect(
+            post :create, params: { livret: params }
+          ).to redirect_to Livret.last
+        end
       end
     end
     context "when user is logged in" do
