@@ -16,7 +16,7 @@
         <ul>
           <p>5 Last trips saved :</p>
           <% @last_trips.each do |trip| %>
-            <li><%= trip.id %> | <%= trip.user.email %> >>> <%= link_to 'Show', trip %></li>
+            <li><%= trip.id %> | <%= trip.user.email %> | <%= trip.name %> >>> <%= link_to 'Show', trip %></li>
           <% end %>
         </ul>
       </div>
@@ -26,8 +26,8 @@
 <section class="container content-section">
   <div class="row">
     <div class="col-xs-12">
-      <h3>Pending Trip</h3>
-      <p>Below are trip with status "pending" : Review and approve</p>
+      <h3>Approved Trip</h3>
+      <p>Below are trip with status "approved" : waiting for payment</p>
       <ol>
         <%= render partial: 'pending_trip', collection: @pending_trips %>
       </ol>

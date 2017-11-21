@@ -11,7 +11,8 @@
           <hr>
           <h3><%= l(@day.date, format: '%A %d %B %Y') %></h3>
           <p><%= @day.theme.descr %></p>
-          <%= link_to "Planning du séjour", "#day-row", class: "btn btn-block btn-hop" %>
+          <%= link_to "Modifier ma journée", edit_trip_day_path(@trip, @day), class: "btn btn-block btn-hop" %>
+          <%= link_to "Organisation du séjour", @day.trip, class: "btn btn-block btn-hop" %>
         </div>
       </div>
       <div class="row">
@@ -35,10 +36,10 @@
   </div>
 </header>
 
-<% if lookup_context.find_all('themes/details/'+@theme.name.downcase).any? %>
-  <%= render('themes/details/'+@theme.name.downcase) %>
-<% else %>
-  <%= render('themes/details/default') %>
+<% if lookup_context.exists?(@day.theme.name.downcase, ["themes/details/"], true) %>
+   <%= render('themes/details/'+@day.theme.name.downcase) %>
+   <% else %>
+     <%= render('themes/details/default') %>
 <% end %>
 
 <section id="day-row" class="container content-section text-center">

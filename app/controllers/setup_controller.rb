@@ -10,7 +10,7 @@ class SetupController < ApplicationController
 
     @pending_trips = []
     Trip.all.each do |trip|  #TODO has to be done with an activerecord query, thats shit
-      if trip.gestion.status == 'pending'
+      if trip.gestion.status == 'approved'
         @pending_trips << trip
       end
     end

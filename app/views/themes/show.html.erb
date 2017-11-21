@@ -19,10 +19,10 @@
   </div>
 </header>
 <!-- Header -->
-<% if lookup_context.find_all('themes/details/'+@theme.name.downcase).any? %>
-  <%= render('themes/details/'+@theme.name.downcase) %>
-<% else %>
-  <%= render('themes/details/default') %>
+<% if lookup_context.exists?(@theme.name.downcase, ["themes/details/"], true) %>
+   <%= render('themes/details/'+@theme.name.downcase) %>
+   <% else %>
+     <%= render('themes/details/default') %>
 <% end %>
 
 <section class="content-section text-center">
