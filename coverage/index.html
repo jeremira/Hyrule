@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-11-21T18:22:31+09:00">2017-11-21T18:22:31+09:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-11-21T18:47:16+09:00">2017-11-21T18:47:16+09:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">97.55%</span></span>
+    (<span class="covered_percent"><span class="green">97.52%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.32
+         5.16
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>95</b> files in total.
-    <b>2368</b> relevant lines. 
-    <span class="green"><b>2310</b> lines covered</span> and
+    <b>2339</b> relevant lines. 
+    <span class="green"><b>2281</b> lines covered</span> and
     <span class="red"><b>58</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -297,7 +297,7 @@
         <td>21</td>
         <td>15</td>
         <td>6</td>
-        <td>48.5</td>
+        <td>47.9</td>
       </tr>
       
       <tr>
@@ -343,11 +343,11 @@
       <tr>
         <td class="strong"><a href="#b9e7c6afc43a6e0863a34976cec8ae5b339e4cc5" class="src_link" title="app/models/day.rb">app/models/day.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>46</td>
-        <td>28</td>
-        <td>28</td>
+        <td>33</td>
+        <td>21</td>
+        <td>21</td>
         <td>0</td>
-        <td>44.2</td>
+        <td>38.7</td>
       </tr>
       
       <tr>
@@ -437,7 +437,7 @@
         <td>31</td>
         <td>31</td>
         <td>0</td>
-        <td>93.7</td>
+        <td>92.5</td>
       </tr>
       
       <tr>
@@ -447,7 +447,7 @@
         <td>16</td>
         <td>12</td>
         <td>4</td>
-        <td>31.8</td>
+        <td>31.3</td>
       </tr>
       
       <tr>
@@ -757,7 +757,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>7.3</td>
+        <td>6.2</td>
       </tr>
       
       <tr>
@@ -827,7 +827,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>20.0</td>
+        <td>19.1</td>
       </tr>
       
       <tr>
@@ -847,7 +847,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>84.3</td>
+        <td>83.2</td>
       </tr>
       
       <tr>
@@ -893,9 +893,9 @@
       <tr>
         <td class="strong"><a href="#d83a008896a9d4379743892467f2e0a5f6adf7e3" class="src_link" title="spec/models/day_spec.rb">spec/models/day_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>100</td>
-        <td>65</td>
-        <td>65</td>
+        <td>67</td>
+        <td>43</td>
+        <td>43</td>
         <td>0</td>
         <td>1.3</td>
       </tr>
@@ -3221,7 +3221,7 @@
         <li class="covered" data-hits="42" data-linenumber="13">
           <span class="hits">42</span>
           
-          <code class="ruby">      if trip.gestion.status == &#39;pending&#39;</code>
+          <code class="ruby">      if trip.gestion.status == &#39;approved&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
@@ -5578,14 +5578,14 @@
           <code class="ruby">  def greeting_email(user)</code>
         </li>
       
-        <li class="covered" data-hits="497" data-linenumber="5">
-          <span class="hits">497</span>
+        <li class="covered" data-hits="490" data-linenumber="5">
+          <span class="hits">490</span>
           
           <code class="ruby">    @user = user</code>
         </li>
       
-        <li class="covered" data-hits="497" data-linenumber="6">
-          <span class="hits">497</span>
+        <li class="covered" data-hits="490" data-linenumber="6">
+          <span class="hits">490</span>
           
           <code class="ruby">    mail(to: @user.email, subject: &#39;Bienvenue sur Tokyhop!&#39;)</code>
         </li>
@@ -5952,8 +5952,8 @@
     <h3>app/models/day.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>28</b> relevant lines. 
-      <span class="green"><b>28</b> lines covered</span> and
+      <b>21</b> relevant lines. 
+      <span class="green"><b>21</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -6033,205 +6033,127 @@
           <code class="ruby">  validate :is_in_more_than_14_days?</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validate :is_after_02_january_2018?</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
           <code class="ruby">  after_save :update_day_price</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
           <code class="ruby">  def update_day_price</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">    #price of the day :</code>
         </li>
       
-        <li class="covered" data-hits="128" data-linenumber="19">
+        <li class="covered" data-hits="128" data-linenumber="18">
           <span class="hits">128</span>
           
           <code class="ruby">    new_price = 20</code>
         </li>
       
-        <li class="covered" data-hits="128" data-linenumber="20">
+        <li class="covered" data-hits="128" data-linenumber="19">
           <span class="hits">128</span>
           
           <code class="ruby">    self.update_column(:price, new_price)</code>
         </li>
       
-        <li class="covered" data-hits="128" data-linenumber="21">
+        <li class="covered" data-hits="128" data-linenumber="20">
           <span class="hits">128</span>
           
           <code class="ruby">    self.trip.setup_trip_price #update his trip price</code>
         </li>
       
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby">  #temp check to ensure no additional booking are made before 02nd january 2018, to ensure smooth start</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def is_after_02_january_2018?</code>
-        </li>
-      
-        <li class="covered" data-hits="139" data-linenumber="26">
-          <span class="hits">139</span>
-          
-          <code class="ruby">    if !date.nil?</code>
-        </li>
-      
-        <li class="covered" data-hits="138" data-linenumber="27">
-          <span class="hits">138</span>
-          
-          <code class="ruby">      if date &lt; DateTime.new(2018,01,02)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="28">
-          <span class="hits">3</span>
-          
-          <code class="ruby">        errors.add(:date, &#39;de votre réservation est antérieure au 02 janvier 2018. Nous sommes navrés de ne pouvoir accepter de</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
-          <code class="ruby">        réservation pour des séjours avant le 02 Janvier 2018 suite à un nombre important de réservations.&#39;)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="30">
-          <span class="hits">3</span>
-          
-          <code class="ruby">        return false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="31">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="136" data-linenumber="33">
-          <span class="hits">136</span>
-          
-          <code class="ruby">    return true</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
           <code class="ruby">  def is_in_more_than_14_days?</code>
         </li>
       
-        <li class="covered" data-hits="139" data-linenumber="37">
-          <span class="hits">139</span>
+        <li class="covered" data-hits="138" data-linenumber="24">
+          <span class="hits">138</span>
           
           <code class="ruby">    if !date.nil?</code>
         </li>
       
-        <li class="covered" data-hits="138" data-linenumber="38">
-          <span class="hits">138</span>
+        <li class="covered" data-hits="137" data-linenumber="25">
+          <span class="hits">137</span>
           
           <code class="ruby">      if date &lt; Date.today + 14.days</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="39">
+        <li class="covered" data-hits="3" data-linenumber="26">
           <span class="hits">3</span>
           
           <code class="ruby">        errors.add(:date, &#39;de votre journée ne peut être avant 15 jours.&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="40">
+        <li class="covered" data-hits="3" data-linenumber="27">
           <span class="hits">3</span>
           
           <code class="ruby">        return false</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="136" data-linenumber="43">
-          <span class="hits">136</span>
+        <li class="covered" data-hits="135" data-linenumber="30">
+          <span class="hits">135</span>
           
           <code class="ruby">    return true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="46">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">end</code>
@@ -6990,26 +6912,26 @@
           <code class="ruby">    #to change price depending of number of people, no change until 4 people</code>
         </li>
       
-        <li class="covered" data-hits="553" data-linenumber="28">
-          <span class="hits">553</span>
+        <li class="covered" data-hits="546" data-linenumber="28">
+          <span class="hits">546</span>
           
           <code class="ruby">    people_weight = (self.adults + self.kids/2) - 4</code>
         </li>
       
-        <li class="covered" data-hits="553" data-linenumber="29">
-          <span class="hits">553</span>
+        <li class="covered" data-hits="546" data-linenumber="29">
+          <span class="hits">546</span>
           
           <code class="ruby">    people_weight = 1 if people_weight &lt; 1</code>
         </li>
       
-        <li class="covered" data-hits="553" data-linenumber="30">
-          <span class="hits">553</span>
+        <li class="covered" data-hits="546" data-linenumber="30">
+          <span class="hits">546</span>
           
           <code class="ruby">    new_price = 9 + (people_weight + 5)</code>
         </li>
       
-        <li class="covered" data-hits="553" data-linenumber="31">
-          <span class="hits">553</span>
+        <li class="covered" data-hits="546" data-linenumber="31">
+          <span class="hits">546</span>
           
           <code class="ruby">    self.days.each do |day|</code>
         </li>
@@ -7026,8 +6948,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="553" data-linenumber="34">
-          <span class="hits">553</span>
+        <li class="covered" data-hits="546" data-linenumber="34">
+          <span class="hits">546</span>
           
           <code class="ruby">    self.update_column(:price, new_price)</code>
         </li>
@@ -7351,8 +7273,8 @@
           <code class="ruby">    # Sends email to user when user is created.</code>
         </li>
       
-        <li class="covered" data-hits="497" data-linenumber="32">
-          <span class="hits">497</span>
+        <li class="covered" data-hits="490" data-linenumber="32">
+          <span class="hits">490</span>
           
           <code class="ruby">      MainMailer.greeting_email(self).deliver</code>
         </li>
@@ -17433,7 +17355,7 @@
         <li class="covered" data-hits="1" data-linenumber="52">
           <span class="hits">1</span>
           
-          <code class="ruby">        @pending = create(:gestion, status: &#39;pending&#39;)</code>
+          <code class="ruby">        @pending = create(:gestion, status: &#39;approved&#39;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="53">
@@ -22964,8 +22886,8 @@
           <code class="ruby">    trip</code>
         </li>
       
-        <li class="covered" data-hits="39" data-linenumber="6">
-          <span class="hits">39</span>
+        <li class="covered" data-hits="32" data-linenumber="6">
+          <span class="hits">32</span>
           
           <code class="ruby">    theme { Theme.first || association(:theme) }</code>
         </li>
@@ -23427,8 +23349,8 @@
           <code class="ruby">  factory :theme do</code>
         </li>
       
-        <li class="covered" data-hits="153" data-linenumber="5">
-          <span class="hits">153</span>
+        <li class="covered" data-hits="146" data-linenumber="5">
+          <span class="hits">146</span>
           
           <code class="ruby">    sequence(:name) { |n| &quot;default_test#{n}&quot; }</code>
         </li>
@@ -23621,8 +23543,8 @@
           <code class="ruby">  factory :user do</code>
         </li>
       
-        <li class="covered" data-hits="501" data-linenumber="5">
-          <span class="hits">501</span>
+        <li class="covered" data-hits="494" data-linenumber="5">
+          <span class="hits">494</span>
           
           <code class="ruby">    sequence(:email) { |n| &quot;test#{n}@example.com&quot; }</code>
         </li>
@@ -24109,8 +24031,8 @@
     <h3>spec/models/day_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>65</b> relevant lines. 
-      <span class="green"><b>65</b> lines covered</span> and
+      <b>43</b> relevant lines. 
+      <span class="green"><b>43</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -24148,8 +24070,8 @@
           <code class="ruby">    before :each do</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="6">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="12" data-linenumber="6">
+          <span class="hits">12</span>
           
           <code class="ruby">      @day = build(:day)</code>
         </li>
@@ -24268,112 +24190,112 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;check if date &gt;02/01/2018&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="27">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(@day).to receive(:is_after_02_january_2018?)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @day.valid?</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="32">
+        <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;#is_after_02_january_2018&quot; do</code>
+          <code class="ruby">    describe &quot;#update_day_price&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="33">
+        <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;is valid for a trip the 02nd january 2018&quot; do</code>
+          <code class="ruby">      it &quot;set the new price of the day&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        @day.save</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        @day.price = 0</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="32">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        expect{@day.update_day_price}.to change{@day.price}.from(0).to(20)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">      end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">        @day.date = DateTime.new(2018,01,02)</code>
+          <code class="ruby">      it &quot;call trip#setup_trip_price&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(@day.is_after_02_january_2018?).to be_truthy</code>
+          <code class="ruby">        expect(@day.trip).to receive(:setup_trip_price)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        @day.save</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="38">
           
-          <code class="ruby">      it &quot;is valid for a trip the 03rd january 2018&quot; do</code>
+          
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="39">
           
-          <code class="ruby">        @day.date = DateTime.new(2018,01,03)</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(@day.is_after_02_january_2018?).to be_truthy</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">    describe &quot;is_in_more_than_14_days?&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;is valid for a trip the 01st january 2019&quot; do</code>
+          <code class="ruby">      it &quot;is valid for a trip in 375 days&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="42">
           <span class="hits">1</span>
           
-          <code class="ruby">        @day.date = DateTime.new(2019,01,01)</code>
+          <code class="ruby">        @day.date = Date.today + 375.days</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="43">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(@day.is_after_02_january_2018?).to be_truthy</code>
+          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_truthy</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
@@ -24385,19 +24307,19 @@
         <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;is NOT valida for a trip in december 2017&quot; do</code>
+          <code class="ruby">      it &quot;is valid for a trip in 15 days&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
-          <code class="ruby">        @day.date = DateTime.new(2017,12,18)</code>
+          <code class="ruby">        @day.date = Date.today + 15.days</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(@day.is_after_02_january_2018?).to be_falsy</code>
+          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_truthy</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
@@ -24409,19 +24331,19 @@
         <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;is NOT valid for a trip the 31st decembre 2017&quot; do</code>
+          <code class="ruby">      it &quot;is valid for a trip in 14 days&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
-          <code class="ruby">        @day.date = DateTime.new(2017,01,31)</code>
+          <code class="ruby">        @day.date = Date.today + 14.days</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(@day.is_after_02_january_2018?).to be_falsy</code>
+          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_truthy</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
@@ -24433,19 +24355,19 @@
         <li class="covered" data-hits="1" data-linenumber="53">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;is NOT valid for a trip the 01st january 2018&quot; do</code>
+          <code class="ruby">      it &quot;is NOT valid for a trip in 13 days&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="54">
           <span class="hits">1</span>
           
-          <code class="ruby">        @day.date = DateTime.new(2018,01,01)</code>
+          <code class="ruby">        @day.date = Date.today + 13.days</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(@day.is_after_02_january_2018?).to be_falsy</code>
+          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_falsy</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
@@ -24454,46 +24376,46 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      it &quot;is NOT valid for a trip today&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">        @day.date = Date.today</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="59">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;#update_day_price&quot; do</code>
+          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_falsy</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="60">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="60">
           
-          <code class="ruby">      it &quot;set the new price of the day&quot; do</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
-          <code class="ruby">        @day.save</code>
+          <code class="ruby">      it &quot;is NOT valid for a trip in the past&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
-          <code class="ruby">        @day.price = 0</code>
+          <code class="ruby">        @day.date = Date.yesterday</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="63">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="1" data-linenumber="63">
+          <span class="hits">1</span>
           
-          <code class="ruby">        expect{@day.update_day_price}.to change{@day.price}.from(0).to(20)</code>
+          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_falsy</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
@@ -24502,217 +24424,19 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;call trip#setup_trip_price&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="66">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(@day.trip).to receive(:setup_trip_price)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="67">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @day.save</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="66">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="71">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    describe &quot;is_in_more_than_14_days?&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;is valid for a trip in 375 days&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="73">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @day.date = Date.today + 375.days</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="74">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_truthy</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="75">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="76">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;is valid for a trip in 15 days&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="77">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @day.date = Date.today + 15.days</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="78">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_truthy</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="79">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="80">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;is valid for a trip in 14 days&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="81">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @day.date = Date.today + 14.days</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="82">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_truthy</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="84">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;is NOT valid for a trip in 13 days&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="85">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @day.date = Date.today + 13.days</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="86">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_falsy</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="87">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="88">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;is NOT valid for a trip today&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="89">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @day.date = Date.today</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="90">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_falsy</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="91">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="92">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      it &quot;is NOT valid for a trip in the past&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="93">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @day.date = Date.yesterday</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="94">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(@day.is_in_more_than_14_days?).to be_falsy</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="95">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="96">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="97">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="98">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="99">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="100">
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">end</code>

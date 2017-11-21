@@ -49,7 +49,7 @@ describe SetupController  do
       end
       it "assign @pending_trip" do
         3.times { create(:trip, :with_gestion) }
-        @pending = create(:gestion, status: 'pending')
+        @pending = create(:gestion, status: 'approved')
         get :index
         expect(assigns :pending_trips).to eq [@pending.trip]
       end

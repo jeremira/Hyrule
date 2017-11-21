@@ -23,37 +23,6 @@ describe Day  do
         expect(@day).to receive(:is_in_more_than_14_days?)
         @day.valid?
       end
-      it "check if date >02/01/2018" do
-        expect(@day).to receive(:is_after_02_january_2018?)
-        @day.valid?
-      end
-    end
-
-    describe "#is_after_02_january_2018" do
-      it "is valid for a trip the 02nd january 2018" do
-        @day.date = DateTime.new(2018,01,02)
-        expect(@day.is_after_02_january_2018?).to be_truthy
-      end
-      it "is valid for a trip the 03rd january 2018" do
-        @day.date = DateTime.new(2018,01,03)
-        expect(@day.is_after_02_january_2018?).to be_truthy
-      end
-      it "is valid for a trip the 01st january 2019" do
-        @day.date = DateTime.new(2019,01,01)
-        expect(@day.is_after_02_january_2018?).to be_truthy
-      end
-      it "is NOT valida for a trip in december 2017" do
-        @day.date = DateTime.new(2017,12,18)
-        expect(@day.is_after_02_january_2018?).to be_falsy
-      end
-      it "is NOT valid for a trip the 31st decembre 2017" do
-        @day.date = DateTime.new(2017,01,31)
-        expect(@day.is_after_02_january_2018?).to be_falsy
-      end
-      it "is NOT valid for a trip the 01st january 2018" do
-        @day.date = DateTime.new(2018,01,01)
-        expect(@day.is_after_02_january_2018?).to be_falsy
-      end
     end
 
     describe "#update_day_price" do
@@ -94,7 +63,5 @@ describe Day  do
         expect(@day.is_in_more_than_14_days?).to be_falsy
       end
     end
-
-
 
 end
