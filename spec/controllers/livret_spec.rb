@@ -5,7 +5,7 @@ describe LivretsController  do
     @livret = create(:livret)
   end
 #===============================================================================
-#  GET /trips/
+#  GET /livrets/
 #===============================================================================
   describe "GET index" do
     context "when user is logged in" do
@@ -35,7 +35,7 @@ describe LivretsController  do
     end
   end
 #===============================================================================
-#   GET /trip/:id
+#   GET /livret/:id
 #===============================================================================
   describe "GET show" do
     context "when admin is logged in" do
@@ -108,7 +108,7 @@ describe LivretsController  do
     end
   end
 #===============================================================================
-#  GET /trips/new
+#  GET /livret/new
 #===============================================================================
   describe "GET new" do
     context "when admin is logged in" do
@@ -153,7 +153,7 @@ describe LivretsController  do
     end
   end
 #===============================================================================
-#   GET trips/:id/edit
+#   GET livrets/:id/edit
 #===============================================================================
   describe "GET edit" do
     context "when admin is logged in" do
@@ -199,7 +199,7 @@ describe LivretsController  do
     end
   end
 #===============================================================================
-#  POST /trips/
+#  POST /livrets/
 #===============================================================================
   describe "POST create" do
     context "when admin is logged in" do
@@ -240,7 +240,7 @@ describe LivretsController  do
     end
   end
 #===============================================================================
-#    PUT /trips/id:
+#    PUT /livrets/id:
 #===============================================================================
   describe "PUT update" do
     context "when admin is logged in" do
@@ -334,5 +334,81 @@ describe LivretsController  do
           expect{delete :destroy, params: { id: @livret }}.to_not change(Livret, :count)
         end
       end
+  end
+
+  describe "GET mappath"do
+    context "when logged in" do
+      context "with valid params" do
+        before :each do
+          @user =create(:user)
+          sign_in @user
+          @livret = create(:livret, :with_maps)
+          get :mappath, :format => :json, params: { livret: @livret.id, map: 'map.jpg' }
+        end
+        it "response succesfully" do
+          expect(response).to be_success
+        end
+        it "return a json object" do
+          expect(response.content_type).to eq("application/json")
+        end
+        it "return map url" do
+          map_url = {path: @livret.assets.first.map.url}
+          map_url = map_url.to_json
+          expect(response.body).to eq map_url
+        end
+      end
+      context "with invalid livret_id params" do
+        before :each do
+          @user =create(:user)
+          sign_in @user
+          @livret = create(:livret, :with_maps)
+          get :mappath, :format => :json, params: { livret: 'invalid', map: 'map.jpg' }
+        end
+        it "response succesfully" do
+          expect(response).to be_success
+        end
+        it "return a json object" do
+          expect(response.content_type).to eq("application/json")
+        end
+        it "return correct error message" do
+          error_json = ({path: "No livret found : L-invalid F-map.jpg"}).to_json
+          expect(response.body).to eq error_json
+        end
+      end
+      context "with invalid map_file_name params" do
+        before :each do
+          @user =create(:user)
+          sign_in @user
+          @livret = create(:livret, :with_maps)
+          get :mappath, :format => :json, params: { livret: @livret.id, map: 'invalid' }
+        end
+        it "response succesfully" do
+          expect(response).to be_success
+        end
+        it "return a json object" do
+          expect(response.content_type).to eq("application/json")
+        end
+        it "return correct error message" do
+          error_json = ({path: "No map found : L-#{@livret.id} F-invalid"}).to_json
+          expect(response.body).to eq error_json
+        end
+      end
+    end
+    context "when logged out" do
+      it "deny access" do
+          @livret = create(:livret, :with_maps)
+          get :mappath, :format => :json, params: { livret: @livret.id, map: 'map.jpg' }
+          expect(response).to_not be_success
+      end
+    end
+  end
+
+  describe "GET preview" do
+    it "response succesfully" do
+      expect(get :preview).to be_success
+    end
+    it "render preview view" do
+      expect(get :preview).to render_template :preview
+    end
   end
 end

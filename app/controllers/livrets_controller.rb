@@ -70,10 +70,18 @@ class LivretsController < ApplicationController
     end
   end
 
-  def mappath #return maps rails image_path for livret use
-    @livret = Livret.find(params[:livret])
-    @asset = @livret.assets.where(map_file_name: params[:map]).first
-    @path = @asset.map.url
+  def mappath
+    #expect params: {livret: livret_id, map: file_name.jpg}
+    #return url for asset image in Json format
+    begin
+      @livret = Livret.find(params[:livret])
+      @asset = @livret.assets.where(map_file_name: params[:map]).first
+      @path = @asset.map.url
+      rescue ActiveRecord::RecordNotFound
+        @path = "No livret found : L-#{params[:livret]} F-#{params[:map]}"
+      rescue NoMethodError
+        @path = "No map found : L-#{params[:livret]} F-#{params[:map]}"
+    end
     respond_to do |format|
       format.json { render json: {path: @path} }
     end
