@@ -243,10 +243,96 @@ describe LivretsController  do
 #    PUT /trips/id:
 #===============================================================================
   describe "PUT update" do
+    context "when admin is logged in" do
+      before :each do
+        @admin = create(:user, admin: true)
+        @trip = create(:trip)
+        @livret = create(:livret, trip: @trip)
+        @htmlbook = fixture_file_upload("#{Rails.root}/spec/support/fixtures/book.html", 'text/html')
+        sign_in @admin
+      end
+      context "with valid params" do
+        it "update livret" do
+          other_book = fixture_file_upload("#{Rails.root}/spec/support/fixtures/other_book.html", 'text/html')
+          params = FactoryBot.attributes_for(:livret, trip_id: @trip.id, htmlbook: other_book)
+          put :update, params: { id: @livret, livret: params }
+          expect(@livret.reload.htmlbook_file_name).to eq 'other_book.html'
+        end
+        it "redirect to livret show page" do
+          other_book = fixture_file_upload("#{Rails.root}/spec/support/fixtures/other_book.html", 'text/html')
+          params = FactoryBot.attributes_for(:livret, trip_id: @trip.id, htmlbook: other_book)
+          expect(put :update, params: { id: @livret, livret: params }).to redirect_to @livret
+        end
+      end
+    end
+    context "when user is logged in" do
+      it "redirect to root page" do
+        @user = create(:user)
+        sign_in @user
+        @trip = create(:trip, user: @user)
+        @livret = create(:livret, trip: @trip)
+        params = FactoryBot.attributes_for(:livret, trip_id: @trip.id)
+        expect(put :update, params: { id: @livret, livret: params }).to redirect_to root_path
+      end
+    end
+    context "when logged out" do
+      it "redirect to  sign in page" do
+        @trip = create(:trip)
+        @livret = create(:livret, trip: @trip)
+        params = FactoryBot.attributes_for(:livret, trip_id: @trip.id)
+        expect(put :update, params: { id: @livret, livret: params }).to redirect_to new_user_session_path
+      end
+    end
   end
 #===============================================================================
 #    DELETE /trips/:id
 #===============================================================================
   describe "DELETE destroy" do
+      context "when admin is logged in" do
+        before :each do
+          @admin = create(:user, admin: true)
+          @trip = create(:trip)
+          @livret = create(:livret, trip: @trip)
+          sign_in @admin
+        end
+        context "with valid params" do
+          it "delete livret" do
+            expect{delete :destroy, params: { id: @livret }}.to change(Livret, :count).by(-1)
+          end
+          it "redirect to root page" do
+            expect(delete :destroy, params: { id: @livret }).to redirect_to root_path
+          end
+        end
+      end
+      context "when user is logged in" do
+        it "redirect to root page" do
+          @user = create(:user)
+          @trip = create(:trip, user: @user)
+          @livret = create(:livret, trip: @trip)
+          sign_in @user
+          expect(delete :destroy, params: { id: @livret }).to redirect_to root_path
+        end
+        it "do not delete record" do
+          @user = create(:user)
+          @trip = create(:trip, user: @user)
+          @livret = create(:livret, trip: @trip)
+          expect{delete :destroy, params: { id: @livret }}.to_not change(Livret, :count)
+        end
+      end
+      context "when logged out" do
+        it "redirect to root page" do
+          @user = create(:user)
+          @trip = create(:trip, user: @user)
+          @livret = create(:livret, trip: @trip)
+          sign_in @user
+          expect(delete :destroy, params: { id: @livret }).to redirect_to root_path
+        end
+        it "do not delete record" do
+          @user = create(:user)
+          @trip = create(:trip, user: @user)
+          @livret = create(:livret, trip: @trip)
+          expect{delete :destroy, params: { id: @livret }}.to_not change(Livret, :count)
+        end
+      end
   end
 end

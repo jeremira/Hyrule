@@ -48,7 +48,7 @@
   </div>
   <div class="row tb-padding">
     <div class="col-md-8 col-md-offset-2">
-      <%= link_to "Réserver mon voyage", trip_gestion_path(trip, trip.gestion, :status => :pending ),
+      <%= link_to "Réserver mon voyage", trip_gestion_path(trip, trip.gestion, :status => :approved ),
                 :method => :put, data: {confirm: "Vous ne pourrez plus modifier ce voyage. Réserver ?"},
                 class: 'btn btn-block btn-hop btn-lg' %>
     </div>
