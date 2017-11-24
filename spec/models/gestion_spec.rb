@@ -1,7 +1,7 @@
 require 'rails_helper'
+require 'stripe_mock'
 
 describe Gestion  do
-
     before :each do
       @gestion = build(:gestion)
     end
@@ -13,6 +13,28 @@ describe Gestion  do
     it "has a status" do
       @gestion.status = nil
       expect(@gestion).to_not be_valid
+    end
+
+    describe "process_stripe_charge" do
+      let(:stripe_helper) { StripeMock.create_test_helper }
+      before { StripeMock.start }
+      after { StripeMock.stop }
+      before :each do
+        @gestion.save
+        @gestion.process_stripe_charge(1500, 'test@strip.com', stripe_helper.generate_card_token)
+      end
+      it "update gestion status" do
+        expect(@gestion.reload.status).to eq 'payed'
+      end
+      it "update amount payed" do
+        expect(@gestion.reload.amount_payed).to eq 1500
+      end
+      it "update token ID" do
+        expect(@gestion.reload.token).to_not be nil
+      end
+      it "update date of payment" do
+        expect(@gestion.reload.payment_date).to be_a_kind_of Date
+      end
     end
 
     describe ".is_bookable?" do

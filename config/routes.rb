@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :gestions, :only => [:update]
   end
   #resource for stripe payment
-  resources :charges
+  post "/charge" => "gestions#charge", :as => :create_charge
+
 
   get  'mappath', to: 'livrets#mappath'
   get  'preview', to: 'livrets#preview'

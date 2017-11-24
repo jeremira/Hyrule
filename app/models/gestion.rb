@@ -3,6 +3,23 @@ class Gestion < ApplicationRecord
   validates :status, presence: true
 
 
+  def process_stripe_charge(amount, email, token)
+    customer = Stripe::Customer.create(
+      :email => email,
+      :source  => token
+    )
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => amount,
+      :description => 'Séjour Tokyhop.fun',
+      :currency    => 'eur'
+    )
+    self.update_attributes(:status => :payed,
+                           :token => charge.id,
+                           :payment_date => Time.now,
+                           :amount_payed => amount)
+  end
+
   #Condition to see if an User can make a booking demand for his trip
   def is_bookable?
     if self.trip.days.length > 0 && self.status == "new"

@@ -113,7 +113,7 @@
      </div>
     </div>
     <div class="row">
-      <%= form_tag charges_path do %>
+      <%= form_tag create_charge_path do %>
         <% if flash[:error].present? %>
          <div id="error_explanation"><p><%= flash[:error] %></p></div>
         <% end %>

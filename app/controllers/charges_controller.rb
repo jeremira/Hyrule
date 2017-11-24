@@ -1,14 +1,16 @@
 class ChargesController < ApplicationController
-
-  def new
+  #all deprecated
+  def newxyz
   end
 
-  def create
+  def createxyz
     # Amount in cents
     @trip = Trip.find(params[:trip_id])
     @amount = params[:amount]
+
     #TODO move this mess in a model
     begin
+    #@trip.process_stripe_charge params[:amount], params[:stripeEmail], params[:stripeToken]
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]

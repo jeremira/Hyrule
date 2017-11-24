@@ -7,11 +7,33 @@ describe GestionsController  do
     @gestion = create(:gestion, trip: @trip)
     @day = create(:day, trip: @trip)
   end
-
 #===============================================================================
-#    PUT /trips/id:
+#    POST /charge/
+#===============================================================================
+describe "POST charge" do
+  context "when owner is logged in" do
+    context "with valid params" do
+      it "call charging method"
+      it "redirect to trip show page"
+    end
+    context "with invalid params"
+  end
+  context "when admin is logged in"
+  context "when logged out" do
+    it "redirect to sign in page" do
+      expect(post :charge, params: {trip_id: @trip, amount: 2500}).to redirect_to new_user_session_path
+    end
+  end
+end
+#===============================================================================
+#    PUT /gestions/id:
 #===============================================================================
   describe "PUT update" do
+    context "when logged out" do
+      it "redirect to sign in page" do
+        expect(put :update, params: {trip_id: @trip, id: @gestion }).to redirect_to new_user_session_path
+      end
+    end
     context "when owner is logged in" do
       before :each do
         request.env["HTTP_REFERER"] = "previous_location"
