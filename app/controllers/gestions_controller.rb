@@ -4,7 +4,7 @@ class GestionsController < ApplicationController
 
   def charge
     begin
-      @gestion.process_stripe_charge(params[:amount], params[:stripeEmail], params[:stripeToken])
+      @gestion.process_stripe_charge(params[:amount].to_i, params[:stripeEmail], params[:stripeToken])
       flash[:notice] = "Votre paiement a bien été pris en compte. "
     rescue Stripe::CardError => e
       flash[:warning] = "Problème de paiement :" + e.message

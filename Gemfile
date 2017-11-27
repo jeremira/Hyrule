@@ -76,7 +76,9 @@ end
 
 group :test do
   gem 'faker'
-  gem 'capybara'
+  gem 'capybara', '~> 2.15.2'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'launchy'
   gem 'simplecov'

@@ -24,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def self.from_igomniauth(auth)
-    #deprecated instagram omniauth
+    #instagram omniauth - Feature not implemented atm
   end
 
   def send_greeting_email

@@ -11,14 +11,32 @@ describe GestionsController  do
 #    POST /charge/
 #===============================================================================
 describe "POST charge" do
+  let(:stripe_helper) { StripeMock.create_test_helper }
+  before { StripeMock.start }
+  after { StripeMock.stop }
   context "when owner is logged in" do
     context "with valid params" do
-      it "call charging method"
-      it "redirect to trip show page"
+      before :each do
+        sign_in @user
+        @strip_token = stripe_helper.generate_card_token
+      end
+      it "assign @trip" do
+        post :charge, params: {trip_id: @trip, amount: 2500, stripeEmail: 'test@test.com', stripeToken: @strip_token}
+        expect(assigns :trip).to eq @trip
+      end
+      it "assign @gestion" do
+        post :charge, params: {trip_id: @trip, amount: 2500, stripeEmail: 'test@test.com', stripeToken: @strip_token}
+        expect(assigns :gestion).to eq @gestion
+      end
+      it "call charging method" do
+        expect_any_instance_of(Gestion).to receive(:process_stripe_charge).with(2500,'test@test.com', @strip_token)
+        post :charge, params: {trip_id: @trip, amount: 2500, stripeEmail: 'test@test.com', stripeToken: @strip_token}
+      end
+      it "redirect to trip show page" do
+        expect(post :charge, params: {trip_id: @trip, amount: 2500, stripeEmail: 'test@test.com', stripeToken: @strip_token}).to redirect_to @trip
+      end
     end
-    context "with invalid params"
   end
-  context "when admin is logged in"
   context "when logged out" do
     it "redirect to sign in page" do
       expect(post :charge, params: {trip_id: @trip, amount: 2500}).to redirect_to new_user_session_path
