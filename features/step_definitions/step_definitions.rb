@@ -1,3 +1,47 @@
+Given /^I am logged out$/ do
+  visit root_path
+  if page.has_content? 'Se déconnecter'
+    click_link 'Se déconnecter'
+  end
+end
+
+When /^I visit the (.+)$/ do |page_name|
+  case page_name
+  when "home page"
+   visit root_path
+  else
+   fail "Invalid page name : #{page_name}"
+  end
+end
+
+Then /^I must be on the (.+)/ do |page_name|
+  case page_name
+  when "home page"
+   expect(page.current_url).to eq root_url
+  else
+   fail "Invalid page name : #{page_name}"
+  end
+end
+
+Then /^I must see (.+)/ do |expected_stuff|
+  case expected_stuff
+  when 'the guest top menu'
+    within '.navbar' do
+      expect(page).to have_link 'Tokyhop!', href: root_path
+      expect(page).to have_link 'Que faire à Tokyo ?', href: themes_path
+      expect(page).to have_link 'Une question ?', href: root_path(anchor: 'contact-row')
+      expect(page).to have_link 'Se connecter', href: new_user_session_path
+      expect(page).to have_link 'Créer un compte', href: new_user_registration_path
+    end
+  end
+end
+
+#=====================================================
+#=====================================================
+#=====================================================
+#=====================================================
+#=====================================================
+
 Given /^(?:|I )am on (.+)$/ do |page_name|
   case page_name
   when "the RottenPotatoes home page"
