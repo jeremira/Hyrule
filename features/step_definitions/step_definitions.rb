@@ -1,8 +1,30 @@
 Given /^I am logged out$/ do
-  visit root_path
-  if page.has_content? 'Se déconnecter'
-    click_link 'Se déconnecter'
+  visit destroy_user_session_url
+end
+
+Given /^I am a registered (user|admin)$/ do |user_quality|
+  email = 'test@cucumber.com'
+  password = 'password1234'
+  if user_quality == 'admin'
+    admin = true
+    email = 'admin@cucumber.com'
+    password = 'password1234'
+  else
+    admin = false
+    email = 'user@cucumber.com'
+    password = 'password1234'
   end
+  @user = User.new(email: email, password: password, password_confirmation: password, admin: admin)
+  @user.save!
+end
+
+Given /^I am logged in$/ do
+  visit new_user_session_url
+  fill_in :user_email, with: @user.email
+  fill_in :user_password, with: @user.password
+  click_button "Se connecter !"
+  expect(page).to have_text 'Vous êtes connecté(e).'
+  @current_user = @user
 end
 
 When /^I visit the (.+)$/ do |page_name|
@@ -14,16 +36,43 @@ When /^I visit the (.+)$/ do |page_name|
   end
 end
 
-Then /^I must be on the (.+)/ do |page_name|
+When /^I click on link (.+)/ do |link|
+  if page.has_link? link
+    click_link link, match: :first
+  else
+    fail "#{link} is not present"
+  end
+end
+
+Then /^I should be logged out$/ do
+  expect(page).to have_text 'Vous êtes déconnecté(e).'
+  expect(page.current_url).to eq root_url
+end
+
+Then /^I should be on the (.+)/ do |page_name|
   case page_name
   when "home page"
    expect(page.current_url).to eq root_url
+  when "Themes#Index"
+   expect(page.current_url).to eq themes_url
+ when "Trips#Index"
+    expect(page.current_url).to eq trips_url
+  when "admin control center"
+   expect(page.current_url).to eq setup_index_url
+  when "user profile page"
+   expect(page.current_url).to eq user_url(id: @current_user)
+  when "contact form"
+   expect(page.current_url).to eq root_url
+  when "sign-in page"
+   expect(page.current_url).to eq new_user_session_url
+  when "sign-up page"
+   expect(page.current_url).to eq new_user_registration_url
   else
    fail "Invalid page name : #{page_name}"
   end
 end
 
-Then /^I must see (.+)/ do |expected_stuff|
+Then /^I should see (.+)/ do |expected_stuff|
   case expected_stuff
   when 'the guest top menu'
     within '.navbar' do
@@ -32,9 +81,46 @@ Then /^I must see (.+)/ do |expected_stuff|
       expect(page).to have_link 'Une question ?', href: root_path(anchor: 'contact-row')
       expect(page).to have_link 'Se connecter', href: new_user_session_path
       expect(page).to have_link 'Créer un compte', href: new_user_registration_path
+      expect(page).to_not have_link 'Mon profil'
+      expect(page).to_not have_link 'Mes voyages'
+      expect(page).to_not have_link 'Se déconnecter'
+      expect(page).to_not have_link 'Admin'
     end
+  when 'the user top menu'
+    within '.navbar' do
+      expect(page).to have_link 'Tokyhop!', href: root_path
+      expect(page).to have_link 'Que faire à Tokyo ?', href: themes_path
+      expect(page).to have_link 'Une question ?', href: root_path(anchor: 'contact-row')
+      expect(page).to have_link 'Mon profil', href: user_path(id: @current_user)
+      expect(page).to have_link 'Mes voyages', href: trips_path
+      expect(page).to have_link 'Se déconnecter', href: destroy_user_session_path
+      expect(page).to_not have_link 'Se connecter'
+      expect(page).to_not have_link 'Créer un compte'
+      expect(page).to_not have_link 'Admin'
+    end
+  when 'the admin top menu'
+    within '.navbar' do
+      expect(page).to have_link 'Tokyhop!', href: root_path
+      expect(page).to have_link 'Que faire à Tokyo ?', href: themes_path
+      expect(page).to have_link 'Une question ?', href: root_path(anchor: 'contact-row')
+      expect(page).to have_link 'Mon profil', href: user_path(id: @current_user)
+      expect(page).to have_link 'Mes voyages', href: trips_path
+      expect(page).to have_link 'Se déconnecter', href: destroy_user_session_path
+      expect(page).to have_link 'Admin', href: setup_index_path
+      expect(page).to_not have_link 'Se connecter'
+      expect(page).to_not have_link 'Créer un compte'
+    end
+  when 'themes select list'
+    expect(page).to have_css('#themes_select_list')
+  else
+    fail "Dont know what you're looking for : #{expected_stuff}"
   end
 end
+
+Then /^The page should have a (.+) : '(.+)'/ do |element, name|
+  expect(page).to have_selector element.to_sym, name
+end
+
 
 #=====================================================
 #=====================================================

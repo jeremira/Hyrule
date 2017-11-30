@@ -12,7 +12,7 @@
           <h3>Une expérience sur mesure</h3>
           <p>Personnalisez votre voyage de A à Z et choisissez un thème pour chaque journée. Nous composons
           votre programme de visite personnel sur mesure.</p>
-            <%= link_to "Voir tous les thèmes de visite", '#theme', class: "btn btn-block btn-hop" %>
+            <%= link_to "Voir les thèmes des visites", '#theme', class: "btn btn-block btn-hop" %>
             <%= link_to "Préparer mon voyage", trips_path, class: "btn btn-block btn-hop" %>
         </div>
       </div>
@@ -31,7 +31,7 @@
           et original.
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="themes_select_list">
       <!-- a partial for that -->
       <% @themes.each do |theme| %>
         <div class="col-xs-12 col-sm-6 col-md-4 text-center">

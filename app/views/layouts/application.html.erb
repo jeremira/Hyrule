@@ -54,7 +54,7 @@
               <li><%= link_to 'Mon profil', user_path(current_user), class: "page-scroll" %></li>
               <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "page-scroll" %></li>
               <% if current_user && current_user.admin %>
-                <li><%= link_to 'Admin Control', setup_index_path, class: "page-scroll" %></li>
+                <li><%= link_to 'Admin', setup_index_path, class: "page-scroll" %></li>
               <% end %>
             <% else %>
               <li><%= link_to 'Se connecter',    new_user_session_path, class: "page-scroll" %></li>
