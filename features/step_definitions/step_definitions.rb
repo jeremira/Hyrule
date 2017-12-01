@@ -44,6 +44,37 @@ When /^I click on link (.+)/ do |link|
   end
 end
 
+When /^I create a new account via Facebook$/ do
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+    'provider' => 'facebook',
+    'uid' => '123545',
+    'info' => {
+      'email' => 'test@test.fr',
+    },
+    'credentials' => {
+      'token' => 'mock_token',
+      'secret' => 'mock_secret'
+    }
+  })
+ click_link 'Se connecter via Facebook'
+end
+
+When /^I register my new account with (invalid|valid) credential$/ do |credential|
+  if credential == 'valid'
+    email = 'valid@cucumber.com'
+    password = 'password1234'
+    password_confirmation = 'password1234'
+  else
+    email = 'valid@cucumber.com'
+    password = 'password1234'
+    password_confirmation = 'invalid'
+  end
+  fill_in :user_email, with: email
+  fill_in :user_password, with: password
+  fill_in :user_password_confirmation, with: password_confirmation
+  click_button 'Créer mon compte'
+end
+
 Then /^I should be logged out$/ do
   expect(page).to have_text 'Vous êtes déconnecté(e).'
   expect(page.current_url).to eq root_url
@@ -63,6 +94,8 @@ Then /^I should be on the (.+)/ do |page_name|
    expect(page.current_url).to eq user_url(id: @current_user)
   when "contact form"
    expect(page.current_url).to eq root_url
+ when "sign up page"
+   expect(page.current_url).to eq new_user_registration_url
   when "sign-in page"
    expect(page.current_url).to eq new_user_session_url
   when "sign-up page"
@@ -89,11 +122,11 @@ Then /^I should see (.+)/ do |expected_stuff|
   when 'the user top menu'
     within '.navbar' do
       expect(page).to have_link 'Tokyhop!', href: root_path
-      expect(page).to have_link 'Que faire à Tokyo ?', href: themes_path
-      expect(page).to have_link 'Une question ?', href: root_path(anchor: 'contact-row')
-      expect(page).to have_link 'Mon profil', href: user_path(id: @current_user)
-      expect(page).to have_link 'Mes voyages', href: trips_path
-      expect(page).to have_link 'Se déconnecter', href: destroy_user_session_path
+      expect(page).to have_link 'Que faire à Tokyo ?'
+      expect(page).to have_link 'Une question ?'
+      expect(page).to have_link 'Mon profil'
+      expect(page).to have_link 'Mes voyages'
+      expect(page).to have_link 'Se déconnecter'
       expect(page).to_not have_link 'Se connecter'
       expect(page).to_not have_link 'Créer un compte'
       expect(page).to_not have_link 'Admin'
@@ -101,12 +134,12 @@ Then /^I should see (.+)/ do |expected_stuff|
   when 'the admin top menu'
     within '.navbar' do
       expect(page).to have_link 'Tokyhop!', href: root_path
-      expect(page).to have_link 'Que faire à Tokyo ?', href: themes_path
-      expect(page).to have_link 'Une question ?', href: root_path(anchor: 'contact-row')
-      expect(page).to have_link 'Mon profil', href: user_path(id: @current_user)
-      expect(page).to have_link 'Mes voyages', href: trips_path
-      expect(page).to have_link 'Se déconnecter', href: destroy_user_session_path
-      expect(page).to have_link 'Admin', href: setup_index_path
+      expect(page).to have_link 'Que faire à Tokyo ?'
+      expect(page).to have_link 'Une question ?'
+      expect(page).to have_link 'Mon profil'
+      expect(page).to have_link 'Mes voyages'
+      expect(page).to have_link 'Se déconnecter'
+      expect(page).to have_link 'Admin'
       expect(page).to_not have_link 'Se connecter'
       expect(page).to_not have_link 'Créer un compte'
     end
@@ -118,7 +151,12 @@ Then /^I should see (.+)/ do |expected_stuff|
 end
 
 Then /^The page should have a (.+) : '(.+)'/ do |element, name|
-  expect(page).to have_selector element.to_sym, name
+  if element == 'text'
+    regex = Regexp.new(name)
+    expect(page.text).to match regex
+  else
+    expect(page).to have_selector element.to_sym, name
+  end
 end
 
 

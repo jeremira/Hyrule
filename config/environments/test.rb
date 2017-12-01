@@ -44,4 +44,7 @@ Rails.application.configure do
 
   #default path for attachment file / paperclip rspec
   Paperclip::Attachment.default_options[:path] = "#{Rails.root}/spec/test_files/:class/:id_partition/:style.:extension"
+
+  OmniAuth.config.test_mode = true 
+
 end
