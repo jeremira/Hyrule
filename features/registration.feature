@@ -9,6 +9,17 @@ Scenario: A visitor create an account with valid credential
   And   The page should have a text : 'Bienvenue. Votre compte a été créé avec succés.'
   And   I should see the user top menu
 
+Scenario: A visitor cant create two account with same email
+  Given I am a registered user
+  And   I am logged out
+  When  I visit the home page
+  And  I click on link Créer un compte
+  Then  I should be on the sign up page
+  When  I register my new account with valid credential
+  Then   The page should have a text : 'Email n'est pas disponible'
+  And   I should see the guest top menu
+
+
 Scenario: A visitor try to create an account with invalid credential
   Given I visit the home page
   When  I click on link Créer un compte

@@ -3,15 +3,13 @@ Given /^I am logged out$/ do
 end
 
 Given /^I am a registered (user|admin)$/ do |user_quality|
-  email = 'test@cucumber.com'
-  password = 'password1234'
   if user_quality == 'admin'
     admin = true
     email = 'admin@cucumber.com'
     password = 'password1234'
   else
     admin = false
-    email = 'user@cucumber.com'
+    email = 'valid@cucumber.com'
     password = 'password1234'
   end
   @user = User.new(email: email, password: password, password_confirmation: password, admin: admin)
@@ -25,6 +23,11 @@ Given /^I am logged in$/ do
   click_button "Se connecter !"
   expect(page).to have_text 'Vous êtes connecté(e).'
   @current_user = @user
+end
+
+When /^I fill in login form with (.+) and (.+)$/ do |email, password|
+  fill_in :user_email, with: email
+  fill_in :user_password, with: password
 end
 
 When /^I visit the (.+)$/ do |page_name|
@@ -44,7 +47,15 @@ When /^I click on link (.+)/ do |link|
   end
 end
 
-When /^I create a new account via Facebook$/ do
+When /^I click on button (.+)/ do |button|
+  if page.has_button? button
+    click_button button, match: :first
+  else
+    fail "#{button} is not present"
+  end
+end
+
+When /^(?:I create a new account via Facebook|I log in via Facebook)$/ do
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
     'provider' => 'facebook',
     'uid' => '123545',
@@ -58,6 +69,7 @@ When /^I create a new account via Facebook$/ do
   })
  click_link 'Se connecter via Facebook'
 end
+
 
 When /^I register my new account with (invalid|valid) credential$/ do |credential|
   if credential == 'valid'
