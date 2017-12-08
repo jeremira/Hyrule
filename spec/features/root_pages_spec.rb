@@ -5,4 +5,5 @@ RSpec.feature "RootPages", type: :feature do
     visit root_path
     expect(page).to have_content 'Tokyhop'
   end
+
 end

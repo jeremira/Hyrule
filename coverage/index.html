@@ -14,14 +14,14 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-12-01T18:22:46+09:00">2017-12-01T18:22:46+09:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-12-07T14:53:14+09:00">2017-12-07T14:53:14+09:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">97.05%</span></span>
+    (<span class="covered_percent"><span class="green">97.06%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -31,9 +31,9 @@
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>95</b> files in total.
-    <b>2409</b> relevant lines. 
-    <span class="green"><b>2338</b> lines covered</span> and
+    <b>96</b> files in total.
+    <b>2412</b> relevant lines. 
+    <span class="green"><b>2341</b> lines covered</span> and
     <span class="red"><b>71</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -853,7 +853,7 @@
       <tr>
         <td class="strong"><a href="#501e92c82a16315ac3bd4560740f704818deec01" class="src_link" title="spec/features/root_pages_spec.rb">spec/features/root_pages_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>8</td>
+        <td>9</td>
         <td>5</td>
         <td>5</td>
         <td>0</td>
@@ -994,8 +994,18 @@
         <td class="strong"><a href="#d905402534ea67b97b19a1ecdd291ce516fd45f0" class="src_link" title="spec/rails_helper.rb">spec/rails_helper.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>65</td>
-        <td>17</td>
-        <td>17</td>
+        <td>18</td>
+        <td>18</td>
+        <td>0</td>
+        <td>1.1</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#e683d651f7cf76f990b64036da16de8f9aeddcfe" class="src_link" title="spec/support/capybara.rb">spec/support/capybara.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>3</td>
+        <td>2</td>
+        <td>2</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -24309,6 +24319,12 @@
         <li class="never" data-hits="" data-linenumber="8">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
           <code class="ruby">end</code>
         </li>
       
@@ -27755,8 +27771,8 @@
     <h3>spec/rails_helper.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>17</b> relevant lines. 
-      <span class="green"><b>17</b> lines covered</span> and
+      <b>18</b> relevant lines. 
+      <span class="green"><b>18</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -27908,10 +27924,10 @@
           <code class="ruby">#</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="covered" data-hits="2" data-linenumber="25">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby"># Dir[Rails.root.join(&#39;spec/support/**/*.rb&#39;)].each { |f| require f }</code>
+          <code class="ruby">Dir[Rails.root.join(&#39;spec/support/**/*.rb&#39;)].each { |f| require f }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="26">
@@ -28152,6 +28168,43 @@
           
           
           <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="e683d651f7cf76f990b64036da16de8f9aeddcfe">
+  <div class="header">
+    <h3>spec/support/capybara.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>2</b> relevant lines. 
+      <span class="green"><b>2</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;capybara/poltergeist&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">Capybara.javascript_driver = :poltergeist</code>
         </li>
       
     </ol>

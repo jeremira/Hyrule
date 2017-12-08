@@ -2,7 +2,7 @@ Feature: An user should be able to visit the homepage and check content
 
 Scenario: A logged in user visit the home page and explore available content
   Given I am a registered user
-  And   I am logged in
+  And   I log in with email : 'valid@cucumber.com' and password : 'password1234'
   When  I visit the home page
   Then  I should be on the home page
   And   I should see the user top menu
@@ -28,7 +28,7 @@ Scenario: A logged in user visit the home page and explore available content
 
 Scenario: A logged in admin visit the home page and explore available content
   Given I am a registered admin
-  And   I am logged in
+  And   I log in with email : 'admin@cucumber.com' and password : 'password1234'
   When  I visit the home page
   Then  I should be on the home page
   And   I should see the admin top menu

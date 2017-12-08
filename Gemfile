@@ -82,6 +82,7 @@ group :test do
   gem 'guard-rspec'
   gem 'launchy'
   gem 'simplecov'
+  gem 'poltergeist'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

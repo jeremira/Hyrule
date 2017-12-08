@@ -59,6 +59,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     climate_control (0.2.0)
+    cliver (0.3.2)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
@@ -176,7 +177,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    oauth (0.5.1)
+    oauth (0.5.3)
     oauth2 (1.3.1)
       faraday (>= 0.8, < 0.12)
       jwt (~> 1.0)
@@ -192,7 +193,7 @@ GEM
       multi_json
       omniauth (~> 1.0)
       omniauth-oauth
-    omniauth-instagram (1.0.2)
+    omniauth-instagram (1.2.0)
       omniauth (~> 1)
       omniauth-oauth2 (~> 1)
     omniauth-oauth (1.1.0)
@@ -212,6 +213,10 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (0.20.0)
+    poltergeist (1.16.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -365,6 +370,7 @@ DEPENDENCIES
   omniauth-twitter
   paperclip (~> 5.0.0)
   pg (~> 0.18)
+  poltergeist
   puma (~> 3.0)
   rails (~> 5.0.2)
   rails-controller-testing

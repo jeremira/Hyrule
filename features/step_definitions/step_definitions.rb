@@ -13,16 +13,54 @@ Given /^I am a registered (user|admin)$/ do |user_quality|
     password = 'password1234'
   end
   @user = User.new(email: email, password: password, password_confirmation: password, admin: admin)
-  @user.save!
+  expect{ @user.save! }.to change(User, :count).by 1
 end
 
-Given /^I am logged in$/ do
+Given /^I log in with email : '(.+)' and password : '(.+)'$/ do |email, password|
   visit new_user_session_url
-  fill_in :user_email, with: @user.email
-  fill_in :user_password, with: @user.password
+  fill_in :user_email, with: email
+  fill_in :user_password, with: password
   click_button "Se connecter !"
   expect(page).to have_text 'Vous êtes connecté(e).'
-  @current_user = @user
+  @current_user = User.find_by_email email
+end
+
+Given /^A '(.+)' theme exist$/ do |theme|
+  expect{
+    Theme.create(name: theme, descr: 'Cucumber test theme', style: 'test', image: 'test.jpg', gallery: 'testgal.jpg')
+  }.to change(Theme, :count).by 1
+end
+
+When /^I create a new trip$/ do
+  expect(page).to have_current_path new_trip_path
+  fill_in :trip_name, with: 'Mon test trip'
+  fill_in :trip_pickup_place, with: 'Test pickup place'
+  fill_in :trip_adults, with: 2
+  fill_in "budget-range", with: 2
+  fill_in "rythme-range", with: 2
+  click_button "Enregistrer mon voyage !"
+end
+
+When /^I add a day '(.+)' to a trip$/ do |theme|
+  theme = "day_theme_id_#{Theme.where(name: theme).first.id}"
+  expect(page).to have_text('Date de votre journée')
+  fill_in :day_date, with: "2100/01/01"
+  choose  theme
+  click_button 'Enregistrer'
+end
+
+When /^I pay my trip$/ do
+  expect(page).to have_css('script.stripe-button', visible: false)
+  #expect JS stripe to be ok, if one day selenium can work mock and stub that
+  trip_id = page.find_by_id('trip_id', visible: false).value
+  trip_value = page.find_by_id('amount', visible: false).value.to_i
+  trip = Trip.find(trip_id)
+  StripeMock.start
+    stripe_helper = StripeMock.create_test_helper
+    trip.gestion.process_stripe_charge(trip_value, 'test@strip.com', stripe_helper.generate_card_token)
+  StripeMock.stop
+  expect(trip.gestion.status).to eq 'payed'
+  visit trip_path(trip)
 end
 
 When /^I fill in login form with (.+) and (.+)$/ do |email, password|
