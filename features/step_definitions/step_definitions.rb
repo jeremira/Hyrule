@@ -1,5 +1,10 @@
+After do |scenario|
+  #save_and_open_page if scenario.failed?
+end
+
 Given /^I am logged out$/ do
-  visit destroy_user_session_url
+  click_link 'Se déconnecter', match: :first
+  expect(page).to have_link 'Se connecter'
 end
 
 Given /^I am a registered (user|admin)$/ do |user_quality|
@@ -29,6 +34,10 @@ Given /^A '(.+)' theme exist$/ do |theme|
   expect{
     Theme.create(name: theme, descr: 'Cucumber test theme', style: 'test', image: 'test.jpg', gallery: 'testgal.jpg')
   }.to change(Theme, :count).by 1
+end
+
+When /^I attach a book$/ do
+  attach_file('livret[htmlbook]', "#{Rails.root}/spec/support/fixtures/book.html")
 end
 
 When /^I create a new trip$/ do

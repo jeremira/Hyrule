@@ -32,3 +32,27 @@ Scenario: An user create a first new trip and pay.
   When  I pay my trip
   Then  The page should have a text : 'Voyage réservé et payé !'
   And   The page should have a text : 'Voyage confirmé'
+
+  When I am logged out
+  And  I am a registered admin
+  And  I log in with email : 'admin@cucumber.com' and password : 'password1234'
+  And  I visit the home page
+  And  I click on link Admin
+  Then The page should have a text : 'Mon test trip | valid@cucumber.com'
+  When I click on link Add Livret
+  Then The page should have a text : 'Add book file below'
+  When I attach a book
+  And  I click on button Save !
+  Then The page should have a text : 'Livret created succesfully !'
+  When I click on link Admin
+  And  I click on link Edit Livret
+  And  I click on link Finalize this Trip
+  Then The page should have a text : 'Trip status updated to final'
+
+  When I am logged out
+  And  I log in with email : 'valid@cucumber.com' and password : 'password1234'
+  And  I click on link Mes voyages
+  And  I click on link Organiser
+  Then The page should have a text : 'Votre programme est prêt !'
+  When I click on link Voir mon livret
+  Then The page should have a link : 'Imprimer mon guide-livret'
